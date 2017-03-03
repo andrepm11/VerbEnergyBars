@@ -44,6 +44,7 @@
 		<link href="https://fonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet">
         <!-- LOCAL STYLING -->
         <link rel="stylesheet" href="./public/css/main.css"/>
+        <link rel="stylesheet" href="./public/css/snipCartCustomization.css"/>
         
         <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
         <!-- This website is not optimized for OR tested on < than IE11 -->
@@ -99,7 +100,7 @@
 		<!-- Page Alert -->
 		<div class="page-alert">
 			<a href="#OrderVerb" class="page-alert-content">
-				<b>Pre-order</b> bars now and have them delivered to you by <b>April 7th</b>!
+				Pre-order bars now and have them delivered to you by <b>April 7th</b>!
 			</a>
 		</div>
 		<!-- NAV -->
@@ -444,25 +445,27 @@
 								</div>
 								<div class="order-button clearfix">
 									<button class="hidden button solid subscribe snipcart-add-plan one"
-											data-plan-id="1"
+											data-plan-id="Monthly-Sub"
 											data-item-quantity="1"
 											data-plan-name="Verb Energy Bar Monthly Subscription (1 box | 10 bars)"
 											data-plan-interval="Month"
 											data-plan-amount="21.00"
 											data-plan-url="/"
-											data-plan-image="https://abhinayar.github.io/VerbEnergyBars/public/img/bar_mockup.png">
+											data-plan-image="https://abhinayar.github.io/VerbEnergyBars/public/img/bar_mockup.png"
+											data-target="sub">
 											Add To Cart
 									</button>
 									<button
 										class="button solid snipcart-add-item single-order one shown"
-										data-item-id="1"
+										data-item-id="Single-Order"
 										data-item-name="Verb Energy Bar Single Order (1 box | 10 bars)"
 										data-item-price="24.70"
 										data-item-weight="500"
 										data-item-image="https://abhinayar.github.io/VerbEnergyBars/public/img/bar_mockup.png"
 										data-item-url="/"
 										data-item-description="Get the best energy food on the planet. Each bar has 8 simple ingredients, one coffee’s worth of green tea caffeine, and only 180 Calories."
-										data-item-quantity="1">
+										data-item-quantity="1"
+										data-target="single">
 											Add To Cart
 									</button>
 								</div>

@@ -1,0 +1,56 @@
+.snip-layout__main-container {
+	font-family: 'Rubik' !important;
+	border-radius: 10px !important;
+}
+
+#snipcart-main-content {
+	margin-top: 45px;
+}
+
+#snipcart-header {
+	border-top-left-radius: 10px !important;
+	border-top-right-radius: 10px !important;
+}
+
+#snipcart-header-total {
+	background: #333 !important;
+}
+
+.snip-layout .snip-btn--highlight {
+	background: #ff623f !important;
+    color: #fff !important;
+}
+
+.snip-product__description {
+	font-family: 'Roboto' !important;
+}
+
+#snipcart-cartitems-continue-top {
+	background: #777 !important;
+}
+
+#snipcart-footer {
+	display: none !important;
+}
+
+#snipcart-close {
+	font-size: 2em;
+    margin-right: 6px;
+    margin-top: 6px;
+}
+
+#snipcart-plans-list>tr>td:nth-of-type(5) {
+	display: none;
+}
+
+.cartSubIcon {
+	max-width: 65px;
+	float: left;
+	margin-right: 30px;
+}
+
+.snip-layout .snip-quantity-trigger__text {
+    margin-right: 6px !important;
+    margin-left: 6px !important;
+    font-size: 18px !important;
+}

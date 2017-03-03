@@ -54,6 +54,21 @@ $(document).ready(function(){
 	});
 	
 	/* Order Section JS */
+	//Show continue shopping button
+	Snipcart.execute('config', 'show_continue_shopping', true);
+	
+	Snipcart.subscribe('cart.opened, cart.ready', function() {
+		addImagesToPlans();
+		$("#snipcart-plans-list tr td:nth-of-type(3)").text($("#snipcart-plans-list tr td:nth-of-type(3)").text().replace(/\s/g, ''));
+		$("#snipcart-plans-list tr td:nth-of-type(4)").text($("#snipcart-plans-list tr td:nth-of-type(4)").text().replace(/\s/g, ''));
+	});
+
+	function addImagesToPlans() {
+		$("#snipcart-plans-list>tr>td img").remove();
+		var $img = $("<img/>").attr("src", "https://abhinayar.github.io/VerbEnergyBars/public/img/bar_mockup.png").addClass("cartSubIcon");
+		$("#snipcart-plans-list .snip-product__name").parent().prepend($img);
+	}
+	
 	$(".quantity-select .inc-wrapper").on('click', function(){
 		var curQuant = parseInt($(".quantity-select .cur-quant").text(), 10);
 		if ($(this).hasClass("down")) {
@@ -79,25 +94,27 @@ $(document).ready(function(){
 		if (!$(this).hasClass("active")) {
 			$(".order-type .order-type-button").removeClass("active");	
 			$(this).addClass("active");
+			$(".order-button button").addClass("hidden").removeClass("shown");
 			
 			if ($(this).hasClass("single")) {
 				//then show single button
-				$(".order-button button").addClass("hidden");
-				$(".order-button button.single-order").removeClass("hidden");
+				$(".order-button button.single-order").removeClass("hidden").addClass("shown");
+				$(".quantity-select").removeClass("off");
 			} else {
 				//show sub. button
-				$(".order-button button").addClass("hidden");
-				$(".order-button button.subscribe").removeClass("hidden");
+				$(".order-button button.subscribe").removeClass("hidden").addClass("shown");
 				$(".quantity-select .cur-quant").text("1");
+				$(".quantity-select").addClass("off");
 			}
 		}		
 	});
 	
-	$(".order-button button").one('click', function(e) {
-		e.preventDefault();
-		var quant = parseInt($(".quantity-select .cur-quant").html(), 10);
-		$(this).attr("data-item-quantity", quant);
-		$(this).click();
+	
+	$(".order-button button").on('click', function(e) {
+		//var cart = Snipcart.api.cart.get();
+		//var isSingleOrder = ($(this).hasClass("single-order")) ? 1 : 0;	
+		var addQuant = parseInt($(".quantity-select .cur-quant").text(), 10);
+		$(this).attr("data-item-quantity", addQuant).trigger("click");
 	});
 });
 
