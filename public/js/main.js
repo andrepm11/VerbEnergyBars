@@ -6,7 +6,7 @@
 $(document).ready(function(){
 	/* FAQ */
 	$(".q-answer.closed").hide();
-	$(".q-title").click(function(){
+	$(".q-title").on('click', function(){
 		if ($(this).hasClass("active")) {
 			$(this).removeClass("active");
 			$(this).next(".q-answer").slideToggle("100").removeClass("visible").addClass("closed");
@@ -16,25 +16,6 @@ $(document).ready(function(){
 			
 			$(this).addClass("active");
 			$(this).next(".q-answer").slideToggle("100").removeClass("closed").addClass("visible");
-		}
-	});
-
-	/* Nav Scroll BG */
-	$(window).on('load, scroll', function(){
-		curr_scroll = $(this).scrollTop();
-		if (curr_scroll > 50) {
-			$("nav").addClass("bg");
-
-			var op = ((curr_scroll-49)/100) * 0.15;
-			if (op > 0) {
-				$("#Top .container").css("opacity", 1 - op);
-			} else {
-				$("#Top .container").css("opacity", 0);
-			}
-
-		} else {
-			$("nav").removeClass("bg");
-			$("#Top .container").css("opacity", 1);
 		}
 	});
 
@@ -71,73 +52,9 @@ $(document).ready(function(){
 		}
 	  });
 	});
-
-	/* SnipCart */
-	//data-item-id:
-	//1 : 1 box sub
-	//2: 2 box sub
-	//3: 3 box sub
-	//4: 1 box single
-	//5: 2 box single
-	//6: 3 box single
-	Snipcart.execute('config', 'show_continue_shopping', true);
 	
-	/*
-	function snipCart() {
-		var box_price = 24.70;
-		var sub_price = 21;
-		var val = Number($(".item-select select").val());
-		//console.log(val);
-
-		if ($("input[name='subscription']").is(":checked")) {
-			$(".price-wrapper .dollars").addClass("hidden");
-			$(".price-wrapper .per-month").removeClass("hidden");
-			if (val == 1) {
-				//1 box sub
-				//console.log("1");
-				$(".order-button button.subscribe.one").removeClass("hidden").addClass("shown");
-				$(".price-wrapper .price").text(sub_price.toString());
-			} else if (val == 2) {
-				//2 box sub
-				//console.log("2");
-				$(".order-button button.subscribe.two").removeClass("hidden").addClass("shown");
-				$(".price-wrapper .price").text((2*sub_price).toString());
-			} else if (val == 3) {
-				//3 box sub
-				//console.log("3");
-				$(".order-button button.subscribe.three").removeClass("hidden").addClass("shown");
-				$(".price-wrapper .price").text((3*sub_price).toString());
-			}
-		} else {
-			$(".price-wrapper .per-month").addClass("hidden");
-			$(".price-wrapper .dollars").removeClass("hidden");
-			if (val == 1) {
-				//1 box single
-				//console.log("1");
-				$(".order-button button.single-order.one").removeClass("hidden").addClass("shown");
-				$(".price-wrapper .price").text(box_price.toFixed(2).toString());
-			} else if (val == 2) {
-				//2 box single
-				//console.log("2");
-				$(".order-button button.single-order.two").removeClass("hidden").addClass("shown");
-				$(".price-wrapper .price").text((2*box_price).toFixed(2).toString());
-			} else if (val == 3) {
-				//3 box single
-				//console.log("3");
-				$(".order-button button.single-order.three").removeClass("hidden").addClass("shown");
-				$(".price-wrapper .price").text((3*box_price).toFixed(2).toString());
-			}
-		}
-	}
-	snipCart();
-
-	$('input[name="subscription"], .item-select select').on('click, change', function(){
-		$(".order-button button.shown").addClass("hidden").removeClass("shown");
-		snipCart();
-	});
-	*/
-	
-	$(".quantity-select .inc-wrapper").click(function(){
+	/* Order Section JS */
+	$(".quantity-select .inc-wrapper").on('click', function(){
 		var curQuant = parseInt($(".quantity-select .cur-quant").text(), 10);
 		if ($(this).hasClass("down")) {
 			//inc. down
@@ -155,7 +72,7 @@ $(document).ready(function(){
 		}
 	});
 	
-	$(".order-type .order-type-button").click(function(e){
+	$(".order-type .order-type-button").on('click', function(e){
 		e.preventDefault();
 		var curType;
 		
@@ -171,30 +88,35 @@ $(document).ready(function(){
 				//show sub. button
 				$(".order-button button").addClass("hidden");
 				$(".order-button button.subscribe").removeClass("hidden");
-				$(".quantity-select .cur-quant").text(1);
+				$(".quantity-select .cur-quant").text("1");
 			}
 		}		
 	});
 	
-	$(".order-button button").click(function(e) {
+	$(".order-button button").one('click', function(e) {
 		e.preventDefault();
-		
-		var quant = parseInt($(".quantity-select .cur-quant").text(), 10);
+		var quant = parseInt($(".quantity-select .cur-quant").html(), 10);
 		$(this).attr("data-item-quantity", quant);
-		setTimeout(function(){
-			$(this).click();
-		}, 50);
-		
-		$(".quantity-select .cur-quant").text("1");
-		$(this).attr("data-item-quantity", "1");
+		$(this).click();
 	});
-	
-	//Flash cart bg when items
-	/*Snipcart.subscribe('cart.ready', function() {
-	  var count = Snipcart.api.items.count();
-	});
-	*/
+});
 
+/* Nav Scroll BG */
+$(document).on('load, scroll', function(){
+	curr_scroll = $(document).scrollTop();
+	if (curr_scroll > 50) {
+		$("nav").addClass("bg");
+
+		var op = ((curr_scroll-49)/100) * 0.15;
+		if (op > 0) {
+			$("#Top .container").css("opacity", 1 - op);
+		} else {
+			$("#Top .container").css("opacity", 0);
+		}
+	} else {
+		$("nav").removeClass("bg");
+		$("#Top .container").css("opacity", 1);
+	}
 });
 
 
