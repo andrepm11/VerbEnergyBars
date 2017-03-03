@@ -80,9 +80,7 @@ $(document).ready(function(){
 	//4: 1 box single
 	//5: 2 box single
 	//6: 3 box single
-	Snipcart.subscribe('app.ready', function() {
-		Snipcart.execute('config', 'show_continue_shopping', true);
-	});
+	Snipcart.execute('config', 'show_continue_shopping', true);
 	
 	/*
 	function snipCart() {
