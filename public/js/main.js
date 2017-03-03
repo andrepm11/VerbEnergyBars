@@ -181,7 +181,9 @@ $(document).ready(function(){
 		
 		var quant = parseInt($(".quantity-select .cur-quant").text(), 10);
 		$(this).attr("data-item-quantity", quant);
-		$(this).click();
+		setTimeout(function(){
+			$(this).click();
+		}, 50);
 		
 		$(".quantity-select .cur-quant").text("1");
 		$(this).attr("data-item-quantity", "1");
