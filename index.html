@@ -41,9 +41,9 @@
         <!-- Rubik -->
         <link href="https://fonts.googleapis.com/css?family=Rubik:400,700" rel="stylesheet">
         <!-- Roboto Mono -->
-		<link href="https://fonts.googleapis.com/css?family=Roboto+Mono:400,700" rel="stylesheet">
+		<link href="https://fonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet">
         <!-- LOCAL STYLING -->
-        <link rel="stylesheet" href="./public/css/main.min.css"/>
+        <link rel="stylesheet" href="./public/css/main.css"/>
         
         <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
         <!-- This website is not optimized for OR tested on < than IE11 -->
@@ -96,6 +96,12 @@
 		<meta name="theme-color" content="#ffffff">
     </head>
 	<body class="index">
+		<!-- Page Alert -->
+		<div class="page-alert">
+			<a href="#OrderVerb" class="page-alert-content">
+				<b>Pre-order</b> bars now and have them delivered to you by <b>April 7th</b>!
+			</a>
+		</div>
 		<!-- NAV -->
 		<nav class="navigation container-fluid clearfix">
 			<div class="nav-wrapper">
@@ -393,93 +399,71 @@
 						<div class="section-content">
 							<p>
 								<span class="intro">
-									You will feel more focused and energized than after your last cup of coffee
-									<br/>
-									– you have our word.
-								</span>
-								<span class="body">
 									Get the best energy food on the planet. Each bar has 8 simple ingredients, one coffee’s worth of green tea caffeine, and only 180 Calories.
 								</span>
+								<span class="body">
+									You will feel more focused and energized than after your last cup of coffee
+									<!--<br/>-->
+									– you have our word.
+								</span>
+								
 							</p>
-							<div class="order-items">
-								<div class="order-options">
-									<div class="item-select">
-										<div class="select-wrapper">
-											<select>
-												<option value="1">1 Box (10 Bars)</option>
-												<option value="2">2 Boxes (20 Bars)</option>
-												<option value="3">3 Boxes (30 Bars)</option>
-											</select>
+							<div class="order-items">	
+								<div class="order-type clearfix">
+									<div class="order-type-button single active">
+										<div class="order-type-button-wrapper single">
+											<a href="#" class="order-type-link single">
+												<span class="upper">One Box</span>&nbsp;(10 Bars)&nbsp;&nbsp;<span class="alt-font">|</span>&nbsp;&nbsp;<span class="price">$24.70</span>
+											</a>
+										</div>
+									</div>
+									<div class="order-type-button sub">
+										<div class="order-type-button-wrapper sub">
+											<a href="#" class="order-type-link sub">
+												<span class="upper">Subscription</span>&nbsp;(Monthly)&nbsp;&nbsp;<span class="alt-font">|</span>&nbsp;&nbsp;<span class="price">$21</span>
+											</a>
 										</div>
 									</div>
 								</div>
-								<div class="subscription-checkbox">
-									  <input type="checkbox" name="subscription" value="subscribed" checked> <span class="subscribe-text">Subscribe <span class="alt">(Save 15%)</span></span>
+								<div class="quantity-select clearfix">
+									<div class="item quantity-increment down">
+										<div class="inc-wrapper down">
+											<span class="down">-</span>
+										</div>
+									</div>
+									<div class="item quantity-selected">
+										<div class="cur-quant-wrapper">
+											<span class="cur-quant">1</span>
+										</div>
+									</div>
+									<div class="item quantity-increment up">
+										<div class="inc-wrapper up">
+											<span class="up">+</span>
+										</div>
+									</div>
 								</div>
-								<div class="price-wrapper">
-									<h1>$<span class="price">21</span>&nbsp;<span class="small per-month">per month</span><span class="hidden dollars small"></span></h1>
-								</div>
-								<div class="order-button">
-									<button class="button solid subscribe snipcart-add-plan one shown"
-										    data-plan-id="1"
-										    data-plan-name="Verb Energy Bar Monthly Subscription (1 box | 10 bars)"
-										    data-plan-interval="Month"
-										    data-plan-amount="21.00"
-										    data-plan-url="/"
-										    data-plan-image="https://abhinayar.github.io/VerbEnergyBars/public/img/bar_mockup.png">
-										    Add To Cart
-									</button>
-									<button class="button solid subscribe snipcart-add-plan two hidden"
-										    data-plan-id="2"
-										    data-plan-name="Verb Energy Bar Monthly Subscription (2 boxes | 20 bars)"
-										    data-plan-interval="Month"
-										    data-plan-amount="42.00"
-										    data-plan-url="/">
-										    Add To Cart
-									</button>
-									<button class="button solid subscribe snipcart-add-plan three hidden"
-										    data-plan-id="3"
-										    data-plan-name="Verb Energy Bar Monthly Subscription (3 boxes | 30 bars)"
-										    data-plan-interval="Month"
-										    data-plan-amount="63.00"
-										    data-plan-url="/">
-										    Add To Cart
+								<div class="order-button clearfix">
+									<button class="hidden button solid subscribe snipcart-add-plan one"
+											data-plan-id="1"
+											data-item-quantity="1"
+											data-plan-name="Verb Energy Bar Monthly Subscription (1 box | 10 bars)"
+											data-plan-interval="Month"
+											data-plan-amount="21.00"
+											data-plan-url="/"
+											data-plan-image="https://abhinayar.github.io/VerbEnergyBars/public/img/bar_mockup.png">
+											Add To Cart
 									</button>
 									<button
-									    class="hidden button solid snipcart-add-item single-order one"
-									    data-item-id="1"
-									    data-item-name="Verb Energy Bar Single Order (1 box | 10 bars)"
-									    data-item-price="24.70"
-									    data-item-weight="500"
-									    data-item-image="https://abhinayar.github.io/VerbEnergyBars/public/img/bar_mockup.png"
-									    data-item-url="/"
-									    data-item-description="Get the best energy food on the planet. Each bar has 8 simple ingredients, one coffee’s worth of green tea caffeine, and only 180 Calories."
-									    data-item-quantity="1">
-									        Add To Cart
-									</button>
-									<button
-									    class="hidden button solid snipcart-add-item single-order two"
-									    data-item-id="2"
-									    data-item-name="Verb Energy Bar Single Order (2 boxes | 20 bars)"
-									    data-item-price="49.40"
-									    data-item-weight="1000"
-									    data-item-image="https://abhinayar.github.io/VerbEnergyBars/public/img/bar_mockup.png"
-									    data-item-url="/"
-									    data-item-description="Get the best energy food on the planet. Each bar has 8 simple ingredients, one coffee’s worth of green tea caffeine, and only 180 Calories."
-									    data-item-quantity="1">
-									        Add To Cart
-									</button>
-									<button
-									    class="hidden button solid snipcart-add-item single-order three"
-									    data-item-id="3"
-									    data-item-name="Verb Energy Bar Single Order (3 boxes | 30 bars)"
-									    data-item-price="74.10"
-									    data-item-weight="1000"
-									    data-item-image="https://abhinayar.github.io/VerbEnergyBars/public/img/bar_mockup.png"
-									    data-item-url="/"
-									    data-item-description="Get the best energy food on the planet. Each bar has 8 simple ingredients, one coffee’s worth of green tea caffeine, and only 180 Calories."
-									    data-item-quantity="1">
-									        Add To Cart
+										class="button solid snipcart-add-item single-order one shown"
+										data-item-id="1"
+										data-item-name="Verb Energy Bar Single Order (1 box | 10 bars)"
+										data-item-price="24.70"
+										data-item-weight="500"
+										data-item-image="https://abhinayar.github.io/VerbEnergyBars/public/img/bar_mockup.png"
+										data-item-url="/"
+										data-item-description="Get the best energy food on the planet. Each bar has 8 simple ingredients, one coffee’s worth of green tea caffeine, and only 180 Calories."
+										data-item-quantity="1">
+											Add To Cart
 									</button>
 								</div>
 							</div>
@@ -739,6 +723,6 @@
 			<script src="https://cdn.snipcart.com/scripts/2.0/snipcart.js" id="snipcart" data-api-key="N2ExMzA2OTktMTIyMi00NDYxLTk4YTMtMmMyNjVlM2VhODNkNjM2MjEwNjcxMTA3MDY1MjMy"></script>
 			<link href="https://cdn.snipcart.com/themes/2.0/base/snipcart.min.css" type="text/css" rel="stylesheet" />
 			<!-- CUSTOM JS -->
-			<script src="public/js/main.min.js"></script>
+			<script src="public/js/main.js"></script>
 	</body>
 </html>

@@ -1,0 +1,141 @@
+<head>
+	<link rel="stylesheet" href="public/css/main.css">
+	
+</head>
+<style>
+	.order-type {
+
+	}
+	.order-type-button {
+		width: 100%;
+		max-width: 380px;
+		text-align: center;
+		font-family: 'Rubik';
+		font-weight: 700;
+		font-size: 18px;
+		height: 55px;
+		margin-bottom: 15px;
+		background: none;
+		border: 3px solid #000;
+	}
+	.order-type-button:hover {
+		background: #000;
+	}
+	.order-type-button.active {
+		background: #ff623f;
+		border-color: transparent;
+	}
+	.order-type-button a {
+		display: inline-block;
+		width: 100%;
+		height: 100%;
+		padding-top: 16px;
+		color: #000;
+		text-decoration: none;
+	}
+	.order-type-button.active a,
+	.order-type-button:hover a {
+		color: #fff;
+	}
+	.quantity-select {
+		max-width: 380px;
+	}
+	.quantity-select .item {
+		display: inline-block;
+		width: 32.6%;
+	}
+	.quantity-select .inc-wrapper {
+		width: 60px;
+		height: 60px;
+		text-align: center;
+		color: #000;
+		font-size: 28px;
+		font-family: 'Roboto';
+		font-weight: 700;
+		padding-top: 13px;
+		border: 3px solid #000;
+	}
+	.quantity-select .inc-wrapper:hover {
+		background: #000;
+		color: #fff;
+		cursor: pointer;
+	}
+	.quantity-select .item.up .inc-wrapper {
+		margin-right: 0;
+		margin-left: auto;
+	}
+	.quantity-select {
+		margin-bottom: 15px;
+	}
+	.quantity-select .quantity-selected {
+		text-align: center;
+		font-size: 36px;
+		font-family: 'Rubik';
+		font-weight: 700;
+		margin-top: 10px;
+	}
+	.quantity-select .cur-quant-wrapper {
+		max-width: 90px;
+		margin: 0 auto;
+		padding-bottom: 8px;
+		border-bottom: 4px solid #ff623f;
+	}
+</style>
+<div class="order-items">	
+	<div class="order-type clearfix">
+		<div class="order-type-button single active">
+			<div class="order-type-button-wrapper single">
+				<a href="#" class="order-type-link single">
+					<span class="upper">One Box</span>&nbsp;(10 Bars)&nbsp;&nbsp;<span class="alt-font">|</span>&nbsp;&nbsp;<span class="price">$24.70</span>
+				</a>
+			</div>
+		</div>
+		<div class="order-type-button sub">
+			<div class="order-type-button-wrapper sub">
+				<a href="#" class="order-type-link sub">
+					<span class="upper">Subscription</span>&nbsp;(Monthly)&nbsp;&nbsp;<span class="alt-font">|</span>&nbsp;&nbsp;<span class="price">$21</span>
+				</a>
+			</div>
+		</div>
+	</div>
+	<div class="quantity-select clearfix">
+		<div class="item quantity-increment down">
+			<div class="inc-wrapper down">
+				<span class="down">-</span>
+			</div>
+		</div>
+		<div class="item quantity-selected">
+			<div class="cur-quant-wrapper">
+				<span class="cur-quant">1</span>
+			</div>
+		</div>
+		<div class="item quantity-increment up">
+			<div class="inc-wrapper up">
+				<span class="up">+</span>
+			</div>
+		</div>
+	</div>
+	<div class="order-button clearfix">
+		<button class="button solid subscribe snipcart-add-plan one shown"
+				data-plan-id="1"
+				data-plan-name="Verb Energy Bar Monthly Subscription (1 box | 10 bars)"
+				data-plan-interval="Month"
+				data-plan-amount="21.00"
+				data-plan-url="/"
+				data-plan-image="https://abhinayar.github.io/VerbEnergyBars/public/img/bar_mockup.png">
+				Add To Cart
+		</button>
+		<button
+			class="hidden button solid snipcart-add-item single-order one"
+			data-item-id="1"
+			data-item-name="Verb Energy Bar Single Order (1 box | 10 bars)"
+			data-item-price="24.70"
+			data-item-weight="500"
+			data-item-image="https://abhinayar.github.io/VerbEnergyBars/public/img/bar_mockup.png"
+			data-item-url="/"
+			data-item-description="Get the best energy food on the planet. Each bar has 8 simple ingredients, one coffee’s worth of green tea caffeine, and only 180 Calories."
+			data-item-quantity="1">
+				Add To Cart
+		</button>
+	</div>
+</div>
