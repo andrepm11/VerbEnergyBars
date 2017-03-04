@@ -109,17 +109,14 @@ $(document).ready(function(){
 		}		
 	});
 	
-	
 	$(".order-button button").on('click', function(e) {
-		//var cart = Snipcart.api.cart.get();
-		//var isSingleOrder = ($(this).hasClass("single-order")) ? 1 : 0;	
-		var addQuant = parseInt($(".quantity-select .cur-quant").text(), 10);
+		var addQuant = parseInt($(".quantity-select .cur-quant").html(), 10);
 		$(this).attr("data-item-quantity", addQuant).trigger("click");
 	});
 });
 
 /* Nav Scroll BG */
-$(document).on('load, scroll', function(){
+$(document, window).on('load, scroll', function(){
 	curr_scroll = $(document).scrollTop();
 	if (curr_scroll > 50) {
 		$("nav").addClass("bg");
