@@ -113,6 +113,9 @@ $(document).ready(function(){
 		var addQuant = parseInt($(".quantity-select .cur-quant").html(), 10);
 		$(this).attr("data-item-quantity", addQuant).trigger("click");
 	});
+	
+	//Make cart icon bg flash if items are inside:
+	//$("")
 });
 
 /* Nav Scroll BG */
