@@ -572,6 +572,16 @@ nav .svg-wrapper:hover {
     background: rgba(255, 255, 255, .5);
     transition: .12s ease all;
 }
+@keyframes itemsInCart {
+    0% { background: none; }
+    50% { background: rgba(255, 255, 255, .5);}
+    100% { background: none; }
+}
+nav .svg-wrapper.active {
+    animation-name: itemsInCart;
+    animation-duration: 3s;
+    animation-iteration-count: infinite;
+}
 nav .logo-wrapper {
     max-height: 100%}
 nav .logo-wrapper img {
@@ -713,12 +723,11 @@ header .landing-copy .landing-button {
     text-align: center;
     font-size: 21px;
     background: #ff623f;
-    transition: all 150ms ease;
+    /*transition: all 150ms ease;*/
 }
 header .landing-copy .landing-button:hover {
-    transition: all 150ms ease;
+    /*transition: all 150ms ease;*/
     border-bottom: none;
-    border-top: none;
 }
 header .landing-copy .landing-button a {
     font-size: 24px;
@@ -726,7 +735,7 @@ header .landing-copy .landing-button a {
     height: 100%;
     width: 100%;
     text-decoration: none;
-    transition: all 150ms ease;
+    /*transition: all 150ms ease;*/
     padding-top: 8px;
 }
 .q-title, .q-title.active, .q-title.active:after, .q-title:after {
@@ -1235,7 +1244,13 @@ footer .designer a, footer .designer a:hover {
 footer .designer a:hover {
     text-decoration: underline;
 }
-}@media (min-width:820px) {
+}
+@media (min-width: 768px) {
+     #OrderVerb .order-bar-image {
+        min-height: 640px;
+    }
+}
+@media (min-width:820px) {
     #OrderVerb .order-bar-image {
     min-height: 610px;
 }
@@ -1427,11 +1442,12 @@ header .button-wrapper {
 	text-align: center;
 	font-family: 'Rubik';
 	font-size: 18px;
-	height: 58px;
+	//height: 58px;
 	margin-bottom: 15px;
 	background: none;
 	border: 2px solid #000;
 	border-radius: 6px;
+    cursor: pointer;
 }
 .order-type-button:hover {
 	background: #000;
@@ -1445,7 +1461,8 @@ header .button-wrapper {
 	display: inline-block;
 	width: 100%;
 	height: 100%;
-	padding-top: 14px;
+	padding-top: 16px;
+    padding-bottom: 15px;
 	color: #000;
 	text-decoration: none;
 	font-weight: 400;
@@ -1519,9 +1536,26 @@ header .button-wrapper {
 	padding-bottom: 15px;
 	border-bottom: 4px solid rgb(255, 98, 63);
 }
-.order-button {
-	margin-top: 120px;
+.order-button .button {
+	margin-top: 10px;
 }
+
+.price-type {
+    font-size: 32px;
+    font-weight: bold;
+    font-family: 'Rubik', sans-serif;
+    margin-top: 30px;
+    margin-bottom: 5px;
+} .og-price.sale {
+    text-decoration: line-through;
+    opacity: 0.3;
+} .sale-price {
+    display: none;
+    margin-right: 5px;
+    color: rgb(231, 0, 0);
+} .sale-price.sale {
+    display: inline-block;
+}  
 
 @media (min-width: 768px) {
 	.order-type-button,
@@ -1530,10 +1564,10 @@ header .button-wrapper {
 	}
 
 	.order-type-button {
-		height: 55px;
+		//height: 55px;
 	}
 	.order-type-button a {
-		padding-top: 13px;
+		padding-top: 16px;
 	}
 
 	.order-button {
@@ -1545,9 +1579,11 @@ header .button-wrapper {
 	}
 }
 
+/* PAGE ALERT CSS */
 header, 
 .navigation {
 	margin-top: 30px;
+    overflow: hidden;
 }
 
 .page-alert {
