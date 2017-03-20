@@ -1584,6 +1584,10 @@ header,
 .navigation {
 	margin-top: 30px;
     overflow: hidden;
+} header.no-alert, 
+.navigation.no-alert {
+	margin-top: 0px;
+    overflow: hidden;
 }
 
 .page-alert {
