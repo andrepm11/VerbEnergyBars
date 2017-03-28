@@ -1,5 +1,5 @@
 .snip-layout__main-container {
-	font-family: 'Rubik' !important;
+	font-family: 'Montserrat' !important;
 	border-radius: 10px !important;
 	font-size: 16px !important;
 }
@@ -11,6 +11,10 @@
 #snipcart-header {
 	border-top-left-radius: 10px !important;
 	border-top-right-radius: 10px !important;
+}
+
+#snipcart-items-header th, #snipcart-plans-header th {
+	font-size: 14px !important;
 }
 
 #snipcart-header-total {
@@ -28,6 +32,9 @@
 
 #snipcart-cartitems-continue-top {
 	background: #777 !important;
+    width: 250px !important;
+    right: 1.5em;
+    margin-top: -1.4em;
 }
 
 #snipcart-footer {
@@ -76,6 +83,7 @@ tr {
 	padding-top: 5px !important;
 } #snipcart-header-total {
 	margin-top: 30px !important;
+	width: 200px !important;
 }
 
 .snipcart-checkbox-field.shifted {
@@ -88,4 +96,12 @@ tr {
     height: 30px !important;
 } #snipcart-show-upcoming-payment-details:before {
 	width: auto !important;
+}
+
+@media(max-width: 768px) {
+	#snipcart-header-total {
+		margin-top: 0px !important;
+		padding-top: 12px !important;
+    	padding-left: 20px !important;
+	}
 }

@@ -58,13 +58,17 @@ $(document).ready(function(){
 	Snipcart.execute('config', 'show_continue_shopping', true);
 	
 	Snipcart.subscribe('cart.ready', function() {
-		addImagesToPlans();
-		addSpacesToPrice();
+		if ($(window).width() > 768) {
+			addImagesToPlans();
+			addSpacesToPrice();
+		}
 		moveShippingSameAsBilling();
 	}); 
 	Snipcart.subscribe('cart.opened', function() {
-		addImagesToPlans();
-		addSpacesToPrice();
+		if ($(window).width() > 768) {
+			addImagesToPlans();
+			addSpacesToPrice();
+		}
 		moveShippingSameAsBilling();
 	});
 	Snipcart.subscribe('page.change', function (page) {
@@ -76,8 +80,10 @@ $(document).ready(function(){
 	function customPageChange() {
 		newSnipcartId = $(".snip-layout__main-container").attr("id");
 		if (newSnipcartId != currentSnipcartId) {
-			addImagesToPlans();
-			addSpacesToPrice();
+			if ($(window).width() > 768) {
+				addImagesToPlans();
+				addSpacesToPrice();
+			}
 			moveShippingSameAsBilling();
 		}
 		currentSnipcartId = newSnipcartId;
