@@ -560,7 +560,7 @@ header .landing-copy .landing-button:hover {
   border-bottom: none;
 }
 header .landing-copy .landing-button a {
-  font-size: 24px;
+  font-size: 21px;
   display: inline-block;
   height: 100%;
   width: 100%;
@@ -587,8 +587,8 @@ header .landing-copy .landing-button:hover a {
     font-size: 62px;
     display: block;
   }
-  header .landing-copy .button {
-    margin: 45px auto 0;
+  header .landing-copy .landing-button {
+    margin: 45px auto 15px;
   }
 }
 #WhyVerb {

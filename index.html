@@ -23,9 +23,9 @@
 		<meta name="Classification" content=""> <!-- !!!! -->
        	<meta name="Keywords" content=""> <!-- !!!! -->
        	<meta name="Language" content="English">
-		<META HTTP-EQUIV="Expires" content="never">
-		<META HTTP-EQUIV="CACHE-CONTROL" content="NO-CACHE">
-		<META HTTP-EQUIV="PRAGMA" content="NO-CACHE">
+		<meta http-eqiv="Expires" content="never">
+		<meta http-eqiv="CACHE-CONTROL" content="NO-CACHE">
+		<meta http-eqiv="PRAGMA" content="NO-CACHE">
 		<meta name="Copyright" content="Verb">
 		<meta name="Publisher" content="Verb">
 		<meta name="Revisit-After" content="10 days">
@@ -35,7 +35,7 @@
 		<meta name="rating" content="General"> 
 		<meta name="ms.locale" content="EN-US"> 
 		<meta name="category" content="homepage"> 
-		<meta name="url" content="http://www.verbenergybar.com">
+		<meta name="url" content="https://www.verbenergybar.com">
       	<meta name="google-site-verification" content="74G7DwKFo-YIUb5XLh4Tu-gNIM8UY6JSGvHK0LMIFfE" />
        
         <!-- Google Fonts -->
@@ -60,12 +60,12 @@
 		<meta property="og:type" content="page" />
 		<meta property="og:image" content="./public/img/social.jpg"/>
 		<meta property="og:url" content="www.verbenergybar.com" />
-		<meta property="og:description" content="Verb deliciously blends healthy nutrition and a balanced caffeine kick. You’ll get longer lasting energy from caffeine, no jitters from L-theanine (an amino acid present in green tea), and fuel for both your body and brain from brown rice and oats." />
+		<meta property="og:description" content="Verb deliciously blends healthy nutrition and a balanced caffeine kick. You’ll get longer lasting energy from caffeine, no jitters from L-theanine (an amino acid present in green tea), and fuel for both your body and brain from brown rice and oats.)" />
 
 		<!-- Twitter -->          
 		<meta name="twitter:card" content="summary" />
 		<meta name="twitter:title" content="Verb Caffeinated Energy Bars" />
-		<meta name="twitter:description" content="Verb deliciously blends healthy nutrition and a balanced caffeine kick. You’ll get longer lasting energy from caffeine, no jitters from L-theanine (an amino acid present in green tea), and fuel for both your body and brain from brown rice and oats." />
+		<meta name="twitter:description" content="Verb deliciously blends healthy nutrition and a balanced caffeine kick. You’ll get longer lasting energy from caffeine, no jitters from L-theanine (an amino acid present in green tea), and fuel for both your body and brain from brown rice and oats.)" />
 		<meta name="twitter:image" content="./public/img/social.jpg" />
   
    		<!-- GOOGLE ANALYTICS -->
@@ -269,12 +269,12 @@
 		<!-- END HIDDEN NAV -->
 		<!-- HEADER -->
 		<header id="Top" class="container-fluid no-pad no-alert">
-      <div class="container">
+      		<div class="container">
 				<div class="row">
 					<div class="mobile-12 desktop-hidden">
 						<div class="landing-bar">
 							<div class="image-wrapper">
-								<img src="https://verbenergybar.com/public/img/bar_mockup.png" alt="Verb Energy Bar Mockup"/>
+								<img src="/public/img/bar_mockup.png" alt="Verb Energy Bar Mockup"/>
 							</div>
 						</div>
 					</div>
@@ -298,7 +298,7 @@
 					<div class="mobile-hidden desktop-5">
 						<div class="landing-bar">
 							<div class="image-wrapper">
-								<img src="https://verbenergybar.com/public/img/bar_mockup.png" alt="Verb Energy Bar Mockup"/>
+								<img src="/public/img/bar_mockup.png" alt="Verb Energy Bar Mockup"/>
 							</div>
 						</div>
 					</div>
@@ -390,7 +390,7 @@
 					<div class="mobile-12 desktop-custom-lg">
 						<div class="order-bar-image">
 							<div class="image-wrapper">
-								<img src="https://verbenergybar.com/public/img/bar_mockup.png" alt="Verb Bar Mockup"/>
+								<img src="/public/img/bar_mockup.png" alt="Verb Bar Mockup"/>
 							</div>
 						</div>
 					</div>
@@ -420,6 +420,13 @@
 											</a>
 										</div>
 									</div>
+									<div class="order-type-button single-sub">
+										<div class="order-type-button-wrapper single">
+											<a href="#" class="order-type-link single">
+												<span class="upper">10 Bars / Month</span><span class="alt-font"></span><span class="price hidden">$19</span>
+											</a>
+										</div>
+									</div>
 									<div class="order-type-button sub">
 										<div class="order-type-button-wrapper sub">
 											<a href="#" class="order-type-link sub">
@@ -432,6 +439,10 @@
 									<div class="single-price price-item">
 										<span class="sale-price sale">$19.99</span>
 										<span class="og-price sale">$24.70</span>
+									</div>
+									<div class="single-sub-price price-item hidden">
+										<span class="sale-price sale">$19.00</span>
+										<span class="og-price sale">$21.00</span>
 									</div>
 									<div class="sub-price price-item hidden">
 										<span class="sale-price sale">$35.00</span>
@@ -456,17 +467,17 @@
 									</div>
 								</div>
 								<div class="order-button">
-									<!--<button class="hidden button solid subscribe snipcart-add-plan one"
-											data-plan-id="Monthly-Sub"
+									<button class="hidden button solid single-sub snipcart-add-plan one-sub"
+											data-plan-id="Monthly-Sub-10"
 											data-item-quantity="1"
 											data-plan-name="Verb Energy Bar Monthly Subscription (1 box | 10 bars)"
 											data-plan-interval="Month"
 											data-plan-amount="19.00"
 											data-plan-url="/"
-											data-plan-image="https://abhinayar.github.io/VerbEnergyBars/public/img/bar_mockup.png"
+											data-plan-image="/public/img/bar_mockup.png"
 											data-target="sub">
 											Add To Cart
-									</button>-->
+									</button>
 									<button class="hidden button solid subscribe snipcart-add-plan one"
 											data-plan-id="Monthly-Sub-20"
 											data-item-quantity="1"
@@ -474,7 +485,7 @@
 											data-plan-interval="Month"
 											data-plan-amount="35.00"
 											data-plan-url="/"
-											data-plan-image="https://abhinayar.github.io/VerbEnergyBars/public/img/bar_mockup.png"
+											data-plan-image="/public/img/bar_mockup.png"
 											data-target="sub">
 											Add To Cart
 									</button>
@@ -484,7 +495,7 @@
 										data-item-name="Verb Energy Bar Single Order (1 box | 10 bars)"
 										data-item-price="19.99"
 										data-item-weight="500"
-										data-item-image="https://abhinayar.github.io/VerbEnergyBars/public/img/bar_mockup.png"
+										data-item-image="/public/img/bar_mockup.png"
 										data-item-url="/"
 										data-item-description="Get the best energy food on the planet. Each bar has 8 simple ingredients, one coffee’s worth of green tea caffeine, and only 180 Calories."
 										data-item-quantity="1"
@@ -633,7 +644,7 @@
 									Absolutely! We love doing big orders. Get in touch with us at <a href="mailto:team@verbenergybar.com">team@verbenergybar.com</a>.
 								</span>
 							</li>
-							<li class="faq-item">
+							<li class="faq-item hidden">
 								<span class="q-title">
 									How do I get a subscription for more than one box a month?
 								</span>
@@ -713,7 +724,7 @@
 								<b>team@verbenergybar.com</b>
 							</p>
 							<span class="designer">
-								<a href="http://www.linkedin.com/in/abhinayar">
+								<a href="https://www.linkedin.com/in/abhinayar">
 								Designed by Abhi Nayar
 								</a>
 							</span>
@@ -730,10 +741,10 @@
 									<a href="mailto:team@verbenergybar.com">team@verbenergybar.com</a>
 								</li>
 								<li class="footer-item">
-									<a href="http://facebook.com/verbenergy">facebook.com/verbenergy</a>
+									<a href="https://facebook.com/verbenergy">facebook.com/verbenergy</a>
 								</li>
 								<li class="footer-item">
-									<a href="http://twitter.com/verbenergy">twitter.com/verbenergy</a>
+									<a href="https://twitter.com/verbenergy">twitter.com/verbenergy</a>
 								</li>
 								<li class="footer-item">
 									<a href="https://www.instagram.com/verbenergy/">instagram.com/verbenergy</a>
@@ -751,7 +762,7 @@
 									</li>
 								</span>
 								<div class="designer">
-									<a href="http://www.linkedin.com/in/abhinayar">Designed by Abhi Nayar</a>
+									<a href="https://www.linkedin.com/in/abhinayar">Designed by Abhi Nayar</a>
 								</div>
 							</ul>
 						</div>

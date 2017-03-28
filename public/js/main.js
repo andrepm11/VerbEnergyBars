@@ -57,17 +57,50 @@ $(document).ready(function(){
 	//Show continue shopping button
 	Snipcart.execute('config', 'show_continue_shopping', true);
 	
-	Snipcart.subscribe('cart.opened, cart.ready', function() {
+	Snipcart.subscribe('cart.ready', function() {
 		addImagesToPlans();
-		$("#snipcart-plans-list tr td:nth-of-type(3)").text($("#snipcart-plans-list tr td:nth-of-type(3)").text().replace(/\s/g, ''));
-		$("#snipcart-plans-list tr td:nth-of-type(4)").text($("#snipcart-plans-list tr td:nth-of-type(4)").text().replace(/\s/g, ''));
+		addSpacesToPrice();
+		moveShippingSameAsBilling();
+	}); 
+	Snipcart.subscribe('cart.opened', function() {
+		addImagesToPlans();
+		addSpacesToPrice();
+		moveShippingSameAsBilling();
 	});
+	Snipcart.subscribe('page.change', function (page) {
+		setTimeout(customPageChange, 150);
+	});
+	
+	var interval;
+	var currentSnipcartId = "";
+	function customPageChange() {
+		newSnipcartId = $(".snip-layout__main-container").attr("id");
+		if (newSnipcartId != currentSnipcartId) {
+			addImagesToPlans();
+			addSpacesToPrice();
+			moveShippingSameAsBilling();
+		}
+		currentSnipcartId = newSnipcartId;
+	};
 
 	function addImagesToPlans() {
 		$("#snipcart-plans-list>tr>td img").remove();
-		var $img = $("<img/>").attr("src", "https://abhinayar.github.io/VerbEnergyBars/public/img/bar_mockup.png").addClass("cartSubIcon");
+		var $img = $("<img/>").attr("src", "/public/img/bar_mockup.png").addClass("cartSubIcon");
 		$("#snipcart-plans-list .snip-product__name").parent().prepend($img);
-	}
+	}; 
+	function addSpacesToPrice() {
+		$("#snipcart-plans-list tr").each(function(i, item){
+			var txt1 = $(item).find("td:nth-of-type(3)").text();
+			$(item).find("td:nth-of-type(3)").text(txt1.replace(/\s/g, ''));
+			var txt2 = $(item).find("td:nth-of-type(4)").text();
+			$(item).find("td:nth-of-type(4)").text(txt2.replace(/\s/g, ''));
+		});
+	};
+	function moveShippingSameAsBilling() {
+		$("#snip-shippingSameAsBilling").closest(".snipcart-checkbox-field").addClass("shifted");
+		$("#snip-shippingSameAsBilling").closest(".snipcart-checkbox-field").prependTo("#snipcart-billingaddress-form .snip-cols .snip-col:nth-of-type(3)");
+	};
+	
 	
 	$(".quantity-select .inc-wrapper").on('click', function(){
 		var curQuant = parseInt($(".quantity-select .cur-quant").text(), 10);
@@ -102,6 +135,12 @@ $(document).ready(function(){
 				$(".order-button button.single-order").removeClass("hidden").addClass("shown");
 				$(".quantity-select").removeClass("off");
 				$(".price-type .single-price").removeClass("hidden");
+			}  else if ($(this).hasClass("single-sub")) {
+				//show single-sub. button
+				$(".order-button button.single-sub").removeClass("hidden").addClass("shown");
+				$(".quantity-select .cur-quant").text("1");
+				$(".quantity-select").addClass("off");
+				$(".price-type .single-sub-price").removeClass("hidden");
 			} else {
 				//show sub. button
 				$(".order-button button.subscribe").removeClass("hidden").addClass("shown");
@@ -112,16 +151,22 @@ $(document).ready(function(){
 		}		
 	});
 	
-	$(".order-button button").on('click', function(e) {
-		var addQuant = parseInt($(".quantity-select .cur-quant").html(), 10);
-		$(this).attr("data-item-quantity", addQuant).trigger("click");
-	});
-
-	Snipcart.subscribe('item.added, item.removed', function (ev, item, items) {
+	
+	Snipcart.subscribe('item.added', function (ev, item, items) {
 	    setTimeout(function(){
 	    	var cart = Snipcart.api.cart.get();
 	    	if (cart.items.quantity > 0 || cart.plans.quantity > 0) {
-		    	alert("here2");
+		    	//alert("here2");
+		    	$(".cart-wrapper .svg-wrapper").addClass("active");
+		    } else {
+		    	$(".cart-wrapper .svg-wrapper").removeClass("active");
+		    }
+	    }, 100);
+	}); Snipcart.subscribe('item.removed', function (ev, item, items) {
+	    setTimeout(function(){
+	    	var cart = Snipcart.api.cart.get();
+	    	if (cart.items.quantity > 0 || cart.plans.quantity > 0) {
+		    	//alert("here2");
 		    	$(".cart-wrapper .svg-wrapper").addClass("active");
 		    } else {
 		    	$(".cart-wrapper .svg-wrapper").removeClass("active");
