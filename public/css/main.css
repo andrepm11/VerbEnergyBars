@@ -565,17 +565,16 @@ header .landing-copy .landing-button a {
   height: 100%;
   width: 100%;
   text-decoration: none;
-  /*transition: all 150ms ease;*/
-  padding-top: 8px;
+	padding-top: 8px;
+}
+header .landing-copy .landing-button:hover a {
+	padding-top: 10px;
 }
 .q-title,
 .q-title.active,
 .q-title.active:after,
 .q-title:after {
   transition: all .2s ease;
-}
-header .landing-copy .landing-button:hover a {
-  padding-top: 11px;
 }
 @media (min-width: 420px) {
   header .landing-copy .small {
@@ -939,17 +938,14 @@ footer .center .designer a {
     font-size: 71px;
   }
   header .landing-copy .landing-button {
-    margin-left: 6px;
-    line-height: 1em!important;
-    height: 52px;
-    width: 160px;
+	margin: 30px auto;
+	margin-left: 6px;
   }
   header .landing-copy .landing-button a {
-    padding-top: 13px;
-    font-size: 21px;
+    padding-top: 0px;
   }
   header .landing-copy .landing-button:hover a {
-    padding-top: 15px;
+    padding-top: 2px;
   }
   #OrderVerb {
     padding-top: 60px;
@@ -1180,17 +1176,14 @@ footer .center .designer a {
     font-size: 92px;
   }
   header .landing-copy .landing-button {
-    margin-left: 6px;
     margin-top: 0;
-    line-height: 1em!important;
-    height: 60px;
-    width: 180px;
+	position: relative;
   }
   header .landing-copy .landing-button a {
-    padding-top: 17px;
-  }
-  header .landing-copy .landing-button:hover a {
-    padding-top: 18px;
+	position: absolute;
+	left: 0;
+	top: -8px;
+	//background: red;
   }
   #WhyVerb .item-desc {
     padding: 0 15px;
