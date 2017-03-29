@@ -629,13 +629,15 @@ header .landing-copy .landing-button:hover a {
   padding: 25px;
   margin-top: -15px;
   margin-bottom: 30px;
+  transition: all 100ms ease;
 }
 #OrderVerb .order-bar-image img {
   max-width: 100%;
-  width: 90%;
-  margin: 0 auto 0 5%;
+  width: 100%;
+  //margin: 0 auto 0 5%;
   padding-top: 15px;
   padding-bottom: 15px;
+  transition: all 100ms ease;
 }
 #OrderVerb .section-content {
   text-align: center;
@@ -1234,7 +1236,9 @@ footer .center .designer a {
     min-height: 650px;
   }
   #OrderVerb .order-bar-image img {
-    padding-top: 13%;
+    padding-top: 8%;
+    max-width: 520px;
+    margin: 0 auto;
   }
 }
 @media (min-width: 1154px) {
