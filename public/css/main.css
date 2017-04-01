@@ -224,7 +224,7 @@
     padding-right: 15px;
     padding-left: 15px;
   }
-  .mobile-12 {
+  .mobile-12, .desktop-12 {
     width: 100%;
   }
   .mobile-hidden {
@@ -518,13 +518,13 @@ header .landing-copy .landing-button a {
     background: url(../img/header_bg.jpg) center 0 no-repeat fixed;
   }
 }
-.index header .landing-bar {
+header .landing-bar {
   padding-top: 120px;
   max-width: 420px;
   margin: 0 auto;
   text-align: center;
 }
-.index header .landing-bar img {
+header .landing-bar img {
   max-width: 100%;
   margin: 0 auto;
 }
@@ -565,10 +565,6 @@ header .landing-copy .landing-button a {
   height: 100%;
   width: 100%;
   text-decoration: none;
-	padding-top: 8px;
-}
-header .landing-copy .landing-button:hover a {
-	padding-top: 10px;
 }
 .q-title,
 .q-title.active,
@@ -906,29 +902,10 @@ footer .center .designer a {
   .index header {
     height: 520px;
   }
-  .index header .container .row {
-    margin-left: 5%;
-  }
-  .index header .landing-bar {
-    padding-top: 120px;
-    width: 100%;
-    max-width: none;
-    text-align: center;
-  }
-  .index header .landing-bar .image-wrapper {
-    width: 100%;
-    overflow: hidden;
-  }
-  .index header .landing-bar img {
-    max-width: 150%;
-    width: 120%;
-    margin: 0 auto 0 -10%;
-  }
   .index header .landing-copy {
     width: 100%;
-    text-align: left;
-    line-height: 3.5em;
-    padding-top: 185px;
+    text-align: center;
+    padding-top: 15px;
   }
   header .landing-copy .small {
     font-size: 32px;
@@ -938,14 +915,23 @@ footer .center .designer a {
     font-size: 71px;
   }
   header .landing-copy .landing-button {
-	margin: 30px auto;
-	margin-left: 6px;
+	  margin: 45px auto;
   }
   header .landing-copy .landing-button a {
-    padding-top: 0px;
+    padding-top: 8px;
   }
   header .landing-copy .landing-button:hover a {
-    padding-top: 2px;
+    padding-top: 10px;
+  }
+  header .landing-bar { 
+    padding-top: 100px; 
+    max-width: 320px;
+    margin: 0 auto; 
+    text-align: center;
+    overflow: hidden;
+  } header .landing-bar img { 
+    width: 100%; 
+    margin: 0 auto;
   }
   #OrderVerb {
     padding-top: 60px;
@@ -1144,46 +1130,28 @@ footer .center .designer a {
     max-width: 920px;
     margin: 0 auto;
   }
-  .index header .landing-bar {
-    padding-top: 140px;
-    width: 100%;
-    max-width: none;
-    text-align: center;
+  header .landing-bar {
+    max-width: 360px;
+    padding-top: 120px;
   }
-  .index header .landing-bar .image-wrapper {
-    width: 100%;
-    overflow: hidden;
-  }
-  .index header .landing-bar img {
-    max-width: 150%;
-    width: 120%;
-    margin: 0 auto 0 -10%;
-  }
-  .index header .landing-copy {
-    width: 100%;
-    text-align: left;
-    line-height: 4em;
-    padding-top: 220px;
-  }
-  .index header .landing-copy > div {
-    display: inline-block;
+  header .landing-copy {
+    margin-top: 10px;
   }
   header .landing-copy .small {
-    font-size: 40px;
+    font-size: 36px;
     margin-left: 8px;
   }
   header .landing-copy .large {
     font-size: 92px;
+    margin-top: 25px;
   }
   header .landing-copy .landing-button {
-    margin-top: 0;
-	position: relative;
+	  position: relative;
+    margin-top: 60px;
   }
   header .landing-copy .landing-button a {
-	position: absolute;
-	left: 0;
-	top: -8px;
-	//background: red;
+	  position: absolute;
+	  left: 0;
   }
   #WhyVerb .item-desc {
     padding: 0 15px;
@@ -1247,39 +1215,22 @@ footer .center .designer a {
     max-width: 1170px;
     margin: 0 auto;
   }
-  .index header .landing-bar {
-    padding-top: 140px;
-    width: 100%;
-    max-width: none;
-    text-align: center;
+  header .landing-bar {
+    max-width: 400px;
+    padding-top: 110px;
   }
-  .index header .landing-bar .image-wrapper {
-    width: 100%;
-    overflow: hidden;
-  }
-  .index header .landing-bar img {
-    max-width: 150%;
-    width: 120%;
-    margin: 0 auto 0 0;
-  }
-  .index header .landing-copy {
-    width: 100%;
-    text-align: left;
-    line-height: 4.5em;
-    padding-top: 220px;
+  header .landing-copy {
+    margin-top: 10px;
   }
   header .landing-copy .small {
-    font-size: 46px;
-    width: 120%;
-    margin-left: -10%;
+    font-size: 42px;
   }
   header .landing-copy .large {
-    font-size: 110px;
-    width: 120%;
-    margin-left: -10%;
+    font-size: 100px;
+    margin-top: 32px;
   }
-  header .button-wrapper {
-    margin-left: -10%;
+  header .landing-button {
+    margin-top: 50px;
   }
 }
 /* New Order Section CSS */

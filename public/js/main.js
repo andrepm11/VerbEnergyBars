@@ -91,7 +91,7 @@ $(document).ready(function(){
 
 	function addImagesToPlans() {
 		$("#snipcart-plans-list>tr>td img").remove();
-		var $img = $("<img/>").attr("src", "/public/img/bar_mockup.png").addClass("cartSubIcon");
+		var $img = $("<img/>").attr("src", "/public/img/bar_order_mockup.png").addClass("cartSubIcon");
 		$("#snipcart-plans-list .snip-product__name").parent().prepend($img);
 	}; 
 	function addSpacesToPrice() {
@@ -119,7 +119,7 @@ $(document).ready(function(){
 			
 		} else {
 			//inc. up
-			if (!$(".order-type .order-type-button.active").hasClass("sub")) {
+			if (!$(".quantity-select").hasClass("off")) {
 				curQuant++;
 				$(".quantity-select .cur-quant").html(curQuant);
 			}
@@ -147,12 +147,21 @@ $(document).ready(function(){
 				$(".quantity-select .cur-quant").text("1");
 				$(".quantity-select").addClass("off");
 				$(".price-type .single-sub-price").removeClass("hidden");
-			} else {
+			}  else if ($(this).hasClass("single-small")) {
+        $(".order-button button.single-order-small").removeClass("hidden").addClass("shown");
+				$(".quantity-select").removeClass("off");
+				$(".price-type .single-small-price").removeClass("hidden");
+      } else {
 				//show sub. button
-				$(".order-button button.subscribe").removeClass("hidden").addClass("shown");
+				/*$(".order-button button.subscribe").removeClass("hidden").addClass("shown");
 				$(".quantity-select .cur-quant").text("1");
 				$(".quantity-select").addClass("off");
 				$(".price-type .sub-price").removeClass("hidden");
+        */
+        //then show single button
+				$(".order-button button.single-order").removeClass("hidden").addClass("shown");
+				$(".quantity-select").removeClass("off");
+				$(".price-type .single-price").removeClass("hidden");
 			}
 		}		
 	});

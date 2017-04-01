@@ -44,7 +44,7 @@
         <!-- Roboto Mono -->
 		<link href="https://fonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet">
         <!-- LOCAL STYLING -->
-        <link rel="stylesheet" href="./public/css/main.css"/>
+        <link rel="stylesheet" href="./public/css/main.min.css"/>
         <link rel="stylesheet" href="./public/css/snipCartCustomization.css"/>
         
         <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
@@ -272,14 +272,15 @@
 		<header id="Top" class="container-fluid no-pad no-alert">
       		<div class="container">
 				<div class="row">
-					<div class="mobile-12 desktop-hidden">
+					<div class="mobile-12">
 						<div class="landing-bar">
 							<div class="image-wrapper">
-								<img src="/public/img/bar_mockup.png" alt="Verb Energy Bar Mockup"/>
+								<img src="/public/img/bar_mockup.png" alt="Verb Energy Bar Mockup" class="desktop-hidden"/>
+								<img src="/public/img/bar_mockup_hoz.png" alt="Verb Energy Bar Mockup" class="mobile-hidden"/>
 							</div>
 						</div>
 					</div>
-					<div class="mobile-12 desktop-7">
+					<div class="mobile-12 desktop-12">
 						<div class="landing-copy">
 							<div class="copy">
 								<span class="small">
@@ -296,7 +297,7 @@
 							</div>
 						</div>
 					</div>
-					<div class="mobile-hidden desktop-5">
+					<div class="mobile-hidden hidden">
 						<div class="landing-bar">
 							<div class="image-wrapper">
 								<img src="/public/img/bar_mockup.png" alt="Verb Energy Bar Mockup"/>
@@ -415,6 +416,13 @@
 							</p>
 							<div class="order-items">	
 								<div class="order-type">
+								  <div class="order-type-button single-small">
+										<div class="order-type-button-wrapper single-small">
+											<a href="#" class="order-type-link single-small">
+												<span class="upper">3 Bars / One Time Order</span><span class="alt-font"></span><span class="price hidden">$6.99</span>
+											</a>
+										</div>
+									</div>
 									<div class="order-type-button single active">
 										<div class="order-type-button-wrapper single">
 											<a href="#" class="order-type-link single">
@@ -429,15 +437,19 @@
 											</a>
 										</div>
 									</div>
-									<div class="order-type-button sub">
+									<!--<div class="order-type-button sub">
 										<div class="order-type-button-wrapper sub">
 											<a href="#" class="order-type-link sub">
 												<span class="upper">20 Bars / Month Subscription</span><span class="alt-font"></span><span class="price hidden">$35.00</span>
 											</a>
 										</div>
-									</div>
+									</div>-->
 								</div>
 								<div class="price-type">
+								  <div class="single-small-price price-item hidden">
+										<span class="sale-price sale">$6.50</span>
+										<span class="og-price sale">$7.99</span>
+									</div>
 									<div class="single-price price-item">
 										<span class="sale-price sale">$19.99</span>
 										<span class="og-price sale">$24.70</span>
@@ -446,10 +458,10 @@
 										<span class="sale-price sale">$19.00</span>
 										<span class="og-price sale">$21.00</span>
 									</div>
-									<div class="sub-price price-item hidden">
+									<!--<div class="sub-price price-item hidden">
 										<span class="sale-price sale">$35.00</span>
 										<span class="og-price sale">$42.00</span>
-									</div>
+									</div>-->
 								</div>
 								<div class="quantity-select">
 									<div class="item quantity-increment down">
@@ -480,9 +492,10 @@
 											data-target="sub">
 											Add To Cart
 									</button>
-									<button class="hidden button solid subscribe snipcart-add-plan one"
+									<!--<button class="hidden button solid subscribe snipcart-add-plan one"
 											data-plan-id="Monthly-Sub-20"
 											data-item-quantity="1"
+											data-plan-name="Verb Energy Bar Monthly Subscription (2 box | 20 bars)"
 											data-plan-name="Verb Energy Bar Monthly Subscription (2 box | 20 bars)"
 											data-plan-interval="Month"
 											data-plan-amount="35.00"
@@ -490,18 +503,31 @@
 											data-plan-image="/public/img/bar_mockup.png"
 											data-target="sub">
 											Add To Cart
-									</button>
+									</button>-->
 									<button
 										class="button solid snipcart-add-item single-order one shown"
 										data-item-id="Single-Order"
 										data-item-name="Verb Energy Bar Single Order (1 box | 10 bars)"
 										data-item-price="19.99"
 										data-item-weight="500"
-										data-item-image="/public/img/bar_mockup.png"
+										data-item-image="/public/img/bar_order_mockup.png"
 										data-item-url="/"
-										data-item-description="Get the best energy food on the planet. Each bar has 8 simple ingredients, one coffee’s worth of green tea caffeine, and only 180 Calories."
+										data-item-description="Get the best energy food on the planet. Each bar has 8 simple ingredients, one coffee’s worth of green tea caffeine, and only 180 Calories. 10 bar, single order."
 										data-item-quantity="1"
 										data-target="single">
+											Add To Cart
+									</button>
+									<button
+										class="button solid snipcart-add-item single-order-small one hidden"
+										data-item-id="Single-Order-3-Pack"
+										data-item-name="Verb Energy Bar 3 Pack Order (3 bars)"
+										data-item-price="6.50"
+										data-item-weight="200"
+										data-item-image="/public/img/bar_mockup.png"
+										data-item-url="/"
+										data-item-description="Get the best energy food on the planet. Each bar has 8 simple ingredients, one coffee’s worth of green tea caffeine, and only 180 Calories. 3 bar pack."
+										data-item-quantity="1"
+										data-target="3pack">
 											Add To Cart
 									</button>
 								</div>
