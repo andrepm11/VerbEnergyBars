@@ -489,6 +489,12 @@ header .landing-copy .landing-button a {
   font-family: 'Montserrat';
   font-weight: 700;
 }
+header .landing-button a {
+    padding-top: 8px;
+}
+header .landing-button a:hover {
+    padding-top: 10px;
+}
 @media (min-width: 768px) {
   .hidden-nav.active {
     width: 30%;
@@ -1336,7 +1342,7 @@ footer .center .designer a {
   border-bottom: 4px solid #ff623f;
 }
 .order-button .button {
-  margin-top: 10px;
+  margin-top: 20px;
 }
 .price-type {
   font-size: 32px;
