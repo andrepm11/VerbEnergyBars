@@ -1024,6 +1024,7 @@ footer .center .designer a {
   }
   #OurMission .image-wrapper {
     background-image: url(../img/mission.jpg);
+    background-position: bottom center;
   }
   #OurMission .section-title {
     text-align: left;
@@ -1171,7 +1172,7 @@ footer .center .designer a {
   }
   
   #OrderVerb .order-bar-image {
-	min-height: 670px;
+	min-height: 680px;
   }
   #OrderVerb .order-bar-image img {
     max-width: 450px;
@@ -1190,18 +1191,16 @@ footer .center .designer a {
     font-size: 24px;
     text-transform: uppercase;
   }
-}
-@media (min-width: 1090px) {
   #AboutUs .image-wrapper {
     height: 380px;
   }
   #OurMission .image-wrapper {
-    height: 400px;
+    height: 380px;
   }
 }
 @media (min-width: 1125px) {
   #OrderVerb .order-bar-image {
-    min-height: 650px;
+    min-height: 660px;
   }
   #OrderVerb .order-bar-image img {
     padding-top: 8%;
@@ -1238,6 +1237,9 @@ footer .center .designer a {
   }
   header .landing-button {
     margin-top: 50px;
+  }
+  #AboutUs .image-wrapper, #OurMission .image-wrapper {
+    height: 360px;
   }
 }
 /* New Order Section CSS */
