@@ -110,11 +110,13 @@ $(document).ready(function(){
 	
 	$(".quantity-select .inc-wrapper").on('click', function(){
 		var curQuant = parseInt($(".quantity-select .cur-quant").text(), 10);
+      
 		if ($(this).hasClass("down")) {
 			//inc. down
 			if (curQuant > 1) {
 				curQuant--;
 				$(".quantity-select .cur-quant").html(curQuant);
+                $(".order-button button.shown").data("item-quantity", curQuant);
 			}
 			
 		} else {
@@ -122,6 +124,7 @@ $(document).ready(function(){
 			if (!$(".quantity-select").hasClass("off")) {
 				curQuant++;
 				$(".quantity-select .cur-quant").html(curQuant);
+                $(".order-button button.shown").data("item-quantity", curQuant);
 			}
 		}
 	});
@@ -129,41 +132,41 @@ $(document).ready(function(){
 	$(".order-type .order-type-button").on('click', function(e){
 		e.preventDefault();
 		var curType;
-		
 		if (!$(this).hasClass("active")) {
-			$(".order-type .order-type-button").removeClass("active");	
-			$(this).addClass("active");
-			$(".order-button button").addClass("hidden").removeClass("shown");
-			$(".price-type .price-item").addClass("hidden");
-			
-			if ($(this).hasClass("single")) {
-				//then show single button
-				$(".order-button button.single-order").removeClass("hidden").addClass("shown");
-				$(".quantity-select").removeClass("off");
-				$(".price-type .single-price").removeClass("hidden");
-			}  else if ($(this).hasClass("single-sub")) {
-				//show single-sub. button
-				$(".order-button button.single-sub").removeClass("hidden").addClass("shown");
-				$(".quantity-select .cur-quant").text("1");
-				$(".quantity-select").addClass("off");
-				$(".price-type .single-sub-price").removeClass("hidden");
-			}  else if ($(this).hasClass("single-small")) {
-        $(".order-button button.single-order-small").removeClass("hidden").addClass("shown");
-				$(".quantity-select").removeClass("off");
-				$(".price-type .single-small-price").removeClass("hidden");
-      } else {
-				//show sub. button
-				/*$(".order-button button.subscribe").removeClass("hidden").addClass("shown");
-				$(".quantity-select .cur-quant").text("1");
-				$(".quantity-select").addClass("off");
-				$(".price-type .sub-price").removeClass("hidden");
-        */
-        //then show single button
-				$(".order-button button.single-order").removeClass("hidden").addClass("shown");
-				$(".quantity-select").removeClass("off");
-				$(".price-type .single-price").removeClass("hidden");
-			}
-		}		
+          $(".order-type .order-type-button").removeClass("active");	
+          $(this).addClass("active");
+          $(".order-button button").addClass("hidden").removeClass("shown");
+          $(".price-type .price-item").addClass("hidden");
+          $(".quantity-select .cur-quant").html("1");
+
+          if ($(this).hasClass("single")) {
+              //then show single button
+              $(".order-button button.single-order").removeClass("hidden").addClass("shown");
+              $(".quantity-select").removeClass("off");
+              $(".price-type .single-price").removeClass("hidden");
+          }  else if ($(this).hasClass("single-sub")) {
+              //show single-sub. button
+              $(".order-button button.single-sub").removeClass("hidden").addClass("shown");
+              $(".quantity-select .cur-quant").text("1");
+              $(".quantity-select").addClass("off");
+              $(".price-type .single-sub-price").removeClass("hidden");
+          }  else if ($(this).hasClass("single-small")) {
+              $(".order-button button.single-order-small").removeClass("hidden").addClass("shown");
+              $(".quantity-select").removeClass("off");
+              $(".price-type .single-small-price").removeClass("hidden");
+          } else {
+                  //show sub. button
+                  /*$(".order-button button.subscribe").removeClass("hidden").addClass("shown");
+                  $(".quantity-select .cur-quant").text("1");
+                  $(".quantity-select").addClass("off");
+                  $(".price-type .sub-price").removeClass("hidden");
+                  */
+                  //then show single button
+                  $(".order-button button.single-order").removeClass("hidden").addClass("shown");
+                  $(".quantity-select").removeClass("off");
+                  $(".price-type .single-price").removeClass("hidden");
+              }
+        }
 	});
 	
 	
