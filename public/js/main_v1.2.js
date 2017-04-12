@@ -52,7 +52,7 @@ $(document).ready(function(){
 		}
 	  });
 	});
-	
+    	
 	/* Order Section JS */
 	//Show continue shopping button
 	Snipcart.execute('config', 'show_continue_shopping', true);
