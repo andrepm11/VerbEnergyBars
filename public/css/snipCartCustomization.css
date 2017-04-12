@@ -1,7 +1,18 @@
+.snip-layout.snip-active {
+    display: block;
+    position: fixed;
+    height: 100%;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    margin: 0 auto;
+}
+
 .snip-layout__main-container {
 	font-family: 'Montserrat' !important;
 	border-radius: 10px !important;
 	font-size: 16px !important;
+    width: 95%;
+    margin: 0 auto;
 }
 
 #snipcart-main-content {
