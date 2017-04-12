@@ -348,6 +348,10 @@ body {
   font-family: 'Roboto', 'Montserrat', 'Helvetica', 'Arial', sans-serif;
   font-weight: 400;
 }
+body.fixed {
+    overflow: hidden !important;
+    position: fixed !important;
+}
 h1,
 h2,
 h3,

@@ -70,6 +70,13 @@ $(document).ready(function(){
 			addSpacesToPrice();
 		}
 		moveShippingSameAsBilling();
+        
+        if ($(window).width() < 768) {
+            $("body").addClass("fixed");
+        }
+	});
+    Snipcart.subscribe('cart.closed', function() {
+        $("body").removeClass("fixed");
 	});
 	Snipcart.subscribe('page.change', function (page) {
 		setTimeout(customPageChange, 150);
