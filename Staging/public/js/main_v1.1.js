@@ -52,8 +52,6 @@ $(document).ready(function(){
 		}
 	  });
 	});
-    
-    alert("staging");
 	
 	/* Order Section JS */
 	//Show continue shopping button

@@ -23,9 +23,9 @@
 		<meta name="Classification" content=""> <!-- !!!! -->
        	<meta name="Keywords" content=""> <!-- !!!! -->
        	<meta name="Language" content="English">
-		<META HTTP-EQUIV="Expires" content="never">
-		<META HTTP-EQUIV="CACHE-CONTROL" content="NO-CACHE">
-		<META HTTP-EQUIV="PRAGMA" content="NO-CACHE">
+		<meta http-eqiv="Expires" content="never">
+		<meta http-eqiv="CACHE-CONTROL" content="NO-CACHE">
+		<meta http-eqiv="PRAGMA" content="NO-CACHE">
 		<meta name="Copyright" content="Verb">
 		<meta name="Publisher" content="Verb">
 		<meta name="Revisit-After" content="10 days">
@@ -35,15 +35,17 @@
 		<meta name="rating" content="General"> 
 		<meta name="ms.locale" content="EN-US"> 
 		<meta name="category" content="homepage"> 
-		<meta name="url" content="http://www.verbenergy.com">
+		<meta name="url" content="https://www.verbenergybar.com">
+      	<meta name="google-site-verification" content="74G7DwKFo-YIUb5XLh4Tu-gNIM8UY6JSGvHK0LMIFfE" />
        
         <!-- Google Fonts -->
-        <!-- Rubik -->
-        <link href="https://fonts.googleapis.com/css?family=Rubik:400,700" rel="stylesheet">
+        <!-- Montserrat -->
+        <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet">
         <!-- Roboto Mono -->
-		<link href="https://fonts.googleapis.com/css?family=Roboto+Mono:400,700" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet">
         <!-- LOCAL STYLING -->
-        <link rel="stylesheet" href="./public/css/main.min.css"/>
+        <link rel="stylesheet" href="./public/css/main.css"/>
+        <link rel="stylesheet" href="./public/css/snipCartCustomization_v1.1.css"/>
         
         <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
         <!-- This website is not optimized for OR tested on < than IE11 -->
@@ -54,17 +56,18 @@
     
     	<!-- SOCIAL SHARING OPTIMIZATION -->
 		<!-- Facebook -->          
-		<meta property="og:title" content="Verb Caffeinated Energy Bars" />
-		<meta property="og:type" content="page" />
-		<meta property="og:image" content="./public/img/social.jpg"/>
-		<meta property="og:url" content="www.verbenergy.com" />
-		<meta property="og:description" content="Verb deliciously blends healthy nutrition and a balanced caffeine kick. You’ll get longer lasting energy from caffeine, no jitters from L-theanine (an amino acid present in green tea), and fuel for both your body and brain from brown rice and oats." />
+		<meta property='og:title' content="Verb Caffeinated Energy Bars" />
+		<meta property='og:type' content="page" />
+		<meta property='og:image' content="/public/img/social.jpg"/>
+		<meta property='og:url' content="https://www.verbenergybar.com" />
+		<meta property='og:description' content="Verb deliciously blends healthy nutrition and a balanced caffeine kick. You’ll get longer lasting energy from caffeine, no jitters from L-theanine (an amino acid present in green tea), and fuel for both your body and brain from brown rice and oats.)" />
 
 		<!-- Twitter -->          
-		<meta name="twitter:card" content="summary" />
-		<meta name="twitter:title" content="Verb Caffeinated Energy Bars" />
-		<meta name="twitter:description" content="Verb deliciously blends healthy nutrition and a balanced caffeine kick. You’ll get longer lasting energy from caffeine, no jitters from L-theanine (an amino acid present in green tea), and fuel for both your body and brain from brown rice and oats." />
-		<meta name="twitter:image" content="./public/img/social.jpg" />
+		<meta name='twitter:card' content="summary" />
+		<meta name='twitter:title' content="Verb Caffeinated Energy Bars" />
+		<meta name='twitter:description' content="Verb deliciously blends healthy nutrition and a balanced caffeine kick. You’ll get longer lasting energy from caffeine, no jitters from L-theanine (an amino acid present in green tea), and fuel for both your body and brain from brown rice and oats.)" />
+		<meta name='twitter:image' content="/public/img/social.jpg" />
+		<meta name='twitter:site' content="@verbenergy" />
   
    		<!-- GOOGLE ANALYTICS -->
 		<script>
@@ -77,6 +80,7 @@
 		  ga('send', 'pageview');
 		</script>
 
+		<!-- FAVICON -->
 		<link rel="apple-touch-icon" sizes="57x57" href="./favicon/apple-icon-57x57.png">
 		<link rel="apple-touch-icon" sizes="60x60" href="./favicon/apple-icon-60x60.png">
 		<link rel="apple-touch-icon" sizes="72x72" href="./favicon/apple-icon-72x72.png">
@@ -94,10 +98,36 @@
 		<meta name="msapplication-TileColor" content="#ffffff">
 		<meta name="msapplication-TileImage" content="./favicon/ms-icon-144x144.png">
 		<meta name="theme-color" content="#ffffff">
+   
+        <!-- Facebook Pixel Code -->
+        <script>
+            !function(f,b,e,v,n,t,s)
+            {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+            n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+            if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+            n.queue=[];t=b.createElement(e);t.async=!0;
+            t.src=v;s=b.getElementsByTagName(e)[0];
+            s.parentNode.insertBefore(t,s)}(window,document,'script',
+            'https://connect.facebook.net/en_US/fbevents.js');
+             fbq('init', '1888537424751398'); 
+            fbq('track', 'PageView');
+        </script>
+        <noscript>
+           <img height="1" width="1" 
+          src="https://www.facebook.com/tr?id=1888537424751398&ev=PageView
+          &noscript=1"/>
+        </noscript>
+        <!-- End Facebook Pixel Code -->
     </head>
 	<body class="index">
+		<!-- Page Alert -->
+		<div class="page-alert hidden">
+			<a href="#OrderVerb" class="page-alert-content">
+				Pre-order bars now and have them delivered to you by <b>April 1st</b>!
+			</a>
+		</div>
 		<!-- NAV -->
-		<nav class="navigation container-fluid clearfix">
+		<nav class="navigation container-fluid no-alert">
 			<div class="nav-wrapper">
 				<div class="left column">
 					<div class="menu-wrapper">
@@ -125,7 +155,7 @@
 				</div>
 				<div class="center column">
 					<div class="logo-wrapper">
-						<img src="./public/img/logo_white.png" alt="Verb Caffeinated Energy Bars"/>
+						<img src="./public/img/verb_wordmark_500x333px.png" alt="Verb Caffeinated Energy Bars"/>
 					</div>
 				</div>
 				<div class="right column">
@@ -233,25 +263,25 @@
 				</div>
 				<ul class="nav-list">
 					<li class="nav-item">
-						<a href="./index.html#Top">Home</a>
+						<a href="#Top">Home</a>
 					</li>
 					<li class="nav-item">
-						<a href="./index.html#WhyVerb">Why Verb</a>
+						<a href="#WhyVerb">Why Verb</a>
 					</li>
 					<li class="nav-item">
-						<a href="./index.html#OrderVerb">Order Verb</a>
+						<a href="#OrderVerb">Order Verb</a>
 					</li>
 					<li class="nav-item">
-						<a href="./index.html#AboutUs">About Us</a>
+						<a href="#AboutUs">About Us</a>
 					</li>
 					<li class="nav-item">
-						<a href="./index.html#OurMission">Our Mission</a>
+						<a href="#OurMission">Our Mission</a>
 					</li>
 					<li class="nav-item">
-						<a href="./index.html#FAQ">FAQ</a>
+						<a href="#FAQ">FAQ</a>
 					</li>
 					<li class="nav-item Contact">
-						<a href="mailto:inquiries@verbenergybar.com">Contact Us
+						<a href="mailto:team@verbenergybar.com">Contact Us
 						</a>
 					</li>
 				</ul>
@@ -259,24 +289,25 @@
 		</div>
 		<!-- END HIDDEN NAV -->
 		<!-- HEADER -->
-		<header id="Top" class="container-fluid no-pad clearfix">
-			<div class="container">
-				<div class="row clearfix">
-					<div class="mobile-12 desktop-hidden">
+		<header id="Top" class="container-fluid no-pad no-alert">
+      		<div class="container">
+				<div class="row">
+					<div class="mobile-12">
 						<div class="landing-bar">
 							<div class="image-wrapper">
-								<img src="./public/img/bar_mockup.png" alt="Verb Energy Bar Mockup"/>
+								<img src="/public/img/bar_mockup.png" alt="Verb Energy Bar Mockup" class="desktop-hidden"/>
+								<img src="/public/img/bar_mockup_hoz.png" alt="Verb Energy Bar Mockup" class="mobile-hidden"/>
 							</div>
 						</div>
 					</div>
-					<div class="mobile-12 desktop-7">
+					<div class="mobile-12 desktop-12">
 						<div class="landing-copy">
 							<div class="copy">
 								<span class="small">
-									Whatever You Do,
+									Whatever you do,
 								</span>
 								<span class="large">
-									Do More.
+									Do more
 								</span>
 							</div>
 							<div class="button-wrapper">
@@ -286,10 +317,10 @@
 							</div>
 						</div>
 					</div>
-					<div class="mobile-hidden desktop-5">
+					<div class="mobile-hidden hidden">
 						<div class="landing-bar">
 							<div class="image-wrapper">
-								<img src="./public/img/bar_mockup.png" alt="Verb Energy Bar Mockup"/>
+								<img src="/public/img/bar_mockup.png" alt="Verb Energy Bar Mockup"/>
 							</div>
 						</div>
 					</div>
@@ -298,15 +329,15 @@
 		</header>
 		<!-- END HEADER -->
 		<!-- WHY VERB -->
-		<section id="WhyVerb" class="container-fluid no-pad clearfix section">
+		<section id="WhyVerb" class="container-fluid no-pad section">
 			<div class="container">
-				<div class="row clearfix">
+				<div class="row">
 					<div class="section-title text-center">
 						<h1>Why Verb</h1>
 						<div class="section-hr center"></div>
 					</div>
 				</div>
-				<div class="row clearfix">
+				<div class="row">
 					<div class="mobile-12 desktop-4">
 						<div class="item why-item">
 							<div class="item-icon">
@@ -369,9 +400,9 @@
 		</section>
 		<!-- END WHY VERB -->
 		<!-- ORDER VERB -->
-		<section id="OrderVerb" class="container-fluid no-pad clearfix section">
+		<section id="OrderVerb" class="container-fluid no-pad section">
 			<div class="container">
-				<div class="row clearfix">
+				<div class="row">
 					<div class="mobile-12 desktop-hidden">
 						<div class="section-title text-center">
 							<h1>Order Verb</h1>
@@ -381,7 +412,8 @@
 					<div class="mobile-12 desktop-custom-lg">
 						<div class="order-bar-image">
 							<div class="image-wrapper">
-								<img src="./public/img/bar_mockup.png" alt="Verb Bar Mockup"/>
+								<!--<img src="/public/img/bar_mockup.png" alt="Verb Bar Mockup"/>-->
+								<img src="/public/img/bar_order_mockup.png" alt="Verb Package Mockup"/>
 							</div>
 						</div>
 					</div>
@@ -393,93 +425,130 @@
 						<div class="section-content">
 							<p>
 								<span class="intro">
-									You will feel more focused and energized than after your last cup of coffee
-									<br/>
-									– you have our word.
-								</span>
-								<span class="body">
 									Get the best energy food on the planet. Each bar has 8 simple ingredients, one coffee’s worth of green tea caffeine, and only 180 Calories.
 								</span>
+								<span class="body hidden">
+									You will feel more focused and energized than after your last cup of coffee
+									<!--<br/>-->
+									– you have our word.
+								</span>
+								
 							</p>
-							<div class="order-items">
-								<div class="order-options">
-									<div class="item-select">
-										<div class="select-wrapper">
-											<select>
-												<option value="1">1 Box (10 Bars)</option>
-												<option value="2">2 Boxes (20 Bars)</option>
-												<option value="3">3 Boxes (30 Bars)</option>
-											</select>
+							<div class="order-items">	
+								<div class="order-type">
+								  <div class="order-type-button single-small">
+										<div class="order-type-button-wrapper single-small">
+											<a href="#" class="order-type-link single-small">
+												<span class="upper">3 Bars / One Time Order</span><span class="alt-font"></span><span class="price hidden">$6.99</span>
+											</a>
+										</div>
+									</div>
+									<div class="order-type-button single active">
+										<div class="order-type-button-wrapper single">
+											<a href="#" class="order-type-link single">
+												<span class="upper">10 Bars / One Time Order</span><span class="alt-font"></span><span class="price hidden">$19.99</span>
+											</a>
+										</div>
+									</div>
+									<div class="order-type-button single-sub">
+										<div class="order-type-button-wrapper single">
+											<a href="#" class="order-type-link single">
+												<span class="upper">10 Bars / Month Subscription</span><span class="alt-font"></span><span class="price hidden">$19</span>
+											</a>
+										</div>
+									</div>
+									<!--<div class="order-type-button sub">
+										<div class="order-type-button-wrapper sub">
+											<a href="#" class="order-type-link sub">
+												<span class="upper">20 Bars / Month Subscription</span><span class="alt-font"></span><span class="price hidden">$35.00</span>
+											</a>
+										</div>
+									</div>-->
+								</div>
+								<div class="price-type">
+								  <div class="single-small-price price-item hidden">
+										<span class="sale-price sale">$6.50</span>
+										<span class="og-price sale">$7.99</span>
+									</div>
+									<div class="single-price price-item">
+										<span class="sale-price sale">$19.99</span>
+										<span class="og-price sale">$24.70</span>
+									</div>
+									<div class="single-sub-price price-item hidden">
+										<span class="sale-price sale">$19.00</span>
+										<span class="og-price sale">$21.00</span>
+									</div>
+									<!--<div class="sub-price price-item hidden">
+										<span class="sale-price sale">$35.00</span>
+										<span class="og-price sale">$42.00</span>
+									</div>-->
+								</div>
+								<div class="quantity-select">
+									<div class="item quantity-increment down">
+										<div class="inc-wrapper down">
+											<span class="down">-</span>
+										</div>
+									</div>
+									<div class="item quantity-selected">
+										<div class="cur-quant-wrapper">
+											<span class="cur-quant">1</span>
+										</div>
+									</div>
+									<div class="item quantity-increment up">
+										<div class="inc-wrapper up">
+											<span class="up">+</span>
 										</div>
 									</div>
 								</div>
-								<div class="subscription-checkbox">
-									  <input type="checkbox" name="subscription" value="subscribed" checked> <span class="subscribe-text">Subscribe <span class="alt">(Save 15%)</span></span>
-								</div>
-								<div class="price-wrapper">
-									<h1>$<span class="price">21</span>&nbsp;<span class="small per-month">per month</span><span class="hidden dollars small">dollars</span></h1>
-								</div>
 								<div class="order-button">
-									<button class="button solid subscribe snipcart-add-plan one shown"
-										    data-plan-id="1"
-										    data-plan-name="Verb Energy Bar Monthly Subscription (1 box | 10 bars)"
-										    data-plan-interval="Month"
-										    data-plan-amount="21.00"
-										    data-plan-url="/"
-										    data-plan-image="https://abhinayar.github.io/VerbEnergyBars/public/img/bar_mockup.png">
-										    Add To Cart
+									<button class="hidden button solid single-sub snipcart-add-plan one-sub"
+											data-plan-id="Monthly-Sub-10"
+											data-item-quantity="1"
+											data-plan-name="Verb Energy Bar Monthly Subscription (1 box | 10 bars)"
+											data-plan-interval="Month"
+											data-plan-amount="19.00"
+											data-plan-url="/"
+											data-plan-image="/public/img/bar_mockup.png"
+											data-target="sub">
+											Add To Cart
 									</button>
-									<button class="button solid subscribe snipcart-add-plan two hidden"
-										    data-plan-id="2"
-										    data-plan-name="Verb Energy Bar Monthly Subscription (2 boxes | 20 bars)"
-										    data-plan-interval="Month"
-										    data-plan-amount="42.00"
-										    data-plan-url="/">
-										    Add To Cart
-									</button>
-									<button class="button solid subscribe snipcart-add-plan three hidden"
-										    data-plan-id="3"
-										    data-plan-name="Verb Energy Bar Monthly Subscription (3 boxes | 30 bars)"
-										    data-plan-interval="Month"
-										    data-plan-amount="63.00"
-										    data-plan-url="/">
-										    Add To Cart
+									<!--<button class="hidden button solid subscribe snipcart-add-plan one"
+											data-plan-id="Monthly-Sub-20"
+											data-item-quantity="1"
+											data-plan-name="Verb Energy Bar Monthly Subscription (2 box | 20 bars)"
+											data-plan-name="Verb Energy Bar Monthly Subscription (2 box | 20 bars)"
+											data-plan-interval="Month"
+											data-plan-amount="35.00"
+											data-plan-url="/"
+											data-plan-image="/public/img/bar_mockup.png"
+											data-target="sub">
+											Add To Cart
+									</button>-->
+									<button
+										class="button solid snipcart-add-item single-order one shown"
+										data-item-id="Single-Order"
+										data-item-name="Verb Energy Bar Single Order (1 box | 10 bars)"
+										data-item-price="19.99"
+										data-item-weight="500"
+										data-item-image="/public/img/bar_order_mockup.png"
+										data-item-url="/"
+										data-item-description="Get the best energy food on the planet. Each bar has 8 simple ingredients, one coffee’s worth of green tea caffeine, and only 180 Calories. 10 bar, single order."
+										data-item-quantity="1"
+										data-target="single">
+											Add To Cart
 									</button>
 									<button
-									    class="hidden button solid snipcart-add-item single-order one"
-									    data-item-id="1"
-									    data-item-name="Verb Energy Bar Single Order (1 box | 10 bars)"
-									    data-item-price="24.00"
-									    data-item-weight="500"
-									    data-item-image="https://abhinayar.github.io/VerbEnergyBars/public/img/bar_mockup.png"
-									    data-item-url="/"
-									    data-item-description="Get the best energy food on the planet. Each bar has 8 simple ingredients, one coffee’s worth of green tea caffeine, and only 180 Calories."
-									    data-item-quantity="1">
-									        Add To Cart
-									</button>
-									<button
-									    class="hidden button solid snipcart-add-item single-order two"
-									    data-item-id="2"
-									    data-item-name="Verb Energy Bar Single Order (2 boxes | 20 bars)"
-									    data-item-price="48.00"
-									    data-item-weight="1000"
-									    data-item-image="https://abhinayar.github.io/VerbEnergyBars/public/img/bar_mockup.png"
-									    data-item-url="/"
-									    data-item-description="Get the best energy food on the planet. Each bar has 8 simple ingredients, one coffee’s worth of green tea caffeine, and only 180 Calories."
-									    data-item-quantity="1">
-									        Add To Cart
-									</button>
-									<button
-									    class="hidden button solid snipcart-add-item single-order three"
-									    data-item-id="3"
-									    data-item-name="Verb Energy Bar Single Order (3 boxes | 30 bars)"
-									    data-item-price="48.00"
-									    data-item-weight="1000"
-									    data-item-image="https://abhinayar.github.io/VerbEnergyBars/public/img/bar_mockup.png"
-									    data-item-url="/"
-									    data-item-description="Get the best energy food on the planet. Each bar has 8 simple ingredients, one coffee’s worth of green tea caffeine, and only 180 Calories."
-									    data-item-quantity="1">
-									        Add To Cart
+										class="button solid snipcart-add-item single-order-small one hidden"
+										data-item-id="Single-Order-3-Pack"
+										data-item-name="Verb Energy Bar 3 Pack Order (3 bars)"
+										data-item-price="6.50"
+										data-item-weight="200"
+										data-item-image="/public/img/bar_mockup.png"
+										data-item-url="/"
+										data-item-description="Get the best energy food on the planet. Each bar has 8 simple ingredients, one coffee’s worth of green tea caffeine, and only 180 Calories. 3 bar pack."
+										data-item-quantity="1"
+										data-target="3pack">
+											Add To Cart
 									</button>
 								</div>
 							</div>
@@ -490,9 +559,9 @@
 		</section>
 		<!-- END ORDER VERB -->
 		<!-- ABOUT US -->
-		<section id="AboutUs" class="container-fluid no-pad clearfix section">
+		<section id="AboutUs" class="container-fluid no-pad section">
 			<div class="container">
-				<div class="row clearfix">					
+				<div class="row">					
 					<div class="mobile-12 desktop-custom-sm about-us-wrapper">
 						<div class="section-title">
 							<h1>About Us</h1>
@@ -504,10 +573,10 @@
 						<div class="section-content">
 							<p>
 								<span class="intro">
-									Verb Energy, Inc. was founded in 2016 by four Yale students. We couldn’t find a healthy and sustainable energy source so we decided to make our own. 
+									We founded Verb Energy, Inc. because we were tired of making compromises with our energy. 
 								</span>
 								<span class="body">
-									After months of ingredient R&amp;D and recipe tests, we successfully launched at Yale this past fall and sold out in weeks. We’re using the things we learned there to prepare the Verb Caffeinated Energy Bar for people everywhere.
+									 We couldn't find a healthy and sustainable energy source that could keep up with the lives we wanted to live, so we started making one ourselves. After months of test recipes and ingredient research, we achieved what we set out to: a bar that doesn't just feel good, but one you can feel good about. Now Verb Bars are shipped across the country.
 								</span>
 							</p>
 						</div>
@@ -522,9 +591,9 @@
 		</section>
 		<!-- END ABOUT US -->
 		<!-- OUR MISSION -->
-		<section id="OurMission" class="container-fluid no-pad clearfix section">
+		<section id="OurMission" class="container-fluid no-pad section">
 			<div class="container">
-				<div class="row clearfix">
+				<div class="row">
 					<div class="mobile-hidden desktop-custom-lg">
 						<div class="image-wrapper">
 							<img src="./public/img/mission.jpg" alt="The Verb Mission"/>
@@ -543,10 +612,10 @@
 								<span class="intro">
 									We make good energy.
 									<br/><br/>
-									We believe the world is a better place when nothing holds people back from enjoying more of what they love.
+									We believe the world is a better place when nothing holds people back from enjoying what they love.
 								</span>
 								<span class="body">
-									That means making the bar that’s best for you, best for the community, and best for the environment. We’re a young company, but we source responsibly grown organic ingredients and we’ve made the commitment to be carbon neutral by 2020.
+								    That means making the bar that’s best for you, best for the community, and best for the environment. We source responsibly grown organic ingredients, donate a portion of profits to worthy causes, and have made the commitment to be carbon neutral by 2020.
 								</span>
 							</p>
 						</div>
@@ -556,18 +625,18 @@
 		</section>
 		<!-- END OUR MISSION -->
 		<!-- FAQ -->
-		<section id="FAQ" class="container-fluid no-pad clearfix section">
+		<section id="FAQ" class="container-fluid no-pad section">
 			<div class="container">
-				<div class="row clearfix">
+				<div class="row">
 					<div class="section-title">
 						<h1>Frequently Asked<br/>Questions</h1>
 						<div class="section-hr center"></div>
 					</div>
 				</div>
-				<div class="row clearfix">
+				<div class="row">
 					<div class="faq-wrapper">
 						<ul class="faq-list">
-							<li class="faq-item clearfix">
+							<li class="faq-item">
 								<span class="q-title active">
 									What’s in a Verb Bar?
 								</span>
@@ -575,15 +644,15 @@
 									Verb bars are made with almond butter, rolled oats, puffed brown rice, organic unsweetened cocoa powder, vanilla, and caffeine from organic green tea, then lightly sweetened with organic agave nectar and a hint of brown sugar. The bars are made in a certified gluten-free facility.
 								</span>
 							</li>
-							<li class="faq-item clearfix">
+							<li class="faq-item">
 								<span class="q-title">
 									Where can I get a Verb Bar?
 								</span>
 								<span class="q-answer closed">
-									Right now we’re only available online and through select locations in New England, but shoot us an email if you think you know where we should go next. If you want to buy Verb bars online, order <a href="#OrderVerb">here</a>.
+                                  The best way to get a Verb Bar is to order them right <a href="#OrderVerb">here</a>. We're also available at select college campuses in the US and retail locations in New England. Shoot us an <a href="mailto:team@verbenergybar.com">email</a>, where should we go next?
 								</span>
 							</li>
-							<li class="faq-item clearfix">
+							<li class="faq-item">
 								<span class="q-title">
 									How does the amount of caffeine in a Verb Bar compare to suggested amounts?
 								</span>
@@ -591,7 +660,7 @@
 									The FDA recommends up to 400mg of caffeine per day. Each Verb Bar has 100mg of caffeine, the same amount as a cup of coffee.
 								</span>
 							</li>
-							<li class="faq-item clearfix">
+							<li class="faq-item">
 								<span class="q-title">
 									Why do you use caffeine from green tea in Verb Bars?
 								</span>
@@ -599,7 +668,7 @@
 									We’ve chosen organic green tea because it’s healthy, clean, and provides a long-lasting energy boost. Caffeine from tea is absorbed over a longer period of time than that from other sources. That’s why coffee drinkers usually report feeling more focused and energized after a Verb Bar than after coffee.
 								</span>
 							</li>
-							<li class="faq-item clearfix">
+							<li class="faq-item">
 								<span class="q-title">
 									What if I order a Verb Bar and I don’t like it?
 								</span>
@@ -607,7 +676,7 @@
 									Send us an email. We’ll provide a full refund if you’re dissatisfied.
 								</span>
 							</li>
-							<li class="faq-item clearfix">
+							<li class="faq-item">
 								<span class="q-title">
 									What’s a Verb subscription?
 								</span>
@@ -615,7 +684,23 @@
 									Many of our customers were having one or more Verb Bars each day, so we decided to offer a subscription service. You decide how many boxes you want each month, and we mail them to your door so you don’t have to worry about interrupting your routine. You can cancel at anytime. Get started <a href="#OrderVerb">here</a>.
 								</span>
 							</li>
-							<li class="faq-item clearfix">
+							<li class="faq-item">
+								<span class="q-title">
+									Do you do volume discounts? Can I get Verb bars for my team, group, or company?
+								</span>
+								<span class="q-answer closed">
+									Absolutely! We love doing big orders. Get in touch with us at <a href="mailto:team@verbenergybar.com">team@verbenergybar.com</a>.
+								</span>
+							</li>
+							<li class="faq-item hidden">
+								<span class="q-title">
+									How do I get a subscription for more than one box a month?
+								</span>
+								<span class="q-answer closed">
+									Add a monthly subscription to your shopping cart, then open your cart. You'll be able to change the quantity there.
+								</span>
+							</li>
+							<li class="faq-item">
 								<span class="q-title">
 									I’m a store owner. How can I get Verb Bars in my store?
 								</span>
@@ -623,15 +708,15 @@
 									Please contact us at <a href="mailto:matt@verbenergybar.com">matt@verbenergybar.com</a>.
 								</span>
 							</li>
-							<li class="faq-item clearfix">
+							<li class="faq-item">
 								<span class="q-title">
-									Any other inquiries? Want to work for Verb? Changing address for a subscription?
+									Other questions? Want to work for Verb? Changing address for a subscription?
 								</span>
 								<span class="q-answer closed">
-									Please contact us at <a href="mailto:inquiries@verbenergybar.com">inquiries@verbenergybar.com</a>.
+									Please contact us at <a href="mailto:team@verbenergybar.com">team@verbenergybar.com</a>.
 								</span>
 							</li>
-							<li class="faq-item clearfix">
+							<li class="faq-item">
 							</li>
 						</ul>
 					</div>
@@ -639,9 +724,9 @@
 			</div>
 		</section>
 		<!-- END FAQ -->
-		<footer class="container-fluid no-pad clearfix">
+		<footer class="container-fluid no-pad">
 			<div class="container">
-				<div class="row clearfix">
+				<div class="row">
 					<div class="left column mobile-hidden">
 						<div class="footer-title text-left">
 							<h1>Quick Links</h1>
@@ -673,7 +758,7 @@
 					<div class="center column">
 						<div class="footer-logo">
 							<div class="image-wrapper" id="footer-logo-wrapper">
-								<img src="./public/img/logo_white.png" alt="Verb Energy Bars Logo"/>
+								<img src="./public/img/verb_logo_500x188px.png" alt="Verb Energy Bars Logo"/>
 							</div>
 						</div>
 						<div class="mobile-copyright desktop-hidden">
@@ -684,10 +769,10 @@
 								<br/>
 								All Rights Reserved.
 								<br/>
-								<b>inquiries@verbenergy.com</b>
+								<b>team@verbenergybar.com</b>
 							</p>
 							<span class="designer">
-								<a href="http://www.linkedin.com/in/abhinayar">
+								<a href="https://www.linkedin.com/in/abhinayar">
 								Designed by Abhi Nayar
 								</a>
 							</span>
@@ -701,13 +786,16 @@
 						<div class="footer-content">
 							<ul class="footer-list">
 								<li class="footer-item">
-									<a href="mailto:inquiries@verbenergy.com">inquiries@verbenergy.com</a>
+									<a href="mailto:team@verbenergybar.com">team@verbenergybar.com</a>
 								</li>
 								<li class="footer-item">
-									<a href="http://facebook.com/verbmore">facebook.com/verbmore/</a>
+									<a href="https://facebook.com/verbenergy">facebook.com/verbenergy</a>
 								</li>
 								<li class="footer-item">
-									<a href="http://twitter.com/verbmore">twitter.com/verbmore/</a>
+									<a href="https://twitter.com/verbenergy">twitter.com/verbenergy</a>
+								</li>
+								<li class="footer-item">
+									<a href="https://www.instagram.com/verbenergy/">instagram.com/verbenergy</a>
 								</li>
 								<br/><br/>
 								<span class="copyright">
@@ -718,11 +806,11 @@
 										Verb Energy Bars Inc.
 									</li>
 									<li class="footer-item">
-										All Right Reserved
+										All Rights Reserved
 									</li>
 								</span>
 								<div class="designer">
-									<a href="http://www.linkedin.com/in/abhinayar">Designed by Abhi Nayar</a>
+									<a href="https://www.linkedin.com/in/abhinayar">Designed by Abhi Nayar</a>
 								</div>
 							</ul>
 						</div>
@@ -735,10 +823,9 @@
 			<script src="https://code.jquery.com/jquery-2.2.4.min.js"
 			  integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="
 			  crossorigin="anonymous"></script>
-		  	<!-- SnipCart -->
-			<script src="https://cdn.snipcart.com/scripts/2.0/snipcart.js" id="snipcart" data-api-key="N2ExMzA2OTktMTIyMi00NDYxLTk4YTMtMmMyNjVlM2VhODNkNjM2MjEwNjcxMTA3MDY1MjMy"></script>
-			<link href="https://cdn.snipcart.com/themes/2.0/base/snipcart.min.css" type="text/css" rel="stylesheet" />
+		  	<script src="https://cdn.snipcart.com/scripts/2.0/snipcart.js" id="snipcart" data-api-key="MTE1MGFiZWMtODA5Mi00ZTFiLTk2NDItYjNhZjdlMmFiZjU4NjM2MjEwNjcxMTA3MDY1MjMy"></script>
+		  	<link href="https://cdn.snipcart.com/themes/2.0/base/snipcart.min.css" type="text/css" rel="stylesheet" />
 			<!-- CUSTOM JS -->
-			<script src="public/js/main.min.js"></script>
+			<script src="public/js/main_v1.1.js"></script>
 	</body>
 </html>
