@@ -148,6 +148,14 @@
         <!-- End Facebook Pixel Code -->
     </head>
 	<body class="index">
+		<script>
+			mixpanel.identify(distinct_id);
+				mixpanel.people.set({
+				    "$first_name": "Joe",
+				    "$last_name": "Doe",
+				    "$email": "joe.doe@example.com"
+				});
+		</script>
 		<!-- Page Alert -->
 		<div class="page-alert hidden">
 			<a href="#OrderVerb" class="page-alert-content">
