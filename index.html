@@ -143,6 +143,14 @@
 	<body class="index">
 		<script>
 			mixpanel.identify();
+			mixpanel.people.set({
+			    "$email": "jsmith@example.com",    // only special properties need the $
+
+			    "$created": new Date(),
+			    "$last_login": new Date(),         // properties can be dates...
+
+			    "gender": "Male"                   // feel free to define your own properties
+			});
 			
 		</script>
 		<!-- Page Alert -->
