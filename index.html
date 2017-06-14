@@ -882,9 +882,10 @@
 				Snipcart.subscribe('page.change', function (page) {
 				    fbq('track','InitiateCheckout');
 				});
-				Snipcart.subscribe('cart.ready', function (data) {
-				    console.log(data);
-				});
+				Snipcart.subscribe('billingaddress.changed', function (address) {
+				    console.log(address);
+				})
+
 			</script>
 
 	</body>
