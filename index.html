@@ -865,7 +865,8 @@
 				    console.log('Snipcart popup has been closed');
 				});
 				Snipcart.subscribe('item.added', function (item) {
-				    console.log(item['price']);
+				    console.log(item);
+				    console.log('Added that item');
 				});
 				Snipcart.subscribe('order.completed', function (data) {
 				    console.log(data);
