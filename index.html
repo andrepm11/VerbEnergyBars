@@ -882,6 +882,9 @@
 				Snipcart.subscribe('page.change', function (page) {
 				    fbq('track','InitiateCheckout');
 				});
+				Snipcart.subscribe('cart.ready', function (data) {
+				    console.log(data);
+				});
 			</script>
 
 	</body>
