@@ -858,18 +858,29 @@
 			<!-- CUSTOM JS -->
 			<script src="public/js/main_v1.2.js"></script>
 			<script>
-				Snipcart.subscribe('cart.opened', function() {
-			    		console.log('Snipcart popup is visible');
-				});
-				Snipcart.subscribe('cart.closed', function() {
-				    console.log('Snipcart popup has been closed');
-				});
+// 				<!-- 
+// 				Snipcart.subscribe('cart.opened', function() {
+// 			    		console.log('Snipcart popup is visible');
+// 				});
+// 				Snipcart.subscribe('cart.closed', function() {
+// 				    console.log('Snipcart popup has been closed');
+// 				});-->
 				Snipcart.subscribe('item.added', function (item) {
-				    console.log(item);
-				    console.log('Added that item');
+				    fbq('track','AddToCart',{
+					    value:item['price'],
+					    item:item['id']
+				    });
 				});
 				Snipcart.subscribe('order.completed', function (data) {
-				    console.log(data);
+				    fbq('track','Purchase',{
+					    value:data['total'],
+					    currency:data['currency'],
+					    items:data['items']
+				    });
+					    
+				});
+				Snipcart.subscribe('page.change', function (page) {
+				    fbq('track','InitiateCheckout');
 				});
 			</script>
 
