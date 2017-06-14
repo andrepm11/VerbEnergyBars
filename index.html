@@ -138,18 +138,15 @@
 
     </head>
 	<body class="index">
-<!-- 		<script>
+ 		<script>
 			mixpanel.identify();
 			mixpanel.people.set({
-			    "$email": "jsmith@example.com",    // only special properties need the $
-
-			    "$created": new Date(),
-			    "$last_login": new Date(),         // properties can be dates...
-
-			    "gender": "Male"                   // feel free to define your own properties
+			    "Last Visit": new Date(),         // properties can be dates...
 			}); 
-			
-		</script>-->
+			mixpanel.people.set_once('$created', new Date());
+			mixpanel.people.set_once('Visits', 0);
+			mixpanel.people.increment('Visits');
+		</script>
 		<!-- Page Alert -->
 		<div class="page-alert hidden">
 			<a href="#OrderVerb" class="page-alert-content">
@@ -877,6 +874,7 @@
 					    currency:data['currency'],
 					    items:data['items']
 				    });
+				    mixpanel.people.track_charge(data['total']);
 					    
 				});
 				Snipcart.subscribe('page.change', function (page) {
@@ -884,6 +882,10 @@
 				});
 				Snipcart.subscribe('billingaddress.changed', function (address) {
 				    console.log(address);
+				    mixpanel.people.set({
+					    "$email":address['email'],
+					    "$name":address['name']
+				    }
 				})
 
 			</script>
