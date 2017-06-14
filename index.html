@@ -857,5 +857,14 @@
 		  	<link href="https://cdn.snipcart.com/themes/2.0/base/snipcart.min.css" type="text/css" rel="stylesheet" />
 			<!-- CUSTOM JS -->
 			<script src="public/js/main_v1.2.js"></script>
+			<script>
+				Snipcart.subscribe('cart.opened', function() {
+			    		console.log('Snipcart popup is visible');
+				});
+				Snipcart.subscribe('cart.closed', function() {
+				    console.log('Snipcart popup has been closed');
+				});
+			</script>
+
 	</body>
 </html>
