@@ -159,6 +159,7 @@
 
     </head>
 	<body class="index">
+		<!-- Mixpanel website activity -->
  		<script>
 			mixpanel.identify();
 			mixpanel.people.set({
@@ -168,6 +169,17 @@
 			mixpanel.people.set_once('Visits', 0);
 			mixpanel.people.increment('Visits');
 		</script>
+		<!--Klaviyo website activity-->
+		<script>
+		  var _learnq = _learnq || [];
+		  _learnq.push(['account', 'pk_37a5391c4a9d5631e470042b0d185f7160']);
+		  (function () {
+		    var b = document.createElement('script'); b.type = 'text/javascript'; b.async = true;
+		    b.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'a.klaviyo.com/media/js/analytics/analytics.js';
+		    var a = document.getElementsByTagName('script')[0]; a.parentNode.insertBefore(b, a);
+		  })();
+		</script>
+		
 		<!-- Page Alert -->
 		<div class="page-alert hidden">
 			<a href="#OrderVerb" class="page-alert-content">
@@ -907,6 +919,7 @@
 					    "$email":address['email'],
 					    "$name":address['name']
 				    });
+
 				});
 
 			</script>
