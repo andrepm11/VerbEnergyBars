@@ -325,20 +325,6 @@ nav {
 		}
 	}
 	
-	.cart-button {
-		padding: .25em;
-		position: fixed;
-		top: 2.5em;
-		right: 4em;
-		* {
-			display: inline;
-		}
-		@media (min-width: 48em) {
-			top: 3em;
-			right: 1em;
-		}
-	}
-	
 	#nav-menu-icon {
 		display: inline-block;
 		
@@ -383,6 +369,51 @@ nav {
 		}
 		@media only screen and (min-width: 48em) {
 			display: none;
+		}
+	}
+	
+	.cart-button {
+		padding: .25em;
+		position: fixed;
+		top: 2.5em;
+		right: 5em;
+		width: 5em;
+		height: 3em;
+		* {
+			display: inline-block;
+		}
+		@media (min-width: 48em) {
+			top: 3em;
+			right: 1em;
+		}
+	}
+	
+	#basket-icon {
+		vertical-align: bottom;
+		text-align: center;
+		border: @border;
+		display: inline-block;
+		width: 1.75em;
+		height: 1em;
+		border-bottom-left-radius: .5em;
+		border-bottom-right-radius: .5em;
+		&:before,
+		&:after {
+			content: '';
+			background: @text-color;
+			position: relative;
+			display: inline-block;
+			width: @stroke-width;
+		}
+		&:after {
+			bottom: .75em;
+			height: 1.5em;
+			left: -.1em;
+		}
+		&:before {
+			transform: rotate(90deg);
+			height: 1.5em;
+			top: -.5em;
 		}
 	}
 }
