@@ -81,7 +81,6 @@ body.snip-open {
 }
 .snip-layout input[type=password], .snip-layout input[type=text], .snip-layout select {
     background: #fff;
-    border-radius: 3px;
     border: 1px solid #eee;
     box-sizing: border-box;
     color: #555;
@@ -100,9 +99,7 @@ body.snip-open {
 .snip-layout .snip-btn {
     font-weight: 700;
     background-color: #555;
-    border-radius: 3px;
     border: 0;
-    color: #fff;
     cursor: pointer;
     display: inline-block;
     font-size: 10px;
@@ -208,7 +205,6 @@ body.snip-open {
 }
 .snip-layout .snip-header__total {
     background: #111;
-    border-radius: 5px;
     display: inline-block;
     padding: .5em;
 }
@@ -277,7 +273,6 @@ body.snip-open {
 .snip-layout .snip-table .snip-table__cell__notices div {
     margin: 10px 20px 5px;
     padding: 10px;
-    border-radius: 5px;
 }
 .snip-layout .snip-table .snip-table__cell__notices div.snip-table__cell__notices--warning {
     background-color: #faf7d3;
@@ -581,7 +576,6 @@ to {
     margin-left: 2%}
 .snip-layout .snip-form__error {
     background: #f10;
-    border-radius: 3px;
     color: #fff;
     font-size: 14px;
     padding: .357em;
@@ -733,7 +727,6 @@ to {
 }
 .snip-layout .snip-tooltip {
     background-color: #ccc;
-    border-radius: 3px;
     bottom: 100%;
     display: none;
     margin-bottom: 15px;

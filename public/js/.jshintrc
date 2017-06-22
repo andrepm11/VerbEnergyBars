@@ -1,0 +1,12 @@
+{
+	"globals": {
+		"$": false,
+		"window": false,
+		"document": false,
+		"snipcart": true,
+		"Snipcart": true,
+		"location": false,
+		"setTimeout": false,
+		"newSnipcartId": true
+	}
+}
