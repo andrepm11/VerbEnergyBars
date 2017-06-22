@@ -1,12 +1,12 @@
 @import 'snipcartCustomization';
 
 /* VARS */
-@white: white;
+@white: rgb(255, 248, 240);
 
 @verb-white: rgba(255, 241, 224, 100);
-@verb-white-transparent: rgba(255, 241, 224, 0);
+@verb-white-transparent: rgba(255, 241, 224, .8);
 @verb-black: hsl(18, 17%, 12%);
-@verb-oat: rgb(255, 216, 181);
+@verb-oat: rgb(227, 201, 178);
 @verb-yellow: hsl(51, 100%, 55%);
 @verb-gold: hsl(44, 100%, 50%);
 @verb-green: hsl(120, 69%, 37%);
@@ -29,9 +29,9 @@
 @secondary-font: 'Montserrat', sans-serif;
 
 .background-gradient {
-	background: -moz-linear-gradient(top, @background-color 50%, @verb-white-transparent 100%); /* FF3.6-15 */
-	background: -webkit-linear-gradient(top, @background-color 50%, @verb-white-transparent 100%); /* Chrome10-25,Safari5.1-6 */
-	background: linear-gradient(to bottom, @background-color 50%, @verb-white-transparent 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+	background: -moz-linear-gradient(top, @verb-white 50%, @verb-oat 100%); /* FF3.6-15 */
+	background: -webkit-linear-gradient(top, @verb-white 50%, @verb-oat 100%); /* Chrome10-25,Safari5.1-6 */
+	background: linear-gradient(to bottom, @verb-white 50%, @verb-oat 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
 	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='@background-color', endColorstr='verb-white-transparent@background-color',GradientType=0 ); /* IE6-9 */
 }
 
@@ -79,8 +79,7 @@ body {
 }
 
 body > div,
-body > section,
-body > header {
+body > section {
   background: @background-color;
 }
 
@@ -119,6 +118,7 @@ section {
 	clear: both
 }
 .container {
+	width: 100%;
 	max-width: 75em;
 	margin-left: auto;
 	margin-right: auto
@@ -162,19 +162,20 @@ section {
 }
 
 #line-1 {
-	transition-delay: 1.5s;
+	transition-delay: .5s;
 }
 
 #line-2 {
-	transition-delay: 2.5s;
+	transition-delay: 1.5s;
 }
 
 nav .fade-in {
 	transition-delay: .5s;
 }
 
-header .image-wrapper {
-	transition-delay: 4.5s;
+.bar-renderings,
+.shadows {
+	transition-delay: 2.5s;
 }
 
 //========================================
@@ -277,9 +278,10 @@ nav {
 	ul {
 		list-style: none;
 		text-indent: none;
-		width: 100%;
 		text-align: center;
-		position: relative;
+		clear: both;
+		padding: 0;
+		margin: 0;
 	}
 		
 	li {
@@ -293,7 +295,15 @@ nav {
 			font-size: 1.25em;
 			padding: .25em;
 			margin: .25em 0;
-			border-bottom: @stroke-width solid rgba(255,255,255,0)
+			border-bottom: @stroke-width solid rgba(255,255,255,0);
+			-webkit-transition: .25s ease-in-out;
+			-moz-transition: .25s ease-in-out;
+			-o-transition: .25s ease-in-out;
+			transition: .25s ease-in-out;
+			-webkit-transition-delay: 0;
+			-moz-transition-delay: 0;
+			-o-transition-delay: 0;
+			transition-delay: 0;
 		}
 		a:hover {
 			border-bottom-color: @text-color;
@@ -312,6 +322,8 @@ nav {
 		}
 		ul {
 			width: auto;
+			text-align: left;
+			clear: none;
 		}
 		li {
 			display: inline-block;
@@ -352,10 +364,10 @@ nav {
 			-moz-transform: rotate(0deg);
 			-o-transform: rotate(0deg);
 			transform: rotate(0deg);
-			-webkit-transition: .25s ease-in-out;
-			-moz-transition: .25s ease-in-out;
-			-o-transition: .25s ease-in-out;
-			transition: .25s ease-in-out;
+			-webkit-transition: .125s ease-in-out;
+			-moz-transition: .125s ease-in-out;
+			-o-transition: .125s ease-in-out;
+			transition: .125s ease-in-out;
 		}
 		span:nth-child(1) {
 			top: 20%;
@@ -366,6 +378,15 @@ nav {
 		}
 		span:nth-child(4) {
 			top: 80%;
+		}
+		
+		&:hover {
+			span:nth-child(1) {
+				top: 15%;
+			}
+			span:nth-child(4) {
+				top: 85%;
+			}
 		}
 		@media only screen and (min-width: 48em) {
 			display: none;
@@ -379,8 +400,20 @@ nav {
 		right: 5em;
 		width: 5em;
 		height: 3em;
+		
+		-webkit-transition: .25s ease-in-out;
+		-moz-transition: .25s ease-in-out;
+		-o-transition: .25s ease-in-out;
+		transition: .25s ease-in-out;
 		* {
 			display: inline-block;
+		}
+		&:hover {
+			transform: rotate(-5deg);
+			top: 2.3em;
+			@media (min-width: 48em) {
+				top: 2.8em;
+			}
 		}
 		@media (min-width: 48em) {
 			top: 3em;
@@ -469,6 +502,7 @@ nav.menu-show {
 //========================================
 
 header {
+	.background-gradient;
 	.container {
 		padding-top: 16em;
 		max-width: 90em;
@@ -484,11 +518,40 @@ header {
 		margin: 0;
 		padding: 0;
 	}
+	.bar-renderings {
+		margin-top: 4em;
+	}
 	.image-wrapper {
 		width: 100%;
 		img {
-			margin: 2em auto;
 			width: 100%;
+			height: auto;
+			-webkit-transition: 1s ease-out;
+			-moz-transition: 1s ease-out;
+			-o-transition: 1s ease-out;
+			transition: 1s ease-out;
+			transition-delay: 0;
+		}
+	}
+	.header-images {
+		width: 80%;
+		margin-left: auto;
+		margin-right: auto;
+		.bar-rendering {
+			position: relative;
+			top: 0;
+		}
+		.shadow {
+			position: relative;
+			top: -2em;
+		}
+		&:hover {
+			.bar-rendering {
+				top: -1em;
+			}
+			.shadow {
+				transform: scale(1.07, 1.07)
+			}
 		}
 	}
 	@media (min-width: 48em) {
@@ -572,8 +635,10 @@ button:disabled,
 button[disabled],
 .button.disabled {
 	opacity: .5;
-	cursor: not-allowed;
 	background: @background-color;
+	&:hover {
+		cursor: not-allowed;
+	}
 }
 
 //========================================
@@ -583,7 +648,15 @@ button[disabled],
 //========================================
 
 .mobile-hidden {
-	display: none
+	display: none !important;
+	@media (min-width: 48em) {
+		display: block !important;
+	}
+}
+.desktop-hidden {
+	@media (min-width: 48em) {
+		display: none !important;
+	}
 }
 .image-wrapper,
 .svg-wrapper {
@@ -657,9 +730,6 @@ p .intro {
 	}
 	.desktop-custom-lg {
 		width: 60%
-	}
-	.desktop-hidden {
-		display: none
 	}
 }
 
@@ -797,8 +867,10 @@ p .intro {
 	.button:focus,
 	.button:active {
 		opacity: .5;
-		cursor: not-allowed;
 		background: @background-color;
+	}
+	.button:hover {
+		cursor: not-allowed;
 	}
 }
 
@@ -833,8 +905,7 @@ p .intro {
 
 .price-type {
 	font-size: 32px;
-	font-weight: bold;
-	font-family: 'Montserrat', sans-serif;
+	font-weight: 700;
 	margin-top: 30px;
 	margin-bottom: 5px;
 }
@@ -1188,9 +1259,6 @@ footer .center .designer a {
 @media (min-width:768px) {
 	.item-title {
 		font-size: 21px;
-	}
-	.mobile-hidden {
-		display: block;
 	}
 	#AboutUs .image-wrapper img,
 	#OurMission .image-wrapper img {
