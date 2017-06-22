@@ -133,6 +133,15 @@ tr {
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
 }
+q {
+  quotes: '\201c' '\201d';
+}
+q:before {
+  content: open-quote;
+}
+q:after {
+  content: close-quote;
+}
 html,
 body {
   font-family: 'Montserrat', sans-serif;
@@ -159,10 +168,9 @@ table {
 }
 section {
   display: block;
-  min-height: 90%;
   height: auto;
   width: 100%;
-  padding: 2em 1em;
+  padding: 6em 2em;
   margin: 0 !important;
 }
 .w-100 {
@@ -198,7 +206,8 @@ section {
 }
 .on-scroll,
 .fade-in,
-.fade-up {
+.fade-up,
+.fade-up-left {
   opacity: 0;
   -webkit-transition: all 2s cubic-bezier(0.215, 0.61, 0.355, 1);
   -moz-transition: all 2s cubic-bezier(0.215, 0.61, 0.355, 1);
@@ -207,11 +216,12 @@ section {
 }
 .on-scroll.in,
 .fade-in.in,
-.fade-up.in {
+.fade-up.in,
+.fade-up-left.in {
   opacity: 1;
 }
 .fast {
-  transition-duration: .5s;
+  transition-duration: 1s;
 }
 .fade-up {
   position: relative;
@@ -219,6 +229,24 @@ section {
 }
 .fade-up.in {
   top: 0;
+}
+.fade-up-left {
+  position: relative;
+  top: 50px;
+  left: -50px;
+}
+.fade-up-left.in {
+  top: 0;
+  left: 0;
+}
+.fade-up-right {
+  position: relative;
+  top: 50px;
+  left: 50px;
+}
+.fade-up-right.in {
+  top: 0;
+  left: 0;
 }
 #line-1 {
   transition-delay: .5s;
@@ -246,11 +274,17 @@ h5,
 h6 {
   color: inherit;
   font-weight: 700;
-  text-align: center;
-  margin: 1em 0;
+  margin: 0;
 }
 h2 {
   font-size: 3em;
+  text-transform: lowercase;
+}
+h3 {
+  font-weight: 900;
+  font-size: 2.25em;
+  line-height: 1em;
+  text-transform: uppercase;
 }
 a,
 a:link,
@@ -438,7 +472,6 @@ nav .cart-button * {
   display: inline-block;
 }
 nav .cart-button:hover {
-  transform: rotate(-5deg);
   top: 2.3em;
 }
 @media (min-width: 48em) {
@@ -517,14 +550,7 @@ nav.menu-show #nav-menu-icon span:nth-child(4) {
   left: 50%;
 }
 header {
-  background: -moz-linear-gradient(top, #fff1e0 50%, #e3c9b2 100%);
-  /* FF3.6-15 */
-  background: -webkit-linear-gradient(top, #fff1e0 50%, #e3c9b2 100%);
-  /* Chrome10-25,Safari5.1-6 */
-  background: linear-gradient(to bottom, #fff1e0 50%, #e3c9b2 100%);
-  /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='@background-color', endColorstr='verb-white-transparent@background-color', GradientType=0);
-  /* IE6-9 */
+  background: #fff1e0;
 }
 header .container {
   padding-top: 16em;
@@ -600,6 +626,14 @@ header .header-images:hover .shadow {
     font-size: 7em;
   }
 }
+.photo-row img {
+  width: 20%;
+}
+@media (min-width: 48em) {
+  .photo-row img {
+    width: 10%;
+  }
+}
 .button,
 button {
   display: inline-block;
@@ -661,7 +695,7 @@ button[disabled]:hover,
 }
 @media (min-width: 48em) {
   .mobile-hidden {
-    display: block !important;
+    display: inline-block !important;
   }
 }
 @media (min-width: 48em) {
@@ -673,20 +707,6 @@ button[disabled]:hover,
 .svg-wrapper {
   max-width: 100%;
   max-height: 0 auto;
-}
-.section-hr {
-  content: '';
-  width: 60px;
-  height: 5px;
-}
-.section-hr.center {
-  margin: 20px auto 60px;
-}
-.section-hr.left {
-  margin: 20px auto 60px 0;
-}
-.section-hr.right {
-  margin: 20px 0 60px auto;
 }
 .item-title {
   font-size: 24px;
@@ -705,27 +725,25 @@ p .intro {
 .text-left {
   text-align: left;
 }
-.section-title h1 {
-  font-size: 42px;
-  font-weight: 700;
-  text-transform: uppercase;
+.desktop-4,
+.desktop-5,
+.desktop-6,
+.desktop-7,
+.desktop-8,
+.desktop-custom-sm,
+.desktop-custom-lg {
+  display: inline-block;
+  vertical-align: top;
 }
-.section-content p {
-  line-height: 1.5em;
-}
-.section-content p span {
-  display: block;
-}
-.section {
-  padding: 60px 0;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
-}
-@media (min-width: 768px) {
+@media (min-width: 48em) {
   .desktop-4 {
     width: 33.33333333%;
   }
   .desktop-5 {
     width: 41.66666666%;
+  }
+  .desktop-6 {
+    width: 49.9%;
   }
   .desktop-7 {
     width: 58.33333333%;
@@ -768,31 +786,39 @@ p .intro {
   font-size: 11px;
   padding-top: 4px;
 }
-#WhyVerb .item {
-  margin-bottom: 60px;
+#aboutVerb h3 {
+  padding-top: .4em;
 }
-#WhyVerb .item-icon .image-wrapper {
-  width: 100px;
-  height: 100px;
-  margin: 0 auto 30px;
+#pullQuotes {
+  background: #241d19;
+  color: #fff1e0;
+}
+#pullQuotes .pull-quote-container {
+  width: 80%;
+  max-width: 36em;
+  margin: 3em auto 2em;
+}
+#pullQuotes .pull-quote-container #pull-quote {
+  font-size: 2em;
+  font-weight: 700;
   text-align: center;
 }
-#WhyVerb .item-icon .image-wrapper img {
-  max-width: 100%;
+#pullQuotes .pull-quote-container #pull-quote q:before,
+#pullQuotes .pull-quote-container #pull-quote q:after {
+  font-size: 4em;
+  position: absolute;
+  opacity: .2;
 }
-#WhyVerb .item-desc,
-#WhyVerb .item-title {
-  text-align: center;
-  max-width: 420px;
-  margin: 0 auto;
+#pullQuotes .pull-quote-container #pull-quote q:before {
+  left: -0.5em;
+  bottom: 50%;
 }
-#WhyVerb .item-title {
-  margin-bottom: 30px;
-  max-width: 320px;
-  line-height: 1.2em;
+#pullQuotes .pull-quote-container #pull-quote q:after {
+  right: -0.5em;
+  top: 50%;
 }
-#WhyVerb .item-desc {
-  line-height: 1.5em;
+#pullQuotes .pull-quote-container #pull-quote-author {
+  text-align: right;
 }
 #OrderVerb .order-bar-image {
   background: #fff1e0;
