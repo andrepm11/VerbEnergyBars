@@ -214,6 +214,12 @@
 			<li>
 				<a href="#FAQ">FAQ</a>
 			</li>
+<<<<<<< HEAD
+=======
+			<li>
+				<a href="mailto:team@verbenergybar.com">Contact Us</a>
+			</li>
+>>>>>>> 791124093c076c9e0b31dc469b242d3e9b1c1cd6
 			<li class="social">
 				<a href="https://instagram.com/verbenergy"><i class="ic ic-instagram">IG</i></a>
 				<a href="https://facebook.com/verbenergy"><i class="ic ic-facebook">FB</i></a>
@@ -253,7 +259,11 @@
   <!-- END HEADER -->
 	
   <!-- ABOUT VERB -->
+<<<<<<< HEAD
   <section id="AboutVerb" class="section">
+=======
+  <section id="aboutVerb" class="section">
+>>>>>>> 791124093c076c9e0b31dc469b242d3e9b1c1cd6
     <div class="container content">
 			<div class="mobile-12 desktop-sm">
 			<h2 class="fade-up-left on-scroll fast">The Caffeinated<br>Energy Bar</h2>

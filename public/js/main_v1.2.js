@@ -228,6 +228,24 @@ $(document).ready(function(){
 		    }
 	    }, 100);
 	});
+    
+    var childQuotes = $("#quote-list").children();
+    var quoteArray=[];
+    for(var i=0; i<childQuotes.length;i++){
+        quoteArray.push(childQuotes[i]);
+    }
+    var i=0;
+    var toggleActive = function(){
+        console.log(quoteArray[i]);
+        $(quoteArray[i]).removeClass("active-quote");
+        if(i==quoteArray.length-1){
+            i=0;
+        } else i++;
+        $(quoteArray[i]).addClass("active-quote");
+    }
+    setInterval(toggleActive, 5000);
+    
+    
 });
 
 /* Nav Scroll BG */
