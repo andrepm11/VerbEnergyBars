@@ -116,6 +116,24 @@ $(document).ready(function () {
         $("#thanksForTheVerb").css("display", "block");
         $("#formwrap").css("display", "none");
     });
+    $('#contact-verb').submit(function(event) {
+        event.preventDefault();
+        
+        const message = $("#contactmessage").val();
+        const email = $("#contactemail").val();
+        console.log($(this).serialize());
+        $.ajax({
+            type: "POST",
+            url: "contactus.php",
+            data: $(this).serialize(),		
+            success: function(data){
+                console.log(data);
+            }					
+        });
+        $("#contactThanks").css("display", "block");
+        $("#contactwrap").css("display", "none");
+    });
+    
     
     var modal = document.getElementById("reviewModal");
     var btn = document.getElementById("reviewBtn");
