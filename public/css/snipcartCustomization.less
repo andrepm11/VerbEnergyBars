@@ -1,0 +1,123 @@
+.snip-layout.snip-active {
+    display: block;
+    position: fixed;
+    height: 100%;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    margin: 0 auto;
+}
+
+.snip-layout__main-container {
+	font-family: 'Montserrat' !important;
+	font-size: 1em;
+	width: 95%;
+	margin: 0 auto;
+	z-index: 1000;
+}
+
+#snipcart-main-content {
+	margin-top: 45px;
+}
+
+#snipcart-items-header th, #snipcart-plans-header th {
+	font-size: 14px !important;
+}
+
+#snipcart-header-total {
+	background: #333 !important;
+}
+
+.snip-layout .snip-btn--highlight {
+	background: #ff623f !important;
+    color: #fff !important;
+}
+
+.snip-product__description {
+	font-family: 'Roboto' !important;
+}
+
+#snipcart-cartitems-continue-top {
+	background: #777 !important;
+    width: 250px !important;
+    right: 1.5em;
+    margin-top: -1.4em;
+}
+
+#snipcart-footer {
+	display: none !important;
+}
+
+#snipcart-close {
+	margin-right: 6px;
+	margin-top: 6px;
+	&:before,
+	&:after {
+		width: @stroke-width;
+		background: white;
+	}
+	&:before {
+		transform: rotate(-45deg);
+	}
+	&:after {
+		transform: rotate(45deg);
+	}
+}
+
+#snipcart-plans-list>tr>td:nth-of-type(5) {
+	display: none;
+}
+
+.cartSubIcon {
+	max-width: 65px;
+	float: left;
+	margin-right: 10px !important;
+}
+
+.snip-layout .snip-quantity-trigger__text {
+    margin-right: 8px !important;
+    margin-left: 8px !important;
+    font-size: 21px !important;
+}
+
+.snip-layout .snip-product__name {
+	font-size: 18px !important;
+}
+
+tr {
+	font-size: 18px !important;
+}
+
+.snip-form__label[for="snip-shippingSameAsBilling"] {
+	font-weight: bold;
+	padding-bottom: 2px;
+	text-decoration: underline;
+}
+
+.snip-btn, #snipcart-header-total {
+	font-size: 16px !important;
+	height: 45px !important;
+	padding-top: 5px !important;
+} #snipcart-header-total {
+	margin-top: 30px !important;
+	width: 200px !important;
+}
+
+.snipcart-checkbox-field.shifted {
+	margin-top: 30px !important;
+}
+
+#snipcart-show-upcoming-payment-details {
+	width: 20px;
+    padding: 0;
+    height: 30px !important;
+} #snipcart-show-upcoming-payment-details:before {
+	width: auto !important;
+}
+
+@media(max-width: 768px) {
+	#snipcart-header-total {
+		margin-top: 0px !important;
+		padding-top: 12px !important;
+    	padding-left: 20px !important;
+	}
+}

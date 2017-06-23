@@ -1,10 +1,7 @@
-//Verb Energy Bars JS
-//By Abhi Nayar for SemiErect, Copyright 2017.
-//All Rights Reserved, please contact developer at anayar2[at]gmail[dot]com for inquiries
-//Code is copyright Shopify and Verb Energy Bars Inc.
-
 $(document).ready(function(){
-	/* FAQ */
+	//
+	// FAQ
+	//
 	$(".q-answer.closed").hide();
 	$(".q-title").on('click', function(){
 		if ($(this).hasClass("active")) {
@@ -18,18 +15,45 @@ $(document).ready(function(){
 			$(this).next(".q-answer").slideToggle("100").removeClass("closed").addClass("visible");
 		}
 	});
-
-	/* Hamburger Menu Display */
-	$(".menu-wrapper").on("click", function(){
-		$(".hidden-nav").fadeIn("30").addClass("active");
-	}); 
-	$(".nav-close").on("click", function(){
-		$(".hidden-nav").fadeOut("150").removeClass("active");
+	//
+	// Toggle Mobile Menu
+	//
+	$('#nav-menu-icon').on("click", function(){
+		$('nav').toggleClass("menu-show");
 	});
-	$(".hidden-nav a").click(function(){
-		$(".hidden-nav").fadeOut("150").removeClass("active");
-	});
+	//
+	// Fade-Ins 
+	//
+		// Header
+	//
+	$('nav .fade-in').addClass('in');
+	$('#line-1').addClass('in');
+	$('#line-2').addClass('in');
+	$('header .image-wrapper').addClass('in');
+	//
+		// Images
+	//
+	var $onScroll = $('.on-scroll');
+	
+	$(window).scroll(function () {
+		/* Check the location of each desired element */
+		$onScroll.each(function (i) {
 
+			var middle_of_object = $(this).position().top + ( $(this).outerHeight() / 2 );
+			var bottom_of_window = $(window).scrollTop() + $(window).height();
+
+			/* If the object is completely visible in the window, fade it in */
+			if (bottom_of_window > middle_of_object) {
+				$(this).addClass('in');
+			}
+			
+		});
+	});
+	//
+	// Reviews
+	//
+	
+	
 	/* Smooth Scroll */
 	$(function() {
 		$('a[href*="#"]:not([href="#"]):not([href="#header-carousel"])').click(function() {
@@ -94,13 +118,13 @@ $(document).ready(function(){
 			moveShippingSameAsBilling();
 		}
 		currentSnipcartId = newSnipcartId;
-	};
+	}
 
 	function addImagesToPlans() {
 		$("#snipcart-plans-list>tr>td img").remove();
 		var $img = $("<img/>").attr("src", "/public/img/bar_order_mockup.png").addClass("cartSubIcon");
 		$("#snipcart-plans-list .snip-product__name").parent().prepend($img);
-	}; 
+	}
 	function addSpacesToPrice() {
 		$("#snipcart-plans-list tr").each(function(i, item){
 			var txt1 = $(item).find("td:nth-of-type(3)").text();
@@ -108,14 +132,14 @@ $(document).ready(function(){
 			var txt2 = $(item).find("td:nth-of-type(4)").text();
 			$(item).find("td:nth-of-type(4)").text(txt2.replace(/\s/g, ''));
 		});
-	};
+	}
 	function moveShippingSameAsBilling() {
 		$("#snip-shippingSameAsBilling").closest(".snipcart-checkbox-field").addClass("shifted");
 		$("#snip-shippingSameAsBilling").closest(".snipcart-checkbox-field").prependTo("#snipcart-billingaddress-form .snip-cols .snip-col:nth-of-type(3)");
-	};
+	}
 	
 	
-	$(".quantity-select .inc-wrapper").on('click', function(){
+	$(".quantity-select .button").on('click', function(){
 		var curQuant = parseInt($(".quantity-select .cur-quant").text(), 10);
       
 		if ($(this).hasClass("down")) {
@@ -123,15 +147,18 @@ $(document).ready(function(){
 			if (curQuant > 1) {
 				curQuant--;
 				$(".quantity-select .cur-quant").html(curQuant);
-                $(".order-button button.shown").data("item-quantity", curQuant);
+        $(".order-button button.shown").data("item-quantity", curQuant);
+				if (curQuant == 1) {
+					$(".cur-quant").removeClass('plural');
+				}
 			}
-			
 		} else {
 			//inc. up
 			if (!$(".quantity-select").hasClass("off")) {
 				curQuant++;
 				$(".quantity-select .cur-quant").html(curQuant);
-                $(".order-button button.shown").data("item-quantity", curQuant);
+        $(".order-button button.shown").data("item-quantity", curQuant);
+				$(".cur-quant").addClass('plural');
 			}
 		}
 	});
@@ -151,16 +178,19 @@ $(document).ready(function(){
               $(".order-button button.single-order").removeClass("hidden").addClass("shown");
               $(".quantity-select").removeClass("off");
               $(".price-type .single-price").removeClass("hidden");
+							$(".cur-quant").removeClass('three-bar');
           }  else if ($(this).hasClass("single-sub")) {
               //show single-sub. button
               $(".order-button button.single-sub").removeClass("hidden").addClass("shown");
               $(".quantity-select .cur-quant").text("1");
               $(".quantity-select").addClass("off");
               $(".price-type .single-sub-price").removeClass("hidden");
+							$(".cur-quant").removeClass('three-bar');
           }  else if ($(this).hasClass("single-small")) {
               $(".order-button button.single-order-small").removeClass("hidden").addClass("shown");
               $(".quantity-select").removeClass("off");
               $(".price-type .single-small-price").removeClass("hidden");
+							$(".cur-quant").addClass('three-bar');
           } else {
                   //show sub. button
                   /*$(".order-button button.subscribe").removeClass("hidden").addClass("shown");
@@ -202,7 +232,7 @@ $(document).ready(function(){
 
 /* Nav Scroll BG */
 $(document, window).on('load, scroll', function(){
-	curr_scroll = $(document).scrollTop();
+	var curr_scroll = $(document).scrollTop();
 	if (curr_scroll > 50) {
 		$("nav").addClass("bg");
 
