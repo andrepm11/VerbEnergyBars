@@ -1,3 +1,5 @@
+/*jshint browser: true */
+
 $(document).ready(function(){
 	//
 	// FAQ
@@ -23,9 +25,9 @@ $(document).ready(function(){
 	});
 	//
 	// Fade-Ins 
-	//
+		//
 		// Header
-	//
+		//
 	$('nav .fade-in').addClass('in');
 	$('#line-1').addClass('in');
 	$('#line-2').addClass('in');
@@ -50,11 +52,26 @@ $(document).ready(function(){
 		});
 	});
 	//
-	// Reviews
+	// Pull Quotes
 	//
-	
-	
-	/* Smooth Scroll */
+		var childQuotes = $("#quote-list").children();
+		var quoteArray = [];
+		for (var i = 0; i < childQuotes.length; i++) {
+			quoteArray.push(childQuotes[i]);
+		}
+		i = 0;
+		var toggleActive = function () {
+			//        console.log(quoteArray[i]);
+			$(quoteArray[i]).removeClass("active-quote");
+			if (i == quoteArray.length - 1) {
+				i = 0;
+			} else i++;
+			$(quoteArray[i]).addClass("active-quote");
+		};
+		setInterval(toggleActive, 5000);
+  //
+	// Smooth Scroll
+	//
 	$(function() {
 		$('a[href*="#"]:not([href="#"]):not([href="#header-carousel"])').click(function() {
 		if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') && location.hostname == this.hostname) {
@@ -229,42 +246,8 @@ $(document).ready(function(){
 	    }, 100);
 	});
     
-    var childQuotes = $("#quote-list").children();
-    var quoteArray=[];
-    for(var i=0; i<childQuotes.length;i++){
-        quoteArray.push(childQuotes[i]);
-    }
-    var i=0;
-    var toggleActive = function(){
-        $(quoteArray[i]).removeClass("active-quote");
-        if(i==quoteArray.length-1){
-            i=0;
-        } else i++;
-        $(quoteArray[i]).addClass("active-quote");
-    }
-    setInterval(toggleActive, 5000);
-    
-    
+
 });
-
-/* Nav Scroll BG */
-$(document, window).on('load, scroll', function(){
-	var curr_scroll = $(document).scrollTop();
-	if (curr_scroll > 50) {
-		$("nav").addClass("bg");
-
-		var op = ((curr_scroll-49)/100) * 0.15;
-		if (op > 0) {
-			$("#Top .container").css("opacity", 1 - op);
-		} else {
-			$("#Top .container").css("opacity", 0);
-		}
-	} else {
-		$("nav").removeClass("bg");
-		$("#Top .container").css("opacity", 1);
-	}
-});
-
 
 
 

@@ -33,6 +33,7 @@
 //@verb-white: rgba(255, 241, 224, 100);
 @verb-white: @verb-primary-2;
 @verb-white-transparent: rgba(255, 241, 224, .8);
+<<<<<<< HEAD
 //@verb-black: hsl(18, 17%, 12%);
 @verb-black: @verb-gray-4;
 @verb-black-10: @verb-gray-3;
@@ -43,18 +44,35 @@
 }
 //@verb-yellow: hsl(51, 100%, 55%);
 @verb-yellow: @verb-yellow-1;
+=======
+@verb-black: hsl(18, 17%, 12%);
+@verb-black-10: lighten(hsl(18, 17%, 12%), 10%);
+@verb-oat: rgb(227, 201, 178);
+.verb-oat {
+	color: @verb-oat;
+}
+@verb-yellow: hsl(51, 100%, 55%);
+>>>>>>> 791124093c076c9e0b31dc469b242d3e9b1c1cd6
 .verb-yellow {
 	color: @verb-yellow;
 }
 @verb-yellow-10: lighten(@verb-yellow, 10%);
+<<<<<<< HEAD
 //@verb-gold: hsl(44, 79%, 54%);
 @verb-gold: @verb-yellow-2;
+=======
+@verb-gold: hsl(44, 79%, 54%);
+>>>>>>> 791124093c076c9e0b31dc469b242d3e9b1c1cd6
 .verb-gold {
 	color: @verb-gold;
 }
 @verb-gold-10: lighten(@verb-gold, 10%);
+<<<<<<< HEAD
 //@verb-green: hsl(120, 43%, 39%);
 @verb-green: @verb-green-2;
+=======
+@verb-green: hsl(120, 43%, 39%);
+>>>>>>> 791124093c076c9e0b31dc469b242d3e9b1c1cd6
 .verb-green {
 	color: @verb-green;
 }
@@ -69,14 +87,22 @@
 	color: @verb-red;
 }
 @verb-red-10: lighten(@verb-red, 10%);
+<<<<<<< HEAD
 //@verb-brown: hsl(28, 41%, 27%);
 @verb-brown: @verb-brown-1;
+=======
+@verb-brown: hsl(28, 41%, 27%);
+>>>>>>> 791124093c076c9e0b31dc469b242d3e9b1c1cd6
 .verb-brown {
 	color: @verb-brown;
 }
 @verb-brown-10: lighten(@verb-brown, 10%);
+<<<<<<< HEAD
 @verb-gray: @verb-gray-1;
 //@verb-gray: hsl(0, 0%, 68%);
+=======
+@verb-gray: hsl(0, 0%, 68%);
+>>>>>>> 791124093c076c9e0b31dc469b242d3e9b1c1cd6
 .verb-gray {
 	color: @verb-gray;
 }
@@ -306,10 +332,13 @@ h3 {
 	line-height: 1em;
 	text-transform: uppercase;
 	padding-top: .4em;
+<<<<<<< HEAD
 }
 
 h4 {
 	font-weight: 400;
+=======
+>>>>>>> 791124093c076c9e0b31dc469b242d3e9b1c1cd6
 }
 
 a,
@@ -602,6 +631,7 @@ nav {
 				transition-delay: 0;
 			}
 			&:nth-child(1) a {
+<<<<<<< HEAD
 				color: @verb-green-2;
 			}			
 			&:nth-child(2) a {
@@ -635,6 +665,7 @@ nav {
 			&:nth-child(5) a:hover {
 				border-bottom-color: @verb-gray-3;
 				color: @verb-gray-3;
+=======
 				color: @verb-green;
 			}			
 			&:nth-child(2) a {
@@ -668,6 +699,7 @@ nav {
 			&:nth-child(5) a:hover {
 				border-bottom-color: @verb-black;
 				color: @verb-black-10;
+>>>>>>> 791124093c076c9e0b31dc469b242d3e9b1c1cd6
 			}			
 			&.social {
 				a:hover {
@@ -939,6 +971,7 @@ header {
 			}
 		}
   }
+<<<<<<< HEAD
 }
 
 //========================================
@@ -953,6 +986,79 @@ header {
 	img {
 		padding: 0;
 		margin: 0 0 -1em 0;
+		width: 20%;
+		@media (min-width: 48em) {
+			width: 10%;
+		}
+	}
+=======
+>>>>>>> 791124093c076c9e0b31dc469b242d3e9b1c1cd6
+}
+
+//========================================
+//========================================
+<<<<<<< HEAD
+//======================================== About Verb
+//========================================
+//========================================
+
+//========================================
+//========================================
+//======================================== Pull-Quotes
+//========================================
+//========================================
+
+#pullQuotes {
+	background: @verb-black;
+	color: @verb-primary-5;
+	.pull-quote-container {
+		width: 80%;
+		max-width: 48em;
+		margin: 3em auto 2em;
+		@media (min-width: 48em) {
+			margin: 6em auto 4em;
+			font-size: 1.5em;
+		}
+		.pull-quote {
+			font-size: 2em;
+			font-weight: 700;
+			text-align: center;
+			q:before,
+			q:after { 
+				font-size: 4em;
+				position: absolute;
+				opacity: .2;
+			}
+			q:before {
+				left: -.5em;
+				bottom: 50%;
+			}
+			q:after{
+				right: -.5em;
+				top: 50%;
+			}
+		}
+		.pull-quote-author {
+			text-align: right;
+			opacity: .2;
+			font-size: 1em;
+		}
+	}
+}
+
+//========================================
+//========================================
+//======================================== The Secret
+//========================================
+//========================================
+
+=======
+//======================================== Photo-Row
+//========================================
+//========================================
+
+.photo-row {
+	img {
 		width: 20%;
 		@media (min-width: 48em) {
 			width: 10%;
@@ -974,60 +1080,45 @@ header {
 
 #pullQuotes {
 	background: @verb-black;
-	color: @verb-primary-5;
-	#quote-list {
-		position: relative;
-	}
-	.pull-quote-container {
-		&:first-child {
-			position: static;
-			top: 0;
-		}
-		position: absolute;
-		top: -175%;
-		opacity: 0;
-		width: 100%;
-		margin: 3em 0 2em;
-		&.active-quote {
-			opacity: 1;
-			transition-delay: 1s;
-		}
-		@media (min-width: 48em) {
-			margin: 6em auto 4em;
-			font-size: 1.5em;
-		}
-		.pull-quote {
-			width: 80%;
-			max-width: 36em;
-			font-size: 2em;
-			font-weight: 700;
-			margin-right: auto;
-			margin-left: auto;
-			text-align: center;
-			q:before,
-			q:after { 
-				font-size: 4em;
-				position: absolute;
-				opacity: .2;
-			}
-			q:before {
-				left: 0;
-				bottom: 50%;
-			}
-			q:after{
-				right: 0;
-				top: 50%;
-			}
-		}
-		.pull-quote-author {
-			text-align: right;
-			opacity: .2;
-			font-size: 1em;
-			max-width: 36em;
-			margin-left: auto;
-			margin-right: auto;
-		}
-	}
+	color: @background-color;
+    #quote-list{
+        .pull-quote-container {
+            width: 80%;
+            max-width: 48em;
+            margin: 3em auto 2em;
+            opacity: 0;
+            @media (min-width: 48em) {
+                margin: 6em auto 4em;
+                font-size: 1.5em;
+            }
+            &.active-quote{
+                opacity: 1;
+            }
+
+            .pull-quote {
+                font-size: 2em;
+                font-weight: 700;
+                text-align: center;
+                q:before,
+                q:after { 
+                    font-size: 4em;
+                    position: absolute;
+                    opacity: .2;
+                }
+                q:before {
+                    left: -.5em;
+                    bottom: 50%;
+                }
+                q:after{
+                    right: -.5em;
+                    top: 50%;
+                }
+            }
+            .pull-quote-author {
+                text-align: right;
+            }
+        }
+    }
 }
 
 //========================================
@@ -1036,6 +1127,7 @@ header {
 //========================================
 //========================================
 
+>>>>>>> 791124093c076c9e0b31dc469b242d3e9b1c1cd6
 #theSecret {
 	.pull-quote {
 		text-align: center;
@@ -1058,7 +1150,11 @@ header {
 //========================================
 //========================================
 
+<<<<<<< HEAD
 @order-background: @verb-primary-1;
+=======
+@order-background: @verb-oat;
+>>>>>>> 791124093c076c9e0b31dc469b242d3e9b1c1cd6
 
 #OrderVerb {
 	background: @order-background;
@@ -1446,6 +1542,7 @@ textarea{
 
 footer {
 	background: @verb-black;
+<<<<<<< HEAD
 	color: @verb-gray-2;
 	padding-bottom: 8em;
 	> * {
@@ -1461,6 +1558,159 @@ footer {
 	.right {
 		text-align: right;
 	}
+=======
+	color: @white;
+}
+
+footer .column {
+	margin-top: 90px;
+	margin-bottom: 120px;
+}
+
+footer .center {
+	text-align: center;
+	line-height: 1.5em;
+}
+
+footer .footer-logo {
+	margin: 0 auto;
+	text-align: center;
+}
+
+footer .center p {
+	margin-top: 15px;
+}
+
+footer .center .designer a {
+	display: inline-block;
+	font-size: 10px;
+	color: #454545;
+	margin-top: 30px;
+	text-decoration: none;
+	border-bottom: 1px solid #454545;
+}
+
+@media (min-width:768px) {
+	.item-title {
+		font-size: 21px;
+	}
+	#AboutUs .image-wrapper img,
+	#OurMission .image-wrapper img {
+		display: none;
+	}
+	p {
+		font-size: 16px;
+		font-weight: 400;
+		line-height: 1.8em;
+	}
+	p .intro {
+		font-weight: 700;
+	}
+	.section {
+		border: none;
+	}
+
+	#AboutUs .image-wrapper,
+	#OurMission .image-wrapper {
+		height: 350px;
+		background-position: center center;
+		background-attachment: scroll;
+		background-size: cover;
+	}
+	.price-wrapper {
+		width: 100%;
+		text-align: left;
+		margin: 35px 0;
+	}
+	.price-wrapper h1 {
+		font-size: 50px;
+	}
+	.price-wrapper h1 .small {
+		font-size: 28px;
+	}
+
+	#AboutUs .section-hr,
+	#OurMission .section-hr {
+		margin-left: 0;
+	}
+	
+	#AboutUs,
+	#OurMission {
+		padding-top: 45px;
+	}
+	#AboutUs .image-wrapper {
+		background-image: url(../img/team.jpg);
+	}
+	#AboutUs .section-title {
+		text-align: left;
+		margin-top: -35px;
+	}
+	#AboutUs .section-content {
+		text-align: left;
+		max-width: none;
+		margin-top: -30px;
+	}
+	#OurMission .image-wrapper {
+		background-image: url(../img/mission.jpg);
+	}
+	#OurMission .section-title {
+		text-align: left;
+		margin-top: -35px;
+	}
+	#OurMission .section-content {
+		text-align: left;
+		max-width: none;
+		margin-top: -30px;
+	}
+	footer .column {
+		width: 33.3333333%;
+		float: left;
+		margin-bottom: 60px;
+	}
+	footer .footer-logo {
+		width: 140px;
+		margin: 0 auto;
+	}
+	footer .footer-logo img {
+		width: 100%
+	}
+	footer .left {
+		text-align: left;
+	}
+	footer .right {
+		text-align: right;
+	}
+	footer ul {
+		list-style: none;
+		line-height: 2em;
+		margin-top: -30px;
+	}
+	footer a {
+		color: @white;
+		text-decoration: none;
+		padding-bottom: 1px;
+		border-bottom: 1px solid transparent;
+	}
+	footer a:hover {
+		border-color: @white;
+	}
+	footer .footer-title h1 {
+		font-size: 21px;
+		text-transform: uppercase;
+	}
+	footer ul li a {
+		font-size: 16px;
+	}
+	footer .designer a,
+	footer .designer a:hover {
+		color: #444;
+		font-size: 12px;
+		border: none;
+	}
+	footer .designer a:hover {
+		text-decoration: underline;
+	}
+>>>>>>> 791124093c076c9e0b31dc469b242d3e9b1c1cd6
 }
 
 /* PAGE ALERT CSS */
