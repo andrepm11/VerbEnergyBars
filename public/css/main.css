@@ -916,9 +916,13 @@ header .header-images:hover .shadow {
   color: #d0a66c;
 }
 #pullQuotes .pull-quote-container {
+  opacity: 0;
   width: 80%;
   max-width: 48em;
   margin: 3em auto 2em;
+}
+#pullQuotes .pull-quote-container.active-quote {
+  opacity: 1;
 }
 @media (min-width: 48em) {
   #pullQuotes .pull-quote-container {

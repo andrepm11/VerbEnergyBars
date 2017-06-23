@@ -976,9 +976,13 @@ header {
 	background: @verb-black;
 	color: @verb-primary-5;
 	.pull-quote-container {
+		opacity: 0;
 		width: 80%;
 		max-width: 48em;
 		margin: 3em auto 2em;
+		&.active-quote {
+			opacity: 1;
+		}
 		@media (min-width: 48em) {
 			margin: 6em auto 4em;
 			font-size: 1.5em;
