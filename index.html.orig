@@ -214,6 +214,12 @@
 			<li>
 				<a href="#FAQ">FAQ</a>
 			</li>
+<<<<<<< HEAD
+=======
+			<li>
+				<a href="mailto:team@verbenergybar.com">Contact Us</a>
+			</li>
+>>>>>>> 791124093c076c9e0b31dc469b242d3e9b1c1cd6
 			<li class="social">
 				<a href="https://instagram.com/verbenergy"><i class="ic ic-instagram">IG</i></a>
 				<a href="https://facebook.com/verbenergy"><i class="ic ic-facebook">FB</i></a>
@@ -253,7 +259,11 @@
   <!-- END HEADER -->
 	
   <!-- ABOUT VERB -->
+<<<<<<< HEAD
   <section id="AboutVerb" class="section">
+=======
+  <section id="aboutVerb" class="section">
+>>>>>>> 791124093c076c9e0b31dc469b242d3e9b1c1cd6
     <div class="container content">
 			<div class="mobile-12 desktop-sm">
 			<h2 class="fade-up-left on-scroll fast">The Caffeinated<br>Energy Bar</h2>
@@ -279,20 +289,27 @@
 	<!-- QUOTES -->
 	<section id="pullQuotes">
 		<div class="container">
-			<div id="quote-list">
-					<div class="pull-quote-container active-quote fade-up on-scroll">
-							<p class="pull-quote"><q>Placeholder for a medium sized quote.</q></p>
-							<p class="pull-quote-author">&mdash;Fictional Person 1, 24</p>
-					</div>
-					<div class="pull-quote-container fade-up on-scroll">
-							<p class="pull-quote"><q>Little quote placeholder</q></p>
-							<p class="pull-quote-author">&mdash;Fictional Person 2, 19</p>
-					</div>
-					<div class="pull-quote-container fade-up on-scroll">
-							<p class="pull-quote"><q>This is a placeholder for a quote that's a little bit longer than the other quotes.</q></p>
-							<p class="pull-quote-author">&mdash;Fictional Person 3, 23</p>
-					</div>
+<<<<<<< HEAD
+			<div class="pull-quote-container fade-up on-scroll">
+				<p class="pull-quote"><q>I've almost completely stopped drinking coffee. I live on Verb Bars.</q></p>
+				<p class="pull-quote-author">&mdash;Rachel, 20</p>
 			</div>
+=======
+            <div id="quote-list">
+                <div class="pull-quote-container active-quote fade-up on-scroll">
+                    <p class="pull-quote"><q>I've almost completely stopped drinking coffee. I live on Verb Bars.</q></p>
+                    <p class="pull-quote-author">&mdash;Rachel, 20</p>
+                </div>
+                <div class="pull-quote-container fade-up on-scroll">
+                    <p class="pull-quote"><q>I've almost completely stopped drinking coffee. I live on Verb Bars.</q></p>
+                    <p class="pull-quote-author">&mdash;Rachel, 20</p>
+                </div>
+                <div class="pull-quote-container fade-up on-scroll">
+                    <p class="pull-quote"><q>I've almost completely stopped drinking coffee. I live on Verb Bars.</q></p>
+                    <p class="pull-quote-author">&mdash;Rachel, 20</p>
+                </div>
+            </div>
+>>>>>>> 791124093c076c9e0b31dc469b242d3e9b1c1cd6
 		</div>
 	</section>
 	<!-- END QUOTES -->
@@ -585,6 +602,45 @@
   <!-- END ABOUT US -->
   <!-- OUR MISSION -->
   <section id="OurMission" class="container-fluid no-pad section">
+<<<<<<< HEAD
+=======
+    <div class="container">
+      <div class="row">
+        <div class="mobile-hidden desktop-lg">
+          <div class="image-wrapper">
+            <img src="./public/img/mission.jpg" alt="The Verb Mission" />
+          </div>
+        </div>
+        <div class="mobile-12 desktop-sm our-mission-wrapper">
+          <div class="section-title">
+            <h2>Our Mission</h2>
+            <div class="section-hr left"></div>
+          </div>
+          <div class="image-wrapper desktop-hidden">
+            <img src="./public/img/mission.jpg" alt="The Verb Mission" />
+          </div>
+          <div class="section-content">
+            <p>
+              <span class="intro">
+									We make good energy.
+									<br/><br/>
+									We believe the world is a better place when nothing holds people back from enjoying what they love.
+								</span>
+              <span class="body">
+								    That means making the bar that’s best for you, best for the community, and best for the environment. We source responsibly grown organic ingredients, donate a portion of profits to worthy causes, and have made the commitment to be carbon neutral by 2020.
+								</span>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- END OUR MISSION -->
+	
+	<!-- PHOTO ROW -->
+	<div class="photo-row"><img class="mobile-hidden" src="public/img/verb_energy_bar_canyon.JPG"><img src="public/img/verb_energy_bar_kate_skiing.JPG"><img src="public/img/verb_energy_bar_jocina_at_yale_som.JPG"><img class="mobile-hidden" src="public/img/verb_energy_bar_mexico_beach.JPG"><img class="mobile-hidden" src="public/img/verb_energy_bar_sara_arizona.JPG"><img src="public/img/verb_energy_bar_stella_studying.JPG"><img src="public/img/verb_energy_bar_portugal.JPG"><img class="mobile-hidden" src="public/img/verb_energy_bar_taylor_skiing_in_colorado.JPG"><img class="mobile-hidden" src="public/img/verb_hat_bennett_in_north_carolina.JPG"><img src="public/img/verb_hat_duke_in_big_sur.JPG"></div>
+	<footer class="container-fluid no-pad">
+>>>>>>> 791124093c076c9e0b31dc469b242d3e9b1c1cd6
     <div class="container">
       <div class="row">
         <div class="mobile-hidden desktop-lg">

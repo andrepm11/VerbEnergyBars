@@ -616,6 +616,39 @@ nav ul.nav-list li:nth-child(4) a:hover {
 nav ul.nav-list li:nth-child(5) a:hover {
   border-bottom-color: #31313a;
   color: #31313a;
+  color: #369638;
+}
+nav ul.nav-list li:nth-child(2) a {
+  color: #1d1d20;
+}
+nav ul.nav-list li:nth-child(3) a {
+  color: #1d1d20;
+}
+nav ul.nav-list li:nth-child(4) a {
+  color: #1d1d20;
+}
+nav ul.nav-list li:nth-child(5) a {
+  color: #1d1d20;
+}
+nav ul.nav-list li:nth-child(1) a:hover {
+  border-bottom-color: #1d1d20;
+  color: #44bb46;
+}
+nav ul.nav-list li:nth-child(2) a:hover {
+  border-bottom-color: #1d1d20;
+  color: #31313a;
+}
+nav ul.nav-list li:nth-child(3) a:hover {
+  border-bottom-color: #1d1d20;
+  color: #31313a;
+}
+nav ul.nav-list li:nth-child(4) a:hover {
+  border-bottom-color: #1d1d20;
+  color: #31313a;
+}
+nav ul.nav-list li:nth-child(5) a:hover {
+  border-bottom-color: #1d1d20;
+  color: #31313a;
 }
 nav ul.nav-list li.social a:hover {
   border: none;
@@ -883,9 +916,13 @@ header .header-images:hover .shadow {
   color: #d0a66c;
 }
 #pullQuotes .pull-quote-container {
+  opacity: 0;
   width: 80%;
   max-width: 48em;
   margin: 3em auto 2em;
+}
+#pullQuotes .pull-quote-container.active-quote {
+  opacity: 1;
 }
 @media (min-width: 48em) {
   #pullQuotes .pull-quote-container {
