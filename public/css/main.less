@@ -6,20 +6,45 @@
 @verb-white: rgba(255, 241, 224, 100);
 @verb-white-transparent: rgba(255, 241, 224, .8);
 @verb-black: hsl(18, 17%, 12%);
+@verb-black-10: lighten(hsl(18, 17%, 12%), 10%);
 @verb-oat: rgb(227, 201, 178);
+.verb-oat {
+	color: @verb-oat;
+}
 @verb-yellow: hsl(51, 100%, 55%);
+.verb-yellow {
+	color: @verb-yellow;
+}
 @verb-yellow-10: lighten(@verb-yellow, 10%);
 @verb-gold: hsl(44, 79%, 54%);
+.verb-gold {
+	color: @verb-gold;
+}
 @verb-gold-10: lighten(@verb-gold, 10%);
 @verb-green: hsl(120, 43%, 39%);
+.verb-green {
+	color: @verb-green;
+}
 @verb-green-10: lighten(@verb-green, 10%);
 @verb-blue: hsl(222, 59%, 47%);
+.verb-blue {
+	color: @verb-blue;
+}
 @verb-blue-10: lighten(@verb-blue, 10%);
 @verb-red: hsl(9, 59%, 46%);
+.verb-red {
+	color: @verb-red;
+}
 @verb-red-10: lighten(@verb-red, 10%);
 @verb-brown: hsl(28, 41%, 27%);
+.verb-brown {
+	color: @verb-brown;
+}
 @verb-brown-10: lighten(@verb-brown, 10%);
 @verb-gray: hsl(0, 0%, 68%);
+.verb-gray {
+	color: @verb-gray;
+}
 
 @accent-color: @verb-green;
 @accent-color-2: @verb-blue;
@@ -101,7 +126,7 @@ section {
   display: block;
   height: auto;
   width: 100%;
-	padding: 6em 2em;
+	padding: 6em 2em 4em;
 	margin: 0 !important;
 }
 
@@ -129,10 +154,10 @@ section {
 	width: 100%;
 	max-width: 75em;
 	margin-left: auto;
-	margin-right: auto
+	margin-right: auto;
 }
 .content {
-	margin-bottom: 8em;
+	margin-bottom: 6em;
 }
 
 .show-mobile {
@@ -236,6 +261,7 @@ h6 {
 h2 {
 	font-size: 3em;
 	text-transform: lowercase;
+	margin-bottom: 1em;
 }
 
 h3 {
@@ -370,6 +396,22 @@ p .intro {
 	text-align: left
 }
 
+.mobile-12 {
+	width: 100%;
+	p {
+		max-width: 32em;
+	}
+	&.desktop-lg {
+		& > * {
+		float: right;
+			max-width: 32em;
+			@media (min-width: 48em) {
+				float: none;
+			}
+		}
+	}
+}
+
 .desktop-4,
 .desktop-5,
 .desktop-6,
@@ -398,7 +440,8 @@ p .intro {
 		width: 66.66666666%
 	}
 	.desktop-sm {
-		width: 39.99999999%
+		width: 39.99999999%;
+		padding-right: 2em;
 	}
 	.desktop-lg {
 		width: 60%
@@ -517,16 +560,16 @@ nav {
 				color: @verb-green;
 			}			
 			&:nth-child(2) a {
-				color: @verb-brown;
+				color: @verb-black;
 			}			
 			&:nth-child(3) a {
-				color: @verb-brown;
+				color: @verb-black;
 			}			
 			&:nth-child(4) a {
-				color: @verb-brown;
+				color: @verb-black;
 			}			
 			&:nth-child(5) a {
-				color: @verb-brown;
+				color: @verb-black;
 			}			
 			&:nth-child(1) a:hover {
 				border-bottom-color: @verb-black;
@@ -534,19 +577,19 @@ nav {
 			}			
 			&:nth-child(2) a:hover {
 				border-bottom-color: @verb-black;
-				color: @verb-brown-10;
+				color: @verb-black-10;
 			}			
 			&:nth-child(3) a:hover {
 				border-bottom-color: @verb-black;
-				color: @verb-brown-10;
+				color: @verb-black-10;
 			}			
 			&:nth-child(4) a:hover {
 				border-bottom-color: @verb-black;
-				color: @verb-brown-10;
+				color: @verb-black-10;
 			}			
 			&:nth-child(5) a:hover {
 				border-bottom-color: @verb-black;
-				color: @verb-brown-10;
+				color: @verb-black-10;
 			}			
 			&.social {
 				a:hover {
@@ -897,37 +940,44 @@ header {
 	}
 }
 
+.inline-icon {
+	height: .75em;
+	display: inline-block;
+}
+#organic-icon {
+	stroke: @verb-green;
+}
+
 //========================================
 //========================================
 //======================================== Order Verb
 //========================================
 //========================================
 
+@order-background: @verb-oat;
+
 #OrderVerb {
+	background: @order-background;
 	.order-bar-image {
-		background: @background-color;
-		text-align: center;
+		background: @order-background;
+		vertical-align: center;
 		img {
 			max-width: 100%;
-			width: 90%;
-			margin: 0 auto;
-		}
-	}
-	.section-content {
-		display: block;
-		text-align: center;
-		line-height: 1.5em;
-		max-width: 28em;
-		margin: 0 auto;
-		.intro {
-			margin-bottom: 15px;
-			display: block;
+			width: 100%;
 		}
 	}
 }
 
 .order-items {
 	padding: 0 2em;
+	vertical-align: center;
+	height: auto;
+	text-align: center;
+	& > div {
+		max-width: 24em;
+		margin-right: auto;
+		margin-left: auto;
+	}
 }
 
 .order-type-button {
@@ -937,7 +987,7 @@ header {
 	margin: .5em 0;
 	text-align: center;
 	font-family: inherit;
-	background: none;
+	background: background-color;
 	&.active {
 		background: @text-color;
 		color: @background-color;
@@ -962,7 +1012,7 @@ header {
 	.button:focus,
 	.button:active {
 		opacity: .5;
-		background: @background-color;
+		background: @order-background;
 	}
 	.button:hover {
 		cursor: not-allowed;
@@ -999,19 +1049,23 @@ header {
 }
 
 .price-type {
-	font-size: 32px;
+	font-size: 2em;
 	font-weight: 700;
-	margin-top: 30px;
-	margin-bottom: 5px;
+	margin: 1em 0;
+	width: 8em;
+	margin-right: auto;
 }
 
 .og-price.sale {
 	text-decoration: line-through;
+	font-weight: 400;
+	opacity: .5;
+	font-size: .75em;
+	vertical-align: top;
 }
 
 .sale-price {
 	display: none;
-	margin-right: 5px;
 	color: @accent-color;
 }
 
@@ -1473,42 +1527,6 @@ footer .center .designer a {
 	}
 }
 
-@media (min-width: 768px) {
-	#OrderVerb .order-bar-image {
-		min-height: 640px;
-	}
-}
-
-@media (min-width:820px) {
-	#OrderVerb .order-bar-image {
-		min-height: 610px;
-	}
-	#OrderVerb .order-bar-image img {
-		padding-top: 75px;
-	}
-}
-
-@media (min-width:868px) {
-	#OrderVerb .order-bar-image img {
-		padding-top: 45px;
-	}
-	#AboutUs .image-wrapper,
-	#OurMission .image-wrapper {
-		height: 380px;
-	}
-}
-
-@media (min-width:920px) {
-	#OrderVerb .order-bar-image {
-		text-align: center;
-	}
-	#OrderVerb .order-bar-image img {
-		max-width: 420px;
-		margin: 0 auto;
-		padding-top: 60px;
-	}
-}
-
 /* PAGE ALERT CSS */
 
 .page-alert {
@@ -1627,7 +1645,8 @@ footer .center .designer a {
 
 #snipcart-close {
 	color: rgba(255,255,255,0);
-	padding: 1em .5em 0 0;
+	padding: .25em .25em 0 0;
+	height: 2em;
 	&::before,
 	&::after {
 		content: '';
