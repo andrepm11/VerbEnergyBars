@@ -236,7 +236,6 @@ $(document).ready(function(){
     }
     var i=0;
     var toggleActive = function(){
-        console.log(quoteArray[i]);
         $(quoteArray[i]).removeClass("active-quote");
         if(i==quoteArray.length-1){
             i=0;

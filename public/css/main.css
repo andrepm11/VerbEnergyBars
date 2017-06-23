@@ -1317,6 +1317,41 @@ textarea {
 footer .footer-logo {
   max-width: 140px!important;
 }
+#whatsYourVerb {
+  background: #241d19;
+  color: #fff1e0;
+}
+#whatsYourVerb .container {
+  width: 100%;
+}
+#whatsYourVerb .container #formwrap {
+  width: 80%;
+  margin: 0 auto;
+}
+#whatsYourVerb .container #formwrap #emailVerb {
+  margin: 0 auto;
+  text-align: center;
+}
+#whatsYourVerb .container #formwrap #emailVerb input {
+  width: 49%;
+  padding: 2em;
+  box-sizing: border-box;
+  background-color: #fff1e0;
+}
+#whatsYourVerb .container #formwrap #emailVerb input::placeholder {
+  font-size: 1.5em;
+  text-align: center;
+  color: #241d19;
+  opacity: .5;
+  font-family: 'Montserrat', sans-serif;
+}
+#whatsYourVerb .container #thanksForTheVerb {
+  width: 50%;
+  margin: 0 auto;
+  text-align: center;
+  font-size: 3em;
+  display: none;
+}
 footer {
   background: #241d19;
   color: #fff8f0;

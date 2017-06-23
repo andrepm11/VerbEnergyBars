@@ -1377,6 +1377,54 @@ footer .footer-logo {
 	max-width: 140px!important;
 }
 
+#whatsYourVerb{
+    background: @verb-black;
+	color: @background-color;
+    
+    .container{
+        width:100%;
+    
+        #formwrap{
+            width: 80%;
+            margin: 0 auto;
+
+//            background-color: blue;
+            #emailVerb{
+//                width:50%;
+                margin: 0 auto;
+                text-align: center;
+                input{
+                    width: 49%;
+                    padding: 2em;
+                    box-sizing: border-box;
+                    background-color: @verb-white;
+                    
+                }
+                input::placeholder{
+                    font-size: 1.5em;
+                    text-align: center;
+                    color: @verb-black;
+                    opacity: .5;
+                    font-family: @primary-font;
+                }
+            }
+        }
+        #thanksForTheVerb{
+            width:50%;
+            margin:0 auto;
+//            background-color:blue;
+            text-align: center;
+            font-size: 3em;
+            display: none;
+            
+        }
+    
+    }
+    
+    
+    
+}
+
 
 
 footer {
