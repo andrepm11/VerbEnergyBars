@@ -975,21 +975,34 @@ header {
 #pullQuotes {
 	background: @verb-black;
 	color: @verb-primary-5;
+	#quote-list {
+		position: relative;
+	}
 	.pull-quote-container {
+		&:first-child {
+			position: static;
+			top: 0;
+		}
+		position: absolute;
+		top: -175%;
 		opacity: 0;
-		width: 80%;
-		max-width: 48em;
-		margin: 3em auto 2em;
+		width: 100%;
+		margin: 3em 0 2em;
 		&.active-quote {
 			opacity: 1;
+			transition-delay: 1s;
 		}
 		@media (min-width: 48em) {
 			margin: 6em auto 4em;
 			font-size: 1.5em;
 		}
 		.pull-quote {
+			width: 80%;
+			max-width: 36em;
 			font-size: 2em;
 			font-weight: 700;
+			margin-right: auto;
+			margin-left: auto;
 			text-align: center;
 			q:before,
 			q:after { 
@@ -998,11 +1011,11 @@ header {
 				opacity: .2;
 			}
 			q:before {
-				left: -.5em;
+				left: 0;
 				bottom: 50%;
 			}
 			q:after{
-				right: -.5em;
+				right: 0;
 				top: 50%;
 			}
 		}
@@ -1010,6 +1023,9 @@ header {
 			text-align: right;
 			opacity: .2;
 			font-size: 1em;
+			max-width: 36em;
+			margin-left: auto;
+			margin-right: auto;
 		}
 	}
 }

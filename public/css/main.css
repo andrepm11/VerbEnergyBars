@@ -915,14 +915,23 @@ header .header-images:hover .shadow {
   background: #1d1d20;
   color: #d0a66c;
 }
+#pullQuotes #quote-list {
+  position: relative;
+}
 #pullQuotes .pull-quote-container {
+  position: absolute;
+  top: -175%;
   opacity: 0;
-  width: 80%;
-  max-width: 48em;
-  margin: 3em auto 2em;
+  width: 100%;
+  margin: 3em 0 2em;
+}
+#pullQuotes .pull-quote-container:first-child {
+  position: static;
+  top: 0;
 }
 #pullQuotes .pull-quote-container.active-quote {
   opacity: 1;
+  transition-delay: 1s;
 }
 @media (min-width: 48em) {
   #pullQuotes .pull-quote-container {
@@ -931,8 +940,12 @@ header .header-images:hover .shadow {
   }
 }
 #pullQuotes .pull-quote-container .pull-quote {
+  width: 80%;
+  max-width: 36em;
   font-size: 2em;
   font-weight: 700;
+  margin-right: auto;
+  margin-left: auto;
   text-align: center;
 }
 #pullQuotes .pull-quote-container .pull-quote q:before,
@@ -942,17 +955,20 @@ header .header-images:hover .shadow {
   opacity: .2;
 }
 #pullQuotes .pull-quote-container .pull-quote q:before {
-  left: -0.5em;
+  left: 0;
   bottom: 50%;
 }
 #pullQuotes .pull-quote-container .pull-quote q:after {
-  right: -0.5em;
+  right: 0;
   top: 50%;
 }
 #pullQuotes .pull-quote-container .pull-quote-author {
   text-align: right;
   opacity: .2;
   font-size: 1em;
+  max-width: 36em;
+  margin-left: auto;
+  margin-right: auto;
 }
 #theSecret .pull-quote {
   text-align: center;
