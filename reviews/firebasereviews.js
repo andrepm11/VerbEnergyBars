@@ -76,13 +76,13 @@ firebase.auth().signInAnonymously().then(function () {
                html += '<td>' + data.val().date.substring(4,15)+ '</td>';
                html += '<td>' + data.val().rating + '</td>';
                html += '<td>' + data.val().comments + '</td>';
-               html += '</tr>'
+               html += '</tr>';
 //                       $("#prevPage").append(html);
 
 
                 beginAt = data.val().createdAt;
                console.log(data.val());
-           }) 
+           }); 
             html+='</tbody>';
             $("#reviewTable").append(html);
 
@@ -94,7 +94,7 @@ firebase.auth().signInAnonymously().then(function () {
         if(snapshot.hasChild("/"+mixpanelDistinctId) && (currentDate - (snapshot.child(mixpanelDistinctId).val()*-1)) < 0) {
             $("#content-wrapper").css("display", "none");
             $("#recency").css("display", "block");
-        };
+        }
     });
 }).catch(function(error){
     console.log(error);
@@ -104,7 +104,7 @@ function append(snapshot){
     var html='<tbody>';
     var i=0;
     snapshot.forEach(function(data){
-        if(i==0){
+        if(i===0){
             stopAt=data.val().createdAt;
         }
         i+=1;
@@ -114,7 +114,7 @@ function append(snapshot){
        html += '<td>' + data.val().date.substring(4,15)+ '</td>';
        html += '<td>' + data.val().rating + '</td>';
        html += '<td>' + data.val().comments + '</td>';
-       html += '</tr>'
+       html += '</tr>';
 
        beginAt = data.val().createdAt;
        console.log(data.val());
@@ -199,7 +199,7 @@ $('#contact-form').submit(function(event) {
     const mixpanelDistinctId = "12345";
 
     const email = $("#js-email").val();
-    const name = ($("#js-name").val() == '') ? 'Anonymous' : $("#js-name").val();
+    const name = ($("#js-name").val() === '') ? 'Anonymous' : $("#js-name").val();
     const comments = $("#comments").val();
     const rating = parseInt($("input[name='rating']:checked").val());
     const createdAt = (new Date().getTime())*-1;

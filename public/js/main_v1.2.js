@@ -35,11 +35,10 @@ $(document).ready(function(){
 	//
 		// Images
 	//
-	var $onScroll = $('.on-scroll');
 	
 	$(window).scroll(function () {
 		/* Check the location of each desired element */
-		$onScroll.each(function (i) {
+		$('.on-scroll').each(function (i) {
 
 			var middle_of_object = $(this).position().top + ( $(this).outerHeight() / 2 );
 			var bottom_of_window = $(window).scrollTop() + $(window).height();
@@ -87,7 +86,7 @@ $(document).ready(function(){
 
 			$('html, body').animate({
 			  scrollTop: target.offset().top - offset
-			}, 600);
+			}, 400);
 			return false;
 		  }
 		}
@@ -156,7 +155,7 @@ $(document).ready(function(){
 	}
 	
 	
-	$(".quantity-select .button").on('click', function(){
+	$(".quantity-select button").on('click', function(){
 		var curQuant = parseInt($(".quantity-select .cur-quant").text(), 10);
       
 		if ($(this).hasClass("down")) {
@@ -171,7 +170,7 @@ $(document).ready(function(){
 			}
 		} else {
 			//inc. up
-			if (!$(".quantity-select").hasClass("off")) {
+			if (!$(".quantity-select button").prop("disabled", true)) {
 				curQuant++;
 				$(".quantity-select .cur-quant").html(curQuant);
         $(".order-button button.shown").data("item-quantity", curQuant);
@@ -193,31 +192,31 @@ $(document).ready(function(){
           if ($(this).hasClass("single")) {
               //then show single button
               $(".order-button button.single-order").removeClass("hidden").addClass("shown");
-              $(".quantity-select").removeClass("off");
+              $(".quantity-select button").prop("disabled", false);
               $(".price-type .single-price").removeClass("hidden");
 							$(".cur-quant").removeClass('three-bar');
           }  else if ($(this).hasClass("single-sub")) {
               //show single-sub. button
               $(".order-button button.single-sub").removeClass("hidden").addClass("shown");
               $(".quantity-select .cur-quant").text("1");
-              $(".quantity-select").addClass("off");
+              $(".quantity-select button").prop("disabled", true);
               $(".price-type .single-sub-price").removeClass("hidden");
 							$(".cur-quant").removeClass('three-bar');
           }  else if ($(this).hasClass("single-small")) {
               $(".order-button button.single-order-small").removeClass("hidden").addClass("shown");
-              $(".quantity-select").removeClass("off");
+              $(".quantity-select button").prop("disabled", false);
               $(".price-type .single-small-price").removeClass("hidden");
 							$(".cur-quant").addClass('three-bar');
           } else {
                   //show sub. button
                   /*$(".order-button button.subscribe").removeClass("hidden").addClass("shown");
                   $(".quantity-select .cur-quant").text("1");
-                  $(".quantity-select").addClass("off");
+                  $(".quantity-select").addClass("disabled");
                   $(".price-type .sub-price").removeClass("hidden");
                   */
                   //then show single button
                   $(".order-button button.single-order").removeClass("hidden").addClass("shown");
-                  $(".quantity-select").removeClass("off");
+                  $(".quantity-select button").prop("disabled", false);
                   $(".price-type .single-price").removeClass("hidden");
               }
         }
