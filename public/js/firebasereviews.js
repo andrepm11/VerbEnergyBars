@@ -29,7 +29,7 @@ $(document).ready(function () {
         const mixpanelDistinctId = "12345";
 
         const email = $("#js-email").val();
-        const title = $("#js-title").val();
+        const title = ($("#js-title").val() == '') ? 'No Title' : $("#js-title").val();
         const name = ($("#js-name").val() == '') ? 'Anonymous' : $("#js-name").val();
         const comments = $("#comments").val();
         const rating = parseInt($("input[name='rating']:checked").val());
@@ -84,21 +84,57 @@ $(document).ready(function () {
             console.log(error)
         })
 
-//                        $.ajax({
-//                            type: "POST",
-//                            url: "post.php",
-//                            data: $(this).serialize(),		
-//                            success: function(data){
-//                                $('#result').html(data);
-//                            }					
-//                        });
-//                    if($("#subscribe").is(":checked")){
-//                        alert("Subscriber");//ADD IN EVENT TRACKING HERE TO GRAB E-MAIL AND ADD TO E-MAIL LIST
-//                    };
+        $.ajax({
+            type: "POST",
+            url: "post.php",
+            data: $(this).serialize(),		
+            success: function(data){
+                $('#result').html(data);
+            }					
+        });
+        if($("#subscribe").is(":checked")){
+            alert("Subscriber");//ADD IN EVENT TRACKING HERE TO GRAB E-MAIL AND ADD TO E-MAIL LIST
+        };
         $("#replacement-content").css("display", "block");
         $("#content-wrapper").css("display", "none");
     });
-    var modal = document.getElementById('myModal');
+    
+    $('#email-form').submit(function(event) {
+        event.preventDefault();
+        
+        const verb = $("#theirverb").val();
+        const email = $("#theiremail").val();
+        
+        $.ajax({
+            type: "POST",
+            url: "whatsyourverb.php",
+            data: $(this).serialize(),		
+            success: function(data){
+                console.log(data);
+            }					
+        });
+        $("#email-form-contianer").addClass('submitted');
+    });
+//    $('#contact-verb').submit(function(event) {
+//        event.preventDefault();
+//        
+//        const message = $("#contactmessage").val();
+//        const email = $("#contactemail").val();
+//        console.log($(this).serialize());
+//        $.ajax({
+//            type: "POST",
+//            url: "contactus.php",
+//            data: $(this).serialize(),		
+//            success: function(data){
+//                console.log(data);
+//            }					
+//        });
+//        $("#contactThanks").css("display", "block");
+//        $("#contactwrap").css("display", "none");
+//    });
+//    
+    
+    var modal = document.getElementById("reviewModal");
     var btn = document.getElementById("reviewBtn");
     var span = document.getElementsByClassName("close")[0];
 
@@ -143,16 +179,16 @@ firebase.auth().signInAnonymously().then(function () {
         var starRating = snapshot.val().average_rating.toFixed(2);
         $("#avg").append(starRating);
         var outOfFive = ((starRating/5)*100).toFixed(0);
-        console.log(outOfFive);
+//        console.log(outOfFive);
         
-        var stars='<div class="star-ratings-css"><div class="star-ratings-css-top" style="width:'+outOfFive+'%"><span>★★★★★</span></div><div class="star-ratings-css-bottom"><span>★★★★★</span></div>';
-        console.log(stars);
-        $("#avg").append(stars);
+        var stars='<div class="avg-rating-stars"><div class="avg-rating-stars-top" style="width:'+outOfFive+'%"><span>★★★★★</span></div><div class="avg-rating-stars-bottom"><span>★★★★★</span></div>';
+//        console.log(stars);
+        $("#avg").prepend(stars);
 
         var totalRows = snapshot.val().num_ratings;
         totalPages = Math.ceil(totalRows/rowsPerPage);
 
-        console.log(totalPages);
+//        console.log(totalPages);
 
         if(totalPages <= 1){
             $("#nextPageBtn").prop("disabled", true);
@@ -170,13 +206,18 @@ firebase.auth().signInAnonymously().then(function () {
                 
                 var html='<div class="review">';
                 html+='<h3 class="review-title">' + data.val().title + '</h3>';
-                html+='<span class="reviewer-name">' + data.val().name + '</span>';
-                html+='<span class="review-date">' + data.val().date.substring(4,15)+'</span>';
                 html+='<span class="review-stars">'
                 for(j=0;j<data.val().rating;j++){
                     html+='★';
                 }
                 html+='</span>';
+								html+='<span class="review-empty-stars">'
+                for(k=0;k<(5 - data.val().rating);k++){
+                    html+='★';
+                }
+                html+='</span>';
+                html+='<span class="reviewer-name">' + data.val().name + '</span>';
+                html+='<span class="review-date">' + data.val().date.substring(4,15)+'</span>';
                 html+='<p class="review-body">'+data.val().comments+'</p>';
                 
                 html+='</div>';
@@ -184,7 +225,7 @@ firebase.auth().signInAnonymously().then(function () {
                 $("#reviewTable").append(html);
 
                 beginAt = data.val().createdAt;
-               console.log(data.val());
+               //console.log(data.val());
            }) 
         });
     });
@@ -225,7 +266,7 @@ function append(snapshot){
 
         $("#reviewTable").append(html);
        beginAt = data.val().createdAt;
-       console.log(data.val());
+       //console.log(data.val());
     });
 }
 
@@ -299,78 +340,3 @@ $(document).on("click", "#lastPageBtn", function(){
     updateTable('last');
 });
 
-$('#contact-form').submit(function(event) {
-    event.preventDefault();
-    //const mixpanelDistintctID = mixpanel.get_distinct_id();
-    const mixpanelDistinctId = "12345";
-
-    const email = $("#js-email").val();
-    const title = $("#js-title").val();
-    const name = ($("#js-name").val() == '') ? 'Anonymous' : $("#js-name").val();
-    const comments = $("#comments").val();
-    const rating = parseInt($("input[name='rating']:checked").val());
-    const createdAt = (new Date().getTime())*-1;
-
-    const date = Date();
-
-    firebase.auth().signInAnonymously().then(function(){
-
-            var database = firebase.database();
-            var usersRef = database.ref('/users');
-
-            usersRef.once('value', function(snapshot) {
-              if (snapshot.hasChild("/"+mixpanelDistinctId)) {
-//                                    alert('exists');
-              }
-                else{
-                    alert('no');
-                }
-            });
-
-            database.ref("reviews").push({
-                title,
-                name,
-                email,
-                rating,
-                comments,
-                createdAt,
-                date,
-            });
-
-            idsetter={};
-            idsetter['12345'] = createdAt;
-            usersRef.set(idsetter);
-
-            var rootpath = database.ref();
-
-            var updates={};
-
-            rootpath.once("value").then(function(snapshot){
-                updates["num_ratings"] = snapshot.val().num_ratings+1;
-                updates["total_rating"] = snapshot.val().total_rating+rating;
-                updates["average_rating"] = updates["total_rating"] / updates["num_ratings"];
-                rootpath.update(updates);
-                return updates;
-            })
-            .catch(error=>{
-                console.log(error)
-            })
-    })
-        .catch(error=>{
-        console.log(error)
-    })
-
-//                        $.ajax({
-//                            type: "POST",
-//                            url: "post.php",
-//                            data: $(this).serialize(),		
-//                            success: function(data){
-//                                $('#result').html(data);
-//                            }					
-//                        });
-//                    if($("#subscribe").is(":checked")){
-//                        alert("Subscriber");//ADD IN EVENT TRACKING HERE TO GRAB E-MAIL AND ADD TO E-MAIL LIST
-//                    };
-    $("#replacement-content").css("display", "block");
-    $("#content-wrapper").css("display", "none");
-});
