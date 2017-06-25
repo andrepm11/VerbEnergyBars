@@ -234,7 +234,6 @@ footer {
     display: none;
   }
 }
-.on-scroll,
 .fade-in,
 .fade-up,
 .fade-up-left {
@@ -244,7 +243,6 @@ footer {
   -o-transition: all 2s cubic-bezier(0.215, 0.61, 0.355, 1);
   transition: all 2s cubic-bezier(0.215, 0.61, 0.355, 1);
 }
-.on-scroll.in,
 .fade-in.in,
 .fade-up.in,
 .fade-up-left.in {
@@ -252,6 +250,19 @@ footer {
 }
 .fast {
   transition-duration: 1s;
+}
+.drop-in {
+  transform: translateY(-7em);
+  opacity: 0;
+  transition-delay: .5s !important;
+  -webkit-transition: transform 0.5s cubic-bezier(0.55, 0.055, 0.675, 0.19), opacity 0.5s cubic-bezier(0.55, 0.055, 0.675, 0.19);
+  -moz-transition: transform 0.5s cubic-bezier(0.55, 0.055, 0.675, 0.19), opacity 0.5s cubic-bezier(0.55, 0.055, 0.675, 0.19);
+  -o-transition: transform 0.5s cubic-bezier(0.55, 0.055, 0.675, 0.19), opacity 0.5s cubic-bezier(0.55, 0.055, 0.675, 0.19);
+  transition: transform 0.5s cubic-bezier(0.55, 0.055, 0.675, 0.19), opacity 0.5s cubic-bezier(0.55, 0.055, 0.675, 0.19);
+}
+.drop-in.in {
+  transform: translateY(0);
+  opacity: 1;
 }
 .fade-up {
   position: relative;
@@ -426,7 +437,9 @@ button[disabled]:hover,
   height: auto;
 }
 .image-wrapper img,
-.svg-wrapper img {
+.svg-wrapper img,
+.image-wrapper svg,
+.svg-wrapper svg {
   width: 100%;
   display: block;
   height: auto;
@@ -598,40 +611,7 @@ nav ul.nav-list li a:active {
   transition-delay: 0;
 }
 nav ul.nav-list li:nth-child(1) a {
-  color: #369638;
-}
-nav ul.nav-list li:nth-child(2) a {
-  color: #31313a;
-}
-nav ul.nav-list li:nth-child(3) a {
-  color: #31313a;
-}
-nav ul.nav-list li:nth-child(4) a {
-  color: #31313a;
-}
-nav ul.nav-list li:nth-child(5) a {
-  color: #31313a;
-}
-nav ul.nav-list li:nth-child(1) a:hover {
-  border-bottom-color: #31313a;
-  color: #46b448;
-}
-nav ul.nav-list li:nth-child(2) a:hover {
-  border-bottom-color: #31313a;
-  color: #31313a;
-}
-nav ul.nav-list li:nth-child(3) a:hover {
-  border-bottom-color: #31313a;
-  color: #31313a;
-}
-nav ul.nav-list li:nth-child(4) a:hover {
-  border-bottom-color: #31313a;
-  color: #31313a;
-}
-nav ul.nav-list li:nth-child(5) a:hover {
-  border-bottom-color: #31313a;
-  color: #31313a;
-  color: #369638;
+  color: #1d1d20;
 }
 nav ul.nav-list li:nth-child(2) a {
   color: #1d1d20;
@@ -646,24 +626,24 @@ nav ul.nav-list li:nth-child(5) a {
   color: #1d1d20;
 }
 nav ul.nav-list li:nth-child(1) a:hover {
-  border-bottom-color: #1d1d20;
-  color: #44bb46;
+  border-bottom-color: #31313a;
+  color: #1d1d20;
 }
 nav ul.nav-list li:nth-child(2) a:hover {
-  border-bottom-color: #1d1d20;
-  color: #31313a;
+  border-bottom-color: #31313a;
+  color: #1d1d20;
 }
 nav ul.nav-list li:nth-child(3) a:hover {
-  border-bottom-color: #1d1d20;
-  color: #31313a;
+  border-bottom-color: #31313a;
+  color: #1d1d20;
 }
 nav ul.nav-list li:nth-child(4) a:hover {
-  border-bottom-color: #1d1d20;
-  color: #31313a;
+  border-bottom-color: #31313a;
+  color: #1d1d20;
 }
 nav ul.nav-list li:nth-child(5) a:hover {
-  border-bottom-color: #1d1d20;
-  color: #31313a;
+  border-bottom-color: #31313a;
+  color: #1d1d20;
 }
 nav ul.nav-list li.social a:hover {
   border: none;
@@ -925,10 +905,86 @@ header .header-images:hover .shadow {
     width: 10%;
   }
 }
-#InTheWild {
-  background: #fff1db;
+#AboutVerb {
+  background: #ffeac7;
 }
-#InTheWild .container {
+#VerbVS {
+  background: #f7da9c;
+}
+#VerbVS p {
+  min-height: 10em;
+}
+#VerbVS p,
+#VerbVS h3 {
+  display: block;
+  width: 100%;
+}
+#verb-vs-illustrations {
+  width: 100%;
+  height: auto;
+  opacity: 1;
+  margin-top: -30%;
+  padding: 0 4em;
+}
+@media (min-width: 48em) {
+  #verb-vs-illustrations {
+    margin-top: -20%;
+    padding: 0 0;
+  }
+}
+#verb-vs-illustrations > * {
+  stroke: #1d1d20;
+  stroke-miterlimit: 10;
+  stroke-width: 4px;
+  fill: #f7da9c;
+}
+#verb-vs-illustrations > *:hover {
+  stroke: #858b8e;
+}
+#verb-vs-illustrations .active:hover {
+  stroke: #1d1d20;
+}
+#verb-vs-illustrations .active .coffee-1 {
+  fill: #fff1db;
+}
+#verb-vs-illustrations .active .coffee-2 {
+  fill: #e3be72;
+}
+#verb-vs-illustrations .active .pre-1 {
+  fill: #fff1db;
+}
+#verb-vs-illustrations .active .pre-2 {
+  fill: #46b448;
+}
+#verb-vs-illustrations .active .pill {
+  fill: #d3aae0;
+}
+#verb-vs-illustrations .active.energy-drink {
+  fill: #3d4e85;
+}
+#verb-vs-illustrations .active.soda {
+  fill: #bec3c6;
+}
+#verb-vs-illustrations .active.shot-1 {
+  fill: #bb4530;
+}
+#verb-vs-illustrations .active.shot-2 {
+  fill: #e890e8;
+}
+#verb-vs-illustrations .active.shot-3 {
+  fill: #31313a;
+}
+#vignette-1 {
+  background: #31313a;
+  color: #f7da9c;
+}
+#vignette-1 .container {
+  padding-top: 6em;
+}
+#vignette-2 {
+  background: #ffe138;
+}
+#vignette-2 .container {
   padding-top: 6em;
 }
 #PullQuotes {
@@ -1001,6 +1057,9 @@ header .header-images:hover .shadow {
 }
 #organic-icon {
   stroke: #369638;
+}
+#TheEnergy {
+  background: #ffe138;
 }
 #OrderVerb {
   background: #fff1db;

@@ -32,15 +32,12 @@ $(document).ready(function(){
 	$('#line-1').addClass('in');
 	$('#line-2').addClass('in');
 	$('header .image-wrapper').addClass('in');
-	//
-		// Images
-	//
-	
+
 	$(window).scroll(function () {
 		/* Check the location of each desired element */
 		$('.on-scroll').each(function (i) {
 
-			var middle_of_object = $(this).position().top + ( $(this).outerHeight() / 2 );
+			var middle_of_object = $(this).position().top + ( $(this).outerHeight() );
 			var bottom_of_window = $(window).scrollTop() + $(window).height();
 
 			/* If the object is completely visible in the window, fade it in */
@@ -49,6 +46,56 @@ $(document).ready(function(){
 			}
 			
 		});
+	});
+	//
+	// Smooth Scroll
+	//
+	var $groupPre = $('.group-pre');
+	var $groupCoffee = $('.group-coffee');
+	var $groupDrinks = $('.group-drinks');
+	var $groupShots = $('.group-shots');
+	var $vsTitle = $('#vs-title');
+	var $vsContent = $('#vs-content');
+	
+	$groupPre.on('click', function(){
+		$groupCoffee.removeClass('active');
+		$groupDrinks.removeClass('active');
+		$groupShots.removeClass('active');
+		$groupPre.addClass('active');
+		
+		$vsTitle.html('Pre-Workout Supplements');
+		$vsContent.html("If don't think you're mortgaging some part of your future health every time you have pre-workout you're kidding yourself.");
+		
+	});
+	$groupCoffee.on('click', function(){
+		$groupPre.removeClass('active');
+		$groupDrinks.removeClass('active');
+		$groupShots.removeClass('active');
+		$groupCoffee.addClass('active');
+		
+		$vsTitle.html('Coffee');
+		$vsContent.html("Alright, confession time. We love coffee. We love the taste. We love the ritual. What we don't love though is spending 20 minutes and $4 every time we need an energy boost. Also not a fan of the jitters.");
+		
+	});
+	$groupShots.on('click', function(){
+		$groupCoffee.removeClass('active');
+		$groupDrinks.removeClass('active');
+		$groupPre.removeClass('active');
+		$groupShots.addClass('active');
+		
+		$vsTitle.html('Energy Shots');
+		$vsContent.html("We are very wary of anything delivering 8333% of your daily recommended value of anything.");
+		
+	});
+	$groupDrinks.on('click', function(){
+		$groupCoffee.removeClass('active');
+		$groupPre.removeClass('active');
+		$groupShots.removeClass('active');
+		$groupDrinks.addClass('active');
+		
+		$vsTitle.html('Energy Drinks & Soda');
+		$vsContent.html("Would you drink an energy drink in front of your boss? In front of your mother? Energy drinks are great for taking years off your life or helping you relive the darkest moments of your college career, but thanks to ounces of sugar and their complete lack of nutritional content, they aren't actually that good at delivering energy.");
+		
 	});
 	//
 	// Pull Quotes

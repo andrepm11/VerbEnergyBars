@@ -213,7 +213,6 @@ footer {
 //========================================
 //========================================
 
-.on-scroll,
 .fade-in,
 .fade-up,
 .fade-up-left {
@@ -229,6 +228,27 @@ footer {
 
 .fast {
 	transition-duration: 1s;
+}
+
+@drop-in-0: translateY(-7em);
+@drop-in-1: translateY(0);
+
+.drop-in {
+	transform: @drop-in-0;
+	opacity: 0;
+	transition-delay: .5s !important;
+	-webkit-transition: transform .5s cubic-bezier(0.55, 0.055, 0.675, 0.19),
+		opacity .5s cubic-bezier(0.55, 0.055, 0.675, 0.19);
+	-moz-transition: transform .5s cubic-bezier(0.55, 0.055, 0.675, 0.19),
+		opacity .5s cubic-bezier(0.55, 0.055, 0.675, 0.19);
+	-o-transition: transform .5s cubic-bezier(0.55, 0.055, 0.675, 0.19),
+		opacity .5s cubic-bezier(0.55, 0.055, 0.675, 0.19);
+	transition: transform .5s cubic-bezier(0.55, 0.055, 0.675, 0.19),
+		opacity .5s cubic-bezier(0.55, 0.055, 0.675, 0.19);
+	&.in {
+		transform: @drop-in-1;
+		opacity: 1;
+	}
 }
 
 .fade-up {
@@ -426,7 +446,7 @@ button[disabled],
 .svg-wrapper {
 	max-width: 100%;
 	height: auto;
-	img {
+	img, svg {
 		width: 100%;
 		display: block;
 		height: auto;
@@ -615,72 +635,39 @@ nav {
 				transition-delay: 0;
 			}
 			&:nth-child(1) a {
-				color: @verb-green-2;
+				color: @verb-gray-4;
 			}			
 			&:nth-child(2) a {
-				color: @verb-gray-3;
+				color: @verb-gray-4;
 			}			
 			&:nth-child(3) a {
-				color: @verb-gray-3;
+				color: @verb-gray-4;
 			}			
 			&:nth-child(4) a {
-				color: @verb-gray-3;
+				color: @verb-gray-4;
 			}			
 			&:nth-child(5) a {
-				color: @verb-gray-3;
+				color: @verb-gray-4;
 			}			
 			&:nth-child(1) a:hover {
 				border-bottom-color: @verb-gray-3;
-				color: @verb-green-1;
+				color: @verb-gray-4;
 			}			
 			&:nth-child(2) a:hover {
 				border-bottom-color: @verb-gray-3;
-				color: @verb-gray-3;
+				color: @verb-gray-4;
 			}			
 			&:nth-child(3) a:hover {
 				border-bottom-color: @verb-gray-3;
-				color: @verb-gray-3;
+				color: @verb-gray-4;
 			}			
 			&:nth-child(4) a:hover {
 				border-bottom-color: @verb-gray-3;
-				color: @verb-gray-3;
+				color: @verb-gray-4;
 			}			
 			&:nth-child(5) a:hover {
 				border-bottom-color: @verb-gray-3;
-				color: @verb-gray-3;
-				color: @verb-green;
-			}			
-			&:nth-child(2) a {
-				color: @verb-black;
-			}			
-			&:nth-child(3) a {
-				color: @verb-black;
-			}			
-			&:nth-child(4) a {
-				color: @verb-black;
-			}			
-			&:nth-child(5) a {
-				color: @verb-black;
-			}			
-			&:nth-child(1) a:hover {
-				border-bottom-color: @verb-black;
-				color: @verb-green-10;
-			}			
-			&:nth-child(2) a:hover {
-				border-bottom-color: @verb-black;
-				color: @verb-black-10;
-			}			
-			&:nth-child(3) a:hover {
-				border-bottom-color: @verb-black;
-				color: @verb-black-10;
-			}			
-			&:nth-child(4) a:hover {
-				border-bottom-color: @verb-black;
-				color: @verb-black-10;
-			}			
-			&:nth-child(5) a:hover {
-				border-bottom-color: @verb-black;
-				color: @verb-black-10;
+				color: @verb-gray-4;
 			}			
 			&.social {
 				a:hover {
@@ -880,7 +867,7 @@ nav.menu-show {
 //========================================
 
 header {
-	background: @background-color;
+	background: @verb-primary-2;
 	.container {
 		padding-top: 12em;
 		max-width: 90em;
@@ -978,6 +965,85 @@ header {
 //========================================
 //========================================
 
+#AboutVerb {
+	background: @verb-primary-2;
+}
+
+//========================================
+//========================================
+//======================================== Verb vs.
+//========================================
+//========================================
+
+#VerbVS {
+	background: @verb-primary-3;
+	p {
+		min-height: 10em;
+	}
+	p, h3 {
+		display: block;
+		width: 100%;
+	}
+}
+
+#verb-vs-illustrations {
+	width: 100%;
+	height: auto;
+	opacity: 1;
+	margin-top: -30%;
+	padding: 0 4em;
+	
+	@media (min-width: 48em) {
+		margin-top: -20%;
+		padding: 0 0;
+	}
+	
+	> * {
+		stroke: @text-color;
+		stroke-miterlimit: 10;
+		stroke-width: @stroke-width;
+		fill: @verb-primary-3;
+		&:hover {
+			stroke: @verb-gray-2;
+		}
+	}
+	
+	.active {
+		&:hover {
+			stroke: @verb-gray-4;
+		}
+		.coffee-1 {
+			fill: @verb-primary-1;
+		}
+		.coffee-2 {
+			fill: @verb-primary-4;
+		}
+		.pre-1 {
+			fill: @verb-primary-1;
+		}
+		.pre-2 {
+			fill: @verb-green-1;
+		}
+		.pill {
+			fill: #d3aae0;
+		}
+		&.energy-drink {
+			fill: #3d4e85;
+		}
+		&.soda {
+			fill: @verb-gray-1;
+		}
+		&.shot-1 {
+			fill: @verb-red;
+		}
+		&.shot-2 {
+			fill: #e890e8;
+		}
+		&.shot-3 {
+			fill: @verb-gray-3;
+		}
+	}
+}
 
 //========================================
 //========================================
@@ -985,8 +1051,15 @@ header {
 //========================================
 //========================================
 
-#InTheWild {
-	background: @verb-primary-1;
+#vignette-1 {
+	background: @verb-gray-3;
+	color: @verb-primary-3;
+	.container {
+		padding-top: 6em;
+	}
+}
+#vignette-2 {
+	background: @verb-yellow-1;
 	.container {
 		padding-top: 6em;
 	}
@@ -1076,6 +1149,16 @@ header {
 }
 #organic-icon {
 	stroke: @verb-green;
+}
+
+//========================================
+//========================================
+//======================================== The Energy
+//========================================
+//========================================
+
+#TheEnergy {
+	background: @verb-yellow-1;
 }
 
 //========================================
