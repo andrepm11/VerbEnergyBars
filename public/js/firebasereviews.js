@@ -175,14 +175,12 @@ firebase.auth().signInAnonymously().then(function () {
         for(i=1;i<=5;i++){
             var starId= "#"+String(i)+"stars";
             var starValue=snapshot.val()[i];
-            $(starId).append("&#40;"+String(starValue)+"&#41;");
-            
+            $(starId).append(String(starValue));
             var barId="#"+String(i)+"bar";
             var barString = String((starValue/totalRows)*100)+"%";
             
             $(barId).css("width", barString);                  
         }
-
         if(totalPages <= 1){
             $("#nextPageBtn").prop("disabled", true);
             $("#lastPageBtn").prop("disabled", true);
