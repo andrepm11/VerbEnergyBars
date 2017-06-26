@@ -404,6 +404,10 @@ ul {
 .reverse input {
   color: #ffeac7;
 }
+.tiny {
+  font-size: .75em;
+  color: #858b8e;
+}
 .button,
 button,
 input[type="submit"],
@@ -1674,7 +1678,8 @@ textarea {
   background: none;
   outline: none;
   font-size: 1.5em;
-  width: 100%;
+  padding: .25em 0;
+  width: 90%;
   max-width: 16em;
 }
 #WhatsYourVerb .big-input::-webkit-input-placeholder {
