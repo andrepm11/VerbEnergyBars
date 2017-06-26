@@ -70,6 +70,7 @@ $(document).ready(function () {
                 var updates={};
 
                 rootpath.once("value").then(function(snapshot){
+                    updates[rating]=snapshot.val()[rating]+1;
                     updates["num_ratings"] = snapshot.val().num_ratings+1;
                     updates["total_rating"] = snapshot.val().total_rating+rating;
                     updates["average_rating"] = updates["total_rating"] / updates["num_ratings"];
@@ -115,25 +116,7 @@ $(document).ready(function () {
         });
         $("#email-form-contianer").addClass('submitted');
     });
-//    $('#contact-verb').submit(function(event) {
-//        event.preventDefault();
-//        
-//        const message = $("#contactmessage").val();
-//        const email = $("#contactemail").val();
-//        console.log($(this).serialize());
-//        $.ajax({
-//            type: "POST",
-//            url: "contactus.php",
-//            data: $(this).serialize(),		
-//            success: function(data){
-//                console.log(data);
-//            }					
-//        });
-//        $("#contactThanks").css("display", "block");
-//        $("#contactwrap").css("display", "none");
-//    });
-//    
-    
+
     var modal = document.getElementById("reviewModal");
     var btn = document.getElementById("reviewBtn");
     var span = document.getElementsByClassName("close")[0];
@@ -187,8 +170,18 @@ firebase.auth().signInAnonymously().then(function () {
 
         var totalRows = snapshot.val().num_ratings;
         totalPages = Math.ceil(totalRows/rowsPerPage);
-
-//        console.log(totalPages);
+        $("#total-reviews").append(String(totalRows)+" reviews&#41;");
+        
+        for(i=1;i<=5;i++){
+            var starId= "#"+String(i)+"stars";
+            var starValue=snapshot.val()[i];
+            $(starId).append("&#40;"+String(starValue)+"&#41;");
+            
+            var barId="#"+String(i)+"bar";
+            var barString = String((starValue/totalRows)*100)+"%";
+            
+            $(barId).css("width", barString);                  
+        }
 
         if(totalPages <= 1){
             $("#nextPageBtn").prop("disabled", true);
