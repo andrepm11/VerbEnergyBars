@@ -404,6 +404,10 @@ ul {
 .reverse input {
   color: #ffeac7;
 }
+.tiny {
+  font-size: .75em;
+  color: #858b8e;
+}
 .button,
 button,
 input[type="submit"],
@@ -416,7 +420,7 @@ input[type="button"] {
   text-align: center;
   text-transform: uppercase;
   font-size: 1em;
-  line-height: 2.5;
+  line-height: 2;
   cursor: pointer;
   outline: none !important;
   box-shadow: none !important;
@@ -930,19 +934,6 @@ header .button {
   height: 2em;
   line-height: 1.6;
 }
-header .bar-renderings:after {
-  content: url(../svg/try_Verb.svg);
-  display: block;
-  opacity: 1;
-  position: relative;
-  bottom: 20%;
-  width: 30%;
-  max-width: 18em;
-  transition: .5s;
-}
-header .bar-renderings:hover:after {
-  opacity: 1;
-}
 header .image-wrapper {
   width: 100%;
   max-width: 48em;
@@ -1114,20 +1105,17 @@ header .header-images:hover .shadow {
 #PullQuotes {
   background: #1d1d20;
   color: #d0a66c;
+  height: 30em;
 }
 #PullQuotes #quote-list {
   position: relative;
 }
 #PullQuotes .pull-quote-container {
   position: absolute;
-  top: -175%;
   opacity: 0;
   width: 100%;
-  margin: 3em 0 2em;
-}
-#PullQuotes .pull-quote-container:first-child {
-  position: static;
-  top: 0;
+  margin: 0;
+  font-size: 1.25em;
 }
 #PullQuotes .pull-quote-container.active-quote {
   opacity: 1;
@@ -1135,7 +1123,7 @@ header .header-images:hover .shadow {
 }
 @media (min-width: 48em) {
   #PullQuotes .pull-quote-container {
-    margin: 6em auto 4em;
+    margin: 0 auto;
     font-size: 1.5em;
   }
 }
@@ -1147,6 +1135,7 @@ header .header-images:hover .shadow {
   margin-right: auto;
   margin-left: auto;
   text-align: center;
+  height: 100%;
 }
 #PullQuotes .pull-quote-container .pull-quote q:before,
 #PullQuotes .pull-quote-container .pull-quote q:after {
@@ -1156,11 +1145,11 @@ header .header-images:hover .shadow {
 }
 #PullQuotes .pull-quote-container .pull-quote q:before {
   left: 0;
-  bottom: 50%;
+  bottom: 30%;
 }
 #PullQuotes .pull-quote-container .pull-quote q:after {
   right: 0;
-  top: 50%;
+  top: 30%;
 }
 #PullQuotes .pull-quote-container .pull-quote-author {
   text-align: right;
@@ -1217,7 +1206,7 @@ header .header-images:hover .shadow {
   font-weight: 700;
   text-transform: uppercase;
   font-size: 1em;
-  line-height: 2.5;
+  line-height: 2;
   cursor: pointer;
   outline: none !important;
   box-shadow: none !important;
@@ -1415,16 +1404,22 @@ header .header-images:hover .shadow {
 .review-percentage {
   margin: .25em 0;
 }
-.review-percentage .star-number {
+.review-percentage span {
   display: inline-block;
-  width: 1.5em;
+}
+.review-percentage .star-number {
+  width: 25%;
+}
+.review-percentage .review-number {
+  width: 10%;
+  text-align: left;
 }
 .review-percentage .percentage-bar {
   vertical-align: bottom;
-  width: 12em;
-  height: 1em;
+  width: 50%;
+  height: 1.25em;
   display: inline-block;
-  background: white;
+  background: #ffeac7;
   border: 4px solid #1d1d20;
 }
 .review-percentage .percentage-bar .fill-bar {
@@ -1433,7 +1428,7 @@ header .header-images:hover .shadow {
   width: 0%;
 }
 #reviewBtn {
-  max-width: 24em;
+  max-width: 22em;
   width: 100%;
   margin: 2em 0;
 }
@@ -1446,11 +1441,11 @@ header .header-images:hover .shadow {
   display: block;
   width: 100%;
 }
+.review-stars {
+  color: #f2c218;
+}
 .review .review-title {
   margin-bottom: .1em;
-}
-.review .review-stars {
-  color: #f2c218;
 }
 .review .review-empty-stars {
   color: #f7da9c;
@@ -1679,7 +1674,8 @@ textarea {
   background: none;
   outline: none;
   font-size: 1.5em;
-  width: 100%;
+  padding: .25em 0;
+  width: 90%;
   max-width: 16em;
 }
 #WhatsYourVerb .big-input::-webkit-input-placeholder {
