@@ -1696,6 +1696,9 @@ textarea {
 #email-form-container #email-form label {
   display: block;
 }
+#email-form-container #email-form label {
+  margin-top: 2em;
+}
 #email-form-container #email-form input.submit {
   margin: 2em 0 0;
   padding-left: 3em;
