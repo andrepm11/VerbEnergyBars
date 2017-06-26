@@ -97,6 +97,10 @@
 	fill: @text-color;
 }
 
+.background-color-fill {
+	fill: @background-color;
+}
+
 .background-gradient {
 	background: -moz-linear-gradient(top, @verb-white 50%, @verb-oat 100%); /* FF3.6-15 */
 	background: -webkit-linear-gradient(top, @verb-white 50%, @verb-oat 100%); /* Chrome10-25,Safari5.1-6 */
@@ -411,7 +415,9 @@ ul {
 //========================================
 
 .button,
-button {
+button, 
+input[type="submit"], 
+input[type="button"] {
 	display: inline-block;
 	border: @border;
 	box-shadow: none;
@@ -435,6 +441,14 @@ button {
 	height: 3em;
 	
 	transition: all 150ms ease;
+	
+	-webkit-touch-callout: none; /* iOS Safari */
+	-webkit-user-select: none; /* Safari */
+	-khtml-user-select: none; /* Konqueror HTML */
+	-moz-user-select: none; /* Firefox */
+	-ms-user-select: none; /* Internet Explorer/Edge */
+	user-select: none; /* Non-prefixed version, currently
+												supported by Chrome and Opera */
 	
 	&:hover {
 		background: @text-color;
@@ -903,16 +917,19 @@ nav.menu-show {
 #feels-good {
 	&:before {
 		content: url(../svg/sun.svg);
+		bottom: -.1em;
 	}
 }
 #tastes-good {
 	&:before {
 		content: url(../svg/cocoa.svg);
+		bottom: -.5em;
 	}
 }
 #is-good {
 	&:before {
 		content: url(../svg/green-tea.svg);
+		bottom: -.1em;
 	}
 }
 #feels-good,
@@ -924,7 +941,6 @@ nav.menu-show {
 		display: inline-block;
 		margin-right: .25em;
 		position: relative;
-		bottom: -.1em;
 	}
 }
 
@@ -1025,12 +1041,26 @@ header {
 //========================================
 //========================================
 
+#TheVerbLife {
+	position: absolute;
+	display: block;
+	width: 30%;
+	max-width: 18em;
+	min-width: 10em;
+	left: 2em;
+	path {
+		fill: @verb-gray-4
+	}
+}
+
 .photo-row {
+	display: block;
 	margin: 0;
 	padding: 0;
+	background: @verb-primary-1;
 	img {
 		padding: 0;
-		margin: 0 0 -1em 0;
+		margin: 2em 0 -1em 0;
 		width: 20%;
 		@media (min-width: 48em) {
 			width: 10%;
@@ -1728,11 +1758,6 @@ textarea{
 
 #WhatsYourVerb {
 	background: @verb-primary-1;
-	text-align: center;
-	input {
-		display: block;
-		margin: .5em auto 1em;
-	}
 	.big-input {
 		border-bottom: @border;
 		border-left: none;
@@ -1743,34 +1768,38 @@ textarea{
 		font-size: 1.5em;
 		width: 100%;
 		max-width: 16em;
-		text-align: center;
 		&::-webkit-input-placeholder {
-			color: @verb-primary-4;
+			color: @verb-gray-2;
 		}
 		&::-moz-placeholder { 
-			color: @verb-primary-4;
+			color: @verb-gray-2;
 		}
 		&:-ms-input-placeholder { 
-			color: @verb-primary-4;
+			color: @verb-gray-2;
 		}
 		&:-moz-placeholder { 
-			color: @verb-primary-4;
+			color: @verb-gray-2;
 		}
-	}
-	#theiremail {
-		max-width: 14em;
 	}
 }
 
 #email-form-container {
 	#email-form {
 		display: block;
-		.button.submit {
+		input,
+		label {
+			display: block
+		}
+		input.submit {
+			margin: 2em 0 0;
+			padding-left: 3em;
+			padding-right: 3em;
 			background-color: @verb-primary-1;
 			&:focus,
-			&:active {
+			&:active,
+			&:active:hover {
 				border-color: @verb-gray-3;
-				color: @verb-gray-3;
+				color: @verb-primary-1;
 				background-color: @verb-gray-3;
 			}
 			&:hover {

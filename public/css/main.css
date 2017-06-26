@@ -134,6 +134,9 @@ tr {
 .text-color-fill {
   fill: #1d1d20;
 }
+.background-color-fill {
+  fill: #ffeac7;
+}
 .background-gradient {
   background: -moz-linear-gradient(top, #ffeac7 50%, #e3be72 100%);
   /* FF3.6-15 */
@@ -402,7 +405,9 @@ ul {
   color: #ffeac7;
 }
 .button,
-button {
+button,
+input[type="submit"],
+input[type="button"] {
   display: inline-block;
   border: 4px solid #1d1d20;
   box-shadow: none;
@@ -421,19 +426,38 @@ button {
   margin: 0 auto;
   height: 3em;
   transition: all 150ms ease;
+  -webkit-touch-callout: none;
+  /* iOS Safari */
+  -webkit-user-select: none;
+  /* Safari */
+  -khtml-user-select: none;
+  /* Konqueror HTML */
+  -moz-user-select: none;
+  /* Firefox */
+  -ms-user-select: none;
+  /* Internet Explorer/Edge */
+  user-select: none;
+  /* Non-prefixed version, currently
+												supported by Chrome and Opera */
 }
 .button:active,
-button:active {
+button:active,
+input[type="submit"]:active,
+input[type="button"]:active {
   outline: none !important;
   box-shadow: none !important;
 }
 .button:hover,
-button:hover {
+button:hover,
+input[type="submit"]:hover,
+input[type="button"]:hover {
   background: #1d1d20;
   color: #ffeac7;
 }
 .button a,
-button a {
+button a,
+input[type="submit"] a,
+input[type="button"] a {
   display: inline-block;
   height: 100%;
   width: 100%;
@@ -441,15 +465,21 @@ button a {
   font-weight: 700;
 }
 .button.solid,
-button.solid {
+button.solid,
+input[type="submit"].solid,
+input[type="button"].solid {
   background: #369638;
 }
 .button.solid:hover,
-button.solid:hover {
+button.solid:hover,
+input[type="submit"].solid:hover,
+input[type="button"].solid:hover {
   background: #1d1d20;
 }
 .button.w-100,
-button.w-100 {
+button.w-100,
+input[type="submit"].w-100,
+input[type="button"].w-100 {
   width: 100%;
 }
 button:disabled,
@@ -858,12 +888,15 @@ nav.menu-show #nav-menu-icon span:nth-child(4) {
 }
 #feels-good:before {
   content: url(../svg/sun.svg);
+  bottom: -0.1em;
 }
 #tastes-good:before {
   content: url(../svg/cocoa.svg);
+  bottom: -0.5em;
 }
 #is-good:before {
   content: url(../svg/green-tea.svg);
+  bottom: -0.1em;
 }
 #feels-good:before,
 #tastes-good:before,
@@ -873,7 +906,6 @@ nav.menu-show #nav-menu-icon span:nth-child(4) {
   display: inline-block;
   margin-right: .25em;
   position: relative;
-  bottom: -0.1em;
 }
 header {
   background: #ffeac7;
@@ -961,13 +993,26 @@ header .header-images:hover .shadow {
     font-size: 5em;
   }
 }
+#TheVerbLife {
+  position: absolute;
+  display: block;
+  width: 30%;
+  max-width: 18em;
+  min-width: 10em;
+  left: 2em;
+}
+#TheVerbLife path {
+  fill: #1d1d20;
+}
 .photo-row {
+  display: block;
   margin: 0;
   padding: 0;
+  background: #fff1db;
 }
 .photo-row img {
   padding: 0;
-  margin: 0 0 -1em 0;
+  margin: 2em 0 -1em 0;
   width: 20%;
 }
 @media (min-width: 48em) {
@@ -1182,6 +1227,19 @@ header .header-images:hover .shadow {
   margin: 0 auto;
   height: 3em;
   transition: all 150ms ease;
+  -webkit-touch-callout: none;
+  /* iOS Safari */
+  -webkit-user-select: none;
+  /* Safari */
+  -khtml-user-select: none;
+  /* Konqueror HTML */
+  -moz-user-select: none;
+  /* Firefox */
+  -ms-user-select: none;
+  /* Internet Explorer/Edge */
+  user-select: none;
+  /* Non-prefixed version, currently
+												supported by Chrome and Opera */
   font-weight: 1em;
   width: 100%;
   margin: .5em 0;
@@ -1607,11 +1665,6 @@ textarea {
 }
 #WhatsYourVerb {
   background: #fff1db;
-  text-align: center;
-}
-#WhatsYourVerb input {
-  display: block;
-  margin: .5em auto 1em;
 }
 #WhatsYourVerb .big-input {
   border-bottom: 4px solid #1d1d20;
@@ -1623,36 +1676,40 @@ textarea {
   font-size: 1.5em;
   width: 100%;
   max-width: 16em;
-  text-align: center;
 }
 #WhatsYourVerb .big-input::-webkit-input-placeholder {
-  color: #e3be72;
+  color: #858b8e;
 }
 #WhatsYourVerb .big-input::-moz-placeholder {
-  color: #e3be72;
+  color: #858b8e;
 }
 #WhatsYourVerb .big-input:-ms-input-placeholder {
-  color: #e3be72;
+  color: #858b8e;
 }
 #WhatsYourVerb .big-input:-moz-placeholder {
-  color: #e3be72;
-}
-#WhatsYourVerb #theiremail {
-  max-width: 14em;
+  color: #858b8e;
 }
 #email-form-container #email-form {
   display: block;
 }
-#email-form-container #email-form .button.submit {
+#email-form-container #email-form input,
+#email-form-container #email-form label {
+  display: block;
+}
+#email-form-container #email-form input.submit {
+  margin: 2em 0 0;
+  padding-left: 3em;
+  padding-right: 3em;
   background-color: #fff1db;
 }
-#email-form-container #email-form .button.submit:focus,
-#email-form-container #email-form .button.submit:active {
+#email-form-container #email-form input.submit:focus,
+#email-form-container #email-form input.submit:active,
+#email-form-container #email-form input.submit:active:hover {
   border-color: #31313a;
-  color: #31313a;
+  color: #fff1db;
   background-color: #31313a;
 }
-#email-form-container #email-form .button.submit:hover {
+#email-form-container #email-form input.submit:hover {
   background-color: #1d1d20;
   color: #fff1db;
 }
