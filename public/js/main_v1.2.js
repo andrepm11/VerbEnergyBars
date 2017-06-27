@@ -160,7 +160,7 @@ $(document).ready(function(){
     	
 	/* Order Section JS */
 	//Show continue shopping button
-	Snipcart.execute('config', 'show_continue_shopping', true);
+    Snipcart.api.configure('show_continue_shopping', true);
 	
 	Snipcart.subscribe('cart.ready', function() {
 		if ($(window).width() > 768) {
@@ -235,12 +235,12 @@ $(document).ready(function(){
 			}
 		} else {
 			//inc. up
-			if (!$(".quantity-select button").prop("disabled", true)) {
-				curQuant++;
-				$(".quantity-select .cur-quant").html(curQuant);
-        $(".order-button button.shown").data("item-quantity", curQuant);
-				$(".cur-quant").addClass('plural');
-			}
+            curQuant++;
+            $(".quantity-select .cur-quant").html(curQuant);
+            $(".order-button button.shown").data("item-quantity", curQuant);
+//            console.log( $(".order-button button.shown").data());
+            $(".cur-quant").addClass('plural');
+			
 		}
 	});
 	
@@ -253,6 +253,7 @@ $(document).ready(function(){
           $(".order-button button").addClass("hidden").removeClass("shown");
           $(".price-type .price-item").addClass("hidden");
           $(".quantity-select .cur-quant").html("1");
+          $(".quantity-select .cur-quant").removeClass("plural");
 
           if ($(this).hasClass("single")) {
               //then show single button
