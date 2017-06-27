@@ -541,25 +541,25 @@
 
 		<div id="reviewModal" class="modal">
 			<div class="modal-content">
-				<span class="close">&times;</span>
+				<span class="close"></span>
 				<div id="content-wrapper">
 					<h2>Write a review</h2>
 					<div id="form-wrapper">
 						<form id="review-form" method="post">
-								<p>Give Verb a rating:</p>
-							<div class="rating">
-								<input type="radio" id="star5" name="rating" value="5" /><label for="star5"></label>
+							<div class="input-row">
+							<label class="desktop-6 mobile-12" for="name">Enter a display name for yourself:<input id="js-name" type="text" name="name" value="" placeholder="Required" required/></label>
+								<label class="desktop-6 mobile-12" for="email">Enter your email (this won&rsquo;t be displayed):<input id="js-email" type="text" name="email" value="" placeholder="Required" required/></label></div>
+							<p class="antispam">Leave this empty: <input type="text" name="url" /></p>
+							<div class="input-row">
+								<label class="desktop-6 mobile-12" for="title">Give your review a title:<input id="js-title" type="text" name="title" value="" placeholder="Required" required/></label><div class="mobile-12 desktop-6"><p>Give Verb a rating:</p><div class="rating">
+								<input type="radio" id="star5" name="rating" value="5"/><label for="star5"></label>
 								<input type="radio" id="star4" name="rating" value="4" /><label for="star4"></label>
 								<input type="radio" id="star3" name="rating" value="3" /><label for="star3"></label>
 								<input type="radio" id="star2" name="rating" value="2" /><label for="star2"></label>
 								<input type="radio" id="star1" name="rating" value="1" required/><label for="star1"></label>
-							</div>
-							<p><label for="name">Enter a display name for yourself:</label> <input id="js-name" type="text" name="name" value="" placeholder="Required" required/></p>
-							<p><label for="email">Enter your email (this won&rsquo;t be displayed):</label> <input id="js-email" type="text" name="email" value="" placeholder="Required" required/></p>
-							<p class="antispam">Leave this empty: <input type="text" name="url" /></p>
-							<p><label for="title">Give your review a title:</label> <input id="js-title" type="text" name="title" value="" placeholder="Required" required/></p>
+								</div></div></div>
 							<p><label for="comments">What do you think of Verb Bars?</label> <textarea name="comments" id="comments" placeholder="Verb Bars are..." required></textarea></p>
-							<p><input id="subscribe" type="checkbox" name="subscribe" value="yes" checked>Get email updates and discounts from us<br></p>
+							<p class="checkbox"><input id="subscribe" type="checkbox" name="subscribe" value="yes" checked><label for="subscribe"></label><span>Get email updates and discounts from us</span></p>
 							<p><input id="review-submit" class="button submit" type="submit" value="Submit" /></p>
 							<div id="result"></div>
 						</form>
