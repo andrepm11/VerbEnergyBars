@@ -1324,32 +1324,49 @@ header .header-images:hover .shadow {
 .sale-price.sale {
   display: inline-block;
 }
-.faq ul {
-  list-style: none;
-  padding: 0 0 2em;
-}
-.faq-item {
-  line-height: 1.5em;
+.new-faq .accordion-button {
+  cursor: pointer;
+  width: 100%;
+  border: none;
+  background-color: none;
+  text-align: left;
+  outline: none;
   padding: 0;
-  border-bottom: 4px solid #1d1d20;
+  margin: 0;
 }
-.faq-item span {
-  display: block;
-  padding-right: 10%;
-  margin-left: 0;
+.new-faq .accordion-button:hover {
+  background: none;
+  color: inherit;
 }
-.faq-item:last-of-type {
-  border-bottom: 0;
-  height: 0!important;
-  visibility: hidden;
+.new-faq .new-faq-answer {
+  overflow: hidden;
 }
-.q-title {
+.new-faq .new-faq-section {
+  padding-bottom: 2em;
+}
+.new-faq .new-faq-section .new-faq-subsection {
+  overflow: hidden;
+  display: none;
+  padding: 0 2em 0 1em;
+}
+.new-faq .new-faq-section .new-faq-subsection .new-faq-item {
+  border-bottom: solid 5px black;
+  overflow: hidden;
+}
+.new-faq .new-faq-section .new-faq-subsection .new-faq-item .new-faq-title {
+  padding-right: 3em;
+}
+.new-faq .new-faq-section .new-faq-subsection .new-faq-item .new-faq-answer {
+  overflow: hidden;
+  display: none;
+}
+.new-faq-title {
   font-weight: 700;
   position: relative;
   cursor: pointer;
   margin: 2em 0;
 }
-.q-title:after {
+.new-faq-title:after {
   content: '';
   height: 1em;
   width: 1em;
@@ -1366,14 +1383,14 @@ header .header-images:hover .shadow {
   -o-transition: 0.25s ease-out;
   transition: 0.25s ease-out;
 }
-.q-title.active:after {
+.new-faq-title.open-question:after {
   transform: rotate(-135deg);
 }
-.q-answer {
+.new-faq-answer {
   margin-bottom: 1em;
 }
-.q-answer a,
-.q-answer a:hover {
+.new-faq-answer a,
+.new-faq-answer a:hover {
   color: #315cbf;
 }
 #Reviews {

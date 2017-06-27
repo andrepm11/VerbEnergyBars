@@ -4,19 +4,37 @@ $(document).ready(function(){
 	//
 	// FAQ
 	//
-	$(".q-answer.closed").hide();
-	$(".q-title").on('click', function(){
-		if ($(this).hasClass("active")) {
-			$(this).removeClass("active");
-			$(this).next(".q-answer").slideToggle("100").removeClass("visible").addClass("closed");
-		} else {
-			$(".q-title").removeClass("active");
-			$(".q-answer.visible").slideToggle("100").removeClass("visible").addClass("closed");
-			
-			$(this).addClass("active");
-			$(this).next(".q-answer").slideToggle("100").removeClass("closed").addClass("visible");
-		}
-	});
+    
+    $(".accordion-button").on('click', function(){
+        if($(this).hasClass("open-section")){
+            $(this).removeClass("open-section");
+            var answer = $(this).next();
+            answer.slideToggle("100");
+            
+        }else{
+            $(this).addClass("open-section");
+            var answer = $(this).next();
+            answer.slideToggle("100");
+
+        }
+    });
+    $(".new-faq-title").on('click', function(){
+        if($(this).hasClass("open-question")){
+            $(this).removeClass("open-question");
+            var answer = $(this).next();
+            answer.slideToggle("100");
+            
+        }else{
+            $(".new-faq-title.open-question").next().slideToggle("100");
+            $(".new-faq-title.open-question").removeClass("open-question");
+            
+            $(this).addClass("open-question");
+            var answer = $(this).next();
+            answer.slideToggle("100").addClass("open-question");
+
+        }
+    });
+    
 	//
 	// Toggle Mobile Menu
 	//
