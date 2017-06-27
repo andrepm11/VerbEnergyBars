@@ -200,7 +200,7 @@ footer {
   display: block;
   height: auto;
   width: 100%;
-  padding: 6em 2em 4em;
+  padding: 3em 2em;
   margin: 0 !important;
 }
 .w-100 {
@@ -591,30 +591,10 @@ button[disabled]:hover,
 .cart-wrapper {
   position: relative;
 }
-@keyframes itemsInCart {
-  0% {
-    background: none;
-  }
-  50% {
-    background: rgba(255, 255, 255, 0.5);
-  }
-  100% {
-    background: none;
-  }
-}
-.items-in-cart {
-  position: absolute;
-  background: #ff623f;
-  height: 20px;
-  width: 20px;
-  border-radius: 50%;
-  color: #fff8f0;
-  font-weight: 400;
-  text-align: center;
-  right: -9px;
-  bottom: -9px;
-  font-size: 11px;
-  padding-top: 4px;
+.ic {
+  display: inline-block;
+  height: 1.5em;
+  width: 1.5em;
 }
 .message-bar {
   background: #1d1d20;
@@ -863,7 +843,7 @@ nav #basket-icon:before {
   top: -0.5em;
 }
 nav.menu-show {
-  height: 25em;
+  height: 20em;
   background: #ffeac7;
   border-bottom: 4px solid #1d1d20;
 }
@@ -924,7 +904,7 @@ header {
   text-align: center;
 }
 header .container {
-  padding-top: 12em;
+  padding: 12em 1em 0;
   max-width: 90em;
 }
 header h1 {
@@ -1115,6 +1095,7 @@ header .header-images:hover .shadow {
   background: #1d1d20;
   color: #d0a66c;
   height: 25em;
+  padding-top: 6em;
 }
 @media (min-width: 40em) {
   #PullQuotes {
@@ -1199,7 +1180,6 @@ header .header-images:hover .shadow {
 #OrderVerb .order-bar-image {
   background: #fff1db;
   vertical-align: center;
-  margin-top: -2em;
 }
 #OrderVerb .order-bar-image img {
   max-width: 100%;
@@ -1356,6 +1336,12 @@ header .header-images:hover .shadow {
   outline: none;
   padding: 0;
   margin: 0;
+  font-size: 1.75em;
+}
+@media (min-width: 48em) {
+  .faq .accordion-button {
+    font-size: 2.25em;
+  }
 }
 .faq .accordion-button:hover {
   background: none;
@@ -1407,10 +1393,15 @@ header .header-images:hover .shadow {
   transition: 0.25s ease-out;
 }
 .faq-title:after {
-  height: 1em;
-  width: 1em;
+  height: .75em;
+  width: .75em;
   top: .25em;
-  right: 1em;
+  right: .75em;
+}
+@media (min-width: 48em) {
+  .faq-title:after {
+    right: 1em;
+  }
 }
 .accordion-button:after {
   height: .5em;
@@ -1786,16 +1777,15 @@ footer {
   background: #1d1d20;
   color: #858b8e;
   padding-bottom: 12em;
+  margin-left: 0;
+  margin-right: 0;
 }
-footer .center {
-  text-align: center;
+footer li {
+  padding: .25em 0;
 }
-footer .center .footer-logo {
+#footer-logo {
   max-width: 8em;
   margin: 0 auto;
-}
-footer .right {
-  text-align: right;
 }
 /* PAGE ALERT CSS */
 .page-alert {

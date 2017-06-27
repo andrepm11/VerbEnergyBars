@@ -170,7 +170,7 @@ footer {
   display: block;
   height: auto;
   width: 100%;
-	padding: 6em 2em 4em;
+	padding: 3em 2em;
 	margin: 0 !important;
 }
 
@@ -591,31 +591,10 @@ button[disabled],
 	position: relative;
 }
 
-@keyframes itemsInCart {
-	0% {
-		background: none;
-	}
-	50% {
-		background: rgba(255, 255, 255, .5);
-	}
-	100% {
-		background: none;
-	}
-}
-
-.items-in-cart {
-	position: absolute;
-	background: #ff623f;
-	height: 20px;
-	width: 20px;
-	border-radius: 50%;
-	color: @white;
-	font-weight: 400;
-	text-align: center;
-	right: -9px;
-	bottom: -9px;
-	font-size: 11px;
-	padding-top: 4px;
+.ic {
+	display: inline-block;
+	height: 1.5em;
+	width: 1.5em;
 }
 
 //========================================
@@ -881,7 +860,7 @@ nav {
 	
 nav.menu-show {
 
-	height: 25em;
+	height: 20em;
 	background: @background-color;
 	border-bottom: @border;
 	
@@ -963,7 +942,7 @@ header {
 	background: @verb-primary-2;
 	text-align: center;
 	.container {
-		padding-top: 12em;
+		padding: 12em 1em 0;
 		max-width: 90em;
 	}
 	h1 {
@@ -1210,6 +1189,7 @@ header {
 	background: @verb-black;
 	color: @verb-primary-5;
 	height: 25em;
+	padding-top: 6em;
 	@media (min-width: 40em) {
 		height: 30em;
 	}
@@ -1313,7 +1293,6 @@ header {
 	.order-bar-image {
 		background: @order-background;
 		vertical-align: center;
-		margin-top: -2em;
 		img {
 			max-width: 100%;
 			width: 100%;
@@ -1434,6 +1413,10 @@ header {
 		outline: none;
 		padding: 0;
 		margin: 0;
+		font-size: 1.75em;
+	@media (min-width: 48em) {
+		font-size: 2.25em;
+	}
 	}
 	.accordion-button:hover {
 		background: none;
@@ -1491,10 +1474,13 @@ header {
 }
 
 .faq-title:after {
-	height: 1em;
-	width: 1em;
+	height: .75em;
+	width: .75em;
 	top: .25em;
-	right: 1em;
+	right: .75em;
+	@media (min-width: 48em) {
+		right: 1em;
+	}
 }
 
 .accordion-button:after {
@@ -1905,16 +1891,15 @@ footer {
 	background: @verb-black;
 	color: @verb-gray-2;
 	padding-bottom: 12em;
-	.center {
-		text-align: center;
-		.footer-logo {
-			max-width: 8em;
-			margin: 0 auto;
-		}
+	margin-left: 0;
+	margin-right: 0;
+	li {
+		padding: .25em 0;
 	}
-	.right {
-		text-align: right;
-	}
+}
+#footer-logo {
+	max-width: 8em;
+	margin: 0 auto;
 }
 
 /* PAGE ALERT CSS */
