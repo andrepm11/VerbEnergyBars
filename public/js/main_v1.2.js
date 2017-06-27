@@ -309,8 +309,6 @@ $(document).ready(function(){
 		    }
 	    }, 100);
 	});
-    
-
 });
 
 
