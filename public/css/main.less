@@ -320,7 +320,7 @@ nav .fade-in {
 
 .bar-renderings,
 .shadows {
-	transition-delay: 3.5s;
+	transition-delay: 2s;
 }
 
 //========================================
@@ -431,14 +431,17 @@ button,
 input[type="submit"], 
 input[type="button"] {
 	display: inline-block;
+	
+	border-radius: 0;
 	border: @border;
-	box-shadow: none;
+	
 	font-family: inherit;
 	font-weight: 700;
 	text-align: center;
 	text-transform: uppercase;
 	font-size: 1em;
 	line-height: 2;
+	
 	cursor: pointer;
 	outline: none !important;
 	box-shadow: none !important;
@@ -1310,6 +1313,7 @@ header {
 	.order-bar-image {
 		background: @order-background;
 		vertical-align: center;
+		margin-top: -2em;
 		img {
 			max-width: 100%;
 			width: 100%;
@@ -1318,7 +1322,6 @@ header {
 }
 
 .order-items {
-	padding: 0 2em;
 	vertical-align: center;
 	height: auto;
 	text-align: center;
@@ -1337,6 +1340,7 @@ header {
 	font-weight: 1em;
 	width: 100%;
 	margin: .5em 0;
+	line-height: 2.5;
 	text-align: center;
 	font-family: inherit;
 	background: background-color;
@@ -1390,7 +1394,7 @@ header {
 .price-type {
 	font-size: 2em;
 	font-weight: 700;
-	margin: 1em 0;
+	margin: .5em 0;
 	width: 8em;
 	margin-right: auto;
 }
@@ -1583,6 +1587,9 @@ header {
 #reviewTable-wrap {
 	display: block;
 	width: 100%;
+	overflow-wrap:break-word; 
+	word-wrap:break-word;
+	hypens:auto;
 }
 .review-stars {
 	color: @verb-yellow-2;
