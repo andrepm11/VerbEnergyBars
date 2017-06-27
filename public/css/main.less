@@ -567,7 +567,7 @@ button[disabled],
 		width: 41.66666666%
 	}
 	.desktop-6 {
-		width: 49.9%
+		width: 49.5%
 	}
 	.desktop-7 {
 		width: 58.33333333%
@@ -942,7 +942,7 @@ header {
 	background: @verb-primary-2;
 	text-align: center;
 	.container {
-		padding: 12em 1em 0;
+		padding: 8em 10% 0;
 		max-width: 90em;
 	}
 	h1 {
@@ -1013,20 +1013,18 @@ header {
 	}
 	@media (min-width: 48em) {
 		h1 {
-			font-size: 3em;
-			&:first-child {
-				font-size: 3.5em;
-			}
+			font-size: 3.5em;
+			padding-top: 1em;
 		}
   }
-	@media (min-width: 60em) {
-		h1 {
-			font-size: 4.5em;
-			&:first-child {
-				font-size: 5em;
-			}
-		}
-  }
+//	@media (min-width: 60em) {
+//		h1 {
+//			font-size: 4.5em;
+//			&:first-child {
+//				font-size: 5em;
+//			}
+//		}
+//  }
 }
 
 //========================================
@@ -1629,10 +1627,9 @@ header {
 
 .reviews-button-group {
 	font-size: .75em;
-	position: absolute;
-	right: -1.3em;
-	top: 1em;
+	float: right;
 	text-align: right;
+	margin-top: 1em;
 	button, span {
 		text-align: center;
 	}
@@ -1705,140 +1702,46 @@ header {
 	}
 }
 
-/* :not(:checked) is a filter, so that browsers that don’t support :checked don’t 
-   follow these rules. Every browser that supports :checked also supports :not(), so
-   it doesn’t make the test unnecessarily selective */
 
-.rating {
-	width: auto;
-	float: left;
+//========================================
+//========================================
+//======================================== Forms
+//========================================
+//========================================
+
+.input-row {
+	width: 100%;
 	display: block;
-	margin-bottom: 1em;
-}
-
-.rating:not(:checked)>input {
-	opacity: 0;
-	position: absolute;
-	margin: 0;
-	padding: 0;
-	margin-left: 167px;
-	z-index: -1;
-}
-
-.rating:not(:checked)>label {
-	float: right;
-	width: 1em;
-	padding: 0;
-	overflow: hidden;
-	white-space: nowrap;
-	cursor: pointer;
-	font-size: 2em;
-	color: @verb-primary-2;
-}
-.rating:not(:checked) > label:before {
-    content: '★ ';
-}
-
-.rating > input:checked ~ label {
-    color: @verb-yellow-2;
-}
-
-.rating:not(:checked) > label:hover,
-.rating:not(:checked) > label:hover ~ label {
-    color: @verb-yellow;
-}
-
-.rating > input:checked + label:hover,
-.rating > input:checked + label:hover ~ label,
-.rating > input:checked ~ label:hover,
-.rating > input:checked ~ label:hover ~ label,
-.rating > label:hover ~ input:checked ~ label {
-    color: @verb-yellow-2;
-}
-
-.rating > label:active {
-    position: relative;
-    top: 2px;
-    left: 2px;
-}
-
-.modal {
-    display: none;
-    position: fixed;
-    z-index: 1;
-    left: 0;
-    top:0;
-    width:100%;
-    height:100%;
-    overflow: auto;
-    background-color: rgb(0,0,0); /* Fallback color */
-    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
-
-}
-.modal-content {
-    background-color: @verb-primary-1;
-    margin: 10% auto; 
-    padding: 2em;
-    width: 80%; 
-    clear: both;
-}
-.close {
-    color: #aaa;
-    float: right;
-    font-size: 28px;
-    font-weight: bold;
-}
-.close:hover,
-.close:focus {
-    color: black;
-    text-decoration: none;
-    cursor: pointer;
-}
-
-#review-form {
+	clear: both;
+	input,
+	label {
+		display: inline-block;
+		margin-left: 0;
+		margin-right: 0;
+	}
+	label {
+		padding-right: 1em;
+	}
 	p {
-		display: block;
-		clear: both;
+		margin: 0 0 .5em;
 	}
 }
-textarea{
-  resize: vertical;
-	height: 8em;
-	padding: .25em;
-}
-@media (min-width:48em){            
-    .modal-content {
-            width: 40%; 
-    }
-}
-.antispam {
-   display: none !important;
-}
-
-#replacement-content{
-    display:none;
-}
-#recency{
-    display: none;
-}
-
-//========================================
-//========================================
-//======================================== Email Form
-//========================================
-//========================================
-
 
 textarea,
 input[type="email"],
 input[type="text"],
 input[type="password"] {
-	display: block;
+	display: inline-block;
 	background: none;
 	outline: none;
 	box-shadow: none;
-	width: 90%;
 	margin-bottom: 1em;
+	margin-top: .25em;
+	
+	border: @border;
+	padding-right: .5em;
+	padding-left: .5em;
+	width: 100%;
 	
 	font-size: 1.25em;
 	border: @border;
@@ -1858,22 +1761,195 @@ input[type="password"] {
 	&.big-input {
 		display: block;
 		font-size: 1.5em;
-		padding: .25em 0;
+		padding-top: .25em;
+		padding-bottom: .25em;
 		width: 90%;
 		max-width: 16em;
 	}
 }
 
-input[type="email"],
-input[type="text"],
-input[type="password"] {
-	border-bottom: @border;
-	border-left: none;
-	border-right: none;
-	border-top: none;
+textarea{
+  resize: vertical;
+	height: 8em;
+	padding: .25em;
+}
+
+.antispam {
+   display: none !important;
+}
+
+/* Custom Checkbox */
+
+.checkbox {
+  position: relative;
+  margin: 1em 0;
+	label {
+		cursor: pointer;
+		position: absolute;
+		width: 1.5em;
+		height: 1.5em;
+		top: -.125em;
+		left: 0;
+		background: white;
+		border: @border;
+		&:after {
+			opacity: .1;
+			content: '';
+			position: absolute;
+			width: 1em;
+			height: .75em;
+			background: transparent;
+			border: @stroke-width solid @verb-gray-4;
+			border-top: none;
+			border-right: none;
+			transform: rotate(-45deg);
+		}
+	}
+	span {
+		margin-left: 1em;
+	}
+}
+/* Create the hover event of the tick */
+
+.checkbox label:hover::after {
+  opacity: .3;
+}
+
+/* Create the checkbox state for the tick */
+
+.checkbox input[type=checkbox]:checked + label:after {
+  opacity: 1;
+}
+
+/* :not(:checked) is a filter, so that browsers that don’t support :checked don’t 
+   follow these rules. Every browser that supports :checked also supports :not(), so
+   it doesn’t make the test unnecessarily selective */
+
+.rating {
+	width: auto;
+	float: left;
+	display: block;
+	margin-bottom: 1em;
+	margin-top: -1em;
+}
+
+.rating:not(:checked)>input {
+	opacity: 0;
+	position: absolute;
+	margin: 0;
+	padding: 0;
+	z-index: -1;
+}
+
+.rating:not(:checked)>label {
+	float: right;
+	width: 1em;
+	padding: 0;
+	overflow: hidden;
+	white-space: nowrap;
+	cursor: pointer;
+	font-size: 2em;
+	color: @text-color;
+}
+.rating:not(:checked) > label:before {
+	content: '☆ ';
+}
+.rating > input:checked ~ label:before,
+.rating:not(:checked) > label:hover ~ label:before,
+.rating:not(:checked) > label:hover:before {
+	content: '★ ';
+}
+
+.rating > input:checked ~ label {
+	color: @verb-yellow-2;
+}
+
+.rating:not(:checked) > label:hover,
+.rating:not(:checked) > label:hover ~ label {
+	color: @verb-yellow;
+}
+
+.rating > input:checked + label:hover,
+.rating > input:checked + label:hover ~ label,
+.rating > input:checked ~ label:hover,
+.rating > input:checked ~ label:hover ~ label,
+.rating > label:hover ~ input:checked ~ label {
+	color: @verb-yellow-2;
+}
+
+.rating > label:active {
+    position: relative;
+    top: 2px;
+    left: 2px;
+}
+
+.modal {
+	display: none;
+	position: fixed;
+	z-index: 1000;
+	left: 0;
+	top: 0;
+	width:100%;
+	height:100%;
+	overflow: auto;
+	background-color: rgb(0,0,0); /* Fallback color */
+	background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+.modal-content {
+	background-color: white;
+	margin: 1em auto auto; 
+	padding: 1em 2em;
+	width: 90%;
+	clear: both;
+	@media (min-width:48em){            
+		width: 90%; 
+		max-width: 48em;
+	}
+}
+.close {
+	height: 2em;
+	float: right;
+	font-size: 1.5em;
+	display: inline-block;
+	&::before,
+	&::after {
+		content: '';
+		width: @stroke-width;
+		height: 1em;
+		background: @text-color;
+		display: inline-block;
+		position: relative;
+	}
+	&::before {
+		transform: rotate(-45deg);
+		left: 35%;
+	}
+	&::after {
+		transform: rotate(45deg);
+		right: 30%;
+	}
+	&:hover,
+	&:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+	}	
 }
 
 
+
+#replacement-content{
+    display:none;
+}
+#recency{
+    display: none;
+}
+
+//========================================
+//========================================
+//======================================== Email Form
+//========================================
+//========================================
 
 #WhatsYourVerb {
 	background: @verb-primary-1;

@@ -114,7 +114,7 @@ $(document).ready(function () {
                 console.log(data);
             }					
         });
-        $("#email-form-contianer").addClass('submitted');
+        $("#email-form-container").addClass('submitted');
     });
 
     var modal = document.getElementById("reviewModal");
