@@ -385,9 +385,6 @@ p a:focus {
   cursor: pointer;
   color: #31313a;
 }
-p .intro {
-  font-weight: 700;
-}
 a,
 a:link,
 a:visited,
@@ -1009,6 +1006,14 @@ header .header-images:hover .shadow {
   display: block;
   width: 100%;
   padding: 0;
+}
+#VerbVS h3 {
+  margin-top: 1em;
+}
+@media (min-width: 48em) {
+  #VerbVS h3 {
+    margin-top: 30%;
+  }
 }
 #vs-content {
   min-height: 10em;
@@ -1673,6 +1678,10 @@ input[type="password"].big-input {
   padding-bottom: .25em;
   width: 90%;
   max-width: 16em;
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  padding-left: 0;
 }
 textarea {
   resize: vertical;
@@ -1881,9 +1890,15 @@ footer {
   padding-bottom: 12em;
   margin-left: 0;
   margin-right: 0;
+  text-align: center;
 }
 footer li {
   padding: .25em 0;
+}
+@media (min-width: 48em) {
+  footer {
+    text-align: left;
+  }
 }
 #footer-logo {
   max-width: 8em;
