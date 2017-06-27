@@ -200,17 +200,24 @@ footer {
   display: block;
   height: auto;
   width: 100%;
-  padding: 6em 2em 4em;
+  padding: 3em 2em;
   margin: 0 !important;
 }
 .w-100 {
   width: 100%;
+  display: block;
 }
 .left {
   float: left;
 }
 .right {
   float: right;
+}
+.text-center {
+  text-align: center;
+}
+.text-right {
+  text-align: right;
 }
 .relative {
   position: relative;
@@ -324,7 +331,7 @@ nav .fade-in {
 }
 .bar-renderings,
 .shadows {
-  transition-delay: 3.5s;
+  transition-delay: 2s;
 }
 h1 {
   color: inherit;
@@ -413,8 +420,8 @@ button,
 input[type="submit"],
 input[type="button"] {
   display: inline-block;
+  border-radius: 0;
   border: 4px solid #1d1d20;
-  box-shadow: none;
   font-family: inherit;
   font-weight: 700;
   text-align: center;
@@ -584,35 +591,16 @@ button[disabled]:hover,
 .cart-wrapper {
   position: relative;
 }
-@keyframes itemsInCart {
-  0% {
-    background: none;
-  }
-  50% {
-    background: rgba(255, 255, 255, 0.5);
-  }
-  100% {
-    background: none;
-  }
-}
-.items-in-cart {
-  position: absolute;
-  background: #ff623f;
-  height: 20px;
-  width: 20px;
-  border-radius: 50%;
-  color: #fff8f0;
-  font-weight: 400;
-  text-align: center;
-  right: -9px;
-  bottom: -9px;
-  font-size: 11px;
-  padding-top: 4px;
+.ic {
+  display: inline-block;
+  height: 1.5em;
+  width: 1.5em;
 }
 .message-bar {
   background: #1d1d20;
   color: #e3be72;
   width: 100%;
+  display: block;
   height: 1.5em;
 }
 .message-bar a,
@@ -855,7 +843,7 @@ nav #basket-icon:before {
   top: -0.5em;
 }
 nav.menu-show {
-  height: 25em;
+  height: 20em;
   background: #ffeac7;
   border-bottom: 4px solid #1d1d20;
 }
@@ -916,7 +904,7 @@ header {
   text-align: center;
 }
 header .container {
-  padding-top: 12em;
+  padding: 12em 1em 0;
   max-width: 90em;
 }
 header h1 {
@@ -1026,15 +1014,15 @@ header .header-images:hover .shadow {
   display: inline-block;
   margin: 0;
 }
-#VerbVS p {
-  min-height: 10em;
-  line-height: 1.5;
-  font-size: 1.25em;
-}
 #VerbVS p,
 #VerbVS h3 {
   display: block;
   width: 100%;
+  padding: 0;
+}
+#vs-content {
+  min-height: 10em;
+  font-size: 1.25em;
 }
 #verb-vs-illustrations {
   width: 100%;
@@ -1042,6 +1030,7 @@ header .header-images:hover .shadow {
   opacity: 1;
   margin-top: -30%;
   padding: 0 4em;
+  margin-bottom: -1em;
 }
 @media (min-width: 48em) {
   #verb-vs-illustrations {
@@ -1105,7 +1094,13 @@ header .header-images:hover .shadow {
 #PullQuotes {
   background: #1d1d20;
   color: #d0a66c;
-  height: 30em;
+  height: 25em;
+  padding-top: 6em;
+}
+@media (min-width: 40em) {
+  #PullQuotes {
+    height: 30em;
+  }
 }
 #PullQuotes #quote-list {
   position: relative;
@@ -1115,11 +1110,16 @@ header .header-images:hover .shadow {
   opacity: 0;
   width: 100%;
   margin: 0;
-  font-size: 1.25em;
+  font-size: 1em;
 }
 #PullQuotes .pull-quote-container.active-quote {
   opacity: 1;
-  transition-delay: 1s;
+  transition-delay: 1.5s;
+}
+@media (min-width: 40em) {
+  #PullQuotes .pull-quote-container {
+    font-size: 1.25em;
+  }
 }
 @media (min-width: 48em) {
   #PullQuotes .pull-quote-container {
@@ -1186,7 +1186,6 @@ header .header-images:hover .shadow {
   width: 100%;
 }
 .order-items {
-  padding: 0 2em;
   vertical-align: center;
   height: auto;
   text-align: center;
@@ -1201,8 +1200,8 @@ header .header-images:hover .shadow {
 }
 .order-type-button {
   display: inline-block;
+  border-radius: 0;
   border: 4px solid #1d1d20;
-  box-shadow: none;
   font-weight: 700;
   text-transform: uppercase;
   font-size: 1em;
@@ -1232,6 +1231,7 @@ header .header-images:hover .shadow {
   font-weight: 1em;
   width: 100%;
   margin: .5em 0;
+  line-height: 2.5;
   text-align: center;
   font-family: inherit;
   background: background-color;
@@ -1306,7 +1306,7 @@ header .header-images:hover .shadow {
 .price-type {
   font-size: 2em;
   font-weight: 700;
-  margin: 1em 0;
+  margin: .5em 0;
   width: 8em;
   margin-right: auto;
 }
@@ -1324,7 +1324,10 @@ header .header-images:hover .shadow {
 .sale-price.sale {
   display: inline-block;
 }
-.new-faq .accordion-button {
+.faq {
+  max-width: 32em;
+}
+.faq .accordion-button {
   cursor: pointer;
   width: 100%;
   border: none;
@@ -1333,64 +1336,88 @@ header .header-images:hover .shadow {
   outline: none;
   padding: 0;
   margin: 0;
+  font-size: 1.75em;
 }
-.new-faq .accordion-button:hover {
+@media (min-width: 48em) {
+  .faq .accordion-button {
+    font-size: 2.25em;
+  }
+}
+.faq .accordion-button:hover {
   background: none;
   color: inherit;
 }
-.new-faq .new-faq-answer {
+.faq .faq-answer {
   overflow: hidden;
 }
-.new-faq .new-faq-section {
-  padding-bottom: 2em;
+.faq .faq-section {
+  padding: 1em 0;
+  border-bottom: 4px solid #1d1d20;
 }
-.new-faq .new-faq-section .new-faq-subsection {
+.faq .faq-section:last-child {
+  border-bottom: none;
+}
+.faq .faq-section .faq-subsection {
   overflow: hidden;
   display: none;
-  padding: 0 2em 0 1em;
+  padding: 0;
 }
-.new-faq .new-faq-section .new-faq-subsection .new-faq-item {
-  border-bottom: solid 5px black;
+.faq .faq-section .faq-subsection .faq-item {
   overflow: hidden;
 }
-.new-faq .new-faq-section .new-faq-subsection .new-faq-item .new-faq-title {
+.faq .faq-section .faq-subsection .faq-item .faq-title {
   padding-right: 3em;
 }
-.new-faq .new-faq-section .new-faq-subsection .new-faq-item .new-faq-answer {
+.faq .faq-section .faq-subsection .faq-item .faq-answer {
   overflow: hidden;
   display: none;
 }
-.new-faq-title {
+.faq-title {
   font-weight: 700;
   position: relative;
   cursor: pointer;
-  margin: 2em 0;
+  margin: 1em 0;
 }
-.new-faq-title:after {
+.faq-title:after,
+.accordion-button:after {
   content: '';
-  height: 1em;
-  width: 1em;
   display: inline-block;
   position: absolute;
   z-index: 2;
   border-right: 4px solid #1d1d20;
   border-bottom: 4px solid #1d1d20;
-  right: 1em;
-  top: .25em;
   transform: rotate(45deg);
   -webkit-transition: 0.25s ease-out;
   -moz-transition: 0.25s ease-out;
   -o-transition: 0.25s ease-out;
   transition: 0.25s ease-out;
 }
-.new-faq-title.open-question:after {
+.faq-title:after {
+  height: .75em;
+  width: .75em;
+  top: .25em;
+  right: .75em;
+}
+@media (min-width: 48em) {
+  .faq-title:after {
+    right: 1em;
+  }
+}
+.accordion-button:after {
+  height: .5em;
+  width: .5em;
+  top: .2em;
+  right: .4em;
+}
+.faq-title.open-question:after,
+.accordion-button.open-section:after {
   transform: rotate(-135deg);
 }
-.new-faq-answer {
+.faq-answer {
   margin-bottom: 1em;
 }
-.new-faq-answer a,
-.new-faq-answer a:hover {
+.faq-answer a,
+.faq-answer a:hover {
   color: #315cbf;
 }
 #Reviews {
@@ -1457,6 +1484,9 @@ header .header-images:hover .shadow {
 #reviewTable-wrap {
   display: block;
   width: 100%;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+  hypens: auto;
 }
 .review-stars {
   color: #f2c218;
@@ -1590,23 +1620,29 @@ header .header-images:hover .shadow {
 /* :not(:checked) is a filter, so that browsers that don’t support :checked don’t 
    follow these rules. Every browser that supports :checked also supports :not(), so
    it doesn’t make the test unnecessarily selective */
+.rating {
+  width: auto;
+  float: left;
+  display: block;
+  margin-bottom: 1em;
+}
 .rating:not(:checked) > input {
   opacity: 0;
   position: absolute;
-  margin: 15px;
+  margin: 0;
+  padding: 0;
   margin-left: 167px;
   z-index: -1;
 }
 .rating:not(:checked) > label {
   float: right;
   width: 1em;
-  padding: 0 .1em;
+  padding: 0;
   overflow: hidden;
   white-space: nowrap;
   cursor: pointer;
-  font-size: 200%;
-  line-height: 1.2;
-  color: #ddd;
+  font-size: 2em;
+  color: #ffeac7;
 }
 .rating:not(:checked) > label:before {
   content: '★ ';
@@ -1645,7 +1681,7 @@ header .header-images:hover .shadow {
   /* Black w/ opacity */
 }
 .modal-content {
-  background-color: white;
+  background-color: #fff1db;
   margin: 10% auto;
   padding: 2em;
   width: 80%;
@@ -1663,16 +1699,22 @@ header .header-images:hover .shadow {
   text-decoration: none;
   cursor: pointer;
 }
-textarea {
-  resize: none;
+#review-form p {
+  display: block;
+  clear: both;
 }
-@media (min-width: 920px) {
+textarea {
+  resize: vertical;
+  height: 8em;
+  padding: .25em;
+}
+@media (min-width: 48em) {
   .modal-content {
     width: 40%;
   }
 }
 .antispam {
-  display: none;
+  display: none !important;
 }
 #replacement-content {
   display: none;
@@ -1680,32 +1722,63 @@ textarea {
 #recency {
   display: none;
 }
-#WhatsYourVerb {
-  background: #fff1db;
-}
-#WhatsYourVerb .big-input {
-  border-bottom: 4px solid #1d1d20;
-  border-left: none;
-  border-right: none;
-  border-top: none;
+textarea,
+input[type="email"],
+input[type="text"],
+input[type="password"] {
+  display: block;
   background: none;
   outline: none;
+  box-shadow: none;
+  width: 90%;
+  margin-bottom: 1em;
+  font-size: 1.25em;
+  border: 4px solid #1d1d20;
+}
+textarea::-webkit-input-placeholder,
+input[type="email"]::-webkit-input-placeholder,
+input[type="text"]::-webkit-input-placeholder,
+input[type="password"]::-webkit-input-placeholder {
+  color: #858b8e;
+}
+textarea::-moz-placeholder,
+input[type="email"]::-moz-placeholder,
+input[type="text"]::-moz-placeholder,
+input[type="password"]::-moz-placeholder {
+  color: #858b8e;
+}
+textarea:-ms-input-placeholder,
+input[type="email"]:-ms-input-placeholder,
+input[type="text"]:-ms-input-placeholder,
+input[type="password"]:-ms-input-placeholder {
+  color: #858b8e;
+}
+textarea:-moz-placeholder,
+input[type="email"]:-moz-placeholder,
+input[type="text"]:-moz-placeholder,
+input[type="password"]:-moz-placeholder {
+  color: #858b8e;
+}
+textarea.big-input,
+input[type="email"].big-input,
+input[type="text"].big-input,
+input[type="password"].big-input {
+  display: block;
   font-size: 1.5em;
   padding: .25em 0;
   width: 90%;
   max-width: 16em;
 }
-#WhatsYourVerb .big-input::-webkit-input-placeholder {
-  color: #858b8e;
+input[type="email"],
+input[type="text"],
+input[type="password"] {
+  border-bottom: 4px solid #1d1d20;
+  border-left: none;
+  border-right: none;
+  border-top: none;
 }
-#WhatsYourVerb .big-input::-moz-placeholder {
-  color: #858b8e;
-}
-#WhatsYourVerb .big-input:-ms-input-placeholder {
-  color: #858b8e;
-}
-#WhatsYourVerb .big-input:-moz-placeholder {
-  color: #858b8e;
+#WhatsYourVerb {
+  background: #fff1db;
 }
 #email-form-container #email-form {
   display: block;
@@ -1747,16 +1820,15 @@ footer {
   background: #1d1d20;
   color: #858b8e;
   padding-bottom: 12em;
+  margin-left: 0;
+  margin-right: 0;
 }
-footer .center {
-  text-align: center;
+footer li {
+  padding: .25em 0;
 }
-footer .center .footer-logo {
+#footer-logo {
   max-width: 8em;
   margin: 0 auto;
-}
-footer .right {
-  text-align: right;
 }
 /* PAGE ALERT CSS */
 .page-alert {

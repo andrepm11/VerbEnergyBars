@@ -170,18 +170,25 @@ footer {
   display: block;
   height: auto;
   width: 100%;
-	padding: 6em 2em 4em;
+	padding: 3em 2em;
 	margin: 0 !important;
 }
 
 .w-100 {
 	width: 100%;
+	display: block;
 }
 .left {
 	float: left;
 }
 .right {
 	float: right;
+}
+.text-center {
+	text-align: center;
+}
+.text-right {
+	text-align: right;
 }
 .relative {
 	position: relative;
@@ -313,7 +320,7 @@ nav .fade-in {
 
 .bar-renderings,
 .shadows {
-	transition-delay: 3.5s;
+	transition-delay: 2s;
 }
 
 //========================================
@@ -424,14 +431,17 @@ button,
 input[type="submit"], 
 input[type="button"] {
 	display: inline-block;
+	
+	border-radius: 0;
 	border: @border;
-	box-shadow: none;
+	
 	font-family: inherit;
 	font-weight: 700;
 	text-align: center;
 	text-transform: uppercase;
 	font-size: 1em;
 	line-height: 2;
+	
 	cursor: pointer;
 	outline: none !important;
 	box-shadow: none !important;
@@ -581,31 +591,10 @@ button[disabled],
 	position: relative;
 }
 
-@keyframes itemsInCart {
-	0% {
-		background: none;
-	}
-	50% {
-		background: rgba(255, 255, 255, .5);
-	}
-	100% {
-		background: none;
-	}
-}
-
-.items-in-cart {
-	position: absolute;
-	background: #ff623f;
-	height: 20px;
-	width: 20px;
-	border-radius: 50%;
-	color: @white;
-	font-weight: 400;
-	text-align: center;
-	right: -9px;
-	bottom: -9px;
-	font-size: 11px;
-	padding-top: 4px;
+.ic {
+	display: inline-block;
+	height: 1.5em;
+	width: 1.5em;
 }
 
 //========================================
@@ -871,7 +860,7 @@ nav {
 	
 nav.menu-show {
 
-	height: 25em;
+	height: 20em;
 	background: @background-color;
 	border-bottom: @border;
 	
@@ -953,7 +942,7 @@ header {
 	background: @verb-primary-2;
 	text-align: center;
 	.container {
-		padding-top: 12em;
+		padding: 12em 1em 0;
 		max-width: 90em;
 	}
 	h1 {
@@ -1101,15 +1090,16 @@ header {
 		display: inline-block;
 		margin: 0;
 	}
-	p {
-		min-height: 10em;
-		line-height: 1.5;
-		font-size: 1.25em;
-	}
 	p, h3 {
 		display: block;
 		width: 100%;
+		padding: 0;
 	}
+}
+
+#vs-content {
+	min-height: 10em;
+	font-size: 1.25em;
 }
 
 #verb-vs-illustrations {
@@ -1118,7 +1108,7 @@ header {
 	opacity: 1;
 	margin-top: -30%;
 	padding: 0 4em;
-	
+	margin-bottom: -1em;
 	@media (min-width: 48em) {
 		padding: 0 0;
 	}
@@ -1198,7 +1188,11 @@ header {
 #PullQuotes {
 	background: @verb-black;
 	color: @verb-primary-5;
-	height: 30em;
+	height: 25em;
+	padding-top: 6em;
+	@media (min-width: 40em) {
+		height: 30em;
+	}
 	#quote-list {
 		position: relative;
 	}
@@ -1207,10 +1201,13 @@ header {
 		opacity: 0;
 		width: 100%;
 		margin: 0;
-		font-size: 1.25em;
+		font-size: 1em;
 		&.active-quote {
 			opacity: 1;
-			transition-delay: 1s;
+			transition-delay: 1.5s;
+		}
+		@media (min-width: 40em) {
+			font-size: 1.25em;
 		}
 		@media (min-width: 48em) {
 			margin: 0 auto;
@@ -1304,7 +1301,6 @@ header {
 }
 
 .order-items {
-	padding: 0 2em;
 	vertical-align: center;
 	height: auto;
 	text-align: center;
@@ -1323,6 +1319,7 @@ header {
 	font-weight: 1em;
 	width: 100%;
 	margin: .5em 0;
+	line-height: 2.5;
 	text-align: center;
 	font-family: inherit;
 	background: background-color;
@@ -1376,7 +1373,7 @@ header {
 .price-type {
 	font-size: 2em;
 	font-weight: 700;
-	margin: 1em 0;
+	margin: .5em 0;
 	width: 8em;
 	margin-right: auto;
 }
@@ -1405,67 +1402,69 @@ header {
 //========================================
 
 
-.new-faq{
-    .accordion-button{
-        cursor: pointer;
-        width:100%;
-        border:none;
-        background-color:none;
-        text-align: left;
-        outline:none;
-        padding:0;
-        margin:0;
-    }
-    .accordion-button:hover{
-        background:none;
-        color: inherit;
-    }
-    
-    .new-faq-answer{
-        overflow: hidden;
-    }
-    .new-faq-section{
-        padding-bottom:2em;
-        .new-faq-subsection{
-            overflow: hidden;
-            display: none;
-            padding:0 2em 0 1em;
-            .new-faq-item{
-                border-bottom: solid 5px black;
-                overflow: hidden;
-                .new-faq-title{
-                    padding-right:3em;
-                }
-                .new-faq-answer{
-                    overflow: hidden;
-                    display:none;
-                }   
-            } 
-        }
-    }
+.faq {
+	max-width: 32em;
+	.accordion-button {
+		cursor: pointer;
+		width: 100%;
+		border: none;
+		background-color: none;
+		text-align: left;
+		outline: none;
+		padding: 0;
+		margin: 0;
+		font-size: 1.75em;
+	@media (min-width: 48em) {
+		font-size: 2.25em;
+	}
+	}
+	.accordion-button:hover {
+		background: none;
+		color: inherit;
+	}
+	.faq-answer {
+		overflow: hidden;
+	}
+	.faq-section {
+		padding: 1em 0;
+		border-bottom: @border;
+		&:last-child {
+			border-bottom: none;
+		}
+		.faq-subsection {
+			overflow: hidden;
+			display: none;
+			padding: 0;
+			.faq-item {
+				overflow: hidden;
+				.faq-title {
+					padding-right: 3em;
+				}
+				.faq-answer {
+					overflow: hidden;
+					display: none;
+				}
+			}
+		}
+	}
 }
 
-
-.new-faq-title {
+.faq-title {
 	font-weight: 700;
 	position: relative;
 	cursor: pointer;
-	margin: 2em 0;
+	margin: 1em 0;
 }
 
-.new-faq-title:after {
+.faq-title:after,
+.accordion-button:after {
 	content: '';
-	height: 1em;
-	width: 1em;
 	display: inline-block;
 	position: absolute;
 	z-index: 2;
 	
 	border-right: @border;
 	border-bottom: @border;
-	
-	right: 1em;
-	top: .25em;
 	
 	transform: rotate(45deg);
 	-webkit-transition: .25s ease-out;
@@ -1474,16 +1473,34 @@ header {
 	transition: .25s ease-out;
 }
 
-.new-faq-title.open-question:after {
+.faq-title:after {
+	height: .75em;
+	width: .75em;
+	top: .25em;
+	right: .75em;
+	@media (min-width: 48em) {
+		right: 1em;
+	}
+}
+
+.accordion-button:after {
+	height: .5em;
+	width: .5em;
+	top: .2em;
+	right: .4em;
+}
+
+.faq-title.open-question:after,
+.accordion-button.open-section:after {
 	transform: rotate(-135deg);
 }
 
-.new-faq-answer {
+.faq-answer {
 	margin-bottom: 1em;
 }
 
-.new-faq-answer a,
-.new-faq-answer a:hover {
+.faq-answer a,
+.faq-answer a:hover {
 	color: @accent-color-2;
 }
 
@@ -1556,6 +1573,9 @@ header {
 #reviewTable-wrap {
 	display: block;
 	width: 100%;
+	overflow-wrap:break-word; 
+	word-wrap:break-word;
+	hypens:auto;
 }
 .review-stars {
 	color: @verb-yellow-2;
@@ -1688,10 +1708,19 @@ header {
 /* :not(:checked) is a filter, so that browsers that don’t support :checked don’t 
    follow these rules. Every browser that supports :checked also supports :not(), so
    it doesn’t make the test unnecessarily selective */
+
+.rating {
+	width: auto;
+	float: left;
+	display: block;
+	margin-bottom: 1em;
+}
+
 .rating:not(:checked)>input {
 	opacity: 0;
 	position: absolute;
-	margin: 15px;
+	margin: 0;
+	padding: 0;
 	margin-left: 167px;
 	z-index: -1;
 }
@@ -1699,13 +1728,12 @@ header {
 .rating:not(:checked)>label {
 	float: right;
 	width: 1em;
-	padding: 0 .1em;
+	padding: 0;
 	overflow: hidden;
 	white-space: nowrap;
 	cursor: pointer;
-	font-size: 200%;
-	line-height: 1.2;
-	color: #ddd;
+	font-size: 2em;
+	color: @verb-primary-2;
 }
 .rating:not(:checked) > label:before {
     content: '★ ';
@@ -1729,9 +1757,9 @@ header {
 }
 
 .rating > label:active {
-    position:relative;
-    top:2px;
-    left:2px;
+    position: relative;
+    top: 2px;
+    left: 2px;
 }
 
 .modal {
@@ -1748,7 +1776,7 @@ header {
 
 }
 .modal-content {
-    background-color: white;
+    background-color: @verb-primary-1;
     margin: 10% auto; 
     padding: 2em;
     width: 80%; 
@@ -1767,16 +1795,24 @@ header {
     cursor: pointer;
 }
 
-textarea{
-    resize: none;
+#review-form {
+	p {
+		display: block;
+		clear: both;
+	}
 }
-@media (min-width:920px){            
+textarea{
+  resize: vertical;
+	height: 8em;
+	padding: .25em;
+}
+@media (min-width:48em){            
     .modal-content {
             width: 40%; 
     }
 }
-.antispam{
-    display: none;
+.antispam {
+   display: none !important;
 }
 
 #replacement-content{
@@ -1792,32 +1828,55 @@ textarea{
 //========================================
 //========================================
 
-#WhatsYourVerb {
-	background: @verb-primary-1;
-	.big-input {
-		border-bottom: @border;
-		border-left: none;
-		border-right: none;
-		border-top: none;
-		background: none;
-		outline: none;
+
+textarea,
+input[type="email"],
+input[type="text"],
+input[type="password"] {
+	display: block;
+	background: none;
+	outline: none;
+	box-shadow: none;
+	width: 90%;
+	margin-bottom: 1em;
+	
+	font-size: 1.25em;
+	border: @border;
+	
+	&::-webkit-input-placeholder {
+		color: @verb-gray-2;
+	}
+	&::-moz-placeholder { 
+		color: @verb-gray-2;
+	}
+	&:-ms-input-placeholder { 
+		color: @verb-gray-2;
+	}
+	&:-moz-placeholder { 
+		color: @verb-gray-2;
+	}
+	&.big-input {
+		display: block;
 		font-size: 1.5em;
 		padding: .25em 0;
 		width: 90%;
 		max-width: 16em;
-		&::-webkit-input-placeholder {
-			color: @verb-gray-2;
-		}
-		&::-moz-placeholder { 
-			color: @verb-gray-2;
-		}
-		&:-ms-input-placeholder { 
-			color: @verb-gray-2;
-		}
-		&:-moz-placeholder { 
-			color: @verb-gray-2;
-		}
 	}
+}
+
+input[type="email"],
+input[type="text"],
+input[type="password"] {
+	border-bottom: @border;
+	border-left: none;
+	border-right: none;
+	border-top: none;
+}
+
+
+
+#WhatsYourVerb {
+	background: @verb-primary-1;
 }
 
 #email-form-container {
@@ -1871,16 +1930,15 @@ footer {
 	background: @verb-black;
 	color: @verb-gray-2;
 	padding-bottom: 12em;
-	.center {
-		text-align: center;
-		.footer-logo {
-			max-width: 8em;
-			margin: 0 auto;
-		}
+	margin-left: 0;
+	margin-right: 0;
+	li {
+		padding: .25em 0;
 	}
-	.right {
-		text-align: right;
-	}
+}
+#footer-logo {
+	max-width: 8em;
+	margin: 0 auto;
 }
 
 /* PAGE ALERT CSS */
