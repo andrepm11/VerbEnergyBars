@@ -904,7 +904,7 @@ header {
   text-align: center;
 }
 header .container {
-  padding: 12em 1em 0;
+  padding: 8em 10% 0;
   max-width: 90em;
 }
 header h1 {
@@ -958,18 +958,8 @@ header .header-images:hover .shadow {
 }
 @media (min-width: 48em) {
   header h1 {
-    font-size: 3em;
-  }
-  header h1:first-child {
     font-size: 3.5em;
-  }
-}
-@media (min-width: 60em) {
-  header h1 {
-    font-size: 4.5em;
-  }
-  header h1:first-child {
-    font-size: 5em;
+    padding-top: 1em;
   }
 }
 #TheVerbLife {
@@ -1536,10 +1526,9 @@ header .header-images:hover .shadow {
 }
 .reviews-button-group {
   font-size: .75em;
-  position: absolute;
-  right: -1.3em;
-  top: 1em;
+  float: right;
   text-align: right;
+  margin-top: 1em;
 }
 .reviews-button-group button,
 .reviews-button-group span {

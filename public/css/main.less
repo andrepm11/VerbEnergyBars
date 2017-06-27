@@ -942,7 +942,7 @@ header {
 	background: @verb-primary-2;
 	text-align: center;
 	.container {
-		padding: 12em 1em 0;
+		padding: 8em 10% 0;
 		max-width: 90em;
 	}
 	h1 {
@@ -1013,20 +1013,18 @@ header {
 	}
 	@media (min-width: 48em) {
 		h1 {
-			font-size: 3em;
-			&:first-child {
-				font-size: 3.5em;
-			}
+			font-size: 3.5em;
+			padding-top: 1em;
 		}
   }
-	@media (min-width: 60em) {
-		h1 {
-			font-size: 4.5em;
-			&:first-child {
-				font-size: 5em;
-			}
-		}
-  }
+//	@media (min-width: 60em) {
+//		h1 {
+//			font-size: 4.5em;
+//			&:first-child {
+//				font-size: 5em;
+//			}
+//		}
+//  }
 }
 
 //========================================
@@ -1629,10 +1627,9 @@ header {
 
 .reviews-button-group {
 	font-size: .75em;
-	position: absolute;
-	right: -1.3em;
-	top: 1em;
+	float: right;
 	text-align: right;
+	margin-top: 1em;
 	button, span {
 		text-align: center;
 	}
