@@ -94,7 +94,7 @@ $(document).ready(function () {
             }					
         });
         if($("#subscribe").is(":checked")){
-            alert("Subscriber");//ADD IN EVENT TRACKING HERE TO GRAB E-MAIL AND ADD TO E-MAIL LIST
+//            alert("Subscriber"); //ADD IN EVENT TRACKING HERE TO GRAB E-MAIL AND ADD TO E-MAIL LIST
         };
         $("#replacement-content").css("display", "block");
         $("#content-wrapper").css("display", "none");
