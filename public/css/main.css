@@ -1334,7 +1334,7 @@ header .header-images:hover .shadow {
 .sale-price.sale {
   display: inline-block;
 }
-.new-faq .accordion-button {
+.faq .accordion-button {
   cursor: pointer;
   width: 100%;
   border: none;
@@ -1344,39 +1344,40 @@ header .header-images:hover .shadow {
   padding: 0;
   margin: 0;
 }
-.new-faq .accordion-button:hover {
+.faq .accordion-button:hover {
   background: none;
   color: inherit;
 }
-.new-faq .new-faq-answer {
+.faq .faq-answer {
   overflow: hidden;
 }
-.new-faq .new-faq-section {
-  padding-bottom: 2em;
+.faq .faq-section {
+  padding: 1em 0;
+  border-bottom: 4px solid #1d1d20;
 }
-.new-faq .new-faq-section .new-faq-subsection {
+.faq .faq-section .faq-subsection {
   overflow: hidden;
   display: none;
-  padding: 0 2em 0 1em;
+  padding: 0;
 }
-.new-faq .new-faq-section .new-faq-subsection .new-faq-item {
-  border-bottom: solid 5px black;
+.faq .faq-section .faq-subsection .faq-item {
   overflow: hidden;
 }
-.new-faq .new-faq-section .new-faq-subsection .new-faq-item .new-faq-title {
+.faq .faq-section .faq-subsection .faq-item .faq-title {
   padding-right: 3em;
 }
-.new-faq .new-faq-section .new-faq-subsection .new-faq-item .new-faq-answer {
+.faq .faq-section .faq-subsection .faq-item .faq-answer {
   overflow: hidden;
   display: none;
 }
-.new-faq-title {
+.faq-title {
   font-weight: 700;
   position: relative;
   cursor: pointer;
   margin: 2em 0;
 }
-.new-faq-title:after {
+.faq-title:after,
+.accordion-button:after {
   content: '';
   height: 1em;
   width: 1em;
@@ -1386,21 +1387,34 @@ header .header-images:hover .shadow {
   border-right: 4px solid #1d1d20;
   border-bottom: 4px solid #1d1d20;
   right: 1em;
-  top: .25em;
+  top: 1.5em;
   transform: rotate(45deg);
   -webkit-transition: 0.25s ease-out;
   -moz-transition: 0.25s ease-out;
   -o-transition: 0.25s ease-out;
   transition: 0.25s ease-out;
 }
-.new-faq-title.open-question:after {
+.faq-title:after {
+  height: 1em;
+  width: 1em;
+  top: .25em;
+  right: 1em;
+}
+.accordion-button:after {
+  height: .5em;
+  width: .5em;
+  top: .3em;
+  right: .4em;
+}
+.faq-title.open-question:after,
+.accordion-button.open-section:after {
   transform: rotate(-135deg);
 }
-.new-faq-answer {
+.faq-answer {
   margin-bottom: 1em;
 }
-.new-faq-answer a,
-.new-faq-answer a:hover {
+.faq-answer a,
+.faq-answer a:hover {
   color: #315cbf;
 }
 #Reviews {

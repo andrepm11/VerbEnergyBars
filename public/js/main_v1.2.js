@@ -18,15 +18,15 @@ $(document).ready(function(){
 
         }
     });
-    $(".new-faq-title").on('click', function(){
+    $(".faq-title").on('click', function(){
         if($(this).hasClass("open-question")){
             $(this).removeClass("open-question");
             var answer = $(this).next();
             answer.slideToggle("100");
             
         }else{
-            $(".new-faq-title.open-question").next().slideToggle("100");
-            $(".new-faq-title.open-question").removeClass("open-question");
+            $(".faq-title.open-question").next().slideToggle("100");
+            $(".faq-title.open-question").removeClass("open-question");
             
             $(this).addClass("open-question");
             var answer = $(this).next();
