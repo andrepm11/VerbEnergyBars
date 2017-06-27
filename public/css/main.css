@@ -51,11 +51,11 @@
 }
 #snipcart-close:before {
   -webkit-transform: rotate(-45deg);
-          transform: rotate(-45deg);
+  transform: rotate(-45deg);
 }
 #snipcart-close:after {
   -webkit-transform: rotate(45deg);
-          transform: rotate(45deg);
+  transform: rotate(45deg);
 }
 #snipcart-plans-list > tr > td:nth-of-type(5) {
   display: none;
@@ -269,14 +269,14 @@ footer {
 }
 .fast {
   -webkit-transition-duration: 1s;
-          transition-duration: 1s;
+  transition-duration: 1s;
 }
 .drop-in {
   -webkit-transform: translateY(-7em);
-          transform: translateY(-7em);
+  transform: translateY(-7em);
   opacity: 0;
   -webkit-transition-delay: .5s !important;
-          transition-delay: .5s !important;
+  transition-delay: .5s !important;
   -webkit-transition: transform 0.5s cubic-bezier(0.55, 0.055, 0.675, 0.19), opacity 0.5s cubic-bezier(0.55, 0.055, 0.675, 0.19);
   -webkit-transition: opacity 0.5s cubic-bezier(0.55, 0.055, 0.675, 0.19), -webkit-transform 0.5s cubic-bezier(0.55, 0.055, 0.675, 0.19);
   transition: opacity 0.5s cubic-bezier(0.55, 0.055, 0.675, 0.19), -webkit-transform 0.5s cubic-bezier(0.55, 0.055, 0.675, 0.19);
@@ -285,7 +285,7 @@ footer {
 }
 .drop-in.in {
   -webkit-transform: translateY(0);
-          transform: translateY(0);
+  transform: translateY(0);
   opacity: 1;
 }
 .fade-up {
@@ -315,12 +315,12 @@ footer {
 }
 #line-1 {
   -webkit-transition-delay: .5s;
-          transition-delay: .5s;
+  transition-delay: .5s;
 }
 #line-2 {
   display: block;
   -webkit-transition-delay: 2s;
-          transition-delay: 2s;
+  transition-delay: 2s;
   max-width: 90%;
   margin-left: auto;
   margin-right: auto;
@@ -333,12 +333,12 @@ footer {
 }
 nav .fade-in {
   -webkit-transition-delay: .5s;
-          transition-delay: .5s;
+  transition-delay: .5s;
 }
 .bar-renderings,
 .shadows {
   -webkit-transition-delay: 2s;
-          transition-delay: 2s;
+  transition-delay: 2s;
 }
 h1 {
   color: inherit;
@@ -424,6 +424,9 @@ button,
 input[type="submit"],
 input[type="button"] {
   display: inline-block;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
   border-radius: 0;
   border: 4px solid #1d1d20;
   font-family: inherit;
@@ -435,7 +438,7 @@ input[type="button"] {
   cursor: pointer;
   outline: none !important;
   -webkit-box-shadow: none !important;
-          box-shadow: none !important;
+  box-shadow: none !important;
   background: #ffeac7;
   padding-left: 1em;
   padding-right: 1em;
@@ -462,7 +465,7 @@ input[type="submit"]:active,
 input[type="button"]:active {
   outline: none !important;
   -webkit-box-shadow: none !important;
-          box-shadow: none !important;
+  box-shadow: none !important;
 }
 .button:hover,
 button:hover,
@@ -831,7 +834,7 @@ nav #basket-icon:after {
 }
 nav #basket-icon:before {
   -webkit-transform: rotate(90deg);
-          transform: rotate(90deg);
+  transform: rotate(90deg);
   height: 1.5em;
   top: -0.5em;
 }
@@ -923,7 +926,7 @@ header .image-wrapper img {
   -webkit-transition: 1s ease-out;
   transition: 1s ease-out;
   -webkit-transition-delay: 0;
-          transition-delay: 0;
+  transition-delay: 0;
 }
 header .header-images {
   width: 80%;
@@ -943,7 +946,7 @@ header .header-images:hover .bar-rendering {
 }
 header .header-images:hover .shadow {
   -webkit-transform: scale(1.07, 1.07);
-          transform: scale(1.07, 1.07);
+  transform: scale(1.07, 1.07);
 }
 @media (min-width: 48em) {
   header h1 {
@@ -1102,7 +1105,7 @@ header .header-images:hover .shadow {
 #PullQuotes .pull-quote-container.active-quote {
   opacity: 1;
   -webkit-transition-delay: 1.5s;
-          transition-delay: 1.5s;
+  transition-delay: 1.5s;
 }
 @media (min-width: 40em) {
   #PullQuotes .pull-quote-container {
@@ -1188,6 +1191,9 @@ header .header-images:hover .shadow {
 }
 .order-type-button {
   display: inline-block;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
   border-radius: 0;
   border: 4px solid #1d1d20;
   font-weight: 700;
@@ -1197,7 +1203,7 @@ header .header-images:hover .shadow {
   cursor: pointer;
   outline: none !important;
   -webkit-box-shadow: none !important;
-          box-shadow: none !important;
+  box-shadow: none !important;
   background: #ffeac7;
   padding-left: 1em;
   padding-right: 1em;
@@ -1228,7 +1234,7 @@ header .header-images:hover .shadow {
 .order-type-button:active {
   outline: none !important;
   -webkit-box-shadow: none !important;
-          box-shadow: none !important;
+  box-shadow: none !important;
 }
 .order-type-button:hover {
   background: #1d1d20;
@@ -1377,7 +1383,7 @@ header .header-images:hover .shadow {
   border-right: 4px solid #1d1d20;
   border-bottom: 4px solid #1d1d20;
   -webkit-transform: rotate(45deg);
-          transform: rotate(45deg);
+  transform: rotate(45deg);
   -webkit-transition: 0.25s ease-out;
   transition: 0.25s ease-out;
 }
@@ -1401,7 +1407,7 @@ header .header-images:hover .shadow {
 .faq-title.open-question:after,
 .accordion-button.open-section:after {
   -webkit-transform: rotate(-135deg);
-          transform: rotate(-135deg);
+  transform: rotate(-135deg);
 }
 .faq-answer {
   margin-bottom: 1em;
@@ -1586,18 +1592,18 @@ header .header-images:hover .shadow {
 #firstPageBtn:after {
   display: inline-block;
   -webkit-transform: rotate(-45deg);
-          transform: rotate(-45deg);
+  transform: rotate(-45deg);
 }
 #lastPageBtn:before,
 #lastPageBtn:after {
   display: inline-block;
   -webkit-transform: rotate(135deg);
-          transform: rotate(135deg);
+  transform: rotate(135deg);
 }
 #prevPageBtn:before {
   display: inline-block;
   -webkit-transform: rotate(-45deg);
-          transform: rotate(-45deg);
+  transform: rotate(-45deg);
 }
 #prevPageBtn:after {
   display: none;
@@ -1605,7 +1611,7 @@ header .header-images:hover .shadow {
 #nextPageBtn:after {
   display: inline-block;
   -webkit-transform: rotate(135deg);
-          transform: rotate(135deg);
+  transform: rotate(135deg);
 }
 #nextPageBtn:before {
   display: none;
@@ -1635,7 +1641,7 @@ input[type="password"] {
   background: none;
   outline: none;
   -webkit-box-shadow: none;
-          box-shadow: none;
+  box-shadow: none;
   margin-bottom: 1em;
   margin-top: .25em;
   padding-right: .5em;
@@ -1717,7 +1723,7 @@ textarea {
   border-top: none;
   border-right: none;
   -webkit-transform: rotate(-45deg);
-          transform: rotate(-45deg);
+  transform: rotate(-45deg);
 }
 .checkbox span {
   margin-left: 1em;
@@ -1828,12 +1834,12 @@ textarea {
 }
 .close::before {
   -webkit-transform: rotate(-45deg);
-          transform: rotate(-45deg);
+  transform: rotate(-45deg);
   left: 35%;
 }
 .close::after {
   -webkit-transform: rotate(45deg);
-          transform: rotate(45deg);
+  transform: rotate(45deg);
   right: 30%;
 }
 .close:hover,
@@ -2017,12 +2023,12 @@ footer li {
 }
 #snipcart-close::before {
   -webkit-transform: rotate(-45deg);
-          transform: rotate(-45deg);
+  transform: rotate(-45deg);
   left: 40%;
 }
 #snipcart-close::after {
   -webkit-transform: rotate(45deg);
-          transform: rotate(45deg);
+  transform: rotate(45deg);
   right: 40%;
 }
 #snipcart-plans-list > tr > td:nth-of-type(5) {
