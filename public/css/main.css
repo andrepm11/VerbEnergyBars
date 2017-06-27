@@ -212,6 +212,9 @@ footer {
 .right {
   float: right;
 }
+.text-center {
+  text-align: center;
+}
 .relative {
   position: relative;
 }
@@ -1026,15 +1029,14 @@ header .header-images:hover .shadow {
   display: inline-block;
   margin: 0;
 }
-#VerbVS p {
-  min-height: 10em;
-  line-height: 1.5;
-  font-size: 1.25em;
-}
 #VerbVS p,
 #VerbVS h3 {
   display: block;
   width: 100%;
+}
+#vs-content {
+  min-height: 10em;
+  font-size: 1.25em;
 }
 #verb-vs-illustrations {
   width: 100%;
