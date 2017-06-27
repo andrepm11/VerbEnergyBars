@@ -546,9 +546,7 @@
 					<h2>Write a review</h2>
 					<div id="form-wrapper">
 						<form id="review-form" method="post">
-							<p><label for="name">Name:</label> <input id="js-name" type="text" name="name" value="" placeholder="Optional" /></p>
-							<p><label for="email">Email:</label> <input id="js-email" type="text" name="email" value="" placeholder="Required" required/></p>
-							<p class="antispam">Leave this empty: <input type="text" name="url" /></p>
+								<p>Give Verb a rating:</p>
 							<div class="rating">
 								<input type="radio" id="star5" name="rating" value="5" /><label for="star5"></label>
 								<input type="radio" id="star4" name="rating" value="4" /><label for="star4"></label>
@@ -556,9 +554,12 @@
 								<input type="radio" id="star2" name="rating" value="2" /><label for="star2"></label>
 								<input type="radio" id="star1" name="rating" value="1" required/><label for="star1"></label>
 							</div>
-							<p><label for="title">Title:</label> <input id="js-title" type="text" name="title" value="" placeholder="Required" required/></p>
-							<p><textarea name="comments" id="comments" style="width:100%; height:100px;" placeholder="Leave a comment!" required></textarea></p>
-							<p><input id="subscribe" type="checkbox" name="subscribe" value="yes" checked>Subscribe to our e-mail list<br></p>
+							<p><label for="name">Enter a display name for yourself:</label> <input id="js-name" type="text" name="name" value="" placeholder="Required" required/></p>
+							<p><label for="email">Enter your email (this won&rsquo;t be displayed):</label> <input id="js-email" type="text" name="email" value="" placeholder="Required" required/></p>
+							<p class="antispam">Leave this empty: <input type="text" name="url" /></p>
+							<p><label for="title">Give your review a title:</label> <input id="js-title" type="text" name="title" value="" placeholder="Required" required/></p>
+							<p><label for="comments">What do you think of Verb Bars?</label> <textarea name="comments" id="comments" placeholder="Verb Bars are..." required></textarea></p>
+							<p><input id="subscribe" type="checkbox" name="subscribe" value="yes" checked>Get email updates and discounts from us<br></p>
 							<p><input id="review-submit" class="button submit" type="submit" value="Submit" /></p>
 							<div id="result"></div>
 						</form>
@@ -710,8 +711,8 @@
 </section>
 <!-- END FAQ -->
 	
-	<!-- ABOUT US -->
-  <section id="ourStory">
+	<!-- ABOUT THE COMPANY -->
+  <section id="OurStory">
     <div class="container">
         <div class="mobile-12 desktop-l">
           <h2>About Us</h2>
@@ -728,8 +729,7 @@
 								</span>
             </p>
           </div>
-        </div>
-        <div class="mobile-hidden desktop-r">
+        </div><div class="mobile-12 desktop-r">
           <div class="image-wrapper">
             <img src="./public/img/team.jpg" alt="The Verb Team" />
           </div>
