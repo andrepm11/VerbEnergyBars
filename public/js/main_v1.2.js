@@ -112,7 +112,7 @@ $(document).ready(function(){
 		$groupDrinks.addClass('active');
 		
 		$vsTitle.html('Energy Drinks & Soda');
-		$vsContent.html("If you like pantothenic acid, glucuronolactone, maltodextrin, 45 grams of sugar, or looking like a sixteen-year-old regardless of your actual age, then energy drinks are for you. If any of those made you cringe, try Verb.");
+		$vsContent.html("If you like pantothenic acid, glucuronolactone, maltodextrin, or 45 grams of sugar, then energy drinks are for you. If any of those made you cringe, try Verb.");
 		
 	});
 	//

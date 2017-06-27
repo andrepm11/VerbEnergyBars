@@ -205,6 +205,7 @@ footer {
 }
 .w-100 {
   width: 100%;
+  display: block;
 }
 .left {
   float: left;
@@ -214,6 +215,9 @@ footer {
 }
 .text-center {
   text-align: center;
+}
+.text-right {
+  text-align: right;
 }
 .relative {
   position: relative;
@@ -616,6 +620,7 @@ button[disabled]:hover,
   background: #1d1d20;
   color: #e3be72;
   width: 100%;
+  display: block;
   height: 1.5em;
 }
 .message-bar a,
@@ -1033,6 +1038,7 @@ header .header-images:hover .shadow {
 #VerbVS h3 {
   display: block;
   width: 100%;
+  padding: 0;
 }
 #vs-content {
   min-height: 10em;
@@ -1044,6 +1050,7 @@ header .header-images:hover .shadow {
   opacity: 1;
   margin-top: -30%;
   padding: 0 4em;
+  margin-bottom: -1em;
 }
 @media (min-width: 48em) {
   #verb-vs-illustrations {
@@ -1336,6 +1343,9 @@ header .header-images:hover .shadow {
 .sale-price.sale {
   display: inline-block;
 }
+.faq {
+  max-width: 32em;
+}
 .faq .accordion-button {
   cursor: pointer;
   width: 100%;
@@ -1357,6 +1367,9 @@ header .header-images:hover .shadow {
   padding: 1em 0;
   border-bottom: 4px solid #1d1d20;
 }
+.faq .faq-section:last-child {
+  border-bottom: none;
+}
 .faq .faq-section .faq-subsection {
   overflow: hidden;
   display: none;
@@ -1376,20 +1389,16 @@ header .header-images:hover .shadow {
   font-weight: 700;
   position: relative;
   cursor: pointer;
-  margin: 2em 0;
+  margin: 1em 0;
 }
 .faq-title:after,
 .accordion-button:after {
   content: '';
-  height: 1em;
-  width: 1em;
   display: inline-block;
   position: absolute;
   z-index: 2;
   border-right: 4px solid #1d1d20;
   border-bottom: 4px solid #1d1d20;
-  right: 1em;
-  top: 1.5em;
   transform: rotate(45deg);
   -webkit-transition: 0.25s ease-out;
   -moz-transition: 0.25s ease-out;
@@ -1405,7 +1414,7 @@ header .header-images:hover .shadow {
 .accordion-button:after {
   height: .5em;
   width: .5em;
-  top: .3em;
+  top: .2em;
   right: .4em;
 }
 .faq-title.open-question:after,

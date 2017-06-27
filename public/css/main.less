@@ -176,6 +176,7 @@ footer {
 
 .w-100 {
 	width: 100%;
+	display: block;
 }
 .left {
 	float: left;
@@ -185,6 +186,9 @@ footer {
 }
 .text-center {
 	text-align: center;
+}
+.text-right {
+	text-align: right;
 }
 .relative {
 	position: relative;
@@ -1107,6 +1111,7 @@ header {
 	p, h3 {
 		display: block;
 		width: 100%;
+		padding: 0;
 	}
 }
 
@@ -1121,6 +1126,7 @@ header {
 	opacity: 1;
 	margin-top: -30%;
 	padding: 0 4em;
+	margin-bottom: -1em;
 	@media (min-width: 48em) {
 		padding: 0 0;
 	}
@@ -1414,6 +1420,7 @@ header {
 
 
 .faq {
+	max-width: 32em;
 	.accordion-button {
 		cursor: pointer;
 		width: 100%;
@@ -1434,6 +1441,9 @@ header {
 	.faq-section {
 		padding: 1em 0;
 		border-bottom: @border;
+		&:last-child {
+			border-bottom: none;
+		}
 		.faq-subsection {
 			overflow: hidden;
 			display: none;
@@ -1456,23 +1466,18 @@ header {
 	font-weight: 700;
 	position: relative;
 	cursor: pointer;
-	margin: 2em 0;
+	margin: 1em 0;
 }
 
 .faq-title:after,
 .accordion-button:after {
 	content: '';
-	height: 1em;
-	width: 1em;
 	display: inline-block;
 	position: absolute;
 	z-index: 2;
 	
 	border-right: @border;
 	border-bottom: @border;
-	
-	right: 1em;
-	top: 1.5em;
 	
 	transform: rotate(45deg);
 	-webkit-transition: .25s ease-out;
@@ -1491,7 +1496,7 @@ header {
 .accordion-button:after {
 	height: .5em;
 	width: .5em;
-	top: .3em;
+	top: .2em;
 	right: .4em;
 }
 
