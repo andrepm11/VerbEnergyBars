@@ -63,8 +63,8 @@ $(document).ready(function(){
 		$groupShots.removeClass('active');
 		$groupPre.addClass('active');
 		
-		$vsTitle.html('Pre-Workout Supplements');
-		$vsContent.html("If don't think you're mortgaging some part of your future health every time you have pre-workout you're kidding yourself.");
+		$vsTitle.html('Exercise Supplements');
+		$vsContent.html("Friends don&#8217;t let friends use pre-workout. Elite athletes choose Verb. They were Verb's first customers and always the first to give us feedback. We hear &#8220;Thank you! Thank you! Thank you!&#8221; and &#8220;I just had the best workout of my life&#8221; a lot.");
 		
 	});
 	$groupCoffee.on('click', function(){
@@ -74,7 +74,7 @@ $(document).ready(function(){
 		$groupCoffee.addClass('active');
 		
 		$vsTitle.html('Coffee');
-		$vsContent.html("Alright, confession time. We love coffee. We love the taste. We love the ritual. What we don't love though is spending 20 minutes and $4 every time we need an energy boost. Also not a fan of the jitters.");
+		$vsContent.html("Alright, confession time. We love coffee. We love the taste. We love the ritual. But we don&#8217;t love spending 20 minutes and $4.50 on jittery fleeting caffeine fixes when we actually need quick and convenient all-day energy. When we want energy, we grab Verb Bars, and save coffee for when we can enjoy it.");
 		
 	});
 	$groupShots.on('click', function(){
@@ -84,7 +84,7 @@ $(document).ready(function(){
 		$groupShots.addClass('active');
 		
 		$vsTitle.html('Energy Shots');
-		$vsContent.html("We are very wary of anything delivering 8333% of your daily recommended value of anything.");
+		$vsContent.html("We're wary of any &#8220;dietary supplement&#8221; with 8333% of your daily recommended value of anything. Verb is good energy&#8212;you know what's in it, it makes you feel great, and you can feel good about eating it.");
 		
 	});
 	$groupDrinks.on('click', function(){
@@ -94,7 +94,7 @@ $(document).ready(function(){
 		$groupDrinks.addClass('active');
 		
 		$vsTitle.html('Energy Drinks & Soda');
-		$vsContent.html("Would you drink an energy drink in front of your boss? In front of your mother? Energy drinks are great for taking years off your life or helping you relive the darkest moments of your college career, but thanks to ounces of sugar and their complete lack of nutritional content, they aren't actually that good at delivering energy.");
+		$vsContent.html("If you like pantothenic acid, glucuronolactone, maltodextrin, 45 grams of sugar, or looking like a sixteen-year-old regardless of your actual age, then energy drinks are for you. If any of those made you cringe, try Verb.");
 		
 	});
 	//

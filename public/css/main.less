@@ -1118,7 +1118,6 @@ header {
 	opacity: 1;
 	margin-top: -30%;
 	padding: 0 4em;
-	
 	@media (min-width: 48em) {
 		padding: 0 0;
 	}
@@ -1198,7 +1197,10 @@ header {
 #PullQuotes {
 	background: @verb-black;
 	color: @verb-primary-5;
-	height: 30em;
+	height: 25em;
+	@media (min-width: 40em) {
+		height: 30em;
+	}
 	#quote-list {
 		position: relative;
 	}
@@ -1207,10 +1209,13 @@ header {
 		opacity: 0;
 		width: 100%;
 		margin: 0;
-		font-size: 1.25em;
+		font-size: 1em;
 		&.active-quote {
 			opacity: 1;
-			transition-delay: 1s;
+			transition-delay: 1.5s;
+		}
+		@media (min-width: 40em) {
+			font-size: 1.25em;
 		}
 		@media (min-width: 48em) {
 			margin: 0 auto;
