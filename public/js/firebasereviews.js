@@ -23,15 +23,15 @@ $(document).ready(function () {
         var userRating = this.value;
     });
     
-    $('#contact-form').submit(function(event) {
+    $('#review-form').submit(function(event) {
         event.preventDefault();
-        //const mixpanelDistintctID = mixpanel.get_distinct_id();
-        const mixpanelDistinctId = "12345";
+        const mixpanelDistintctID = mixpanel.get_distinct_id();
+//        const mixpanelDistinctId = "12345";
 
-        const email = $("#js-email").val();
-        const title = ($("#js-title").val() == '') ? 'No Title' : $("#js-title").val();
-        const name = ($("#js-name").val() == '') ? 'Anonymous' : $("#js-name").val();
-        const comments = $("#comments").val();
+        const email = strip_html_tags($("#js-email").val());
+        const title = strip_html_tags(($("#js-title").val() == '') ? 'No Title' : $("#js-title").val());
+        const name = strip_html_tags(($("#js-name").val() == '') ? 'Anonymous' : $("#js-name").val());
+        const comments = strip_html_tags($("#comments").val());
         const rating = parseInt($("input[name='rating']:checked").val());
         const createdAt = (new Date().getTime())*-1;
 
@@ -331,3 +331,11 @@ $(document).on("click", "#lastPageBtn", function(){
     updateTable('last');
 });
 
+function strip_html_tags(str)
+{
+   if ((str===null) || (str===''))
+       return false;
+  else
+   str = str.toString();
+  return str.replace(/<[^>]*>/g, '');
+}
