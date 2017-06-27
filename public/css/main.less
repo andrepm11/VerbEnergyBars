@@ -386,9 +386,6 @@ p {
 		color: @verb-gray-3;
 	}
 }
-p .intro {
-	font-weight: 700
-}
 
 a,
 a:link,
@@ -1093,6 +1090,12 @@ header {
 		width: 100%;
 		padding: 0;
 	}
+	h3 {
+		margin-top: 1em;
+		@media (min-width: 48em) {
+			margin-top: 30%;
+		}
+	}
 }
 
 #vs-content {
@@ -1765,6 +1768,10 @@ input[type="password"] {
 		padding-bottom: .25em;
 		width: 90%;
 		max-width: 16em;
+		border-top: none;
+		border-left: none;
+		border-right: none;
+		padding-left: 0;
 	}
 }
 
@@ -2010,6 +2017,10 @@ footer {
 	margin-right: 0;
 	li {
 		padding: .25em 0;
+	}
+	text-align: center;
+	@media (min-width: 48em) {
+		text-align: left;
 	}
 }
 #footer-logo {
