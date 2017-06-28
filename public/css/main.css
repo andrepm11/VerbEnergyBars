@@ -200,7 +200,7 @@ footer {
   display: block;
   height: auto;
   width: 100%;
-  padding: 3em 2em;
+  padding: 2em;
   margin: 0 !important;
 }
 .w-100 {
@@ -240,7 +240,7 @@ footer {
   margin-right: auto;
 }
 .content {
-  margin-bottom: 6em;
+  margin-bottom: 4em;
 }
 @media (min-width: 48em) {
   .show-mobile {
@@ -1193,7 +1193,7 @@ header .header-images:hover .shadow {
   text-align: left;
 }
 .order-items > div {
-  max-width: 24em;
+  max-width: 20em;
   margin-right: auto;
   margin-left: auto;
 }
@@ -1232,7 +1232,7 @@ header .header-images:hover .shadow {
 												supported by Chrome and Opera */
   font-weight: 1em;
   width: 100%;
-  margin: .5em 0;
+  margin: .25em 0;
   line-height: 2.5;
   text-align: center;
   font-family: inherit;
@@ -1267,7 +1267,7 @@ header .header-images:hover .shadow {
   color: #ffeac7;
 }
 .quantity-select {
-  margin: 2em 0;
+  margin: 1em 0;
   text-align: center;
 }
 .quantity-select > * {
@@ -1308,7 +1308,7 @@ header .header-images:hover .shadow {
 .price-type {
   font-size: 2em;
   font-weight: 700;
-  margin: .5em 0;
+  margin-top: .25em;
   width: 8em;
   margin-right: auto;
 }
