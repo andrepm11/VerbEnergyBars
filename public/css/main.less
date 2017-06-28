@@ -170,7 +170,7 @@ footer {
   display: block;
   height: auto;
   width: 100%;
-	padding: 3em 2em;
+	padding: 2em;
 	margin: 0 !important;
 }
 
@@ -211,7 +211,7 @@ footer {
 	margin-right: auto;
 }
 .content {
-	margin-bottom: 6em;
+	margin-bottom: 4em;
 }
 
 .show-mobile {
@@ -238,10 +238,10 @@ footer {
 .fade-up,
 .fade-up-left {
 	opacity: 0;
-	-webkit-transition: all 2s cubic-bezier(0.215, 0.61, 0.355, 1);
-	-moz-transition: all 2s cubic-bezier(0.215, 0.61, 0.355, 1);
-	-o-transition: all 2s cubic-bezier(0.215, 0.61, 0.355, 1);
-	transition: all 2s cubic-bezier(0.215, 0.61, 0.355, 1);
+	-webkit-transition: all 1.5s cubic-bezier(0.215, 0.61, 0.355, 1);
+	-moz-transition: all 1.5s cubic-bezier(0.215, 0.61, 0.355, 1);
+	-o-transition: all 1.5s cubic-bezier(0.215, 0.61, 0.355, 1);
+	transition: all 1.5s cubic-bezier(0.215, 0.61, 0.355, 1);
 	&.in {
 		opacity: 1;
 	}
@@ -347,18 +347,25 @@ h6 {
 }
 
 h2 {
-	font-size: 3em;
+	font-size: 2em;
 	text-transform: lowercase;
-	margin-bottom: 1em;
+	margin-bottom: 0;
+	@media (min-width: 48em) {
+		font-size: 3em;
+		margin-bottom: 1em;
+	}
 }
 
 h3 {
 	font-weight: 900;
-	font-size: 2.25em;
 	line-height: 1em;
 	text-transform: uppercase;
 	padding-top: .4em;
 	margin-left: -.1em;
+	font-size: 1.5em;
+	@media (min-width: 48em) {
+		font-size: 2.25em;
+	}
 }
 
 h4 {
@@ -429,6 +436,10 @@ input[type="submit"],
 input[type="button"] {
 	display: inline-block;
 	
+ -webkit-appearance: none;
+ -moz-appearance: none;
+ appearance: none;  
+	
 	border-radius: 0;
 	border: @border;
 	
@@ -446,7 +457,7 @@ input[type="button"] {
 		outline: none !important;
 		box-shadow: none !important;
 	}
-	background: @background-color;
+	background: none;
 	padding-left: 1em;
 	padding-right: 1em;
 	margin: 0 auto;
@@ -637,6 +648,7 @@ nav {
 	.logo-container {
 		float: left;
 		margin: .25em 0;
+		display: inline-block;
 	}
 	
 	#main-logo {
@@ -943,35 +955,10 @@ header {
 		max-width: 90em;
 	}
 	h1 {
-		margin-top: 1em;
-		margin-bottom: .5em;
 		line-height: 1;
 		text-align: center;
 		padding: 0;
 	}
-	.button {
-		display: inline-block;
-		font-size: 2em;
-		padding: 0 2em;
-		margin-top: -6em;
-		height: 2em;
-		line-height: 1.6
-	}
-//	.bar-renderings {
-//		&:after {
-//			content: url(../svg/try_Verb.svg);
-//			display: block;
-//			opacity: 1;
-//			position: relative;
-//			bottom: 20%;
-//			width: 30%;
-//			max-width: 18em;
-//			transition: .5s;
-//		}
-//		&:hover:after {
-//			opacity: 1;
-//		}
-//	}
 	.image-wrapper {
 		width: 100%;
 		max-width: 48em;
@@ -1309,7 +1296,7 @@ header {
 		text-align: left;
 	}
 	& > div {
-		max-width: 24em;
+		max-width: 20em;
 		margin-right: auto;
 		margin-left: auto;
 	}
@@ -1319,7 +1306,7 @@ header {
 	.button;
 	font-weight: 1em;
 	width: 100%;
-	margin: .5em 0;
+	margin: .25em 0;
 	line-height: 2.5;
 	text-align: center;
 	font-family: inherit;
@@ -1331,7 +1318,7 @@ header {
 }
 
 .quantity-select {
-	margin: 2em 0;
+	margin: 1em 0;
 	text-align: center;
 	> * {
 		display: inline-block;
@@ -1374,7 +1361,7 @@ header {
 .price-type {
 	font-size: 2em;
 	font-weight: 700;
-	margin: .5em 0;
+	margin-top: .25em;
 	width: 8em;
 	margin-right: auto;
 }
@@ -1402,6 +1389,9 @@ header {
 //========================================
 //========================================
 
+#FAQ {
+	background: @verb-primary-1;
+}
 
 .faq {
 	max-width: 32em;
@@ -1414,10 +1404,6 @@ header {
 		outline: none;
 		padding: 0;
 		margin: 0;
-		font-size: 1.75em;
-	@media (min-width: 48em) {
-		font-size: 2.25em;
-	}
 	}
 	.accordion-button:hover {
 		background: none;
@@ -1513,6 +1499,7 @@ header {
 
 #Reviews {
 	min-height: 90%;
+	background: @verb-primary-1;
 	.desktop-l {
 		& > div {
 			max-width: 24em;
@@ -1537,6 +1524,11 @@ header {
 
 .review-percentage {
 	margin: .25em 0;
+	text-align: left;
+	padding-left: 2em;
+	@media (min-width:48em) {
+		padding-left: 0;
+	}
 	span {
 		display: inline-block;
 	}
@@ -1552,7 +1544,7 @@ header {
 		width: 50%;
 		height: 1.25em;
 		display: inline-block;
-		background: @background-color;
+		background: @verb-primary-1;
 		border: @border;
         .fill-bar{
             background-color: @verb-yellow-2;
@@ -1561,11 +1553,20 @@ header {
         }
 	}
 }
+.review-percentage-wrapper {
+	text-align: center;
+}
 
+.review-button-wrapper {
+	text-align: center;
+	@media (min-width: 48em) {
+		text-align: left;
+	}
+}
 #reviewBtn {
 	max-width: 22em;
 	width: 100%;
-	margin: 2em 0;
+	margin: 2em auto;
 	@media (min-width: 48em) {
 		width: auto;
 	}
@@ -1630,11 +1631,14 @@ header {
 
 .reviews-button-group {
 	font-size: .75em;
-	float: right;
-	text-align: right;
-	margin-top: 1em;
+	text-align: center;
+	margin: .25em 0;
 	button, span {
 		text-align: center;
+	}
+	@media (min-width: 48em) {
+		float: right;
+		margin-top: 1em;
 	}
 }
 
@@ -1652,7 +1656,7 @@ header {
 #nextPageBtn,
 #lastPageBtn {
 	padding: 0 .25em;
-	border-color: @background-color;
+	border: none;
 	&:before,
 	&:after {
 		content: '';
@@ -1669,7 +1673,7 @@ header {
 		right: .1em;
 	}
 	&:hover {
-		background: @background-color;
+		background: none;
 	}
 }
 #firstPageBtn {
@@ -1950,6 +1954,16 @@ textarea{
 }
 #recency{
     display: none;
+}
+
+//========================================
+//========================================
+//======================================== Our Story
+//========================================
+//========================================
+
+#OurStory {
+	background: @verb-primary-3;
 }
 
 //========================================

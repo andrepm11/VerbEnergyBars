@@ -25,8 +25,8 @@ $(document).ready(function () {
     
     $('#review-form').submit(function(event) {
         event.preventDefault();
-        const mixpanelDistintctID = mixpanel.get_distinct_id();
-//        const mixpanelDistinctId = "12345";
+//        const mixpanelDistintctID = mixpanel.get_distinct_id();
+        const mixpanelDistinctId = "12345";
 
         const email = strip_html_tags($("#js-email").val());
         const title = strip_html_tags(($("#js-title").val() == '') ? 'No Title' : $("#js-title").val());
@@ -94,7 +94,7 @@ $(document).ready(function () {
             }					
         });
         if($("#subscribe").is(":checked")){
-            alert("Subscriber");//ADD IN EVENT TRACKING HERE TO GRAB E-MAIL AND ADD TO E-MAIL LIST
+//            alert("Subscriber"); //ADD IN EVENT TRACKING HERE TO GRAB E-MAIL AND ADD TO E-MAIL LIST
         };
         $("#replacement-content").css("display", "block");
         $("#content-wrapper").css("display", "none");

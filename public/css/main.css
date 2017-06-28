@@ -200,7 +200,7 @@ footer {
   display: block;
   height: auto;
   width: 100%;
-  padding: 3em 2em;
+  padding: 2em;
   margin: 0 !important;
 }
 .w-100 {
@@ -240,7 +240,7 @@ footer {
   margin-right: auto;
 }
 .content {
-  margin-bottom: 6em;
+  margin-bottom: 4em;
 }
 @media (min-width: 48em) {
   .show-mobile {
@@ -259,10 +259,10 @@ footer {
 .fade-up,
 .fade-up-left {
   opacity: 0;
-  -webkit-transition: all 2s cubic-bezier(0.215, 0.61, 0.355, 1);
-  -moz-transition: all 2s cubic-bezier(0.215, 0.61, 0.355, 1);
-  -o-transition: all 2s cubic-bezier(0.215, 0.61, 0.355, 1);
-  transition: all 2s cubic-bezier(0.215, 0.61, 0.355, 1);
+  -webkit-transition: all 1.5s cubic-bezier(0.215, 0.61, 0.355, 1);
+  -moz-transition: all 1.5s cubic-bezier(0.215, 0.61, 0.355, 1);
+  -o-transition: all 1.5s cubic-bezier(0.215, 0.61, 0.355, 1);
+  transition: all 1.5s cubic-bezier(0.215, 0.61, 0.355, 1);
 }
 .fade-in.in,
 .fade-up.in,
@@ -349,17 +349,28 @@ h6 {
   margin: 0;
 }
 h2 {
-  font-size: 3em;
+  font-size: 2em;
   text-transform: lowercase;
-  margin-bottom: 1em;
+  margin-bottom: 0;
+}
+@media (min-width: 48em) {
+  h2 {
+    font-size: 3em;
+    margin-bottom: 1em;
+  }
 }
 h3 {
   font-weight: 900;
-  font-size: 2.25em;
   line-height: 1em;
   text-transform: uppercase;
   padding-top: .4em;
   margin-left: -0.1em;
+  font-size: 1.5em;
+}
+@media (min-width: 48em) {
+  h3 {
+    font-size: 2.25em;
+  }
 }
 h4 {
   font-weight: 400;
@@ -417,6 +428,9 @@ button,
 input[type="submit"],
 input[type="button"] {
   display: inline-block;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
   border-radius: 0;
   border: 4px solid #1d1d20;
   font-family: inherit;
@@ -428,7 +442,7 @@ input[type="button"] {
   cursor: pointer;
   outline: none !important;
   box-shadow: none !important;
-  background: #ffeac7;
+  background: none;
   padding-left: 1em;
   padding-right: 1em;
   margin: 0 auto;
@@ -630,6 +644,7 @@ nav > * {
 nav .logo-container {
   float: left;
   margin: .25em 0;
+  display: inline-block;
 }
 nav #main-logo {
   height: 3em;
@@ -905,19 +920,9 @@ header .container {
   max-width: 90em;
 }
 header h1 {
-  margin-top: 1em;
-  margin-bottom: .5em;
   line-height: 1;
   text-align: center;
   padding: 0;
-}
-header .button {
-  display: inline-block;
-  font-size: 2em;
-  padding: 0 2em;
-  margin-top: -6em;
-  height: 2em;
-  line-height: 1.6;
 }
 header .image-wrapper {
   width: 100%;
@@ -1189,12 +1194,15 @@ header .header-images:hover .shadow {
   text-align: left;
 }
 .order-items > div {
-  max-width: 24em;
+  max-width: 20em;
   margin-right: auto;
   margin-left: auto;
 }
 .order-type-button {
   display: inline-block;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
   border-radius: 0;
   border: 4px solid #1d1d20;
   font-weight: 700;
@@ -1204,7 +1212,7 @@ header .header-images:hover .shadow {
   cursor: pointer;
   outline: none !important;
   box-shadow: none !important;
-  background: #ffeac7;
+  background: none;
   padding-left: 1em;
   padding-right: 1em;
   margin: 0 auto;
@@ -1225,7 +1233,7 @@ header .header-images:hover .shadow {
 												supported by Chrome and Opera */
   font-weight: 1em;
   width: 100%;
-  margin: .5em 0;
+  margin: .25em 0;
   line-height: 2.5;
   text-align: center;
   font-family: inherit;
@@ -1260,7 +1268,7 @@ header .header-images:hover .shadow {
   color: #ffeac7;
 }
 .quantity-select {
-  margin: 2em 0;
+  margin: 1em 0;
   text-align: center;
 }
 .quantity-select > * {
@@ -1301,7 +1309,7 @@ header .header-images:hover .shadow {
 .price-type {
   font-size: 2em;
   font-weight: 700;
-  margin: .5em 0;
+  margin-top: .25em;
   width: 8em;
   margin-right: auto;
 }
@@ -1319,6 +1327,9 @@ header .header-images:hover .shadow {
 .sale-price.sale {
   display: inline-block;
 }
+#FAQ {
+  background: #fff1db;
+}
 .faq {
   max-width: 32em;
 }
@@ -1331,12 +1342,6 @@ header .header-images:hover .shadow {
   outline: none;
   padding: 0;
   margin: 0;
-  font-size: 1.75em;
-}
-@media (min-width: 48em) {
-  .faq .accordion-button {
-    font-size: 2.25em;
-  }
 }
 .faq .accordion-button:hover {
   background: none;
@@ -1417,6 +1422,7 @@ header .header-images:hover .shadow {
 }
 #Reviews {
   min-height: 90%;
+  background: #fff1db;
 }
 #Reviews .desktop-l > div {
   max-width: 24em;
@@ -1442,6 +1448,13 @@ header .header-images:hover .shadow {
 }
 .review-percentage {
   margin: .25em 0;
+  text-align: left;
+  padding-left: 2em;
+}
+@media (min-width: 48em) {
+  .review-percentage {
+    padding-left: 0;
+  }
 }
 .review-percentage span {
   display: inline-block;
@@ -1458,7 +1471,7 @@ header .header-images:hover .shadow {
   width: 50%;
   height: 1.25em;
   display: inline-block;
-  background: #ffeac7;
+  background: #fff1db;
   border: 4px solid #1d1d20;
 }
 .review-percentage .percentage-bar .fill-bar {
@@ -1466,10 +1479,21 @@ header .header-images:hover .shadow {
   height: 100%;
   width: 0%;
 }
+.review-percentage-wrapper {
+  text-align: center;
+}
+.review-button-wrapper {
+  text-align: center;
+}
+@media (min-width: 48em) {
+  .review-button-wrapper {
+    text-align: left;
+  }
+}
 #reviewBtn {
   max-width: 22em;
   width: 100%;
-  margin: 2em 0;
+  margin: 2em auto;
 }
 @media (min-width: 48em) {
   #reviewBtn {
@@ -1531,13 +1555,18 @@ header .header-images:hover .shadow {
 }
 .reviews-button-group {
   font-size: .75em;
-  float: right;
-  text-align: right;
-  margin-top: 1em;
+  text-align: center;
+  margin: .25em 0;
 }
 .reviews-button-group button,
 .reviews-button-group span {
   text-align: center;
+}
+@media (min-width: 48em) {
+  .reviews-button-group {
+    float: right;
+    margin-top: 1em;
+  }
 }
 #currentPage {
   display: inline-block;
@@ -1552,7 +1581,7 @@ header .header-images:hover .shadow {
 #nextPageBtn,
 #lastPageBtn {
   padding: 0 .25em;
-  border-color: #ffeac7;
+  border: none;
 }
 #firstPageBtn:before,
 #prevPageBtn:before,
@@ -1585,7 +1614,7 @@ header .header-images:hover .shadow {
 #prevPageBtn:hover,
 #nextPageBtn:hover,
 #lastPageBtn:hover {
-  background: #ffeac7;
+  background: none;
 }
 #firstPageBtn:before,
 #firstPageBtn:after {
@@ -1844,6 +1873,9 @@ textarea {
 }
 #recency {
   display: none;
+}
+#OurStory {
+  background: #f7da9c;
 }
 #WhatsYourVerb {
   background: #fff1db;
