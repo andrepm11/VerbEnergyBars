@@ -457,7 +457,7 @@ input[type="button"] {
 		outline: none !important;
 		box-shadow: none !important;
 	}
-	background: @background-color;
+	background: none;
 	padding-left: 1em;
 	padding-right: 1em;
 	margin: 0 auto;
@@ -1388,6 +1388,9 @@ header {
 //========================================
 //========================================
 
+#FAQ {
+	background: @verb-primary-1;
+}
 
 .faq {
 	max-width: 32em;
@@ -1495,6 +1498,7 @@ header {
 
 #Reviews {
 	min-height: 90%;
+	background: @verb-primary-1;
 	.desktop-l {
 		& > div {
 			max-width: 24em;
@@ -1539,7 +1543,7 @@ header {
 		width: 50%;
 		height: 1.25em;
 		display: inline-block;
-		background: @background-color;
+		background: @verb-primary-1;
 		border: @border;
         .fill-bar{
             background-color: @verb-yellow-2;
@@ -1651,7 +1655,7 @@ header {
 #nextPageBtn,
 #lastPageBtn {
 	padding: 0 .25em;
-	border-color: @background-color;
+	border: none;
 	&:before,
 	&:after {
 		content: '';
@@ -1668,7 +1672,7 @@ header {
 		right: .1em;
 	}
 	&:hover {
-		background: @background-color;
+		background: none;
 	}
 }
 #firstPageBtn {
@@ -1949,6 +1953,16 @@ textarea{
 }
 #recency{
     display: none;
+}
+
+//========================================
+//========================================
+//======================================== Our Story
+//========================================
+//========================================
+
+#OurStory {
+	background: @verb-primary-3;
 }
 
 //========================================
