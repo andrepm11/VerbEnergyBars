@@ -24,7 +24,8 @@ $(document).ready(function () {
     });
     
     $('#review-form').submit(function(event) {
-       event.preventDefault();
+       //event.preventDefault();
+	setTimeout(function () { window.location.reload(); }, 10);
 //        const mixpanelDistintctID = mixpanel.get_distinct_id();
         const mixpanelDistinctId = "12345";
 
