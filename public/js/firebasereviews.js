@@ -29,7 +29,7 @@ $(document).ready(function () {
 //        const mixpanelDistintctID = mixpanel.get_distinct_id();
         const mixpanelDistinctId = "12345";
 
-        const email = strip_html_tags($("#js-email").val());
+        const email = strip_html_tags(($("#js-email").val() == '') ? 'none@email.com' : $("#js-email").val());
         const title = strip_html_tags(($("#js-title").val() == '') ? 'No Title' : $("#js-title").val());
         const name = strip_html_tags(($("#js-name").val() == '') ? 'Anonymous' : $("#js-name").val());
         const comments = strip_html_tags($("#comments").val());
