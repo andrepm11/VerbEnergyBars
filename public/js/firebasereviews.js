@@ -22,7 +22,7 @@ $(document).ready(function () {
     $('input:radio').change(function () {
         var userRating = this.value;
     });
-    console.log("Updated");
+    console.log("Updated2");
     $('#review-form').submit(function(event) {
        event.preventDefault();
 //	   setTimeout(function () { window.location.reload(); }, 10);
