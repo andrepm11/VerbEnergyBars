@@ -24,8 +24,8 @@ $(document).ready(function () {
     });
     console.log("Updated10");
     $('#review-form').submit(function(event) {
-       event.preventDefault();
-//	   setTimeout(function () { window.location.reload(); }, 10);
+//       event.preventDefault();
+	   setTimeout(function () { window.location.reload(); }, 10);
 //        const mixpanelDistintctID = mixpanel.get_distinct_id();
         const mixpanelDistinctId = "12345";
 
@@ -55,59 +55,13 @@ $(document).ready(function () {
                 });
 
                 transactionpath.transaction(function(tran){
-//                    console.log(numratings);
 
                     if(tran){
-                        console.log("access");
-//                        const date = Date();
-//                        const createdAt = (new Date().getTime())*-1;
-//                        
-//                        database.ref("reviews").push({
-//                            title,
-//                            name,
-//                            email,
-//                            rating,
-//                            comments,
-//                            createdAt,
-//                            date,
-//                        });
-//                        console.log(numratings);
-                        console.log(tran);
+
                         tran.num_ratings++;
                         tran[rating]++;
-//                        switch(rating){
-//                            case 5:
-//                                tran.five++;
-//                                tran[5]++;
-//                                break;
-//                            case 4:
-//                                tran.four++;
-//                                tran[4]++;
-//                                break;
-//                            case 3:
-//                                tran.three++;
-//                                break;
-//                            case 2:
-//                                tran.two++;
-//                                break;
-//                            case 1:
-//                                tran.one++;
-//                        }
                         tran.total_rating+=rating;
                         tran.average_rating=tran.total_rating/tran.num_ratings;
-                        
-//                        var updates={};
-//
-//                        rootpath.once("value").then(function(snapshot){
-//                            updates[rating]=snapshot.val()[rating]+1;
-//                            updates["total_rating"] = snapshot.val().total_rating+rating;
-//                            updates["average_rating"] = updates["total_rating"] / numratings;
-//                            rootpath.update(updates);
-//                            return updates;
-//                        })
-//                        .catch(error=>{
-//                            console.log(error)
-//                        })
                         
                     }
                     return tran;
@@ -127,18 +81,7 @@ $(document).ready(function () {
                             createdAt,
                             date,
                         });
-//                        var updates={};
-//
-//                        rootpath.once("value").then(function(snapshot){
-//                            updates[rating]=snapshot.val()[rating]+1;
-//                            updates["total_rating"] = snapshot.val().total_rating+rating;
-//                            updates["average_rating"] = updates["total_rating"] / numVal.val() ;
-//                            rootpath.update(updates);
-//                            return updates;
-//                        })
-//                        .catch(error=>{
-//                            console.log(error)
-//                        })
+
                     }
                 });
 
