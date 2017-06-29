@@ -22,7 +22,7 @@ $(document).ready(function () {
     $('input:radio').change(function () {
         var userRating = this.value;
     });
-    console.log("Updated6");
+    console.log("Updated10");
     $('#review-form').submit(function(event) {
        event.preventDefault();
 //	   setTimeout(function () { window.location.reload(); }, 10);
@@ -43,7 +43,7 @@ $(document).ready(function () {
                 var database = firebase.database();
                 var usersRef = database.ref('/users');
                 var rootpath = database.ref();
-                var numPath = database.ref('num_ratings');
+                var transactionpath = database.ref('transaction/');
             
                 usersRef.once('value', function(snapshot) {
                   if (snapshot.hasChild("/"+mixpanelDistinctId)) {
@@ -54,9 +54,10 @@ $(document).ready(function () {
                     }
                 });
 
-                numPath.transaction(function(numratings){
+                transactionpath.transaction(function(tran){
+//                    console.log(numratings);
 
-                    if(numratings){
+                    if(tran){
                         console.log("access");
 //                        const date = Date();
 //                        const createdAt = (new Date().getTime())*-1;
@@ -70,8 +71,30 @@ $(document).ready(function () {
 //                            createdAt,
 //                            date,
 //                        });
-                        
-                        numratings++;
+//                        console.log(numratings);
+                        console.log(tran);
+                        tran.num_ratings++;
+                        tran[rating]++;
+//                        switch(rating){
+//                            case 5:
+//                                tran.five++;
+//                                tran[5]++;
+//                                break;
+//                            case 4:
+//                                tran.four++;
+//                                tran[4]++;
+//                                break;
+//                            case 3:
+//                                tran.three++;
+//                                break;
+//                            case 2:
+//                                tran.two++;
+//                                break;
+//                            case 1:
+//                                tran.one++;
+//                        }
+                        tran.total_rating+=rating;
+                        tran.average_rating=tran.total_rating/tran.num_ratings;
                         
 //                        var updates={};
 //
@@ -87,9 +110,8 @@ $(document).ready(function () {
 //                        })
                         
                     }
-                    console.log(numratings);
-                    return numratings;
-                }, function(error, committed, numVal){
+                    return tran;
+                }, function(error, committed, val){
                     console.log("callback");
                     if(committed){
                         console.log("committed");
@@ -105,18 +127,18 @@ $(document).ready(function () {
                             createdAt,
                             date,
                         });
-                        var updates={};
-
-                        rootpath.once("value").then(function(snapshot){
-                            updates[rating]=snapshot.val()[rating]+1;
-                            updates["total_rating"] = snapshot.val().total_rating+rating;
-                            updates["average_rating"] = updates["total_rating"] / numVal.val() ;
-                            rootpath.update(updates);
-                            return updates;
-                        })
-                        .catch(error=>{
-                            console.log(error)
-                        })
+//                        var updates={};
+//
+//                        rootpath.once("value").then(function(snapshot){
+//                            updates[rating]=snapshot.val()[rating]+1;
+//                            updates["total_rating"] = snapshot.val().total_rating+rating;
+//                            updates["average_rating"] = updates["total_rating"] / numVal.val() ;
+//                            rootpath.update(updates);
+//                            return updates;
+//                        })
+//                        .catch(error=>{
+//                            console.log(error)
+//                        })
                     }
                 });
 
@@ -201,6 +223,7 @@ firebase.auth().signInAnonymously().then(function () {
 
     var database = firebase.database();
     var usersRef = database.ref('/users/');
+    var transactionRef = database.ref('/transaction/');
 
     database.ref().once("value",function(snapshot){
         var starRating = snapshot.val().average_rating.toFixed(2);
@@ -212,54 +235,57 @@ firebase.auth().signInAnonymously().then(function () {
 //        console.log(stars);
         $("#avg").prepend(stars);
 
-        var totalRows = snapshot.val().num_ratings;
-        totalPages = Math.ceil(totalRows/rowsPerPage);
-        $("#total-reviews").append(String(totalRows)+" reviews&#41;");
-        
-        for(i=1;i<=5;i++){
-            var starId= "#"+String(i)+"stars";
-            var starValue=snapshot.val()[i];
-            $(starId).append(String(starValue));
-            var barId="#"+String(i)+"bar";
-            var barString = String((starValue/totalRows)*100)+"%";
+        transactionRef.once("value", function(tranSnap){
+            var totalRows = tranSnap.val().num_ratings;
+            totalPages = Math.ceil(totalRows/rowsPerPage);
+            $("#total-reviews").append(String(totalRows)+" reviews&#41;");
+                        
+            for(i=1;i<=5;i++){
+                var starId= "#"+String(i)+"stars";
+                var starValue=tranSnap.val()[i];
+                $(starId).append(String(starValue));
+                var barId="#"+String(i)+"bar";
+                var barString = String((starValue/totalRows)*100)+"%";
+
+                $(barId).css("width", barString);                  
+            }
             
-            $(barId).css("width", barString);                  
-        }
-        if(totalPages <= 1){
-            $("#nextPageBtn").prop("disabled", true);
-            $("#lastPageBtn").prop("disabled", true);
-        }
-        var reviewsRef = database.ref('/reviews/');
-        
-        reviewsRef.orderByChild("createdAt").limitToFirst(rowsPerPage).on("value", function(snapshot){
-            var i = 0;
-            snapshot.forEach(function(data){
-                if(i==0){
-                    stopAt=data.val().createdAt;
-                }
-                i+=1;
-                var html='<div class="review">';
-                html+='<h3 class="review-title">' + data.val().title + '</h3>';
-                html+='<span class="review-stars">'
-                for(j=0;j<data.val().rating;j++){
-                    html+='★';
-                }
-                html+='</span>';
-                                html+='<span class="review-empty-stars">'
-                for(k=0;k<(5 - data.val().rating);k++){
-                    html+='★';
-                }
-                html+='</span>';
-                html+='<span class="reviewer-name">' + data.val().name + '</span>';
-                html+='<span class="review-date">' + data.val().date.substring(4,15)+'</span>';
-                html+='<p class="review-body">'+data.val().comments+'</p>';
+            if(totalPages <= 1){
+                $("#nextPageBtn").prop("disabled", true);
+                $("#lastPageBtn").prop("disabled", true);
+            }
+            var reviewsRef = database.ref('/reviews/');
 
-                html+='</div>';
+            reviewsRef.orderByChild("createdAt").limitToFirst(rowsPerPage).on("value", function(snapshot){
+                var i = 0;
+                snapshot.forEach(function(data){
+                    if(i==0){
+                        stopAt=data.val().createdAt;
+                    }
+                    i+=1;
+                    var html='<div class="review">';
+                    html+='<h3 class="review-title">' + data.val().title + '</h3>';
+                    html+='<span class="review-stars">'
+                    for(j=0;j<data.val().rating;j++){
+                        html+='★';
+                    }
+                    html+='</span>';
+                                    html+='<span class="review-empty-stars">'
+                    for(k=0;k<(5 - data.val().rating);k++){
+                        html+='★';
+                    }
+                    html+='</span>';
+                    html+='<span class="reviewer-name">' + data.val().name + '</span>';
+                    html+='<span class="review-date">' + data.val().date.substring(4,15)+'</span>';
+                    html+='<p class="review-body">'+data.val().comments+'</p>';
 
-                $("#reviewTable").append(html);
-                beginAt = data.val().createdAt;
-       
-           }) 
+                    html+='</div>';
+
+                    $("#reviewTable").append(html);
+                    beginAt = data.val().createdAt;
+
+               }) 
+            });
         });
     });
 
