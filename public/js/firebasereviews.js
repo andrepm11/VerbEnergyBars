@@ -87,6 +87,7 @@ $(document).ready(function () {
                         })
                         
                     }
+                    console.log(numratings);
                     return numratings;
                 });
 
