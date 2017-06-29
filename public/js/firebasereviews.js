@@ -22,7 +22,7 @@ $(document).ready(function () {
     $('input:radio').change(function () {
         var userRating = this.value;
     });
-    console.log("Updated5");
+    console.log("Updated6");
     $('#review-form').submit(function(event) {
        event.preventDefault();
 //	   setTimeout(function () { window.location.reload(); }, 10);
@@ -110,7 +110,7 @@ $(document).ready(function () {
                         rootpath.once("value").then(function(snapshot){
                             updates[rating]=snapshot.val()[rating]+1;
                             updates["total_rating"] = snapshot.val().total_rating+rating;
-                            updates["average_rating"] = updates["total_rating"] / numVal ;
+                            updates["average_rating"] = updates["total_rating"] / numVal.val() ;
                             rootpath.update(updates);
                             return updates;
                         })
