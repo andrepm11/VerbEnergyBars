@@ -43,7 +43,7 @@ $(document).ready(function () {
                 var database = firebase.database();
                 var usersRef = database.ref('/users');
                 var rootpath = database.ref();
-                var totalPath = database.ref('total_rating');
+                var numPath = database.ref('num_ratings');
             
                 usersRef.once('value', function(snapshot) {
                   if (snapshot.hasChild("/"+mixpanelDistinctId)) {
@@ -54,9 +54,9 @@ $(document).ready(function () {
                     }
                 });
 
-                totalPath.transaction(function(total){
+                numPath.transaction(function(numratings){
 
-                    if(total){
+                    if(numratings){
                         console.log("worked");
                         const date = Date();
                         const createdAt = (new Date().getTime())*-1;
@@ -71,13 +71,14 @@ $(document).ready(function () {
                             date,
                         });
                         
+                        numratings++;
+                        
                         var updates={};
 
                         rootpath.once("value").then(function(snapshot){
                             updates[rating]=snapshot.val()[rating]+1;
-                            updates["num_ratings"] = snapshot.val().num_ratings+1;
                             updates["total_rating"] = snapshot.val().total_rating+rating;
-                            updates["average_rating"] = updates["total_rating"] / updates["num_ratings"];
+                            updates["average_rating"] = updates["total_rating"] / numratings;
                             rootpath.update(updates);
                             return updates;
                         })
@@ -86,7 +87,7 @@ $(document).ready(function () {
                         })
                         
                     }
-                    return total;
+                    return numratings;
                 });
 
 //                idsetter={};
