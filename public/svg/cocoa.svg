@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 60 60"><defs><style>.cls-1{fill:#6c4528;}.cls-1,.cls-2,.cls-3{stroke:#1b150d;stroke-miterlimit:10;stroke-width:5px;}.cls-2{fill:none;}.cls-3{fill:#8f5c38;}</style></defs>
+	<title>cocoa</title>
+	<polygon class="cls-1" points="13.68 34.67 15.33 15.88 25.59 2.04 50.89 3.04 55.81 29.92 39.29 40.25 13.68 34.67"/>
+	<polyline class="cls-2" points="39.29 40.25 37.43 17.95 15.33 15.88"/>
+	<line class="cls-2" x1="50.89" y1="3.04" x2="37.43" y2="17.94"/>
+	<path class="cls-3" d="M34.17,46.84c-8.39-18.28-24.1-17.2-29.52-13.27C-6.1,41.37,18.3,50.23,34.17,46.84Z"/>
+</svg>
