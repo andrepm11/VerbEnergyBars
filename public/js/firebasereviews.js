@@ -22,7 +22,6 @@ $(document).ready(function () {
     $('input:radio').change(function () {
         var userRating = this.value;
     });
-    console.log("Updated10");
     $('#review-form').submit(function(event) {
 //       event.preventDefault();
 	   setTimeout(function () { window.location.reload(); }, 10);
@@ -35,7 +34,6 @@ $(document).ready(function () {
         const comments = strip_html_tags($("#comments").val());
         const rating = parseInt($("input[name='rating']:checked").val());
         
-        console.log(new Date().getTime());
 
 
         firebase.auth().signInAnonymously().then(function(){
@@ -66,9 +64,7 @@ $(document).ready(function () {
                     }
                     return tran;
                 }, function(error, committed, val){
-                    console.log("callback");
                     if(committed){
-                        console.log("committed");
                         const date = Date();
                         const createdAt = (new Date().getTime())*-1;
                         
