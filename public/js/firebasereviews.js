@@ -98,14 +98,14 @@ $(document).ready(function () {
             console.log(error)
         })
 
-        $.ajax({
-            type: "POST",
-            url: "post.php",
-            data: $(this).serialize(),		
-            success: function(data){
-                $('#result').html(data);
-            }					
-        });
+//        $.ajax({
+//            type: "POST",
+//            url: "post.php",
+//            data: $(this).serialize(),		
+//            success: function(data){
+//                $('#result').html(data);
+//            }					
+//        });
         if($("#subscribe").is(":checked")){
 //            alert("Subscriber"); //ADD IN EVENT TRACKING HERE TO GRAB E-MAIL AND ADD TO E-MAIL LIST
         };
@@ -119,14 +119,14 @@ $(document).ready(function () {
         const verb = $("#theirverb").val();
         const email = $("#theiremail").val();
         
-        $.ajax({
-            type: "POST",
-            url: "whatsyourverb.php",
-            data: $(this).serialize(),		
-            success: function(data){
-                console.log(data);
-            }					
-        });
+//        $.ajax({
+//            type: "POST",
+//            url: "whatsyourverb.php",
+//            data: $(this).serialize(),		
+//            success: function(data){
+//                console.log(data);
+//            }					
+//        });
         $("#email-form-container").addClass('submitted');
     });
 
