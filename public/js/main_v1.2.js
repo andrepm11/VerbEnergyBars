@@ -222,26 +222,50 @@ $(document).ready(function(){
 	
 	$(".quantity-select button").on('click', function(){
 		var curQuant = parseInt($(".quantity-select .cur-quant").text(), 10);
-      
-		if ($(this).hasClass("down")) {
-			//inc. down
-			if (curQuant > 1) {
-				curQuant--;
-				$(".quantity-select .cur-quant").html(curQuant);
-        $(".order-button button.shown").data("item-quantity", curQuant);
-				if (curQuant == 1) {
-					$(".cur-quant").removeClass('plural');
-				}
-			}
-		} else {
-			//inc. up
-            curQuant++;
-            $(".quantity-select .cur-quant").html(curQuant);
-            $(".order-button button.shown").data("item-quantity", curQuant);
-//            console.log( $(".order-button button.shown").data());
-            $(".cur-quant").addClass('plural');
-			
-		}
+        
+        if($(".order-button button.shown").data("item-id")){
+            if ($(this).hasClass("down")) {
+                //inc. down
+                if (curQuant > 1) {
+                    curQuant--;
+                    $(".quantity-select .cur-quant").html(curQuant);
+                    $(".order-button button.shown").data("item-quantity", curQuant);
+                    if (curQuant == 1) {
+                        $(".cur-quant").removeClass('plural');
+                    }
+                }
+            } else {
+                //inc. up
+                curQuant++;
+                $(".quantity-select .cur-quant").html(curQuant);
+                $(".order-button button.shown").data("item-quantity", curQuant);
+                $(".cur-quant").addClass('plural');
+            }
+        }
+        else{
+            if ($(this).hasClass("down")) {
+                //inc. down
+                if (curQuant > 1) {
+                    curQuant--;
+                    $(".quantity-select .cur-quant").html(curQuant);
+                    $(".order-button button.shown").data("plan-id", "Monthly-Sub-"+String(curQuant*10));
+                    $(".order-button button.shown").data("plan-name", "Verb Energy Bar Monthly Subscription ("+String(curQuant)+" box | "+String(curQuant*10)+" bars)");
+                    
+                    if (curQuant == 1) {
+                        $(".cur-quant").removeClass('plural');
+                    }
+                }
+            } else {
+                //inc. up
+                curQuant++;
+                $(".quantity-select .cur-quant").html(curQuant);
+                $(".order-button button.shown").data("plan-id", "Monthly-Sub-"+String(curQuant*10));
+                $(".order-button button.shown").data("plan-name", "Verb Energy Bar Monthly Subscription ("+String(curQuant)+" box | "+String(curQuant*10)+" bars)");
+                $(".cur-quant").addClass('plural');
+            }
+            
+            $(".order-button button.shown").data("plan-amount",parseFloat($("#sub-price").html().substring(1))*curQuant);
+        }
 	});
 	
 	$(".order-type .order-type-button").on('click', function(e){
@@ -260,19 +284,19 @@ $(document).ready(function(){
               $(".order-button button.single-order").removeClass("hidden").addClass("shown");
               $(".quantity-select button").prop("disabled", false);
               $(".price-type .single-price").removeClass("hidden");
-							$(".cur-quant").removeClass('three-bar');
+              $(".cur-quant").removeClass('three-bar');
           }  else if ($(this).hasClass("single-sub")) {
               //show single-sub. button
               $(".order-button button.single-sub").removeClass("hidden").addClass("shown");
               $(".quantity-select .cur-quant").text("1");
-              $(".quantity-select button").prop("disabled", true);
+              $(".quantity-select button").prop("disabled", false);
               $(".price-type .single-sub-price").removeClass("hidden");
-							$(".cur-quant").removeClass('three-bar');
+              $(".cur-quant").removeClass('three-bar');
           }  else if ($(this).hasClass("single-small")) {
               $(".order-button button.single-order-small").removeClass("hidden").addClass("shown");
               $(".quantity-select button").prop("disabled", false);
               $(".price-type .single-small-price").removeClass("hidden");
-							$(".cur-quant").addClass('three-bar');
+              $(".cur-quant").addClass('three-bar');
           } else {
                   //show sub. button
                   /*$(".order-button button.subscribe").removeClass("hidden").addClass("shown");
