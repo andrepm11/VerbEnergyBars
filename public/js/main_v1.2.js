@@ -203,7 +203,7 @@ $(document).ready(function(){
 
 	function addImagesToPlans() {
 		$("#snipcart-plans-list>tr>td img").remove();
-		var $img = $("<img/>").attr("src", "/public/img/bar_order_mockup.png").addClass("cartSubIcon");
+		var $img = $("<img/>").attr("src", "public/img/verb_bar_rendering_3_sm.png").addClass("cartSubIcon");
 		$("#snipcart-plans-list .snip-product__name").parent().prepend($img);
 	}
 	function addSpacesToPrice() {
