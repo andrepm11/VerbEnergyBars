@@ -22,7 +22,7 @@ $(document).ready(function () {
     $('input:radio').change(function () {
         var userRating = this.value;
     });
-    console.log("Updated3");
+    console.log("Updated4");
     $('#review-form').submit(function(event) {
        event.preventDefault();
 //	   setTimeout(function () { window.location.reload(); }, 10);
@@ -57,7 +57,42 @@ $(document).ready(function () {
                 numPath.transaction(function(numratings){
 
                     if(numratings){
-                        console.log("worked");
+                        console.log("access");
+//                        const date = Date();
+//                        const createdAt = (new Date().getTime())*-1;
+//                        
+//                        database.ref("reviews").push({
+//                            title,
+//                            name,
+//                            email,
+//                            rating,
+//                            comments,
+//                            createdAt,
+//                            date,
+//                        });
+                        
+                        numratings++;
+                        
+//                        var updates={};
+//
+//                        rootpath.once("value").then(function(snapshot){
+//                            updates[rating]=snapshot.val()[rating]+1;
+//                            updates["total_rating"] = snapshot.val().total_rating+rating;
+//                            updates["average_rating"] = updates["total_rating"] / numratings;
+//                            rootpath.update(updates);
+//                            return updates;
+//                        })
+//                        .catch(error=>{
+//                            console.log(error)
+//                        })
+                        
+                    }
+                    console.log(numratings);
+                    return numratings;
+                }, function(error, committed, snapshot){
+                    console.log("callback");
+                    if(committed){
+                        console.log("committed");
                         const date = Date();
                         const createdAt = (new Date().getTime())*-1;
                         
@@ -70,9 +105,6 @@ $(document).ready(function () {
                             createdAt,
                             date,
                         });
-                        
-                        numratings++;
-                        
                         var updates={};
 
                         rootpath.once("value").then(function(snapshot){
@@ -85,10 +117,7 @@ $(document).ready(function () {
                         .catch(error=>{
                             console.log(error)
                         })
-                        
                     }
-                    console.log(numratings);
-                    return numratings;
                 });
 
 //                idsetter={};
