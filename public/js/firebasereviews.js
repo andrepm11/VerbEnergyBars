@@ -88,7 +88,7 @@ $(document).ready(function () {
         })
             .catch(error=>{
             console.log(error)
-        })
+        });
 
 //        $.ajax({
 //            type: "POST",
@@ -100,7 +100,7 @@ $(document).ready(function () {
 //        });
         if($("#subscribe").is(":checked")){
 //            alert("Subscriber"); //ADD IN EVENT TRACKING HERE TO GRAB E-MAIL AND ADD TO E-MAIL LIST
-        };
+        }
         $("#replacement-content").css("display", "block");
         $("#content-wrapper").css("display", "none");
     });
@@ -157,6 +157,9 @@ var config = {
 };
 
 firebase.initializeApp(config);
+
+
+
 firebase.auth().signInAnonymously().then(function () {
     const mixpanelDistinctId = "12345"; //GET REAL MIXPANEL ID HERE
 
