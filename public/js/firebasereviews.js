@@ -22,7 +22,7 @@ $(document).ready(function () {
     $('input:radio').change(function () {
         var userRating = this.value;
     });
-    console.log("Updated4");
+    console.log("Updated5");
     $('#review-form').submit(function(event) {
        event.preventDefault();
 //	   setTimeout(function () { window.location.reload(); }, 10);
@@ -89,7 +89,7 @@ $(document).ready(function () {
                     }
                     console.log(numratings);
                     return numratings;
-                }, function(error, committed, snapshot){
+                }, function(error, committed, numVal){
                     console.log("callback");
                     if(committed){
                         console.log("committed");
@@ -110,7 +110,7 @@ $(document).ready(function () {
                         rootpath.once("value").then(function(snapshot){
                             updates[rating]=snapshot.val()[rating]+1;
                             updates["total_rating"] = snapshot.val().total_rating+rating;
-                            updates["average_rating"] = updates["total_rating"] / numratings;
+                            updates["average_rating"] = updates["total_rating"] / numVal ;
                             rootpath.update(updates);
                             return updates;
                         })
