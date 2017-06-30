@@ -310,7 +310,7 @@ $(document).ready(function(){
               
               
               
-              
+              console.log("Here");
               $(".quantity-select").css("display","none");
               $(".subscription-select").css("display","block");
 
