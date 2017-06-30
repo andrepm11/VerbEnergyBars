@@ -164,14 +164,14 @@ $(document).ready(function(){
 	
 	Snipcart.subscribe('cart.ready', function() {
 		if ($(window).width() > 768) {
-			addImagesToPlans();
+//			addImagesToPlans();
 			addSpacesToPrice();
 		}
 		moveShippingSameAsBilling();
 	}); 
 	Snipcart.subscribe('cart.opened', function() {
 		if ($(window).width() > 768) {
-			addImagesToPlans();
+//			addImagesToPlans();
 			addSpacesToPrice();
 		}
 		moveShippingSameAsBilling();
@@ -193,7 +193,7 @@ $(document).ready(function(){
 		newSnipcartId = $(".snip-layout__main-container").attr("id");
 		if (newSnipcartId != currentSnipcartId) {
 			if ($(window).width() > 768) {
-				addImagesToPlans();
+//				addImagesToPlans();
 				addSpacesToPrice();
 			}
 			moveShippingSameAsBilling();
@@ -226,52 +226,37 @@ $(document).ready(function(){
         if($(".order-button button.shown").data("item-id")){
             if ($(this).hasClass("down")) {
                 //inc. down
-                if (curQuant > 1) {
-                    curQuant--;
+                if (curQuant > 10) {
+                    curQuant-=10;
                     $(".quantity-select .cur-quant").html(curQuant);
-                    $(".order-button button.shown").data("item-quantity", curQuant);
-                    if (curQuant == 1) {
-                        $(".cur-quant").removeClass('plural');
-                    }
+                    $(".order-button button.shown").data("item-quantity", curQuant/10);
                 }
             } else {
                 //inc. up
-                curQuant++;
+                curQuant+=10;
                 $(".quantity-select .cur-quant").html(curQuant);
-                $(".order-button button.shown").data("item-quantity", curQuant);
-                $(".cur-quant").addClass('plural');
+                $(".order-button button.shown").data("item-quantity", curQuant/10);
             }
         }
-//        else{
-//            if ($(this).hasClass("down")) {
-//                //inc. down
-//                if (curQuant > 1) {
-//                    curQuant--;
-//                    $(".quantity-select .cur-quant").html(curQuant);
-////                    $(".order-button button.shown").data("plan-id", "Monthly-Sub-"+String(curQuant*10));
-//                    $(".order-button button.shown").data("plan-name", "Verb Energy Bar Monthly Subscription ("+String(curQuant)+" box | "+String(curQuant*10)+" bars)");
-//                    $(".order-button button.shown").data("item-quantity", curQuant);
-//                    
-//                    if (curQuant == 1) {
-//                        $(".cur-quant").removeClass('plural');
-//                    }
-//                }
-//            } else {
-//                //inc. up
-//                curQuant++;
-//                $(".quantity-select .cur-quant").html(curQuant);
-////                $(".order-button button.shown").data("plan-id", "Monthly-Sub-"+String(curQuant*10));
-//                $(".order-button button.shown").data("plan-name", "Verb Energy Bar Monthly Subscription ("+String(curQuant)+" box | "+String(curQuant*10)+" bars)");
-//                $(".order-button button.shown").data("plan-quantity", curQuant);
-//                $(".cur-quant").addClass('plural');
-//            }
-//            
-//            $(".order-button button.shown").data("plan-amount",parseFloat($("#sub-price").html().substring(1))*curQuant);
-//            
-//        }
 	});
     
+    $(".sub-plan-button").on('click', function(){
+        if(!$(this).hasClass("active")){
+            $(".sub-plan-button").removeClass("active");
+            if(!$(this).hasClass("percentoff")){
+                $("#sub-price-discount").css("display","none");
+            }else{
+                $("#sub-price-discount").css("display","inline");
+            }
+            $(this).addClass("active");
+            
+            $("#sub-price").html($(this).children(".hidden-sub-price").html());
 
+            $(".order-button button.shown").data("plan-quantity",$(this).children(".box-quantity").html());
+            
+        }
+    });
+    
 	$(".order-type .order-type-button").on('click', function(e){
 		e.preventDefault();
 		var curType;
@@ -280,8 +265,6 @@ $(document).ready(function(){
           $(this).addClass("active");
           $(".order-button button").addClass("hidden").removeClass("shown");
           $(".price-type .price-item").addClass("hidden");
-          $(".quantity-select .cur-quant").html("1");
-          $(".quantity-select .cur-quant").removeClass("plural");
 
           if ($(this).hasClass("single")) {
               //then show single button
@@ -290,23 +273,32 @@ $(document).ready(function(){
               $(".price-type .single-price").removeClass("hidden");
               $(".cur-quant").removeClass('three-bar');
               $(".quantity-increment").css("visibility", "visible");
+              
+              $(".quantity-select").css("display","block");
+              $(".subscription-select").css("display","none");
+              
 
           }  else if ($(this).hasClass("single-sub")) {
               //show single-sub. button
               $(".order-button button.single-sub").removeClass("hidden").addClass("shown");
-              $(".quantity-select .cur-quant").text("1");
+//              $(".quantity-select .cur-quant").text("1");
               $(".quantity-select button").prop("disabled", false);
               $(".price-type .single-sub-price").removeClass("hidden");
               $(".cur-quant").removeClass('three-bar');
-              $(".quantity-increment").css("visibility", "hidden");
-              //FIX THIS WHEN SNIPCART RESPONDS
-          }  else if ($(this).hasClass("single-small")) {
-              $(".order-button button.single-order-small").removeClass("hidden").addClass("shown");
-              $(".quantity-select button").prop("disabled", false);
-              $(".price-type .single-small-price").removeClass("hidden");
-              $(".cur-quant").addClass('three-bar');
-              $(".quantity-increment").css("visibility", "visible");
+//              $(".quantity-increment").css("visibility", "hidden");
+            
+              //Reset buy button
+//              $(".sub-plan-button").removeClass("active");
+//              $("#20bars").addClass("active");
+//              $("#sub-price").html($("#20bars").children(".hidden-sub-price").html());
+//              $(".order-button button.shown").data("plan-quantity",$("#20bars").children(".box-quantity").html());
               
+              
+              
+              
+              $(".quantity-select").css("display","none");
+              $(".subscription-select").css("display","block");
+
           } else {
                   //show sub. button
                   /*$(".order-button button.subscribe").removeClass("hidden").addClass("shown");
@@ -344,7 +336,9 @@ $(document).ready(function(){
 		    	$(".cart-wrapper .svg-wrapper").removeClass("active");
 		    }
 	    }, 100);
-	}); 
+	}); Snipcart.subscribe('plan.added', function (plan) {
+        console.log(plan);
+    });
 
 });
 

@@ -1268,6 +1268,7 @@ header .header-images:hover .shadow {
   color: #ffeac7;
 }
 .quantity-select {
+  display: none;
   margin: 1em 0;
   text-align: center;
 }
@@ -1288,7 +1289,7 @@ header .header-images:hover .shadow {
   border-bottom: 4px solid #1d1d20;
 }
 .quantity-select .quantity-selected .cur-quant:after {
-  content: 'box';
+  content: 'bars';
   font-size: .4em;
   font-weight: 700;
   text-transform: uppercase;
@@ -1297,14 +1298,40 @@ header .header-images:hover .shadow {
   left: .5em;
   display: inline;
 }
-.quantity-select .quantity-selected .cur-quant.plural:after {
-  content: 'boxes';
-}
 .quantity-select .quantity-selected .cur-quant.three-bar:after {
   content: '3-pack';
 }
 .quantity-select .quantity-selected .cur-quant.three-bar.plural:after {
   content: '3-packs';
+}
+.subscription-select {
+  display: none;
+  padding-top: .7em;
+  padding-bottom: .8em;
+}
+.subscription-select .sub-plan-button {
+  width: 6.4em;
+  height: 6.4em;
+}
+.subscription-select .sub-plan-button.active {
+  background: #1d1d20;
+  color: #ffeac7;
+}
+.subscription-select .sub-plan-button .hidden-sub-price {
+  display: none;
+}
+.subscription-select .sub-plan-button .hidden-sub-price #subpercent {
+  display: none;
+  font-size: .5em;
+  background-color: black;
+}
+.subpercent {
+  font-size: .6em;
+  vertical-align: top;
+  color: red;
+}
+.active-select {
+  display: block;
 }
 .price-type {
   font-size: 2em;
@@ -1313,12 +1340,11 @@ header .header-images:hover .shadow {
   width: 8em;
   margin-right: auto;
 }
-.og-price.sale {
-  text-decoration: line-through;
+#sub-price-discount {
   font-weight: 400;
-  opacity: .5;
-  font-size: .75em;
+  font-size: .6em;
   vertical-align: top;
+  color: red;
 }
 .sale-price {
   display: none;
