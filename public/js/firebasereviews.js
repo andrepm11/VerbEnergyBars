@@ -23,8 +23,7 @@ $(document).ready(function () {
         var userRating = this.value;
     });
     $('#review-form').submit(function(event) {
-//       event.preventDefault();
-	   setTimeout(function () { window.location.reload(); }, 10);
+       event.preventDefault();
 //        const mixpanelDistintctID = mixpanel.get_distinct_id();
         const mixpanelDistinctId = "12345";
 
@@ -76,7 +75,12 @@ $(document).ready(function () {
                             comments,
                             createdAt,
                             date,
+                        }, function(error){
+                            if(!error){
+                                setTimeout(function () { window.location.reload(); }, 10);
+                            }
                         });
+                        
 
                     }
                 });
@@ -89,6 +93,8 @@ $(document).ready(function () {
             .catch(error=>{
             console.log(error)
         });
+        
+
 
 //        $.ajax({
 //            type: "POST",
