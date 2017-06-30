@@ -24,10 +24,11 @@ Snipcart.subscribe('order.completed', function(data) {
             
             console.log(db.ref(email));
             
-            var rootpath = db.ref(email).set({
-                billingAddress:data['billingAddress'],
-                shippingAddress:data['shippingAddress'],
-                plans:data['plans']
+            var rootpath = db.ref(email).push({
+                plans:data['plans'],
+                paymentGatewayTransactionId:data['paymentGatewayTransactionId'],
+                subscriptionGatewayId:data['subscription']['subscriptionGatewayId'],
+                
             });
             
             

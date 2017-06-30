@@ -272,7 +272,7 @@ $(document).ready(function(){
 	});
     
 
-	
+	console.log("hey");
 	$(".order-type .order-type-button").on('click', function(e){
 		e.preventDefault();
 		var curType;
