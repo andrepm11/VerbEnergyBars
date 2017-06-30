@@ -265,9 +265,14 @@ $(document).ready(function(){
             }
             $(this).addClass("active");
             
+            $(".order-button button").addClass("hidden").removeClass("shown");
+            $($(this).children(".subid").text()).removeClass("hidden").addClass("shown");
+            
             $("#sub-price").html($(this).children(".hidden-sub-price").html());
 
             $(".order-button button.shown").data("plan-quantity",$(this).children(".box-quantity").html());
+            
+          
             
         }
     });
