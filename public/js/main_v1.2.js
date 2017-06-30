@@ -219,7 +219,8 @@ $(document).ready(function(){
 		$("#snip-shippingSameAsBilling").closest(".snipcart-checkbox-field").prependTo("#snipcart-billingaddress-form .snip-cols .snip-col:nth-of-type(3)");
 	}
 	
-	
+	    console.log("ready");
+
 	$(".quantity-select button").on('click', function(){
 		var curQuant = parseInt($(".quantity-select .cur-quant").text(), 10);
         
