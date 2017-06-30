@@ -311,7 +311,7 @@ $(document).ready(function(){
               
               
               
-//              $(".quantity-select").css("display","none");
+              $(".quantity-select").css("display","none");
               $(".subscription-select").css("display","block");
 
           } else {

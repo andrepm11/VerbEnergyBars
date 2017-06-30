@@ -263,7 +263,14 @@
 		<div class="show-mobile" id="nav-menu-icon"><span></span><span></span><span></span><span></span></div>
         
         
-
+<!--
+        <a href="#" class="snipcart-user-profile">
+          <span class="snipcart-user-email">Login</span>
+        </a>
+        <a href="#" class="snipcart-user-logout">
+          Logout
+        </a>
+-->
 		<a href="#" class="cart-button snipcart-checkout">
 			<div id="basket-icon"></div>
 			<div class="snipcart-summary">
@@ -474,60 +481,70 @@
 				<span class="upper">3-Pack</span><span class="alt-font"></span><span class="price hidden">$6.99</span>
 			</a>
 -->
-			<a href="#" class="order-type-button single active">
-				<span class="upper">10-Bar Box</span><span class="alt-font"></span><span class="price hidden">$19.99</span>
+			<a href="#" class="order-type-button single">
+				<span class="upper">Single Order</span><span class="alt-font"></span><span class="price hidden">$19.99</span>
 			</a>
-			<a href="#" class="order-type-button single-sub">
+			<a href="#" class="order-type-button single-sub active">
 				<span class="upper">Monthly Subscription</span><span class="alt-font"></span><span class="price hidden">$19</span>
 			</a>
 		</div>
 		<div class="price-type">
+<!--
 			<div class="single-small-price price-item hidden">
 				<span class="sale-price sale">$6.50</span>
 				<span class="og-price sale">$7.99</span>
 			</div>
-			<div class="single-price price-item">
-				<span class="sale-price sale">$19.99</span>
-				<span class="og-price sale">$24.70</span>
+-->
+			<div class="single-price price-item hidden">
+				<span class="sale-price sale">$2.40 / bar</span>
+<!--				<span class="og-price sale">$24.70</span>-->
 			</div>
-			<div class="single-sub-price price-item hidden">
-				<span class="sale-price sale" id="sub-price">$19.00</span>
-				<span class="og-price sale" id="sub-price-og">$21.00</span>
+			<div class="single-sub-price price-item">
+				<span class="sale-price sale" id="sub-price">$1.80 / bar <span class="subpercent">25% off</span></span>
+<!--				<span class="og-price sale" id="sub-price-discount">25% off</span>-->
 			</div>
-			<!--<div class="sub-price price-item hidden">
-								<span class="sale-price sale">$35.00</span>
-								<span class="og-price sale">$42.00</span>
-							</div>-->
 		</div>
-		<div class="quantity-select">
-			<button class="quantity-increment down left">
-				<span class="down">-</span>
-			</button>
-			<div class="quantity-selected cur-quant-wrapper">
-				<span class="cur-quant">10</span>
-			</div>
-			<button class="button quantity-increment up right">
-				<span class="up">+</span>
-			</button>
-		</div>
+		
+    
+    
+        <div class="subscription-select active-select">
+            <button class="sub-plan-button" id="10bars">
+                <span>10 bars</span>
+                <span class="hidden-sub-price">$2.00 /  bar <span class="subpercent">17% off</span></span>
+                <span class="box-quantity hidden">1</span>
+            </button>
+            <button class="sub-plan-button percentoff active" id="20bars">
+                <span>20 bars</span>
+                <span class="hidden-sub-price">$1.80 / bar <span class="subpercent">25% off</span></span>
+                <span class="box-quantity hidden">2</span>
+            </button>
+            <button class="sub-plan-button" id="30bars">
+                <span>30+ bars</span>
+                <span class="hidden-sub-price">$1.69 / bar <span class="subpercent">30% off</span></span>
+                <span class="box-quantity hidden">3</span>
+            </button>
+        </div>
+        <div class="quantity-select">
+            <button class="quantity-increment down left">
+                <span class="down">-</span>
+            </button>
+            <div class="quantity-selected cur-quant-wrapper">
+                <span class="cur-quant">10</span>
+            </div>
+            <button class="button quantity-increment up right">
+                <span class="up">+</span>
+            </button>
+        </div>
+    
+    
 		<div class="order-button">
-			<button class="button w-100 solid snipcart-add-plan single-sub hidden" data-plan-id="Monthly-Sub-10" data-item-quantity="1" data-plan-name="Verb Energy Bar Monthly Subscription (1 box | 10 bars)" data-plan-interval="Month" data-plan-amount="19.00" data-plan-url="/" data-plan-image="public/img/verb_bar_rendering_3_sm.png" data-target="sub">
+			<button class="button w-100 solid snipcart-add-plan single-sub shown" data-plan-id="Monthly-Sub-10" data-plan-quantity="2" data-plan-name="Verb Energy Bar Monthly Subscription (boxes of 10)" data-plan-interval="Month" data-plan-amount="19.00" data-plan-url="/" data-plan-image="public/img/bar_order_mockup.png" data-target="sub">
 									Subscribe Now
 							</button>
 
-<!--
-            <button class="button w-100 solid snipcart-add-plan double-sub" data-plan-id="Monthly-Sub-20" data-item-quantity="1" data-plan-name="Verb Energy Bar Monthly Subscription (2 box | 20 bars)" data-plan-interval="Month" data-plan-amount="38.00" data-plan-url="/" data-plan-image="public/img/verb_bar_rendering_3_sm.png" data-target="sub">
-									Subscribe Now
-							</button>
--->
-			<button class="button w-100 solid snipcart-add-item single-order shown" data-item-id="Single-Order" data-item-name="Verb Energy Bar Single Order (1 box | 10 bars)" data-item-price="19.99" data-item-weight="500" data-item-image="public/img/verb_bar_rendering_3_sm.png" data-item-url="/" data-item-description="Best energy on the planet. 10 bar, single order." data-item-quantity="1" data-target="single">
+			<button class="button w-100 solid snipcart-add-item single-order hidden" data-item-id="Single-Order" data-item-name="Verb Energy Bar Single Order (boxes of 10)" data-item-price="24.00" data-item-weight="500" data-item-image="public/img/verb_bar_rendering_3_sm.png" data-item-url="/" data-item-description="Best energy on the planet. 10 bar, single order." data-item-quantity="1" data-target="single">
 									Add To Cart
 							</button>
-<!--			<button class="button w-100 solid snipcart-add-item single-order-small hidden" data-item-id="Single-Order-3-Pack" data-item-name="Verb Energy Bar 3 Pack Order (3 bars)" data-item-price="6.50" data-item-weight="200" data-item-image="public/img/verb_bar_rendering_3_sm.png" data-item-url="/" data-item-description="Best energy on the planet. 3 bar pack." data-item-quantity="1" data-target="3pack">-->
-<!--
-									Add To Cart
-							</button>
--->
 		</div>
 	</div>
 </div>
