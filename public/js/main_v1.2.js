@@ -230,12 +230,14 @@ $(document).ready(function(){
                     curQuant-=10;
                     $(".quantity-select .cur-quant").html(curQuant);
                     $(".order-button button.shown").data("item-quantity", curQuant/10);
+                    $(".order-button button.shown").data("item-quantity-step", curQuant/10);
                 }
             } else {
                 //inc. up
                 curQuant+=10;
                 $(".quantity-select .cur-quant").html(curQuant);
                 $(".order-button button.shown").data("item-quantity", curQuant/10);
+                $(".order-button button.shown").data("item-quantity-step", curQuant/10);
             }
         }
         else{
