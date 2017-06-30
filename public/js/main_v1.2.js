@@ -238,6 +238,21 @@ $(document).ready(function(){
                 $(".order-button button.shown").data("item-quantity", curQuant/10);
             }
         }
+        else{
+            if ($(this).hasClass("down")) {
+                //inc. down
+                if (curQuant > 10) {
+                    curQuant-=10;
+                    $(".quantity-select .cur-quant").html(curQuant);
+                    $(".order-button button.shown").data("plan-quantity", curQuant/10);
+                }
+            } else {
+                //inc. up
+                curQuant+=10;
+                $(".quantity-select .cur-quant").html(curQuant);
+                $(".order-button button.shown").data("plan-quantity", curQuant/10);
+            }
+        }
 	});
     
     $(".sub-plan-button").on('click', function(){
@@ -282,7 +297,7 @@ $(document).ready(function(){
               //show single-sub. button
               $(".order-button button.single-sub").removeClass("hidden").addClass("shown");
 //              $(".quantity-select .cur-quant").text("1");
-              $(".quantity-select button").prop("disabled", false);
+//              $(".quantity-select button").prop("disabled", false);
               $(".price-type .single-sub-price").removeClass("hidden");
               $(".cur-quant").removeClass('three-bar');
 //              $(".quantity-increment").css("visibility", "hidden");
@@ -296,7 +311,7 @@ $(document).ready(function(){
               
               
               
-              $(".quantity-select").css("display","none");
+//              $(".quantity-select").css("display","none");
               $(".subscription-select").css("display","block");
 
           } else {
