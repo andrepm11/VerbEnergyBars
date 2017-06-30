@@ -296,24 +296,13 @@ $(document).ready(function(){
               $(".subscription-select").css("display","none");
               
 
-          }  else if ($(this).hasClass("single-sub")) {
-              //show single-sub. button
-              $(".order-button button.single-sub").removeClass("hidden").addClass("shown");
-//              $(".quantity-select .cur-quant").text("1");
-//              $(".quantity-select button").prop("disabled", false);
+          }  else if ($(this).hasClass("sub-button")) {
+              $($(".sub-plan-button.active").children(".subid").text()).removeClass("hidden").addClass("shown");
+
               $(".price-type .single-sub-price").removeClass("hidden");
               $(".cur-quant").removeClass('three-bar');
-//              $(".quantity-increment").css("visibility", "hidden");
-            
-              //Reset buy button
-//              $(".sub-plan-button").removeClass("active");
-//              $("#20bars").addClass("active");
-//              $("#sub-price").html($("#20bars").children(".hidden-sub-price").html());
-//              $(".order-button button.shown").data("plan-quantity",$("#20bars").children(".box-quantity").html());
+
               
-              
-              
-              console.log("Here");
               $(".quantity-select").css("display","none");
               $(".subscription-select").css("display","block");
 
