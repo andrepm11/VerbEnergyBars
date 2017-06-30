@@ -242,31 +242,36 @@ $(document).ready(function(){
                 $(".cur-quant").addClass('plural');
             }
         }
-        else{
-            if ($(this).hasClass("down")) {
-                //inc. down
-                if (curQuant > 1) {
-                    curQuant--;
-                    $(".quantity-select .cur-quant").html(curQuant);
-                    $(".order-button button.shown").data("plan-id", "Monthly-Sub-"+String(curQuant*10));
-                    $(".order-button button.shown").data("plan-name", "Verb Energy Bar Monthly Subscription ("+String(curQuant)+" box | "+String(curQuant*10)+" bars)");
-                    
-                    if (curQuant == 1) {
-                        $(".cur-quant").removeClass('plural');
-                    }
-                }
-            } else {
-                //inc. up
-                curQuant++;
-                $(".quantity-select .cur-quant").html(curQuant);
-                $(".order-button button.shown").data("plan-id", "Monthly-Sub-"+String(curQuant*10));
-                $(".order-button button.shown").data("plan-name", "Verb Energy Bar Monthly Subscription ("+String(curQuant)+" box | "+String(curQuant*10)+" bars)");
-                $(".cur-quant").addClass('plural');
-            }
-            
-            $(".order-button button.shown").data("plan-amount",parseFloat($("#sub-price").html().substring(1))*curQuant);
-        }
+//        else{
+//            if ($(this).hasClass("down")) {
+//                //inc. down
+//                if (curQuant > 1) {
+//                    curQuant--;
+//                    $(".quantity-select .cur-quant").html(curQuant);
+////                    $(".order-button button.shown").data("plan-id", "Monthly-Sub-"+String(curQuant*10));
+//                    $(".order-button button.shown").data("plan-name", "Verb Energy Bar Monthly Subscription ("+String(curQuant)+" box | "+String(curQuant*10)+" bars)");
+//                    $(".order-button button.shown").data("item-quantity", curQuant);
+//                    
+//                    if (curQuant == 1) {
+//                        $(".cur-quant").removeClass('plural');
+//                    }
+//                }
+//            } else {
+//                //inc. up
+//                curQuant++;
+//                $(".quantity-select .cur-quant").html(curQuant);
+////                $(".order-button button.shown").data("plan-id", "Monthly-Sub-"+String(curQuant*10));
+//                $(".order-button button.shown").data("plan-name", "Verb Energy Bar Monthly Subscription ("+String(curQuant)+" box | "+String(curQuant*10)+" bars)");
+//                $(".order-button button.shown").data("plan-quantity", curQuant);
+//                $(".cur-quant").addClass('plural');
+//            }
+//            
+//            $(".order-button button.shown").data("plan-amount",parseFloat($("#sub-price").html().substring(1))*curQuant);
+//            
+//        }
 	});
+    
+
 	
 	$(".order-type .order-type-button").on('click', function(e){
 		e.preventDefault();
@@ -285,6 +290,8 @@ $(document).ready(function(){
               $(".quantity-select button").prop("disabled", false);
               $(".price-type .single-price").removeClass("hidden");
               $(".cur-quant").removeClass('three-bar');
+              $(".quantity-increment").css("visibility", "visible");
+
           }  else if ($(this).hasClass("single-sub")) {
               //show single-sub. button
               $(".order-button button.single-sub").removeClass("hidden").addClass("shown");
@@ -292,11 +299,15 @@ $(document).ready(function(){
               $(".quantity-select button").prop("disabled", false);
               $(".price-type .single-sub-price").removeClass("hidden");
               $(".cur-quant").removeClass('three-bar');
+              $(".quantity-increment").css("visibility", "hidden");
+              //FIX THIS WHEN SNIPCART RESPONDS
           }  else if ($(this).hasClass("single-small")) {
               $(".order-button button.single-order-small").removeClass("hidden").addClass("shown");
               $(".quantity-select button").prop("disabled", false);
               $(".price-type .single-small-price").removeClass("hidden");
               $(".cur-quant").addClass('three-bar');
+              $(".quantity-increment").css("visibility", "visible");
+              
           } else {
                   //show sub. button
                   /*$(".order-button button.subscribe").removeClass("hidden").addClass("shown");
@@ -314,6 +325,7 @@ $(document).ready(function(){
 	
 	
 	Snipcart.subscribe('item.added', function (ev, item, items) {
+        console.log(item);
 	    setTimeout(function(){
 	    	var cart = Snipcart.api.cart.get();
 	    	if (cart.items.quantity > 0 || cart.plans.quantity > 0) {
@@ -333,7 +345,8 @@ $(document).ready(function(){
 		    	$(".cart-wrapper .svg-wrapper").removeClass("active");
 		    }
 	    }, 100);
-	});
+	}); 
+
 });
 
 

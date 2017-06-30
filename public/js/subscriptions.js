@@ -20,7 +20,11 @@ Snipcart.subscribe('order.completed', function(data) {
     
         subsdb.auth().signInAnonymously().then(function(){
             var db = subsdb.database();
-            var rootpath = db.ref(data['email']).set({
+            var email = encodeFirebaseKey(data['email']);
+            
+            console.log(db.ref(email));
+            
+            var rootpath = db.ref(email).set({
                 billingAddress:data['billingAddress'],
                 shippingAddress:data['shippingAddress'],
                 plans:data['plans']
@@ -34,3 +38,7 @@ Snipcart.subscribe('order.completed', function(data) {
                                                
 
 });
+
+function encodeFirebaseKey(key){
+    return key.replace(new RegExp('\\.', 'g'),'%252E');
+}
