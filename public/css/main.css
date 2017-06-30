@@ -607,19 +607,41 @@ button[disabled]:hover,
   height: 1.5em;
   width: 1.5em;
 }
-.message-bar {
-  background: #1d1d20;
-  color: #e3be72;
-  width: 100%;
+.message-bar-text {
   display: block;
   height: 1.5em;
+  z-index: 10000;
+  position: relative;
+  background: none;
+  overflow: hidden;
 }
-.message-bar a,
-.message-bar input {
-  color: #ffeac7;
+.message-bar-text p {
+  text-align: center;
+  display: block;
+  color: #858b8e !important;
+  padding: 0;
+  margin: 0;
+}
+.message-bar-text a {
+  text-decoration: underline;
+  font-weight: 400;
+  color: #858b8e !important;
+}
+@media (min-width: 48em) {
+  .message-bar-text {
+    font-size: 1em;
+  }
+}
+.message-bar {
+  width: 100%;
+  display: block;
+  text-align: center;
+  background: #1d1d20;
+  font-weight: 400;
+  padding: .25em .25em .2em;
+  height: 1.5em;
 }
 nav {
-  background: #ffeac7;
   position: fixed;
   top: 0;
   left: 0;
@@ -634,6 +656,9 @@ nav {
   -moz-transition: 0.25s ease-out;
   -o-transition: 0.25s ease-out;
   transition: 0.25s ease-out;
+}
+nav .nav-bar {
+  background: #ffeac7;
 }
 nav > * {
   display: inline-block;
