@@ -1327,8 +1327,9 @@ header .header-images:hover .shadow {
 }
 .subpercent {
   font-size: .6em;
-  vertical-align: top;
+  vertical-align: middle;
   color: red;
+  padding-left: 0.3em;
 }
 .active-select {
   display: block;

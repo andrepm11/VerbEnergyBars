@@ -272,8 +272,6 @@ $(document).ready(function(){
 
             $(".order-button button.shown").data("plan-quantity",$(this).children(".box-quantity").html());
             
-          
-            
         }
     });
     
