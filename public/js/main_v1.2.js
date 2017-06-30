@@ -4,19 +4,37 @@ $(document).ready(function(){
 	//
 	// FAQ
 	//
-	$(".q-answer.closed").hide();
-	$(".q-title").on('click', function(){
-		if ($(this).hasClass("active")) {
-			$(this).removeClass("active");
-			$(this).next(".q-answer").slideToggle("100").removeClass("visible").addClass("closed");
-		} else {
-			$(".q-title").removeClass("active");
-			$(".q-answer.visible").slideToggle("100").removeClass("visible").addClass("closed");
-			
-			$(this).addClass("active");
-			$(this).next(".q-answer").slideToggle("100").removeClass("closed").addClass("visible");
-		}
-	});
+    
+    $(".accordion-button").on('click', function(){
+        if($(this).hasClass("open-section")){
+            $(this).removeClass("open-section");
+            var answer = $(this).next();
+            answer.slideToggle("100");
+            
+        }else{
+            $(this).addClass("open-section");
+            var answer = $(this).next();
+            answer.slideToggle("100");
+
+        }
+    });
+    $(".faq-title").on('click', function(){
+        if($(this).hasClass("open-question")){
+            $(this).removeClass("open-question");
+            var answer = $(this).next();
+            answer.slideToggle("100");
+            
+        }else{
+            $(".faq-title.open-question").next().slideToggle("100");
+            $(".faq-title.open-question").removeClass("open-question");
+            
+            $(this).addClass("open-question");
+            var answer = $(this).next();
+            answer.slideToggle("100").addClass("open-question");
+
+        }
+    });
+    
 	//
 	// Toggle Mobile Menu
 	//
@@ -37,7 +55,7 @@ $(document).ready(function(){
 		/* Check the location of each desired element */
 		$('.on-scroll').each(function (i) {
 
-			var middle_of_object = $(this).position().top + ( $(this).outerHeight() );
+			var middle_of_object = $(this).position().top; //+ ( $(this).outerHeight() / 2 );
 			var bottom_of_window = $(window).scrollTop() + $(window).height();
 
 			/* If the object is completely visible in the window, fade it in */
@@ -63,8 +81,8 @@ $(document).ready(function(){
 		$groupShots.removeClass('active');
 		$groupPre.addClass('active');
 		
-		$vsTitle.html('Pre-Workout Supplements');
-		$vsContent.html("If don't think you're mortgaging some part of your future health every time you have pre-workout you're kidding yourself.");
+		$vsTitle.html('Exercise Supplements');
+		$vsContent.html("Friends don&#8217;t let friends use pre-workout. Elite athletes choose Verb. They were Verb's first customers and always the first to give us feedback. We hear &#8220;Thank you! Thank you! Thank you!&#8221; and &#8220;I just had the best workout of my life&#8221; a lot.");
 		
 	});
 	$groupCoffee.on('click', function(){
@@ -74,7 +92,7 @@ $(document).ready(function(){
 		$groupCoffee.addClass('active');
 		
 		$vsTitle.html('Coffee');
-		$vsContent.html("Alright, confession time. We love coffee. We love the taste. We love the ritual. What we don't love though is spending 20 minutes and $4 every time we need an energy boost. Also not a fan of the jitters.");
+		$vsContent.html("Alright, confession time. We love coffee. We love the taste. We love the ritual. But we don&#8217;t love spending 20 minutes and $4.50 on jittery fleeting caffeine fixes when we actually need quick and convenient all-day energy. When we want energy, we grab Verb Bars, and save coffee for when we can enjoy it.");
 		
 	});
 	$groupShots.on('click', function(){
@@ -84,7 +102,7 @@ $(document).ready(function(){
 		$groupShots.addClass('active');
 		
 		$vsTitle.html('Energy Shots');
-		$vsContent.html("We are very wary of anything delivering 8333% of your daily recommended value of anything.");
+		$vsContent.html("We're wary of any &#8220;dietary supplement&#8221; with 8333% of your daily recommended value of anything. Verb is good energy&#8212;you know what's in it, it makes you feel great, and you can feel good about eating it.");
 		
 	});
 	$groupDrinks.on('click', function(){
@@ -94,7 +112,7 @@ $(document).ready(function(){
 		$groupDrinks.addClass('active');
 		
 		$vsTitle.html('Energy Drinks & Soda');
-		$vsContent.html("Would you drink an energy drink in front of your boss? In front of your mother? Energy drinks are great for taking years off your life or helping you relive the darkest moments of your college career, but thanks to ounces of sugar and their complete lack of nutritional content, they aren't actually that good at delivering energy.");
+		$vsContent.html("If you like pantothenic acid, glucuronolactone, maltodextrin, or 45 grams of sugar, then energy drinks are for you. If any of those made you cringe, try Verb.");
 		
 	});
 	//
@@ -142,7 +160,7 @@ $(document).ready(function(){
     	
 	/* Order Section JS */
 	//Show continue shopping button
-	Snipcart.execute('config', 'show_continue_shopping', true);
+    Snipcart.api.configure('show_continue_shopping', true);
 	
 	Snipcart.subscribe('cart.ready', function() {
 		if ($(window).width() > 768) {
@@ -204,28 +222,57 @@ $(document).ready(function(){
 	
 	$(".quantity-select button").on('click', function(){
 		var curQuant = parseInt($(".quantity-select .cur-quant").text(), 10);
-      
-		if ($(this).hasClass("down")) {
-			//inc. down
-			if (curQuant > 1) {
-				curQuant--;
-				$(".quantity-select .cur-quant").html(curQuant);
-        $(".order-button button.shown").data("item-quantity", curQuant);
-				if (curQuant == 1) {
-					$(".cur-quant").removeClass('plural');
-				}
-			}
-		} else {
-			//inc. up
-			if (!$(".quantity-select button").prop("disabled", true)) {
-				curQuant++;
-				$(".quantity-select .cur-quant").html(curQuant);
-        $(".order-button button.shown").data("item-quantity", curQuant);
-				$(".cur-quant").addClass('plural');
-			}
-		}
+        
+        if($(".order-button button.shown").data("item-id")){
+            if ($(this).hasClass("down")) {
+                //inc. down
+                if (curQuant > 1) {
+                    curQuant--;
+                    $(".quantity-select .cur-quant").html(curQuant);
+                    $(".order-button button.shown").data("item-quantity", curQuant);
+                    if (curQuant == 1) {
+                        $(".cur-quant").removeClass('plural');
+                    }
+                }
+            } else {
+                //inc. up
+                curQuant++;
+                $(".quantity-select .cur-quant").html(curQuant);
+                $(".order-button button.shown").data("item-quantity", curQuant);
+                $(".cur-quant").addClass('plural');
+            }
+        }
+//        else{
+//            if ($(this).hasClass("down")) {
+//                //inc. down
+//                if (curQuant > 1) {
+//                    curQuant--;
+//                    $(".quantity-select .cur-quant").html(curQuant);
+////                    $(".order-button button.shown").data("plan-id", "Monthly-Sub-"+String(curQuant*10));
+//                    $(".order-button button.shown").data("plan-name", "Verb Energy Bar Monthly Subscription ("+String(curQuant)+" box | "+String(curQuant*10)+" bars)");
+//                    $(".order-button button.shown").data("item-quantity", curQuant);
+//                    
+//                    if (curQuant == 1) {
+//                        $(".cur-quant").removeClass('plural');
+//                    }
+//                }
+//            } else {
+//                //inc. up
+//                curQuant++;
+//                $(".quantity-select .cur-quant").html(curQuant);
+////                $(".order-button button.shown").data("plan-id", "Monthly-Sub-"+String(curQuant*10));
+//                $(".order-button button.shown").data("plan-name", "Verb Energy Bar Monthly Subscription ("+String(curQuant)+" box | "+String(curQuant*10)+" bars)");
+//                $(".order-button button.shown").data("plan-quantity", curQuant);
+//                $(".cur-quant").addClass('plural');
+//            }
+//            
+//            $(".order-button button.shown").data("plan-amount",parseFloat($("#sub-price").html().substring(1))*curQuant);
+//            
+//        }
 	});
-	
+    
+
+	console.log("hey");
 	$(".order-type .order-type-button").on('click', function(e){
 		e.preventDefault();
 		var curType;
@@ -235,25 +282,32 @@ $(document).ready(function(){
           $(".order-button button").addClass("hidden").removeClass("shown");
           $(".price-type .price-item").addClass("hidden");
           $(".quantity-select .cur-quant").html("1");
+          $(".quantity-select .cur-quant").removeClass("plural");
 
           if ($(this).hasClass("single")) {
               //then show single button
               $(".order-button button.single-order").removeClass("hidden").addClass("shown");
               $(".quantity-select button").prop("disabled", false);
               $(".price-type .single-price").removeClass("hidden");
-							$(".cur-quant").removeClass('three-bar');
+              $(".cur-quant").removeClass('three-bar');
+              $(".quantity-increment").css("visibility", "visible");
+
           }  else if ($(this).hasClass("single-sub")) {
               //show single-sub. button
               $(".order-button button.single-sub").removeClass("hidden").addClass("shown");
               $(".quantity-select .cur-quant").text("1");
-              $(".quantity-select button").prop("disabled", true);
+              $(".quantity-select button").prop("disabled", false);
               $(".price-type .single-sub-price").removeClass("hidden");
-							$(".cur-quant").removeClass('three-bar');
+              $(".cur-quant").removeClass('three-bar');
+              $(".quantity-increment").css("visibility", "hidden");
+              //FIX THIS WHEN SNIPCART RESPONDS
           }  else if ($(this).hasClass("single-small")) {
               $(".order-button button.single-order-small").removeClass("hidden").addClass("shown");
               $(".quantity-select button").prop("disabled", false);
               $(".price-type .single-small-price").removeClass("hidden");
-							$(".cur-quant").addClass('three-bar');
+              $(".cur-quant").addClass('three-bar');
+              $(".quantity-increment").css("visibility", "visible");
+              
           } else {
                   //show sub. button
                   /*$(".order-button button.subscribe").removeClass("hidden").addClass("shown");
@@ -271,6 +325,7 @@ $(document).ready(function(){
 	
 	
 	Snipcart.subscribe('item.added', function (ev, item, items) {
+        console.log(item);
 	    setTimeout(function(){
 	    	var cart = Snipcart.api.cart.get();
 	    	if (cart.items.quantity > 0 || cart.plans.quantity > 0) {
@@ -290,8 +345,7 @@ $(document).ready(function(){
 		    	$(".cart-wrapper .svg-wrapper").removeClass("active");
 		    }
 	    }, 100);
-	});
-    
+	}); 
 
 });
 

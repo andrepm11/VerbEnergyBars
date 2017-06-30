@@ -22,26 +22,27 @@ $(document).ready(function () {
     $('input:radio').change(function () {
         var userRating = this.value;
     });
-    
-    $('#contact-form').submit(function(event) {
-        event.preventDefault();
-        //const mixpanelDistintctID = mixpanel.get_distinct_id();
+    $('#review-form').submit(function(event) {
+//       event.preventDefault();
+	   setTimeout(function () { window.location.reload(); }, 10);
+//        const mixpanelDistintctID = mixpanel.get_distinct_id();
         const mixpanelDistinctId = "12345";
 
-        const email = $("#js-email").val();
-        const title = ($("#js-title").val() == '') ? 'No Title' : $("#js-title").val();
-        const name = ($("#js-name").val() == '') ? 'Anonymous' : $("#js-name").val();
-        const comments = $("#comments").val();
+        const email = strip_html_tags(($("#js-email").val() == '') ? 'none@email.com' : $("#js-email").val());
+        const title = strip_html_tags(($("#js-title").val() == '') ? 'No Title' : $("#js-title").val());
+        const name = strip_html_tags(($("#js-name").val() == '') ? 'Anonymous' : $("#js-name").val());
+        const comments = strip_html_tags($("#comments").val());
         const rating = parseInt($("input[name='rating']:checked").val());
-        const createdAt = (new Date().getTime())*-1;
+        
 
-        const date = Date();
 
         firebase.auth().signInAnonymously().then(function(){
 
                 var database = firebase.database();
                 var usersRef = database.ref('/users');
-
+                var rootpath = database.ref();
+                var transactionpath = database.ref('transaction/');
+            
                 usersRef.once('value', function(snapshot) {
                   if (snapshot.hasChild("/"+mixpanelDistinctId)) {
                       //If they've reviewed before
@@ -51,50 +52,55 @@ $(document).ready(function () {
                     }
                 });
 
-                database.ref("reviews").push({
-                    title,
-                    name,
-                    email,
-                    rating,
-                    comments,
-                    createdAt,
-                    date,
+                transactionpath.transaction(function(tran){
+
+                    if(tran){
+
+                        tran.num_ratings++;
+                        tran[rating]++;
+                        tran.total_rating+=rating;
+                        tran.average_rating=tran.total_rating/tran.num_ratings;
+                        
+                    }
+                    return tran;
+                }, function(error, committed, val){
+                    if(committed){
+                        const date = Date();
+                        const createdAt = (new Date().getTime())*-1;
+                        
+                        database.ref("reviews").push({
+                            title,
+                            name,
+                            email,
+                            rating,
+                            comments,
+                            createdAt,
+                            date,
+                        });
+
+                    }
                 });
 
-                idsetter={};
-                idsetter[mixpanelDistinctId] = createdAt;
-                usersRef.set(idsetter);
+//                idsetter={};
+//                idsetter[mixpanelDistinctId] = createdAt;
+//                usersRef.set(idsetter);
 
-                var rootpath = database.ref();
-
-                var updates={};
-
-                rootpath.once("value").then(function(snapshot){
-                    updates["num_ratings"] = snapshot.val().num_ratings+1;
-                    updates["total_rating"] = snapshot.val().total_rating+rating;
-                    updates["average_rating"] = updates["total_rating"] / updates["num_ratings"];
-                    rootpath.update(updates);
-                    return updates;
-                })
-                .catch(error=>{
-                    console.log(error)
-                })
         })
             .catch(error=>{
             console.log(error)
-        })
-
-        $.ajax({
-            type: "POST",
-            url: "post.php",
-            data: $(this).serialize(),		
-            success: function(data){
-                $('#result').html(data);
-            }					
         });
+
+//        $.ajax({
+//            type: "POST",
+//            url: "post.php",
+//            data: $(this).serialize(),		
+//            success: function(data){
+//                $('#result').html(data);
+//            }					
+//        });
         if($("#subscribe").is(":checked")){
-            alert("Subscriber");//ADD IN EVENT TRACKING HERE TO GRAB E-MAIL AND ADD TO E-MAIL LIST
-        };
+//            alert("Subscriber"); //ADD IN EVENT TRACKING HERE TO GRAB E-MAIL AND ADD TO E-MAIL LIST
+        }
         $("#replacement-content").css("display", "block");
         $("#content-wrapper").css("display", "none");
     });
@@ -105,35 +111,17 @@ $(document).ready(function () {
         const verb = $("#theirverb").val();
         const email = $("#theiremail").val();
         
-        $.ajax({
-            type: "POST",
-            url: "whatsyourverb.php",
-            data: $(this).serialize(),		
-            success: function(data){
-                console.log(data);
-            }					
-        });
-        $("#email-form-contianer").addClass('submitted');
-    });
-//    $('#contact-verb').submit(function(event) {
-//        event.preventDefault();
-//        
-//        const message = $("#contactmessage").val();
-//        const email = $("#contactemail").val();
-//        console.log($(this).serialize());
 //        $.ajax({
 //            type: "POST",
-//            url: "contactus.php",
+//            url: "whatsyourverb.php",
 //            data: $(this).serialize(),		
 //            success: function(data){
 //                console.log(data);
 //            }					
 //        });
-//        $("#contactThanks").css("display", "block");
-//        $("#contactwrap").css("display", "none");
-//    });
-//    
-    
+        $("#email-form-container").addClass('submitted');
+    });
+
     var modal = document.getElementById("reviewModal");
     var btn = document.getElementById("reviewBtn");
     var span = document.getElementsByClassName("close")[0];
@@ -169,11 +157,15 @@ var config = {
 };
 
 firebase.initializeApp(config);
+
+
+
 firebase.auth().signInAnonymously().then(function () {
     const mixpanelDistinctId = "12345"; //GET REAL MIXPANEL ID HERE
 
     var database = firebase.database();
     var usersRef = database.ref('/users/');
+    var transactionRef = database.ref('/transaction/');
 
     database.ref().once("value",function(snapshot){
         var starRating = snapshot.val().average_rating.toFixed(2);
@@ -185,48 +177,57 @@ firebase.auth().signInAnonymously().then(function () {
 //        console.log(stars);
         $("#avg").prepend(stars);
 
-        var totalRows = snapshot.val().num_ratings;
-        totalPages = Math.ceil(totalRows/rowsPerPage);
+        transactionRef.once("value", function(tranSnap){
+            var totalRows = tranSnap.val().num_ratings;
+            totalPages = Math.ceil(totalRows/rowsPerPage);
+            $("#total-reviews").append(String(totalRows)+" reviews&#41;");
+                        
+            for(i=1;i<=5;i++){
+                var starId= "#"+String(i)+"stars";
+                var starValue=tranSnap.val()[i];
+                $(starId).append(String(starValue));
+                var barId="#"+String(i)+"bar";
+                var barString = String((starValue/totalRows)*100)+"%";
 
-//        console.log(totalPages);
+                $(barId).css("width", barString);                  
+            }
+            
+            if(totalPages <= 1){
+                $("#nextPageBtn").prop("disabled", true);
+                $("#lastPageBtn").prop("disabled", true);
+            }
+            var reviewsRef = database.ref('/reviews/');
 
-        if(totalPages <= 1){
-            $("#nextPageBtn").prop("disabled", true);
-            $("#lastPageBtn").prop("disabled", true);
-        }
-        var reviewsRef = database.ref('/reviews/');
-        
-        reviewsRef.orderByChild("createdAt").limitToFirst(rowsPerPage).once("value", function(snapshot){
-            var i = 0;
-            snapshot.forEach(function(data){
-                if(i==0){
-                    stopAt=data.val().createdAt;
-                }
-                i+=1;
-                
-                var html='<div class="review">';
-                html+='<h3 class="review-title">' + data.val().title + '</h3>';
-                html+='<span class="review-stars">'
-                for(j=0;j<data.val().rating;j++){
-                    html+='★';
-                }
-                html+='</span>';
-								html+='<span class="review-empty-stars">'
-                for(k=0;k<(5 - data.val().rating);k++){
-                    html+='★';
-                }
-                html+='</span>';
-                html+='<span class="reviewer-name">' + data.val().name + '</span>';
-                html+='<span class="review-date">' + data.val().date.substring(4,15)+'</span>';
-                html+='<p class="review-body">'+data.val().comments+'</p>';
-                
-                html+='</div>';
+            reviewsRef.orderByChild("createdAt").limitToFirst(rowsPerPage).on("value", function(snapshot){
+                var i = 0;
+                snapshot.forEach(function(data){
+                    if(i==0){
+                        stopAt=data.val().createdAt;
+                    }
+                    i+=1;
+                    var html='<div class="review">';
+                    html+='<h3 class="review-title">' + data.val().title + '</h3>';
+                    html+='<span class="review-stars">'
+                    for(j=0;j<data.val().rating;j++){
+                        html+='★';
+                    }
+                    html+='</span>';
+                                    html+='<span class="review-empty-stars">'
+                    for(k=0;k<(5 - data.val().rating);k++){
+                        html+='★';
+                    }
+                    html+='</span>';
+                    html+='<span class="reviewer-name">' + data.val().name + '</span>';
+                    html+='<span class="review-date">' + data.val().date.substring(4,15)+'</span>';
+                    html+='<p class="review-body">'+data.val().comments+'</p>';
 
-                $("#reviewTable").append(html);
+                    html+='</div>';
 
-                beginAt = data.val().createdAt;
-               //console.log(data.val());
-           }) 
+                    $("#reviewTable").append(html);
+                    beginAt = data.val().createdAt;
+
+               }) 
+            });
         });
     });
 
@@ -340,3 +341,11 @@ $(document).on("click", "#lastPageBtn", function(){
     updateTable('last');
 });
 
+function strip_html_tags(str)
+{
+   if ((str===null) || (str===''))
+       return false;
+  else
+   str = str.toString();
+  return str.replace(/<[^>]*>/g, '');
+}
