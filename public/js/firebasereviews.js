@@ -52,14 +52,13 @@ $(document).ready(function () {
                 });
 
                 transactionpath.transaction(function(tran){
-
+                    
                     if(tran){
 
                         tran.num_ratings++;
                         tran[rating]++;
                         tran.total_rating+=rating;
                         tran.average_rating=tran.total_rating/tran.num_ratings;
-                        
                     }
                     return tran;
                 }, function(error, committed, val){
