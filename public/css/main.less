@@ -486,9 +486,11 @@ input[type="button"] {
 	}
 	&.solid {
 		background: @accent-color;
+        color:@order-background;
 		&:hover {
 			background: @text-color;
 		}
+        border:none;
 	}
 	&.w-100 {
 		width: 100%;
@@ -1315,6 +1317,8 @@ header {
 			width: 100%;
 		}
 	}
+    padding-bottom: 2em;
+    
 }
 
 .order-items {
@@ -1340,13 +1344,21 @@ header {
 	text-align: center;
 	font-family: inherit;
 	background: background-color;
+    opacity:0.7;
 	&.active {
+        opacity:1;
 		background: @text-color;
 		color: @background-color;
 	}
 }
 
 .quantity-select {
+    padding-top:1.7em;
+    padding-bottom:1.7em;
+
+    ////////////////
+    display:none;
+    ////////////////
 	margin: 1em 0;
 	text-align: center;
 	> * {
@@ -1367,7 +1379,7 @@ header {
 	margin: 0 auto;
 	border-bottom: @border;
 	.cur-quant:after {
-		content: 'box';
+		content: 'bars';
 		font-size: .4em;
 		font-weight: 700;
 		text-transform: uppercase;
@@ -1376,9 +1388,9 @@ header {
 		left: .5em;
 		display: inline;
 	}
-	.cur-quant.plural:after {
-		content: 'boxes';
-	}
+//	.cur-quant.plural:after {
+//		content: 'bars';
+//	}
 	.cur-quant.three-bar:after {
 		content: '3-pack';
 	}
@@ -1386,8 +1398,49 @@ header {
 		content: '3-packs';
 	}
 }
+.subscription-select{
+    display: none;
+    padding-top:1em;
+    padding-bottom:1em;
+    
+    .sub-plan-button{
+        width:6.4em;
+        height:6.4em;
+        opacity:0.5;
+        
+        &.active {
+            background: @text-color;
+            color: @background-color;
+            opacity:1;
+        }
+        .hidden-sub-price{
+            display: none;
+            #subpercent{
+                display: none;
+                font-size: .5em;
+                background-color: black;
+            }
+        }
+    }
+    
+    
+}
+.subpercent{
+    font-size:.6em;
+    vertical-align: middle;
+    color:red;
+    opacity: 0.7;
+    padding-left:0.3em;
+}
+
+.active-select{
+    display: block;
+}
 
 .price-type {
+    //////////
+//    display:none;
+    //////////
 	font-size: 2em;
 	font-weight: 700;
 	margin-top: .25em;
@@ -1395,12 +1448,13 @@ header {
 	margin-right: auto;
 }
 
-.og-price.sale {
-	text-decoration: line-through;
+#sub-price-discount {
+//	text-decoration: line-through;
 	font-weight: 400;
-	opacity: .5;
-	font-size: .75em;
+//	opacity: .5;
+	font-size: .6em;
 	vertical-align: top;
+    color:red;
 }
 
 .sale-price {

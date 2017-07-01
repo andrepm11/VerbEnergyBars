@@ -23,8 +23,7 @@ $(document).ready(function () {
         var userRating = this.value;
     });
     $('#review-form').submit(function(event) {
-//       event.preventDefault();
-	   setTimeout(function () { window.location.reload(); }, 10);
+       event.preventDefault();
 //        const mixpanelDistintctID = mixpanel.get_distinct_id();
         const mixpanelDistinctId = "12345";
 
@@ -76,7 +75,12 @@ $(document).ready(function () {
                             comments,
                             createdAt,
                             date,
+                        }, function(error){
+                            if(!error){
+                                setTimeout(function () { window.location.reload(); }, 10);
+                            }
                         });
+                        
 
                     }
                 });
@@ -89,6 +93,8 @@ $(document).ready(function () {
             .catch(error=>{
             console.log(error)
         });
+        
+
 
 //        $.ajax({
 //            type: "POST",
@@ -168,16 +174,25 @@ firebase.auth().signInAnonymously().then(function () {
     var transactionRef = database.ref('/transaction/');
 
     database.ref().once("value",function(snapshot){
-        var starRating = snapshot.val().average_rating.toFixed(2);
-        $("#avg").append(starRating);
-        var outOfFive = ((starRating/5)*100).toFixed(0);
-//        console.log(outOfFive);
-        
-        var stars='<div class="avg-rating-stars"><div class="avg-rating-stars-top" style="width:'+outOfFive+'%"><span>★★★★★</span></div><div class="avg-rating-stars-bottom"><span>★★★★★</span></div>';
-//        console.log(stars);
-        $("#avg").prepend(stars);
+//        var starRating = snapshot.val().average_rating.toFixed(2);
+//        $("#avg").append(starRating);
+//        var outOfFive = ((starRating/5)*100).toFixed(0);
+////        console.log(outOfFive);
+//        
+//        var stars='<div class="avg-rating-stars"><div class="avg-rating-stars-top" style="width:'+outOfFive+'%"><span>★★★★★</span></div><div class="avg-rating-stars-bottom"><span>★★★★★</span></div>';
+////        console.log(stars);
+//        $("#avg").prepend(stars);
 
         transactionRef.once("value", function(tranSnap){
+            var starRating = tranSnap.val().average_rating.toFixed(2);
+            $("#avg").append(starRating);
+            var outOfFive = ((starRating/5)*100).toFixed(0);
+    //        console.log(outOfFive);
+
+            var stars='<div class="avg-rating-stars"><div class="avg-rating-stars-top" style="width:'+outOfFive+'%"><span>★★★★★</span></div><div class="avg-rating-stars-bottom"><span>★★★★★</span></div>';
+    //        console.log(stars);
+            $("#avg").prepend(stars);
+            
             var totalRows = tranSnap.val().num_ratings;
             totalPages = Math.ceil(totalRows/rowsPerPage);
             $("#total-reviews").append(String(totalRows)+" reviews&#41;");
@@ -300,8 +315,9 @@ function updateTable(moveCount){
 
         var database = firebase.database();
         var usersRef = database.ref('/users/');
+        var transactionRef = database.ref('/transaction/');
 
-        database.ref().once("value",function(snapshot){
+        transactionRef.once("value",function(snapshot){
 
             var totalRows = snapshot.val().num_ratings;
 
@@ -319,7 +335,7 @@ function updateTable(moveCount){
                     append(snapshot);
                 });
             }else if(moveCount=='last'){
-                reviewsRef.orderByChild("createdAt").limitToLast(totalRows%rowsPerPage).once("value", function(snapshot){
+                reviewsRef.orderByChild("createdAt").limitToLast((totalRows%rowsPerPage) ? totalRows%rowsPerPage : rowsPerPage).once("value", function(snapshot){
                     append(snapshot);
                 });
             }

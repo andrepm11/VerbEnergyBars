@@ -491,6 +491,8 @@ button.solid,
 input[type="submit"].solid,
 input[type="button"].solid {
   background: #369638;
+  color: #fff1db;
+  border: none;
 }
 .button.solid:hover,
 button.solid:hover,
@@ -1201,6 +1203,7 @@ header .header-images:hover .shadow {
 }
 #OrderVerb {
   background: #fff1db;
+  padding-bottom: 2em;
 }
 #OrderVerb .order-bar-image {
   background: #fff1db;
@@ -1263,6 +1266,7 @@ header .header-images:hover .shadow {
   text-align: center;
   font-family: inherit;
   background: background-color;
+  opacity: 0.7;
 }
 .order-type-button:active {
   outline: none !important;
@@ -1281,6 +1285,8 @@ header .header-images:hover .shadow {
 }
 .order-type-button.solid {
   background: #369638;
+  color: #fff1db;
+  border: none;
 }
 .order-type-button.solid:hover {
   background: #1d1d20;
@@ -1289,10 +1295,14 @@ header .header-images:hover .shadow {
   width: 100%;
 }
 .order-type-button.active {
+  opacity: 1;
   background: #1d1d20;
   color: #ffeac7;
 }
 .quantity-select {
+  padding-top: 1.7em;
+  padding-bottom: 1.7em;
+  display: none;
   margin: 1em 0;
   text-align: center;
 }
@@ -1313,7 +1323,7 @@ header .header-images:hover .shadow {
   border-bottom: 4px solid #1d1d20;
 }
 .quantity-select .quantity-selected .cur-quant:after {
-  content: 'box';
+  content: 'bars';
   font-size: .4em;
   font-weight: 700;
   text-transform: uppercase;
@@ -1322,14 +1332,44 @@ header .header-images:hover .shadow {
   left: .5em;
   display: inline;
 }
-.quantity-select .quantity-selected .cur-quant.plural:after {
-  content: 'boxes';
-}
 .quantity-select .quantity-selected .cur-quant.three-bar:after {
   content: '3-pack';
 }
 .quantity-select .quantity-selected .cur-quant.three-bar.plural:after {
   content: '3-packs';
+}
+.subscription-select {
+  display: none;
+  padding-top: 1em;
+  padding-bottom: 1em;
+}
+.subscription-select .sub-plan-button {
+  width: 6.4em;
+  height: 6.4em;
+  opacity: 0.5;
+}
+.subscription-select .sub-plan-button.active {
+  background: #1d1d20;
+  color: #ffeac7;
+  opacity: 1;
+}
+.subscription-select .sub-plan-button .hidden-sub-price {
+  display: none;
+}
+.subscription-select .sub-plan-button .hidden-sub-price #subpercent {
+  display: none;
+  font-size: .5em;
+  background-color: black;
+}
+.subpercent {
+  font-size: .6em;
+  vertical-align: middle;
+  color: red;
+  opacity: 0.7;
+  padding-left: 0.3em;
+}
+.active-select {
+  display: block;
 }
 .price-type {
   font-size: 2em;
@@ -1338,12 +1378,11 @@ header .header-images:hover .shadow {
   width: 8em;
   margin-right: auto;
 }
-.og-price.sale {
-  text-decoration: line-through;
+#sub-price-discount {
   font-weight: 400;
-  opacity: .5;
-  font-size: .75em;
+  font-size: .6em;
   vertical-align: top;
+  color: red;
 }
 .sale-price {
   display: none;
