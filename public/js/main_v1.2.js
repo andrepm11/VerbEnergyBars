@@ -398,7 +398,7 @@ $(document).ready(function(){
 //        console.log(data['order']['items'].length);
 //        $(".cart-total-items").html(data['order']['items'].length);
         var cart = Snipcart.api.cart.get();
-        console.log("hey");
+        console.log("suh");
         
     });
 
