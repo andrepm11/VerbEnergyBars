@@ -475,7 +475,7 @@ input[type="button"] {
 	
 	&:hover {
 		background: @text-color;
-		color: @background-color;
+		color: @verb-primary-1;
 	}
 	a {
 		display: inline-block;
@@ -1345,11 +1345,9 @@ header {
 	text-align: center;
 	font-family: inherit;
 	background: background-color;
-    opacity:0.7;
 	&.active {
-        opacity:1;
 		background: @text-color;
-		color: @background-color;
+		color: @verb-primary-1;
 	}
 }
 
@@ -1399,37 +1397,101 @@ header {
 		content: '3-packs';
 	}
 }
-.subscription-select{
-    display: none;
-    padding-top:1em;
-    padding-bottom:1em;
-    
-    .sub-plan-button{
-        width:6.4em;
-        height:6.4em;
-        opacity:0.5;
-        
-        &.active {
-            background: @text-color;
-            color: @background-color;
-            opacity:1;
-        }
-        .hidden-sub-price{
-            display: none;
-            #subpercent{
-                display: none;
-                font-size: .5em;
-                background-color: black;
-            }
-        }
-    }
-    
-    
+.subscription-select {
+	display: none;
+	padding-top: 1em;
+	padding-bottom: 1em;
+	.subscription-bar-quantity {
+		font-size: 2.25em;
+		margin: 0;
+		font-weight: 700;
+		line-height: 1.25;
+		height: 1.5em;
+		.sub-plus {
+			font-size: .6em;
+			font-weight: 700;
+			vertical-align: top;
+			&:first-child {
+				opacity: 0;
+				color: @verb-primary-1;
+			}
+		}
+	}
+	p {
+		margin: 0;
+		font-weight: 700;
+		padding: 0;
+	}
+	.sub-plan-button {
+		vertical-align: top;
+		padding: 0;
+		width: 6.4em;
+		height: 6.4em;
+		&.active {
+			background: @text-color;
+			color: @verb-primary-1;
+			.sub-plus {
+				display: none;
+			}
+			.quantity-buttons {
+				.quantity-increment {
+					display: inline-block;
+				}
+				.bars {
+					display: none;
+				}
+			}
+		}
+		.hidden-sub-price {
+			display: none;
+			#subpercent {
+				display: none;
+				font-size: .5em;
+				background-color: black;
+			}
+		}
+		.subscription-bar-label {
+			height: 1em;
+			line-height: .8;
+		}
+		.quantity-buttons {
+			margin: 0;
+			padding: 0;
+			.quantity-increment {
+				font-size: 1.5em;
+				bottom: 0;
+				width: 50%;
+				display: none;
+				background: @verb-primary-1;
+				color: @text-color;
+				height: 1.15em;
+				line-height: 1.2;
+				&:hover {
+					background: @text-color;
+					color: @verb-primary-1;
+				}
+				&:nth-child(2) {
+					border-right: (@stroke-width / 2) solid @text-color;
+				}
+				&:nth-child(3) {
+					border-left: (@stroke-width / 2) solid @text-color;
+				}
+				&.disabled {
+					opacity: .4;
+					&:hover {
+						background: @verb-primary-1;
+						color: @text-color;
+						cursor: auto;
+					}
+				}
+			}
+		}
+	}
 }
 .subpercent{
     font-size:.6em;
     vertical-align: middle;
-    color:red;
+    color: @verb-red;
     opacity: 0.7;
     padding-left:0.3em;
 }
