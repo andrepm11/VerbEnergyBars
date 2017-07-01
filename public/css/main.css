@@ -474,7 +474,7 @@ button:hover,
 input[type="submit"]:hover,
 input[type="button"]:hover {
   background: #1d1d20;
-  color: #ffeac7;
+  color: #fff1db;
 }
 .button a,
 button a,
@@ -661,6 +661,7 @@ nav {
 }
 nav .nav-bar {
   background: #ffeac7;
+  padding-bottom: .5em;
 }
 nav > * {
   display: inline-block;
@@ -1266,7 +1267,6 @@ header .header-images:hover .shadow {
   text-align: center;
   font-family: inherit;
   background: background-color;
-  opacity: 0.7;
 }
 .order-type-button:active {
   outline: none !important;
@@ -1274,7 +1274,7 @@ header .header-images:hover .shadow {
 }
 .order-type-button:hover {
   background: #1d1d20;
-  color: #ffeac7;
+  color: #fff1db;
 }
 .order-type-button a {
   display: inline-block;
@@ -1295,9 +1295,8 @@ header .header-images:hover .shadow {
   width: 100%;
 }
 .order-type-button.active {
-  opacity: 1;
   background: #1d1d20;
-  color: #ffeac7;
+  color: #fff1db;
 }
 .quantity-select {
   padding-top: 1.7em;
@@ -1343,15 +1342,45 @@ header .header-images:hover .shadow {
   padding-top: 1em;
   padding-bottom: 1em;
 }
+.subscription-select .subscription-bar-quantity {
+  font-size: 2.25em;
+  margin: 0;
+  font-weight: 700;
+  line-height: 1.25;
+  height: 1.5em;
+}
+.subscription-select .subscription-bar-quantity .sub-plus {
+  font-size: .6em;
+  font-weight: 700;
+  vertical-align: top;
+}
+.subscription-select .subscription-bar-quantity .sub-plus:first-child {
+  opacity: 0;
+  color: #fff1db;
+}
+.subscription-select p {
+  margin: 0;
+  font-weight: 700;
+  padding: 0;
+}
 .subscription-select .sub-plan-button {
+  vertical-align: top;
+  padding: 0;
   width: 6.4em;
   height: 6.4em;
-  opacity: 0.5;
 }
 .subscription-select .sub-plan-button.active {
   background: #1d1d20;
-  color: #ffeac7;
-  opacity: 1;
+  color: #fff1db;
+}
+.subscription-select .sub-plan-button.active .sub-plus {
+  display: none;
+}
+.subscription-select .sub-plan-button.active .quantity-buttons .quantity-increment {
+  display: inline-block;
+}
+.subscription-select .sub-plan-button.active .quantity-buttons .bars {
+  display: none;
 }
 .subscription-select .sub-plan-button .hidden-sub-price {
   display: none;
@@ -1361,10 +1390,46 @@ header .header-images:hover .shadow {
   font-size: .5em;
   background-color: black;
 }
+.subscription-select .sub-plan-button .subscription-bar-label {
+  height: 1em;
+  line-height: .8;
+}
+.subscription-select .sub-plan-button .quantity-buttons {
+  margin: 0;
+  padding: 0;
+}
+.subscription-select .sub-plan-button .quantity-buttons .quantity-increment {
+  font-size: 1.5em;
+  bottom: 0;
+  width: 50%;
+  display: none;
+  background: #fff1db;
+  color: #1d1d20;
+  height: 1.15em;
+  line-height: 1.2;
+}
+.subscription-select .sub-plan-button .quantity-buttons .quantity-increment:hover {
+  background: #1d1d20;
+  color: #fff1db;
+}
+.subscription-select .sub-plan-button .quantity-buttons .quantity-increment:nth-child(2) {
+  border-right: 2px solid #1d1d20;
+}
+.subscription-select .sub-plan-button .quantity-buttons .quantity-increment:nth-child(3) {
+  border-left: 2px solid #1d1d20;
+}
+.subscription-select .sub-plan-button .quantity-buttons .quantity-increment.disabled {
+  opacity: .4;
+}
+.subscription-select .sub-plan-button .quantity-buttons .quantity-increment.disabled:hover {
+  background: #fff1db;
+  color: #1d1d20;
+  cursor: auto;
+}
 .subpercent {
   font-size: .6em;
   vertical-align: middle;
-  color: red;
+  color: #bb4530;
   opacity: 0.7;
   padding-left: 0.3em;
 }
