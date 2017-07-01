@@ -661,6 +661,7 @@ nav {
 }
 nav .nav-bar {
   background: #ffeac7;
+  padding-bottom: .5em;
 }
 nav > * {
   display: inline-block;
