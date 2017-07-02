@@ -126,7 +126,6 @@ $(document).ready(function(){
 		}
 		i = 0;
 		var toggleActive = function () {
-			//        console.log(quoteArray[i]);
 			$(quoteArray[i]).removeClass("active-quote");
 			if (i == quoteArray.length - 1) {
 				i = 0;
@@ -297,40 +296,24 @@ $(document).ready(function(){
             }).catch(function(error){
                 
                  var planID = (error['item']['attributes']['quantity'] < 3) ? "Monthly-Sub-"+String(error['item']['attributes']['quantity'])+"0" : "Monthly-Sub-30plus";
-                console.log("here");
-                
-                console.log(planID);
-    //            var cart = Snipcart.api.cart.get();
-    //            console.log(cart);
-                    console.log("here");
-                
+                                
                 setTimeout(function(){
                 
                     var plan = Snipcart.collections.plans.findWhere({'id': planID,'quantity':error['item']['attributes']['quantity']})
-                    console.log(plan);
                     
                     if (plan){plan.destroy();}
 
-//                    var plan =Snipcart.collections.plans.findWhere(function(p) {return p.get('id') == planID});
-//                console.log(plan);
-//                var cart = Snipcart.api.cart.get();
-//                console.log(cart);
-//                if(plan){plan.destroy();}
-//               console.log(error); 
                     Snipcart.api.modal.show();
                     Snipcart.api.modal.close();
                     Snipcart.api.modal.show();
-                }, 4000);
+                }, 3000);
                 
 
 
                 
             });
             Snipcart.api.modal.show();
-//            Snipcart.api.modal.hide();
-//            Snipcart.api.modal.show();
 
-            
         });
         
         
@@ -346,9 +329,7 @@ $(document).ready(function(){
                 $($(this).data("subid")).removeClass("hidden").addClass("shown");
                 
                 $("#sub-price").html($(this).data("sub-price"));
-    //            console.log($(this).data("subpercent"));
                 $("#subpercent").html($(this).data("percent-off"));
-    //            console.log($(this).children(".subpercent").text());
                 
                 $(".order-button button.shown").data("plan-quantity",$(this).data("box-quantity"));
             }
@@ -403,21 +384,39 @@ $(document).ready(function(){
                 }
             }, 100);
         }); Snipcart.subscribe('item.removed', function (ev, item, items) {
-            console.log(ev);
-            console.log(item);
-            console.log(items);
             
             if(ev["id"] == "Subscription-First-Month"){
 
                 var planID = (ev["quantity"] < 3) ? "Monthly-Sub-"+String(ev["quantity"])+"0" : "Monthly-Sub-30plus";
                 
-                var plan = Snipcart.collections.plans.findWhere({'id': planID,'quantity':ev["quantity"]})
+                setTimeout(function(){
+                 var plan = Snipcart.collections.plans.findWhere({'id': planID,'quantity':ev["quantity"]})
                     
-                if (plan){plan.destroy();}   
+                    if (plan){plan.destroy();}   
+                    Snipcart.api.modal.show();
+                    Snipcart.api.modal.close();
+                    Snipcart.api.modal.show();
+                }, 500);
+            }
+            
+        }); Snipcart.subscribe('plan.removed', function (ev, item, items) {
+
+            
+            
+            setTimeout(function(){
+
+                var item = Snipcart.collections.items.findWhere({'image': "public/img/bar_order_mockup.png",'quantity':ev["quantity"]});
+
+                if (item){item.destroy();}   
                 Snipcart.api.modal.show();
                 Snipcart.api.modal.close();
                 Snipcart.api.modal.show();
-            }
+            }, 500);
+
+                
+            
+
+
             
         }); 
         
@@ -445,9 +444,6 @@ $(document).ready(function(){
     });
     $('#review-form').submit(function(event) {
        event.preventDefault();
-//        const mixpanelDistintctID = mixpanel.get_distinct_id();
-//        const mixpanelDistinctId = "12345";
-
         const email = strip_html_tags(($("#js-email").val() == '') ? 'none@email.com' : $("#js-email").val());
         const title = strip_html_tags(($("#js-title").val() == '') ? 'No Title' : $("#js-title").val());
         const name = strip_html_tags(($("#js-name").val() == '') ? 'Anonymous' : $("#js-name").val());
@@ -496,10 +492,6 @@ $(document).ready(function(){
                     }
                 });
 
-//                idsetter={};
-//                idsetter[mixpanelDistinctId] = createdAt;
-//                usersRef.set(idsetter);
-
         })
             .catch(error=>{
             console.log(error)
@@ -516,6 +508,13 @@ $(document).ready(function(){
         const email = $("#theiremail").val();
 
         $("#email-form-container").addClass('submitted');
+        
+        fbq('track', 'CompleteRegistration', {
+            email: email,
+            verb: verb
+        });
+        
+        
     });
 
     var modal = document.getElementById("reviewModal");
@@ -559,7 +558,6 @@ firebase.initializeApp(config);
 
 
 firebase.auth().signInAnonymously().then(function () {
-//    const mixpanelDistinctId = "12345"; //GET REAL MIXPANEL ID HERE
 
     var database = firebase.database();
     var usersRef = database.ref('/users/');
@@ -627,13 +625,6 @@ firebase.auth().signInAnonymously().then(function () {
         });
     });
 
-//    usersRef.once("value").then(function(snapshot) {   
-//        var currentDate = new Date().getTime();
-//        if(snapshot.hasChild("/"+mixpanelDistinctId) && (currentDate - (snapshot.child(mixpanelDistinctId).val()*-1)) < 0) {
-//            $("#content-wrapper").css("display", "none");
-//            $("#recency").css("display", "block");
-//        };
-//    });
 }).catch(function(error){
     console.log(error);
 });
@@ -692,7 +683,6 @@ function updateTable(moveCount){
     }
 
     firebase.auth().signInAnonymously().then(function(){
-//        const mixpanelDistinctId = "12345"; //GET REAL MIXPANEL ID HERE
 
         var database = firebase.database();
         var usersRef = database.ref('/users/');

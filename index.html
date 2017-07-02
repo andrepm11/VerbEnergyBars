@@ -30,7 +30,7 @@
   <meta name="google-site-verification" content="74G7DwKFo-YIUb5XLh4Tu-gNIM8UY6JSGvHK0LMIFfE" />
 <!-- Fonts -->
   <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700,900|Montserrat+Alternates:400i,700i" rel="stylesheet">
-  <link rel="stylesheet" href="./public/css/main.css" />
+  <link rel="stylesheet" href="./public/css/main_v1.css" />
 
   <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
   <!-- This website is not optimized for OR tested on < than IE11 -->
@@ -540,7 +540,7 @@
                     data-plan-quantity="1" 
                     data-item-quantity-step="1" 
                     data-plan-stackable="false" 
-                    data-plan-name="10 Bar Verb Subscription (Boxes of 10)" 
+                    data-plan-name="Plan After 30 Days - 10 Bar Verb Subscription (Boxes of 10)" 
                     data-plan-interval="Month" 
                     data-plan-amount="20.00" 
                     data-plan-url="/" 
@@ -572,7 +572,7 @@
                     data-plan-id="Monthly-Sub-30plus" 
                     data-plan-quantity="3" 
                     data-plan-stackable="false" 
-                    data-plan-name="30+ Bar Verb Subscription (Boxes of 10)" 
+                    data-plan-name="Plan After 30 Days - 30+ Bar Verb Subscription (Boxes of 10)" 
                     data-plan-interval="Month" 
                     data-plan-amount="16.90" 
                     data-plan-url="/" 
@@ -584,12 +584,13 @@
             <button class="snipcart-add-item hidden" 
                     id="subitem" 
                     data-item-id="Subscription-First-Month" 
-                    data-item-name="Subscription First Month - $10 per box of 10 bars" 
+                    data-item-name="Subscription First Month"
+                    data-item-description="$10 per box of 10 bars" 
                     data-item-shippable="false" 
                     data-item-price="10.00" 
                     data-item-quantity="2" 
                     data-item-stackable="false" 
-                    data-item-url="https://andrepm11.github.io/VerbEnergyBars"
+                    data-item-url="/"
                     data-item-image="public/img/bar_order_mockup.png"
                     data-item-max-quantity="6">
             </button>
@@ -842,7 +843,7 @@
 			</div>
 		</div>
 		<div id="email-form-container" class="container">
-			<form id="email-form" autocomplete="off">
+			<form id="email-form">
 				<div class="desktop-6 mobile-12">
 					<label for="theiremail">Tell us your email:</label>
 					<input id="theiremail" class="big-input" type="email" name="email" value="" placeholder="e.g. matt@verbenergybar.com" required/>
@@ -952,7 +953,7 @@
 	
   <!-- CUSTOM JS -->
 	<script src="https://www.gstatic.com/firebasejs/4.1.3/firebase.js"></script>
-  <script src="public/js/main_v1.2.js"></script>
+  <script src="public/js/main_v1.3.js"></script>
 <!--  <script src="public/js/firebasereviews.js"></script>-->
   <script>
     Snipcart.subscribe('item.added', function(item) {
@@ -991,7 +992,7 @@
         <div class="custom-snipcart-footer-text">
         <h2>For Verb Subscribers</h2>
         <p>
-            By clicking “Place Order”, you accept our <a href="/VerbEnergyBars/VerbEnergyTermsAndConditions.pdf" target="_blank">terms</a> and your subscription will renew monthly and you will be charged the monthly subscription fees until you cancel. Subscriptions purchased at a promotional or trial rate will be billed the full monthly amount 30 days after the trial begins. After 30 days, your subscription will officially begin. After the first 30 days, you must cancel before the day of the month on which the subscription officially began. The monthly charge may change if you change your membership or we change our prices or shipping (with notice to you). Cancel anytime by emailing us at team@verbenergybar.com. 
+            By clicking “Place Order”, you accept our <a href="/VerbEnergyTermsAndConditions.pdf" target="_blank">terms</a> and your subscription will renew monthly and you will be charged the monthly subscription fees until you cancel. Subscriptions purchased at a promotional or trial rate will be billed the full monthly amount 30 days after the trial begins. After 30 days, your subscription will officially begin. After the first 30 days, you must cancel before the day of the month on which the subscription officially began. The monthly charge may change if you change your membership or we change our prices or shipping (with notice to you). Cancel anytime by emailing us at team@verbenergybar.com. 
       </p>
         </div>
       </script>
