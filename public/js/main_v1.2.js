@@ -160,219 +160,279 @@ $(document).ready(function(){
 	});
     	
 	/* Order Section JS */
-	//Show continue shopping button
-    Snipcart.api.configure('show_continue_shopping', true);
-	
-	Snipcart.subscribe('cart.ready', function() {
-		if ($(window).width() > 768) {
-			addSpacesToPrice();
-		}
-		moveShippingSameAsBilling();
-	}); 
-    
-    
-    
-	Snipcart.subscribe('cart.opened', function() {
-		if ($(window).width() > 768) {
-			addSpacesToPrice();
-		}
-		moveShippingSameAsBilling();
+
+    Snipcart.api.cart.start().then(function() {
+        //Show continue shopping button
+        Snipcart.api.configure('show_continue_shopping', true);
         
-        if ($(window).width() < 768) {
-            $("body").addClass("fixed");
+        Snipcart.subscribe('cart.ready', function() {
+            if ($(window).width() > 768) {
+                addSpacesToPrice();
+            }
+            moveShippingSameAsBilling();
+        }); 
+        
+        
+        
+        Snipcart.subscribe('cart.opened', function() {
+            if ($(window).width() > 768) {
+                addSpacesToPrice();
+            }
+            moveShippingSameAsBilling();
+            
+            if ($(window).width() < 768) {
+                $("body").addClass("fixed");
+            }
+            
+            
+            Snipcart.unsubscribe('cart.opened');
+            var html = $("#cart-content-text").html();
+            $(html).insertBefore($("#snipcart-footer"));
+    
+        });
+        Snipcart.subscribe('cart.closed', function() {
+            $("body").removeClass("fixed");
+        });
+        Snipcart.subscribe('page.change', function (page) {
+            setTimeout(customPageChange, 150);
+        });
+        
+        var interval;
+        var currentSnipcartId = "";
+        function customPageChange() {
+            newSnipcartId = $(".snip-layout__main-container").attr("id");
+            if (newSnipcartId != currentSnipcartId) {
+                if ($(window).width() > 768) {
+                    addSpacesToPrice();
+                }
+                moveShippingSameAsBilling();
+            }
+            currentSnipcartId = newSnipcartId;
+        }
+
+
+        function addSpacesToPrice() {
+            $("#snipcart-plans-list tr").each(function(i, item){
+                var txt1 = $(item).find("td:nth-of-type(3)").text();
+                $(item).find("td:nth-of-type(3)").text(txt1.replace(/\s/g, ''));
+                var txt2 = $(item).find("td:nth-of-type(4)").text();
+                $(item).find("td:nth-of-type(4)").text(txt2.replace(/\s/g, ''));
+            });
+        }
+        function moveShippingSameAsBilling() {
+            $("#snip-shippingSameAsBilling").closest(".snipcart-checkbox-field").addClass("shifted");
+            $("#snip-shippingSameAsBilling").closest(".snipcart-checkbox-field").prependTo("#snipcart-billingaddress-form .snip-cols .snip-col:nth-of-type(3)");
         }
         
-        
-        Snipcart.unsubscribe('cart.opened');
-        var html = $("#cart-content-text").html();
-        $(html).insertBefore($("#snipcart-footer"));
-   
-	});
-    Snipcart.subscribe('cart.closed', function() {
-        $("body").removeClass("fixed");
-	});
-	Snipcart.subscribe('page.change', function (page) {
-		setTimeout(customPageChange, 150);
-	});
-	
-	var interval;
-	var currentSnipcartId = "";
-	function customPageChange() {
-		newSnipcartId = $(".snip-layout__main-container").attr("id");
-		if (newSnipcartId != currentSnipcartId) {
-			if ($(window).width() > 768) {
-				addSpacesToPrice();
-			}
-			moveShippingSameAsBilling();
-		}
-		currentSnipcartId = newSnipcartId;
-	}
 
-
-	function addSpacesToPrice() {
-		$("#snipcart-plans-list tr").each(function(i, item){
-			var txt1 = $(item).find("td:nth-of-type(3)").text();
-			$(item).find("td:nth-of-type(3)").text(txt1.replace(/\s/g, ''));
-			var txt2 = $(item).find("td:nth-of-type(4)").text();
-			$(item).find("td:nth-of-type(4)").text(txt2.replace(/\s/g, ''));
-		});
-	}
-	function moveShippingSameAsBilling() {
-		$("#snip-shippingSameAsBilling").closest(".snipcart-checkbox-field").addClass("shifted");
-		$("#snip-shippingSameAsBilling").closest(".snipcart-checkbox-field").prependTo("#snipcart-billingaddress-form .snip-cols .snip-col:nth-of-type(3)");
-	}
-	
-
-	$(".quantity-increment").on('click', function(){
-        
-        if($(".order-button button.shown").data("item-id")){
-		  var curQuant = parseInt($(".quantity-select .cur-quant").text(), 10);
-            if ($(this).hasClass("down")) {
-                //inc. down
-                if (curQuant > 10) {
-                    curQuant-=10;
+        $(".quantity-increment").on('click', function(){
+            
+            if($(".order-button button.shown").data("item-id")){
+            var curQuant = parseInt($(".quantity-select .cur-quant").text(), 10);
+                if ($(this).hasClass("down")) {
+                    //inc. down
+                    if (curQuant > 10) {
+                        curQuant-=10;
+                        $(".quantity-select .cur-quant").html(curQuant);
+                        $(".order-button button.shown").data("item-quantity", curQuant/10);
+                    }
+                } else {
+                    //inc. up
+                    curQuant+=10;
                     $(".quantity-select .cur-quant").html(curQuant);
                     $(".order-button button.shown").data("item-quantity", curQuant/10);
                 }
-            } else {
-                //inc. up
-                curQuant+=10;
-                $(".quantity-select .cur-quant").html(curQuant);
-                $(".order-button button.shown").data("item-quantity", curQuant/10);
             }
-        }
-        else{
-            var curQuant = parseInt($("#30bars .subscription-bar-quantity").text(),10);
-            console.log(curQuant);
-            
-            if ($(this).hasClass("down")) {
-                //inc. down
-                if (curQuant > 30) {
-                    curQuant-=10;
-                    $(".sub-plan-button .quantity-increment.up").removeClass("disabled");
-                    $(".order-button button.shown").data("quantity", curQuant/10);
-                    if(curQuant==30){
-                        $(this).addClass("disabled");
+            else{
+                var curQuant = parseInt($("#30bars .subscription-bar-quantity").text(),10);
+                
+                if ($(this).hasClass("down")) {
+                    //inc. down
+                    if (curQuant > 30) {
+                        curQuant-=10;
+                        $(".sub-plan-button .quantity-increment.up").removeClass("disabled");
+                        $(".order-button button.shown").data("quantity", curQuant/10);
+                        if(curQuant==30){
+                            $(this).addClass("disabled");
+                        }
                     }
-                }
-            
-            } else {
-                //inc. up
-                if(curQuant<60){                
-                    curQuant+=10;
-                    $(".sub-plan-button .quantity-increment.down").removeClass("disabled");
-                    if(curQuant==60){
-                        $(".sub-plan-button .quantity-increment.up").addClass("disabled")
+                
+                } else {
+                    //inc. up
+                    if(curQuant<60){                
+                        curQuant+=10;
+                        $(".sub-plan-button .quantity-increment.down").removeClass("disabled");
+                        if(curQuant==60){
+                            $(".sub-plan-button .quantity-increment.up").addClass("disabled")
+                        }
                     }
-                }
 
+                }
+                var htmlString = htmlString='<span class="sub-plus">+</span>'+String(curQuant)+'<span class="sub-plus">+</span>';
+                $("#30bars .subscription-bar-quantity").html(htmlString);
+                $(".order-button button.shown").data("plan-quantity", curQuant/10);
+                $("#30bars").data("box-quantity",curQuant/10);
+                
             }
-            var htmlString = htmlString='<span class="sub-plus">+</span>'+String(curQuant)+'<span class="sub-plus">+</span>';
-            $("#30bars .subscription-bar-quantity").html(htmlString);
-            console.log(curQuant);
-            $(".order-button button.shown").data("plan-quantity", curQuant/10);
-            $("#30bars").children(".box-quantity").html(curQuant/10);
+        });
+        
+        
+        $(".snipcart-add-plan").on("click", function(){
+            $("#subitem").data("item-quantity",$(this).data("plan-quantity"));
+//            $("#subitem").click(); 
             
-        }
-	});
-    
-    
-    $(".snipcart-add-plan").on("click", function(){
-        $("#subitem").data("item-quantity",$(this).data("plan-quantity"));
-        $("#subitem").click(); 
-    });
-    
-    
+            
+            
+            Snipcart.api.items.add({
+                "id": "Subscription-First-Month",
+                "name": "Subscription First Month",
+                "description": "$10 per box of 10 bars",
+                "url": "/",
+                "price": "10.00",
+                "quantity": $(this).data("plan-quantity"),
+                "maxQuantity":6,
+                "shippable":"false",
+                "image":"public/img/bar_order_mockup.png",
+                "stackable": false
+            }).catch(function(error){
+                
+                 var planID = (error['item']['attributes']['quantity'] < 3) ? "Monthly-Sub-"+String(error['item']['attributes']['quantity'])+"0" : "Monthly-Sub-30plus";
+                console.log("here");
+                
+                console.log(planID);
+    //            var cart = Snipcart.api.cart.get();
+    //            console.log(cart);
+                    console.log("here");
+                
+                setTimeout(function(){
+                
+                    var plan = Snipcart.collections.plans.findWhere({'id': planID,'quantity':error['item']['attributes']['quantity']})
+                    console.log(plan);
+                    
+                    if (plan){plan.destroy();}
 
-    
-    $(".sub-plan-button").on('click', function(){
-        if(!$(this).hasClass("active")){
-            $(".sub-plan-button").removeClass("active");
+//                    var plan =Snipcart.collections.plans.findWhere(function(p) {return p.get('id') == planID});
+//                console.log(plan);
+//                var cart = Snipcart.api.cart.get();
+//                console.log(cart);
+//                if(plan){plan.destroy();}
+//               console.log(error); 
+                    Snipcart.api.modal.show();
+                    Snipcart.api.modal.close();
+                    Snipcart.api.modal.show();
+                }, 4000);
+                
 
+
+                
+            });
+            Snipcart.api.modal.show();
+//            Snipcart.api.modal.hide();
+//            Snipcart.api.modal.show();
+
+            
+        });
+        
+        
+
+        
+        $(".sub-plan-button").on('click', function(){
+            if(!$(this).hasClass("active")){
+                $(".sub-plan-button").removeClass("active");
+
+                $(this).addClass("active");
+                
+                $(".order-button button").addClass("hidden").removeClass("shown");
+                $($(this).data("subid")).removeClass("hidden").addClass("shown");
+                
+                $("#sub-price").html($(this).data("sub-price"));
+    //            console.log($(this).data("subpercent"));
+                $("#subpercent").html($(this).data("percent-off"));
+    //            console.log($(this).children(".subpercent").text());
+                
+                $(".order-button button.shown").data("plan-quantity",$(this).data("box-quantity"));
+            }
+            
+        });
+        
+        $(".order-type .order-type-button").on('click', function(e){
+            e.preventDefault();
+            var curType;
+            if (!$(this).hasClass("active")) {
+            $(".order-type .order-type-button").removeClass("active");	
             $(this).addClass("active");
-            
             $(".order-button button").addClass("hidden").removeClass("shown");
-            $($(this).children(".subid").text()).removeClass("hidden").addClass("shown");
-            
-            $("#sub-price").html($(this).children(".hidden-sub-price").html());
+            $(".price-type .price-item").addClass("hidden");
 
-            $(".order-button button.shown").data("plan-quantity",$(this).children(".box-quantity").html());
-        }
+            if ($(this).hasClass("single")) {
+                //then show single button
+                $(".order-button button.single-order").removeClass("hidden").addClass("shown");
+                $(".quantity-select button").prop("disabled", false);
+                $(".price-type .single-price").removeClass("hidden");
+                $(".cur-quant").removeClass('three-bar');
+                $(".quantity-increment").css("visibility", "visible");
+                
+                $(".quantity-select").css("display","block");
+                $(".subscription-select").css("display","none");
+                
+
+            }  else if ($(this).hasClass("sub-button")) {
+                $($(".sub-plan-button.active").data("subid")).removeClass("hidden").addClass("shown");
+
+                $(".price-type .single-sub-price").removeClass("hidden");
+                $(".cur-quant").removeClass('three-bar');
+
+                
+                $(".quantity-select").css("display","none");
+                $(".subscription-select").css("display","block");
+
+            }
+            }
+        });
         
+        
+        Snipcart.subscribe('item.added', function (ev, item, items) {
+            
+            var cart = Snipcart.api.cart.get();
+            setTimeout(function(){
+                var cart = Snipcart.api.cart.get();
+                if (cart.items.length > 0 || cart.plans.length > 0) {
+                    $(".cart-wrapper .svg-wrapper").addClass("active");
+                } else {
+                    $(".cart-wrapper .svg-wrapper").removeClass("active");
+                }
+            }, 100);
+        }); Snipcart.subscribe('item.removed', function (ev, item, items) {
+            console.log(ev);
+            console.log(item);
+            console.log(items);
+            
+            if(ev["id"] == "Subscription-First-Month"){
+
+                var planID = (ev["quantity"] < 3) ? "Monthly-Sub-"+String(ev["quantity"])+"0" : "Monthly-Sub-30plus";
+                
+                var plan = Snipcart.collections.plans.findWhere({'id': planID,'quantity':ev["quantity"]})
+                    
+                if (plan){plan.destroy();}   
+                Snipcart.api.modal.show();
+                Snipcart.api.modal.close();
+                Snipcart.api.modal.show();
+            }
+            
+        }); 
+        
+        
+        $("#subscribe").change(function () {
+            if (this.checked) {
+                $("#js-email").attr("placeholder", "Required");
+                $("#js-email").prop("required", true);
+            } else {
+                $("#js-email").attr("placeholder", "Optional");
+                $("#js-email").prop("required", false);
+            }
+        });
     });
     
-	$(".order-type .order-type-button").on('click', function(e){
-		e.preventDefault();
-		var curType;
-		if (!$(this).hasClass("active")) {
-          $(".order-type .order-type-button").removeClass("active");	
-          $(this).addClass("active");
-          $(".order-button button").addClass("hidden").removeClass("shown");
-          $(".price-type .price-item").addClass("hidden");
-
-          if ($(this).hasClass("single")) {
-              //then show single button
-              $(".order-button button.single-order").removeClass("hidden").addClass("shown");
-              $(".quantity-select button").prop("disabled", false);
-              $(".price-type .single-price").removeClass("hidden");
-              $(".cur-quant").removeClass('three-bar');
-              $(".quantity-increment").css("visibility", "visible");
-              
-              $(".quantity-select").css("display","block");
-              $(".subscription-select").css("display","none");
-              
-
-          }  else if ($(this).hasClass("sub-button")) {
-              $($(".sub-plan-button.active").children(".subid").text()).removeClass("hidden").addClass("shown");
-
-              $(".price-type .single-sub-price").removeClass("hidden");
-              $(".cur-quant").removeClass('three-bar');
-
-              
-              $(".quantity-select").css("display","none");
-              $(".subscription-select").css("display","block");
-
-          }
-        }
-	});
-	
-	
-	Snipcart.subscribe('item.added', function (ev, item, items) {
-        
-        var cart = Snipcart.api.cart.get();
-	    setTimeout(function(){
-	    	var cart = Snipcart.api.cart.get();
-	    	if (cart.items.length > 0 || cart.plans.length > 0) {
-		    	$(".cart-wrapper .svg-wrapper").addClass("active");
-		    } else {
-		    	$(".cart-wrapper .svg-wrapper").removeClass("active");
-		    }
-	    }, 100);
-	}); Snipcart.subscribe('item.removed', function (ev, item, items) {
-        
-        if(ev["id"] == "Subscription-First-Month"){
-
-            var planID = (ev["quantity"] < 3) ? "Monthly-Sub-"+String(ev["quantity"])+"0" : "Monthly-Sub-30plus";
-            
-            console.log(planID);
-            
-            var plan = Snipcart.collections.plans.findWhere(function(p) {return p.get('id') == planID});
-            if(plan){plan.destroy();}
-        }
-        
-	}); 
-    
-    
-      $("#subscribe").change(function () {
-        if (this.checked) {
-            $("#js-email").attr("placeholder", "Required");
-            $("#js-email").prop("required", true);
-        } else {
-            $("#js-email").attr("placeholder", "Optional");
-            $("#js-email").prop("required", false);
-        }
-    });
-
     $(".rating input:radio").attr("checked", false);
 
     $('.rating input').click(function () {
@@ -688,15 +748,3 @@ function strip_html_tags(str)
    str = str.toString();
   return str.replace(/<[^>]*>/g, '');
 }
-
-
-
-
-
-
-
-
-
-
-
-
