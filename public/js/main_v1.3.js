@@ -301,11 +301,14 @@ $(document).ready(function(){
                 
                     var plan = Snipcart.collections.plans.findWhere({'id': planID,'quantity':error['item']['attributes']['quantity']})
                     
-                    if (plan){plan.destroy();}
+                    if (plan){
+			    plan.destroy();
+			    Snipcart.api.modal.show();
+			    Snipcart.api.modal.close();
+			    Snipcart.api.modal.show();
+		    }
 
-                    Snipcart.api.modal.show();
-                    Snipcart.api.modal.close();
-                    Snipcart.api.modal.show();
+                    
                 }, 3000);
                 
 
@@ -392,10 +395,13 @@ $(document).ready(function(){
                 setTimeout(function(){
                  var plan = Snipcart.collections.plans.findWhere({'id': planID,'quantity':ev["quantity"]})
                     
-                    if (plan){plan.destroy();}   
-                    Snipcart.api.modal.show();
-                    Snipcart.api.modal.close();
-                    Snipcart.api.modal.show();
+                    if (plan){
+			    plan.destroy();
+			    Snipcart.api.modal.show();
+			    Snipcart.api.modal.close();
+			    Snipcart.api.modal.show();
+		    }   
+                    
                 }, 500);
             }
             
@@ -407,10 +413,13 @@ $(document).ready(function(){
 
                 var item = Snipcart.collections.items.findWhere({'image': "public/img/bar_order_mockup.png",'quantity':ev["quantity"]});
 
-                if (item){item.destroy();}   
-                Snipcart.api.modal.show();
-                Snipcart.api.modal.close();
-                Snipcart.api.modal.show();
+                if (item){
+			item.destroy();
+			Snipcart.api.modal.show();
+			Snipcart.api.modal.close();
+			Snipcart.api.modal.show();
+		}   
+                
             }, 500);
 
                 
