@@ -751,6 +751,7 @@ button[disabled]:hover,
 }
 .message-bar-text {
   width: 100%;
+  display: none;
   height: 1.5em;
   z-index: 10000;
   position: relative;
@@ -772,6 +773,7 @@ button[disabled]:hover,
 @media (min-width: 48em) {
   .message-bar-text {
     font-size: 1em;
+    display: block;
   }
 }
 .message-bar {
@@ -1482,7 +1484,6 @@ header .header-images .shadow {
   color: #1d1d20;
 }
 .subscription-alert {
-
   background: #369638;
   margin-top: -0.25em;
   border-left: 4px solid #1d1d20;
