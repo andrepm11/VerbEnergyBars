@@ -164,14 +164,15 @@ $(document).ready(function(){
 	
 	Snipcart.subscribe('cart.ready', function() {
 		if ($(window).width() > 768) {
-//			addImagesToPlans();
 			addSpacesToPrice();
 		}
 		moveShippingSameAsBilling();
 	}); 
+    
+    
+    
 	Snipcart.subscribe('cart.opened', function() {
 		if ($(window).width() > 768) {
-//			addImagesToPlans();
 			addSpacesToPrice();
 		}
 		moveShippingSameAsBilling();
@@ -179,6 +180,12 @@ $(document).ready(function(){
         if ($(window).width() < 768) {
             $("body").addClass("fixed");
         }
+        
+        
+        Snipcart.unsubscribe('cart.opened');
+        var html = $("#cart-content-text").html();
+        $(html).insertBefore($("#snipcart-footer"));
+   
 	});
     Snipcart.subscribe('cart.closed', function() {
         $("body").removeClass("fixed");
@@ -193,7 +200,6 @@ $(document).ready(function(){
 		newSnipcartId = $(".snip-layout__main-container").attr("id");
 		if (newSnipcartId != currentSnipcartId) {
 			if ($(window).width() > 768) {
-//				addImagesToPlans();
 				addSpacesToPrice();
 			}
 			moveShippingSameAsBilling();
@@ -201,11 +207,7 @@ $(document).ready(function(){
 		currentSnipcartId = newSnipcartId;
 	}
 
-	function addImagesToPlans() {
-		$("#snipcart-plans-list>tr>td img").remove();
-		var $img = $("<img/>").attr("src", "public/img/verb_bar_rendering_3_sm.png").addClass("cartSubIcon");
-		$("#snipcart-plans-list .snip-product__name").parent().prepend($img);
-	}
+
 	function addSpacesToPrice() {
 		$("#snipcart-plans-list tr").each(function(i, item){
 			var txt1 = $(item).find("td:nth-of-type(3)").text();
@@ -230,14 +232,12 @@ $(document).ready(function(){
                     curQuant-=10;
                     $(".quantity-select .cur-quant").html(curQuant);
                     $(".order-button button.shown").data("item-quantity", curQuant/10);
-//                    $(".order-button button.shown").data("item-quantity-step", curQuant/10);
                 }
             } else {
                 //inc. up
                 curQuant+=10;
                 $(".quantity-select .cur-quant").html(curQuant);
                 $(".order-button button.shown").data("item-quantity", curQuant/10);
-//                $(".order-button button.shown").data("item-quantity-step", curQuant/10);
             }
         }
         else{
@@ -246,7 +246,6 @@ $(document).ready(function(){
             
             if ($(this).hasClass("down")) {
                 //inc. down
-//                var htmlString='';
                 if (curQuant > 30) {
                     curQuant-=10;
                     $(".sub-plan-button .quantity-increment.up").removeClass("disabled");
@@ -254,7 +253,6 @@ $(document).ready(function(){
                     if(curQuant==30){
                         $(this).addClass("disabled");
                     }
-//                    htmlString='<span class="sub-plus">+</span>'+String(curQuant)+'<span class="sub-plus">+</span>';
                 }
             
             } else {
@@ -264,21 +262,14 @@ $(document).ready(function(){
                     $(".sub-plan-button .quantity-increment.down").removeClass("disabled");
                     if(curQuant==60){
                         $(".sub-plan-button .quantity-increment.up").addClass("disabled")
-//                        htmlString=String(curQuant);
                     }
                 }
 
             }
-            var htmlString = /*(curQuant==60) ? htmlString='<span class="sub-plus">+</span>'+String(curQuant)+'<span class="sub-plus">-</span>' : */htmlString='<span class="sub-plus">+</span>'+String(curQuant)+'<span class="sub-plus">+</span>';
-//            var htmlString='<span class="sub-plus">+</span>'+String(curQuant)+'<span class="sub-plus">+</span>';
-//            $("#30bars").children(".box-quantity").html(curQuant/10);
+            var htmlString = htmlString='<span class="sub-plus">+</span>'+String(curQuant)+'<span class="sub-plus">+</span>';
             $("#30bars .subscription-bar-quantity").html(htmlString);
             console.log(curQuant);
             $(".order-button button.shown").data("plan-quantity", curQuant/10);
-//            $(".order-button button.shown").data("plan-min-quantity", String(curQuant/10));
-
-            
-//            $(".order-button button.shown").data("plan-quantity",$(this).children(".box-quantity").html());
             $("#30bars").children(".box-quantity").html(curQuant/10);
             
         }
@@ -288,23 +279,15 @@ $(document).ready(function(){
     $(".snipcart-add-plan").on("click", function(){
         $("#subitem").data("item-quantity",$(this).data("plan-quantity"));
         $("#subitem").click(); 
-//        alert("hey");
-//        console.log($(this).data('plan-quantity'));
     });
     
     
 
     
     $(".sub-plan-button").on('click', function(){
-                console.log($(".order-button button.shown").data());
-
         if(!$(this).hasClass("active")){
             $(".sub-plan-button").removeClass("active");
-//            if(!$(this).hasClass("percentoff")){
-//                $("#sub-price-discount").css("display","none");
-//            }else{
-//                $("#sub-price-discount").css("display","inline");
-//            }
+
             $(this).addClass("active");
             
             $(".order-button button").addClass("hidden").removeClass("shown");
@@ -313,11 +296,8 @@ $(document).ready(function(){
             $("#sub-price").html($(this).children(".hidden-sub-price").html());
 
             $(".order-button button.shown").data("plan-quantity",$(this).children(".box-quantity").html());
-            
-            
         }
         
-        console.log($(".order-button button.shown").data());
     });
     
 	$(".order-type .order-type-button").on('click', function(e){
@@ -351,31 +331,17 @@ $(document).ready(function(){
               $(".quantity-select").css("display","none");
               $(".subscription-select").css("display","block");
 
-          } else {
-                  //show sub. button
-                  /*$(".order-button button.subscribe").removeClass("hidden").addClass("shown");
-                  $(".quantity-select .cur-quant").text("1");
-                  $(".quantity-select").addClass("disabled");
-                  $(".price-type .sub-price").removeClass("hidden");
-                  */
-                  //then show single button
-                  $(".order-button button.single-order").removeClass("hidden").addClass("shown");
-                  $(".quantity-select button").prop("disabled", false);
-                  $(".price-type .single-price").removeClass("hidden");
-              }
+          }
         }
 	});
 	
 	
 	Snipcart.subscribe('item.added', function (ev, item, items) {
         
-//        parseInt($(".cart-total-items").text(), 10);
         var cart = Snipcart.api.cart.get();
-        console.log(cart);
 	    setTimeout(function(){
 	    	var cart = Snipcart.api.cart.get();
 	    	if (cart.items.length > 0 || cart.plans.length > 0) {
-		    	//alert("here2");
 		    	$(".cart-wrapper .svg-wrapper").addClass("active");
 		    } else {
 		    	$(".cart-wrapper .svg-wrapper").removeClass("active");
@@ -383,26 +349,344 @@ $(document).ready(function(){
 	    }, 100);
 	}); Snipcart.subscribe('item.removed', function (ev, item, items) {
         
-        if(ev["id"] == "sub-discount-item"){
+        if(ev["id"] == "Subscription-First-Month"){
 
             var planID = (ev["quantity"] < 3) ? "Monthly-Sub-"+String(ev["quantity"])+"0" : "Monthly-Sub-30plus";
             
             console.log(planID);
             
             var plan = Snipcart.collections.plans.findWhere(function(p) {return p.get('id') == planID});
-            console.log(plan);
-            if(plan){plan.destroy();}else{alert("hey");}
+            if(plan){plan.destroy();}
         }
         
 	}); 
     
-//    $(".snip-product__remove").on("click")
+    
+      $("#subscribe").change(function () {
+        if (this.checked) {
+            $("#js-email").attr("placeholder", "Required");
+            $("#js-email").prop("required", true);
+        } else {
+            $("#js-email").attr("placeholder", "Optional");
+            $("#js-email").prop("required", false);
+        }
+    });
+
+    $(".rating input:radio").attr("checked", false);
+
+    $('.rating input').click(function () {
+        $(".rating span").removeClass('checked');
+        $(this).parent().addClass('checked');
+    });
+
+    $('input:radio').change(function () {
+        var userRating = this.value;
+    });
+    $('#review-form').submit(function(event) {
+       event.preventDefault();
+//        const mixpanelDistintctID = mixpanel.get_distinct_id();
+//        const mixpanelDistinctId = "12345";
+
+        const email = strip_html_tags(($("#js-email").val() == '') ? 'none@email.com' : $("#js-email").val());
+        const title = strip_html_tags(($("#js-title").val() == '') ? 'No Title' : $("#js-title").val());
+        const name = strip_html_tags(($("#js-name").val() == '') ? 'Anonymous' : $("#js-name").val());
+        const comments = strip_html_tags($("#comments").val());
+        const rating = parseInt($("input[name='rating']:checked").val());
+        
+
+
+        firebase.auth().signInAnonymously().then(function(){
+
+                var database = firebase.database();
+                var usersRef = database.ref('/users');
+                var rootpath = database.ref();
+                var transactionpath = database.ref('transaction/');
+
+                transactionpath.transaction(function(tran){
+                    
+                    if(tran){
+
+                        tran.num_ratings++;
+                        tran[rating]++;
+                        tran.total_rating+=rating;
+                        tran.average_rating=tran.total_rating/tran.num_ratings;
+                    }
+                    return tran;
+                }, function(error, committed, val){
+                    if(committed){
+                        const date = Date();
+                        const createdAt = (new Date().getTime())*-1;
+                        
+                        database.ref("reviews").push({
+                            title,
+                            name,
+                            email,
+                            rating,
+                            comments,
+                            createdAt,
+                            date,
+                        }, function(error){
+                            if(!error){
+                                setTimeout(function () { window.location.reload(); }, 10);
+                            }
+                        });
+                        
+
+                    }
+                });
+
+//                idsetter={};
+//                idsetter[mixpanelDistinctId] = createdAt;
+//                usersRef.set(idsetter);
+
+        })
+            .catch(error=>{
+            console.log(error)
+        });
+        
+        $("#replacement-content").css("display", "block");
+        $("#content-wrapper").css("display", "none");
+    });
+    
+    $('#email-form').submit(function(event) {
+        event.preventDefault();
+        
+        const verb = $("#theirverb").val();
+        const email = $("#theiremail").val();
+
+        $("#email-form-container").addClass('submitted');
+    });
+
+    var modal = document.getElementById("reviewModal");
+    var btn = document.getElementById("reviewBtn");
+    var span = document.getElementsByClassName("close")[0];
+
+    btn.onclick = function() {
+        modal.style.display = "block";
+    }
+    span.onclick = function() {
+        modal.style.display = "none";
+    }
+    window.onclick = function(event) {
+        if (event.target == modal) {
+            modal.style.display = "none";
+        }
+    }
+
 
 });
 
 
+var beginAt = 0;
+var rowsPerPage = 5;
+var i = 0;
+var totalPages = 0;
 
 
+// Initialize Firebase
+var config = {
+    apiKey: "AIzaSyAMqZPBSfLtJBNbZEEM0CXmog04ihRfiUQ",
+    authDomain: "storing-comments.firebaseapp.com",
+    databaseURL: "https://storing-comments.firebaseio.com",
+    projectId: "storing-comments",
+    storageBucket: "storing-comments.appspot.com",
+    messagingSenderId: "353896147164"
+};
+
+firebase.initializeApp(config);
+
+
+
+firebase.auth().signInAnonymously().then(function () {
+//    const mixpanelDistinctId = "12345"; //GET REAL MIXPANEL ID HERE
+
+    var database = firebase.database();
+    var usersRef = database.ref('/users/');
+    var transactionRef = database.ref('/transaction/');
+
+    database.ref().once("value",function(snapshot){
+        transactionRef.once("value", function(tranSnap){
+            var starRating = tranSnap.val().average_rating.toFixed(2);
+            $("#avg").append(starRating);
+            var outOfFive = ((starRating/5)*100).toFixed(0);
+
+            var stars='<div class="avg-rating-stars"><div class="avg-rating-stars-top" style="width:'+outOfFive+'%"><span>★★★★★</span></div><div class="avg-rating-stars-bottom"><span>★★★★★</span></div>';
+            $("#avg").prepend(stars);
+            
+            var totalRows = tranSnap.val().num_ratings;
+            totalPages = Math.ceil(totalRows/rowsPerPage);
+            $("#total-reviews").append(String(totalRows)+" reviews&#41;");
+                        
+            for(i=1;i<=5;i++){
+                var starId= "#"+String(i)+"stars";
+                var starValue=tranSnap.val()[i];
+                $(starId).append(String(starValue));
+                var barId="#"+String(i)+"bar";
+                var barString = String((starValue/totalRows)*100)+"%";
+
+                $(barId).css("width", barString);                  
+            }
+            
+            if(totalPages <= 1){
+                $("#nextPageBtn").prop("disabled", true);
+                $("#lastPageBtn").prop("disabled", true);
+            }
+            var reviewsRef = database.ref('/reviews/');
+
+            reviewsRef.orderByChild("createdAt").limitToFirst(rowsPerPage).on("value", function(snapshot){
+                var i = 0;
+                snapshot.forEach(function(data){
+                    if(i==0){
+                        stopAt=data.val().createdAt;
+                    }
+                    i+=1;
+                    var html='<div class="review">';
+                    html+='<h3 class="review-title">' + data.val().title + '</h3>';
+                    html+='<span class="review-stars">'
+                    for(j=0;j<data.val().rating;j++){
+                        html+='★';
+                    }
+                    html+='</span>';
+                                    html+='<span class="review-empty-stars">'
+                    for(k=0;k<(5 - data.val().rating);k++){
+                        html+='★';
+                    }
+                    html+='</span>';
+                    html+='<span class="reviewer-name">' + data.val().name + '</span>';
+                    html+='<span class="review-date">' + data.val().date.substring(4,15)+'</span>';
+                    html+='<p class="review-body">'+data.val().comments+'</p>';
+
+                    html+='</div>';
+
+                    $("#reviewTable").append(html);
+                    beginAt = data.val().createdAt;
+
+               }) 
+            });
+        });
+    });
+
+//    usersRef.once("value").then(function(snapshot) {   
+//        var currentDate = new Date().getTime();
+//        if(snapshot.hasChild("/"+mixpanelDistinctId) && (currentDate - (snapshot.child(mixpanelDistinctId).val()*-1)) < 0) {
+//            $("#content-wrapper").css("display", "none");
+//            $("#recency").css("display", "block");
+//        };
+//    });
+}).catch(function(error){
+    console.log(error);
+});
+
+function append(snapshot){
+    var i=0;
+    snapshot.forEach(function(data){
+        if(i==0){
+            stopAt=data.val().createdAt;
+        }
+        i+=1;
+
+        var html='<div class="review">';
+        html+='<h3 class="review-title">' + data.val().title + '</h3>';
+        html+='<span class="reviewer-name">' + data.val().name + '</span>';
+        html+='<span class="review-date">' + data.val().date.substring(4,15)+'</span>';
+        html+='<span class="review-stars">'
+        
+        for(j=0;j<data.val().rating;j++){
+            html+='★';
+        }
+            
+        html+='</span>';
+        html+='<p class="review-body">'+data.val().comments+'</p>';
+
+        html+='</div>';
+
+        $("#reviewTable").append(html);
+       beginAt = data.val().createdAt;
+    });
+}
+
+
+function updateTable(moveCount){
+    $(".review").remove();
+    if(moveCount=='first'){
+        var newCurrentPage = 1;
+    }else if(moveCount=='last'){
+        var newCurrentPage = totalPages;
+    }else var newCurrentPage = parseInt($("#currentPage").html(), 10)+moveCount;
+
+    $("#currentPage").html(newCurrentPage);
+    if(newCurrentPage == 1){
+        $("#prevPageBtn").prop("disabled", true);
+        $("#firstPageBtn").prop("disabled", true);
+    }else{
+        $("#prevPageBtn").prop("disabled", false);
+        $("#firstPageBtn").prop("disabled", false);
+    }
+    if(newCurrentPage == totalPages){
+        $("#nextPageBtn").prop("disabled", true);
+        $("#lastPageBtn").prop("disabled", true);
+    }else{
+        $("#nextPageBtn").prop("disabled", false);
+        $("#lastPageBtn").prop("disabled", false);
+    }
+
+    firebase.auth().signInAnonymously().then(function(){
+//        const mixpanelDistinctId = "12345"; //GET REAL MIXPANEL ID HERE
+
+        var database = firebase.database();
+        var usersRef = database.ref('/users/');
+        var transactionRef = database.ref('/transaction/');
+
+        transactionRef.once("value",function(snapshot){
+
+            var totalRows = snapshot.val().num_ratings;
+
+            var reviewsRef = database.ref('/reviews/');
+            if(moveCount==1){
+                reviewsRef.orderByChild("createdAt").startAt(beginAt+1).limitToFirst(rowsPerPage).once("value", function(snapshot){
+                    append(snapshot);
+              });
+            }else if(moveCount==-1){
+                reviewsRef.orderByChild("createdAt").endAt(stopAt-1).limitToLast(rowsPerPage).once("value", function(snapshot){
+                    append(snapshot);
+                });
+            }else if(moveCount=='first'){
+                 reviewsRef.orderByChild("createdAt").limitToFirst(rowsPerPage).once("value", function(snapshot){
+                    append(snapshot);
+                });
+            }else if(moveCount=='last'){
+                reviewsRef.orderByChild("createdAt").limitToLast((totalRows%rowsPerPage) ? totalRows%rowsPerPage : rowsPerPage).once("value", function(snapshot){
+                    append(snapshot);
+                });
+            }
+        });
+    }).catch(function(error){
+        console.log(error);
+    }); 
+}
+
+$(document).on("click", "#firstPageBtn", function(){
+    updateTable('first');
+});
+$(document).on("click", "#prevPageBtn", function(){
+    updateTable(-1);
+});
+$(document).on("click", "#nextPageBtn", function(){
+    updateTable(1);
+});
+$(document).on("click", "#lastPageBtn", function(){
+    updateTable('last');
+});
+
+
+function strip_html_tags(str)
+{
+   if ((str===null) || (str===''))
+       return false;
+  else
+   str = str.toString();
+  return str.replace(/<[^>]*>/g, '');
+}
 
 
 
