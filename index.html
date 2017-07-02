@@ -991,7 +991,7 @@
     $('#review-form').submit(function(event) {
         fbq('track', 'LeftReview');
         mixpanel.people.set({
-          "$email":strip_html_tags(($("#js-email").val() == '') ? 'none@email.com' : $("#js-email").val());
+          "$email":strip_html_tags(($("#js-email").val() == '') ? 'none@email.com' : $("#js-email").val())
         });
     }
   </script>
