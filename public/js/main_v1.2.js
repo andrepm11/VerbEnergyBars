@@ -49,6 +49,7 @@ $(document).ready(function(){
 	$('nav .fade-in').addClass('in');
 	$('#line-1').addClass('in');
 	$('#line-2').addClass('in');
+	$('.try-button-wrapper').addClass('in');
 	$('header .image-wrapper').addClass('in');
 
 	$(window).scroll(function () {
