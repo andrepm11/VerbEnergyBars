@@ -349,7 +349,7 @@ $(document).ready(function(){
 	    }, 100);
 	}); Snipcart.subscribe('item.removed', function (ev, item, items) {
         
-        if(ev["id"] == "sub-discount-item"){
+        if(ev["id"] == "Subscription-First-Month"){
 
             var planID = (ev["quantity"] < 3) ? "Monthly-Sub-"+String(ev["quantity"])+"0" : "Monthly-Sub-30plus";
             
