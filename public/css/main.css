@@ -371,7 +371,6 @@ footer {
 }
 .w-100 {
   width: 100%;
-  display: block;
 }
 .left {
   float: left;
@@ -475,30 +474,6 @@ footer {
 .fade-up-right.in {
   top: 0;
   left: 0;
-}
-#line-1 {
-  transition-delay: .5s;
-  padding: 0 !important;
-}
-#line-2 {
-  display: block;
-  transition-delay: 2s;
-  max-width: 90%;
-  margin-left: auto;
-  margin-right: auto;
-  padding-left: 2em;
-}
-@media (min-width: 48em) {
-  #line-2 {
-    max-width: 70%;
-  }
-}
-nav .fade-in {
-  transition-delay: .5s;
-}
-.bar-renderings,
-.shadows {
-  transition-delay: 2s;
 }
 h1 {
   color: inherit;
@@ -605,15 +580,13 @@ input[type="button"] {
   text-align: center;
   text-transform: uppercase;
   font-size: 1em;
-  line-height: 2;
+  line-height: 2 !important;
   cursor: pointer;
   outline: none !important;
   box-shadow: none !important;
   background: none;
-  padding-left: 1em;
-  padding-right: 1em;
+  padding: .25em 1em;
   margin: 0 auto;
-  height: 3em;
   transition: all 150ms ease;
   -webkit-touch-callout: none;
   /* iOS Safari */
@@ -777,15 +750,16 @@ button[disabled]:hover,
   width: 1.5em;
 }
 .message-bar-text {
-  display: block;
+  width: 100%;
+  display: none;
   height: 1.5em;
   z-index: 10000;
   position: relative;
   background: none;
   overflow: hidden;
+  text-align: center;
 }
 .message-bar-text p {
-  text-align: center;
   display: block;
   color: #858b8e !important;
   padding: 0;
@@ -799,11 +773,11 @@ button[disabled]:hover,
 @media (min-width: 48em) {
   .message-bar-text {
     font-size: 1em;
+    display: block;
   }
 }
 .message-bar {
   width: 100%;
-  display: block;
   text-align: center;
   background: #1d1d20;
   font-weight: 400;
@@ -1041,12 +1015,13 @@ nav #basket-icon:after {
 nav #basket-icon:after {
   bottom: .75em;
   height: 1.5em;
-  left: -0.1em;
+  left: -0.125em;
 }
 nav #basket-icon:before {
   transform: rotate(90deg);
   height: 1.5em;
   top: -0.5em;
+  left: .125em;
 }
 nav.menu-show {
   height: 20em;
@@ -1105,13 +1080,55 @@ nav.menu-show #nav-menu-icon span:nth-child(4) {
   margin-right: .25em;
   position: relative;
 }
+.try-button-wrapper {
+  transition-delay: 3s;
+}
+.try-button {
+  position: relative;
+  top: -3em;
+}
+@media (min-width: 48em) {
+  .try-button {
+    top: -11em;
+    font-size: 1.5em;
+  }
+}
+#line-1 {
+  transition-delay: .5s;
+  padding: 0 !important;
+}
+#line-2 {
+  display: block;
+  transition-delay: 2s;
+  max-width: 90%;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 2em;
+}
+@media (min-width: 48em) {
+  #line-2 {
+    margin-bottom: -3em;
+    max-width: 70%;
+  }
+}
+nav .fade-in {
+  transition-delay: .5s;
+}
+.bar-renderings,
+.shadows {
+  transition-delay: 1s;
+}
 header {
   background: #ffeac7;
   text-align: center;
 }
 header .container {
-  padding: 8em 10% 0;
-  max-width: 90em;
+  padding: 5em 5% 0;
+}
+@media (min-width: 48em) {
+  header .container {
+    padding-top: 8em;
+  }
 }
 header h1 {
   line-height: 1;
@@ -1140,17 +1157,16 @@ header .header-images {
 }
 header .header-images .bar-rendering {
   position: relative;
-  top: 0;
+  top: -1em;
 }
 header .header-images .shadow {
   position: relative;
-  top: -2em;
+  top: -3em;
 }
-header .header-images:hover .bar-rendering {
-  top: -1em;
-}
-header .header-images:hover .shadow {
-  transform: scale(1.07, 1.07);
+@media (min-width: 48em) {
+  header .header-images .shadow {
+    top: -2em;
+  }
 }
 @media (min-width: 48em) {
   header h1 {
@@ -1402,15 +1418,13 @@ header .header-images:hover .shadow {
   font-weight: 700;
   text-transform: uppercase;
   font-size: 1em;
-  line-height: 2;
+  line-height: 2 !important;
   cursor: pointer;
   outline: none !important;
   box-shadow: none !important;
   background: none;
-  padding-left: 1em;
-  padding-right: 1em;
+  padding: .25em 1em;
   margin: 0 auto;
-  height: 3em;
   transition: all 150ms ease;
   -webkit-touch-callout: none;
   /* iOS Safari */
@@ -1470,6 +1484,7 @@ header .header-images:hover .shadow {
   color: #1d1d20;
 }
 .subscription-alert {
+  background: #369638;
   margin-top: -0.25em;
   border-left: 4px solid #1d1d20;
   border-right: 4px solid #1d1d20;
@@ -1925,7 +1940,7 @@ header .header-images:hover .shadow {
 #currentPage {
   display: inline-block;
   width: 1em;
-  height: 1.5em;
+  height: 1.35em;
   font-size: 2em;
   padding-top: .125em;
   vertical-align: bottom;
