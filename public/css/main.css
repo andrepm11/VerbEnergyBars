@@ -883,12 +883,13 @@ nav #basket-icon:after {
 nav #basket-icon:after {
   bottom: .75em;
   height: 1.5em;
-  left: -0.1em;
+  left: -0.125em;
 }
 nav #basket-icon:before {
   transform: rotate(90deg);
   height: 1.5em;
   top: -0.5em;
+  left: .125em;
 }
 nav.menu-show {
   height: 20em;
@@ -1312,7 +1313,7 @@ header .header-images:hover .shadow {
   color: #fff1db;
 }
 .subscription-alert {
-  background: #1d1d20;
+  background: #369638;
   margin-top: -0.25em;
   border-left: 4px solid #1d1d20;
   border-right: 4px solid #1d1d20;
