@@ -370,7 +370,6 @@ footer {
 }
 .w-100 {
   width: 100%;
-  display: block;
 }
 .left {
   float: left;
@@ -750,15 +749,21 @@ button[disabled]:hover,
   width: 1.5em;
 }
 .message-bar-text {
-  display: block;
+  display: none;
+  width: 100%;
   height: 1.5em;
   z-index: 10000;
   position: relative;
   background: none;
   overflow: hidden;
+  text-align: center;
+}
+@media (min-width: 48em) {
+  .message-bar-text {
+    display: inline-block;
+  }
 }
 .message-bar-text p {
-  text-align: center;
   display: block;
   color: #858b8e !important;
   padding: 0;
@@ -776,7 +781,6 @@ button[disabled]:hover,
 }
 .message-bar {
   width: 100%;
-  display: block;
   text-align: center;
   background: #1d1d20;
   font-weight: 400;
