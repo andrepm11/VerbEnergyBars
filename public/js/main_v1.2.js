@@ -508,6 +508,13 @@ $(document).ready(function(){
         const email = $("#theiremail").val();
 
         $("#email-form-container").addClass('submitted');
+        
+        fbq('track', 'CompleteRegistration', {
+            email: email,
+            verb: verb
+        });
+        
+        
     });
 
     var modal = document.getElementById("reviewModal");
