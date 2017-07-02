@@ -9,7 +9,6 @@
 
 
 
-
 @verb-primary-1: hsl(36, 100%, 93%);
 @verb-primary-2: hsl(38, 100%, 89%);
 @verb-primary-3: hsl(41, 85%, 79%);
@@ -305,6 +304,7 @@ footer {
 
 #line-1 {
 	transition-delay: .5s;
+    padding: 0 !important;
 }
 
 #line-2 {
@@ -2275,169 +2275,3 @@ footer {
 	}
 }
 
-//========================================
-//========================================
-//======================================== Snipcart
-//========================================
-//========================================
-
-
-.snip-layout.snip-active {
-    display: block;
-    position: fixed;
-    height: 100%;
-    overflow-y: scroll;
-    overflow-x: hidden;
-    margin: 0 auto;
-}
-
-.snip-layout__main-container {
-	font-family: @primary-font !important;
-	font-size: 1em;
-	width: 95%;
-	margin: 0 auto;
-	z-index: 1000;
-}
-
-#snipcart-main-content {
-	margin-top: 3em;
-}
-
-#snipcart-items-header th, #snipcart-plans-header th {
-}
-
-#snipcart-header-total {
-	background: rgba(0,0,0,0) !important;
-	border-radius: 0;
-}
-
-.snip-layout {
-	font-family: @primary-font;
-	.snip-prduct__name {
-		text-align: left;
-	}
-	.snip-product__description {
-		font-family: @primary-font !important;
-	}
-	.snip-btn {
-		font-family: @primary-font;
-		border: @border !important;
-		color: @verb-black !important;
-		border-radius: 0 !important;
-		background: rgba(0,0,0,0) !important;
-		line-height: 1.75 !important;
-		&:hover {
-			background: @text-color !important;
-			color: white !important;
-		}
-	}
-	.snip-btn.snip-header__continue {
-		border-color: @verb-gray !important;
-		color: @verb-gray !important;
-		background: rgba(0,0,0,0) !important;
-	}
-	.snip-btn--highlight {
-		background: @background-color !important;
-	}
-	.snip-form__error {
-		background: @accent-color-3 !important;
-		color: @text-color !important;
-	}
-}
-
-.snip-product__description {
-	font-family: 'Roboto' !important;
-}
-
-#snipcart-cartitems-continue-top {
-	background: #777 !important;
-    width: 250px !important;
-    right: 1.5em;
-    margin-top: -1.4em;
-}
-
-#snipcart-footer {
-	display: none !important;
-}
-
-#snipcart-close {
-	color: rgba(255,255,255,0);
-	padding: .25em .25em 0 0;
-	height: 2em;
-	&::before,
-	&::after {
-		content: '';
-		width: @stroke-width;
-		height: 1em;
-		background: white;
-		display: inline-block;
-		position: relative;
-	}
-	&::before {
-		transform: rotate(-45deg);
-		left: 40%;
-	}
-	&::after {
-		transform: rotate(45deg);
-		right: 40%;
-	}
-}
-
-#snipcart-plans-list>tr>td:nth-of-type(5) {
-	display: none;
-}
-
-.cartSubIcon {
-	max-width: 65px;
-	float: left;
-	margin-right: 10px !important;
-}
-
-.snip-layout .snip-quantity-trigger__text {
-    margin-right: 8px !important;
-    margin-left: 8px !important;
-    font-size: 21px !important;
-}
-
-.snip-layout .snip-product__name {
-	font-size: 18px !important;
-}
-
-tr {
-	font-size: 18px !important;
-}
-
-.snip-form__label[for="snip-shippingSameAsBilling"] {
-	font-weight: bold;
-	padding-bottom: 2px;
-	text-decoration: underline;
-}
-
-.snip-btn, #snipcart-header-total {
-	font-size: 16px !important;
-	height: 45px !important;
-	padding-top: 5px !important;
-} #snipcart-header-total {
-	margin-top: 30px !important;
-	width: 200px !important;
-}
-
-.snipcart-checkbox-field.shifted {
-	margin-top: 30px !important;
-}
-
-#snipcart-show-upcoming-payment-details {
-	width: 20px;
-    padding: 0;
-    height: 30px !important;
-} #snipcart-show-upcoming-payment-details:before {
-	width: auto !important;
-}
-
-@media(max-width: 768px) {
-	#snipcart-header-total {
-		margin-top: 0px !important;
-		padding-top: 12px !important;
-    	padding-left: 20px !important;
-	}
-}
