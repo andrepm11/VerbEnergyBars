@@ -269,7 +269,7 @@ $(document).ready(function(){
                 }
 
             }
-            var htmlString = (curQuant==60) ? String(curQuant) : htmlString='<span class="sub-plus">+</span>'+String(curQuant)+'<span class="sub-plus">+</span>';
+            var htmlString = /*(curQuant==60) ? htmlString='<span class="sub-plus">+</span>'+String(curQuant)+'<span class="sub-plus">-</span>' : */htmlString='<span class="sub-plus">+</span>'+String(curQuant)+'<span class="sub-plus">+</span>';
 //            var htmlString='<span class="sub-plus">+</span>'+String(curQuant)+'<span class="sub-plus">+</span>';
 //            $("#30bars").children(".box-quantity").html(curQuant/10);
             $("#30bars .subscription-bar-quantity").html(htmlString);
@@ -383,24 +383,20 @@ $(document).ready(function(){
 	    }, 100);
 	}); Snipcart.subscribe('item.removed', function (ev, item, items) {
         
-        
         if(ev["id"] == "sub-discount-item"){
+
             var planID = (ev["quantity"] < 3) ? "Monthly-Sub-"+String(ev["quantity"])+"0" : "Monthly-Sub-30plus";
             
             console.log(planID);
             
             var plan = Snipcart.collections.plans.findWhere(function(p) {return p.get('id') == planID});
             console.log(plan);
-            if(plan){plan.destroy();}
+            if(plan){plan.destroy();}else{alert("hey");}
         }
         
-	}); Snipcart.subscribe('cart.ready', function (data) {
-//        console.log(data['order']['items'].length);
-//        $(".cart-total-items").html(data['order']['items'].length);
-        var cart = Snipcart.api.cart.get();
-        console.log("suh");
-        
-    });
+	}); 
+    
+//    $(".snip-product__remove").on("click")
 
 });
 
