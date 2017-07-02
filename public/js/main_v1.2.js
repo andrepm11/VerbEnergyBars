@@ -169,6 +169,9 @@ $(document).ready(function(){
 		}
 		moveShippingSameAsBilling();
 	}); 
+    
+    
+    
 	Snipcart.subscribe('cart.opened', function() {
 		if ($(window).width() > 768) {
 //			addImagesToPlans();
@@ -179,6 +182,12 @@ $(document).ready(function(){
         if ($(window).width() < 768) {
             $("body").addClass("fixed");
         }
+        
+        
+        Snipcart.unsubscribe('cart.opened');
+        var html = $("#cart-content-text").html();
+        $(html).insertBefore($("#snipcart-footer"));
+   
 	});
     Snipcart.subscribe('cart.closed', function() {
         $("body").removeClass("fixed");
