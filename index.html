@@ -474,49 +474,55 @@
 					<span class="upper">One Time</span><span class="alt-font"></span><span class="price hidden">$19.99</span>
 				</a>
 				<a href="#" class="order-type-button sub-button active">
-					<span class="upper">Every Month</span><span class="alt-font"></span><span class="price hidden">$19</span>
+                    <span class="upper">Every Month</span><span class="alt-font"></span><span class="price hidden">$19</span>
 				</a>
 			</div>
+<!--
 			<div class="subscription-alert">
-				<p><strong>discounts &amp; free shipping!</strong></p>
+				<p><strong>free shipping</strong></p>
 			</div>
+-->
 			<div class="price-type">
 		
 				<div class="single-price price-item hidden">
 					<span>$2.40</span>
-					<!--		<span class="og-price sale">$24.70</span>-->
 				</div>
 
 
 
-				<div class="single-sub-price trial-price-container">
+				<div class="single-sub-price trial-price-container price-item">
 					<p class="sub-price">$1.00</p>
 					<p><span class="first-month">first month</span></p>
-				</div><div class="monthly-price-container">
+				</div><div class="single-sub-price monthly-price-container price-item">
 					<p class="sub-price"><span id="sub-price">$1.80</span></p>
 				<p><span class="after-that"><u><span id="subpercent">25%</span> off</u> after</span></p>
 				</div>
 			</div>
 			<div class="subscription-select active-select">
-				<button class="sub-plan-button" id="10bars">
+				<button class="sub-plan-button" id="10bars" data-sub-price="$2.00" data-percent-off="17%" data-box-quantity="1" data-subid=".single-sub">
 
 							<p class="subscription-bar-quantity">10</p>
 							<p class="subscription-bar-label">bars</p>
-                <span class="hidden-sub-price">$2.00<span class="subpercent hidden">17% off</span></span>
+<!--
+                <span class="hidden-sub-price">$2.00<span class="subpercent hidden">17%</span></span>
                 <span class="box-quantity hidden">1</span>
                 <span class="subid hidden">.single-sub</span>
+-->
+                    
             </button>
-				<button class="sub-plan-button percentoff active" id="20bars">
+				<button class="sub-plan-button percentoff active" id="20bars" data-sub-price="$1.80" data-percent-off="25%" data-box-quantity="2" data-subid=".double-sub">
 							<p class="subscription-bar-quantity">20</p>
 							<p class="subscription-bar-label">bars</p>
-                <span class="hidden-sub-price">$1.80<span class="subpercent hidden">25% off</span></span>
+<!--
+                <span class="hidden-sub-price">$1.80<span class="subpercent hidden">25%</span></span>
                 <span class="box-quantity hidden">2</span>
                 <span class="subid hidden">.double-sub</span>
+-->
             </button>
-				<button class="sub-plan-button" id="30bars">
+				<button class="sub-plan-button" id="30bars" data-sub-price="$1.69" data-percent-off="30%" data-box-quantity="3" data-subid=".triple-sub">
 							<p class="subscription-bar-quantity"><span class="sub-plus">+</span>30<span class="sub-plus">+</span></p>
 							<p class="subscription-bar-label quantity-buttons"><span class="bars">bars</span><span class="quantity-increment down disabled">-</span><span class="quantity-increment up">+</span></p>
-                <span class="hidden-sub-price">$1.69<span class="subpercent hidden">30% off</span></span>
+                <span class="hidden-sub-price">$1.69<span class="subpercent hidden">30%</span></span>
                 <span class="box-quantity hidden">3</span>
                 <span class="subid hidden">.triple-sub</span>
                 

@@ -242,7 +242,6 @@ $(document).ready(function(){
         }
         else{
             var curQuant = parseInt($("#30bars .subscription-bar-quantity").text(),10);
-            console.log(curQuant);
             
             if ($(this).hasClass("down")) {
                 //inc. down
@@ -268,9 +267,8 @@ $(document).ready(function(){
             }
             var htmlString = htmlString='<span class="sub-plus">+</span>'+String(curQuant)+'<span class="sub-plus">+</span>';
             $("#30bars .subscription-bar-quantity").html(htmlString);
-            console.log(curQuant);
             $(".order-button button.shown").data("plan-quantity", curQuant/10);
-            $("#30bars").children(".box-quantity").html(curQuant/10);
+            $("#30bars").data("box-quantity",curQuant/10);
             
         }
 	});
@@ -291,11 +289,14 @@ $(document).ready(function(){
             $(this).addClass("active");
             
             $(".order-button button").addClass("hidden").removeClass("shown");
-            $($(this).children(".subid").text()).removeClass("hidden").addClass("shown");
+            $($(this).data("subid")).removeClass("hidden").addClass("shown");
             
-            $("#sub-price").html($(this).children(".hidden-sub-price").html());
-
-            $(".order-button button.shown").data("plan-quantity",$(this).children(".box-quantity").html());
+            $("#sub-price").html($(this).data("sub-price"));
+//            console.log($(this).data("subpercent"));
+            $("#subpercent").html($(this).data("percent-off"));
+//            console.log($(this).children(".subpercent").text());
+            
+            $(".order-button button.shown").data("plan-quantity",$(this).data("box-quantity"));
         }
         
     });
@@ -322,7 +323,7 @@ $(document).ready(function(){
               
 
           }  else if ($(this).hasClass("sub-button")) {
-              $($(".sub-plan-button.active").children(".subid").text()).removeClass("hidden").addClass("shown");
+              $($(".sub-plan-button.active").data("subid")).removeClass("hidden").addClass("shown");
 
               $(".price-type .single-sub-price").removeClass("hidden");
               $(".cur-quant").removeClass('three-bar');
@@ -356,7 +357,18 @@ $(document).ready(function(){
             console.log(planID);
             
             var plan = Snipcart.collections.plans.findWhere(function(p) {return p.get('id') == planID});
-            if(plan){plan.destroy();}
+            if(plan){console.log("here");
+                     plan.destroy( {
+                contentType : 'application/json',
+
+                success : function () {
+                    console.log('success');
+                },
+
+                error : function () {
+                    console.log('error');
+                }
+            } );}
         }
         
 	}); 
