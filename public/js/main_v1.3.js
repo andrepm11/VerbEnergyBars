@@ -290,7 +290,7 @@ $(document).ready(function(){
                 "price": "10.00",
                 "quantity": $(this).data("plan-quantity"),
                 "maxQuantity":6,
-                "shippable":"false",
+                "shippable":"true",
                 "image":"public/img/bar_order_mockup.png",
                 "stackable": false
             }).catch(function(error){
