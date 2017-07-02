@@ -969,6 +969,7 @@
         items: data['items']
       });
       mixpanel.people.track_charge(data['total']);
+      Snipcart.api.modal.show().delay(2000).close();
 
     });
     Snipcart.subscribe('page.change', function(page) {
