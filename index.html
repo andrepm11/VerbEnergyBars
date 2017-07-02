@@ -479,11 +479,6 @@
 					<img class="bar-rendering mobile-hidden" src="public/img/verb_bar_rendering_3.png" alt="Verb Energy Original Oats and Cocoa Caffeinated Energy Bar"/>
 	</div><div class="order-items desktop-6 mobile-12">
 		<div class="order-type">
-<!--
-			<a href="#" class="single-small order-type-button">
-				<span class="upper">3-Pack</span><span class="alt-font"></span><span class="price hidden">$6.99</span>
-			</a>
--->
 			<a href="#" class="order-type-button single">
 				<span class="upper">One Time</span><span class="alt-font"></span><span class="price hidden">$19.99</span>
 			</a>
@@ -492,24 +487,14 @@
 			</a>
 		</div>
 		<div class="price-type">
-<!--
-			<div class="single-small-price price-item hidden">
-				<span class="sale-price sale">$6.50</span>
-				<span class="og-price sale">$7.99</span>
-			</div>
--->
 			<div class="single-price price-item hidden">
 				<span class="sale-price sale">$2.40 / bar</span>
-<!--				<span class="og-price sale">$24.70</span>-->
+
 			</div>
 			<div class="single-sub-price price-item">
 				<span class="sale-price sale" id="sub-price">$1.80 / bar <span class="subpercent">25% off</span></span>
-<!--				<span class="og-price sale" id="sub-price-discount">25% off</span>-->
 			</div>
 		</div>
-$1 per bar for your first month
-		
-    
     
         <div class="subscription-select active-select">
             <button class="sub-plan-button" id="10bars">
@@ -667,7 +652,7 @@ $1 per bar for your first month
 					<div id="form-wrapper">
 						<form id="review-form" method="post">
 							<div class="input-row">
-							<label class="desktop-6 mobile-12" for="name">Enter a display name for yourself:<input id="js-name" type="text" name="name" value="" placeholder="Required" required/></label>
+							<label class="desktop-6 mobile-12" for="name">Enter a display name for yourself:<input id="js-name" type="text" name="name" value="" placeholder="Optional"/></label>
 								<label class="desktop-6 mobile-12" for="email">Enter your email (this won&rsquo;t be displayed):<input id="js-email" type="email" name="email" value="" placeholder="Required" required/></label></div>
 							<p class="antispam">Leave this empty: <input type="text" name="url" /></p>
 							<div class="input-row">
@@ -971,15 +956,7 @@ $1 per bar for your first month
   <script src="public/js/main_v1.2.js"></script>
 	<script src="https://www.gstatic.com/firebasejs/4.1.3/firebase.js"></script>
   <script src="public/js/firebasereviews.js"></script>
-<!--   <script src="public/js/subscriptions.js"></script> -->
   <script>
-    // 				<!-- 
-    // 				Snipcart.subscribe('cart.opened', function() {
-    // 			    		console.log('Snipcart popup is visible');
-    // 				});
-    // 				Snipcart.subscribe('cart.closed', function() {
-    // 				    console.log('Snipcart popup has been closed');
-    // 				});-->
     Snipcart.subscribe('item.added', function(item) {
       fbq('track', 'AddToCart', {
         value: item['price'],
@@ -1005,12 +982,18 @@ $1 per bar for your first month
         "$name": address['name']
       });
     });
+    $('#review-form').submit(function(event) {
+        fbq('track', 'LeftReview');
+        mixpanel.people.set({
+          "$email":strip_html_tags(($("#js-email").val() == '') ? 'none@email.com' : $("#js-email").val());
+        });
+    }
   </script>
     <script id="cart-content-text" type="text/template">
         <div class="custom-snipcart-footer-text">
         <h2>For Verb Subscribers</h2>
         <p>
-            By clicking “Place Order”, you accept our <a href="/VerbEnergyTermsAndConditions.pdf" target="_blank">terms</a> and your subscription will renew monthly and you will be charged the monthly subscription fees until you cancel. Subscriptions purchased at a promotional or trial rate will be billed the full monthly amount 30 days after the trial begins. After 30 days, your subscription will officially begin. After the first 30 days, you must cancel before the day of the month on which the subscription officially began. The monthly charge may change if you change your membership or we change our prices or shipping (with notice to you). Cancel anytime by emailing us at team@verbenergybar.com. 
+            By clicking “Place Order”, you accept our <a href="/VerbEnergyBars/VerbEnergyTermsAndConditions.pdf" target="_blank">terms</a> and your subscription will renew monthly and you will be charged the monthly subscription fees until you cancel. Subscriptions purchased at a promotional or trial rate will be billed the full monthly amount 30 days after the trial begins. After 30 days, your subscription will officially begin. After the first 30 days, you must cancel before the day of the month on which the subscription officially began. The monthly charge may change if you change your membership or we change our prices or shipping (with notice to you). Cancel anytime by emailing us at team@verbenergybar.com. 
       </p>
         </div>
       </script>

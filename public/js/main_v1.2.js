@@ -164,7 +164,6 @@ $(document).ready(function(){
 	
 	Snipcart.subscribe('cart.ready', function() {
 		if ($(window).width() > 768) {
-//			addImagesToPlans();
 			addSpacesToPrice();
 		}
 		moveShippingSameAsBilling();
@@ -174,7 +173,6 @@ $(document).ready(function(){
     
 	Snipcart.subscribe('cart.opened', function() {
 		if ($(window).width() > 768) {
-//			addImagesToPlans();
 			addSpacesToPrice();
 		}
 		moveShippingSameAsBilling();
@@ -202,7 +200,6 @@ $(document).ready(function(){
 		newSnipcartId = $(".snip-layout__main-container").attr("id");
 		if (newSnipcartId != currentSnipcartId) {
 			if ($(window).width() > 768) {
-//				addImagesToPlans();
 				addSpacesToPrice();
 			}
 			moveShippingSameAsBilling();
@@ -210,11 +207,7 @@ $(document).ready(function(){
 		currentSnipcartId = newSnipcartId;
 	}
 
-	function addImagesToPlans() {
-		$("#snipcart-plans-list>tr>td img").remove();
-		var $img = $("<img/>").attr("src", "/public/img/bar_order_mockup.png").addClass("cartSubIcon");
-		$("#snipcart-plans-list .snip-product__name").parent().prepend($img);
-	}
+	
 	function addSpacesToPrice() {
 		$("#snipcart-plans-list tr").each(function(i, item){
 			var txt1 = $(item).find("td:nth-of-type(3)").text();
@@ -239,14 +232,12 @@ $(document).ready(function(){
                     curQuant-=10;
                     $(".quantity-select .cur-quant").html(curQuant);
                     $(".order-button button.shown").data("item-quantity", curQuant/10);
-//                    $(".order-button button.shown").data("item-quantity-step", curQuant/10);
                 }
             } else {
                 //inc. up
                 curQuant+=10;
                 $(".quantity-select .cur-quant").html(curQuant);
                 $(".order-button button.shown").data("item-quantity", curQuant/10);
-//                $(".order-button button.shown").data("item-quantity-step", curQuant/10);
             }
         }
         else{
@@ -255,7 +246,6 @@ $(document).ready(function(){
             
             if ($(this).hasClass("down")) {
                 //inc. down
-//                var htmlString='';
                 if (curQuant > 30) {
                     curQuant-=10;
                     $(".sub-plan-button .quantity-increment.up").removeClass("disabled");
@@ -263,7 +253,6 @@ $(document).ready(function(){
                     if(curQuant==30){
                         $(this).addClass("disabled");
                     }
-//                    htmlString='<span class="sub-plus">+</span>'+String(curQuant)+'<span class="sub-plus">+</span>';
                 }
             
             } else {
@@ -273,21 +262,14 @@ $(document).ready(function(){
                     $(".sub-plan-button .quantity-increment.down").removeClass("disabled");
                     if(curQuant==60){
                         $(".sub-plan-button .quantity-increment.up").addClass("disabled")
-//                        htmlString=String(curQuant);
                     }
                 }
 
             }
-            var htmlString = /*(curQuant==60) ? htmlString='<span class="sub-plus">+</span>'+String(curQuant)+'<span class="sub-plus">-</span>' : */htmlString='<span class="sub-plus">+</span>'+String(curQuant)+'<span class="sub-plus">+</span>';
-//            var htmlString='<span class="sub-plus">+</span>'+String(curQuant)+'<span class="sub-plus">+</span>';
-//            $("#30bars").children(".box-quantity").html(curQuant/10);
+            var htmlString = htmlString='<span class="sub-plus">+</span>'+String(curQuant)+'<span class="sub-plus">+</span>';
             $("#30bars .subscription-bar-quantity").html(htmlString);
             console.log(curQuant);
             $(".order-button button.shown").data("plan-quantity", curQuant/10);
-//            $(".order-button button.shown").data("plan-min-quantity", String(curQuant/10));
-
-            
-//            $(".order-button button.shown").data("plan-quantity",$(this).children(".box-quantity").html());
             $("#30bars").children(".box-quantity").html(curQuant/10);
             
         }
@@ -297,23 +279,15 @@ $(document).ready(function(){
     $(".snipcart-add-plan").on("click", function(){
         $("#subitem").data("item-quantity",$(this).data("plan-quantity"));
         $("#subitem").click(); 
-//        alert("hey");
-//        console.log($(this).data('plan-quantity'));
     });
     
     
 
     
     $(".sub-plan-button").on('click', function(){
-                console.log($(".order-button button.shown").data());
-
         if(!$(this).hasClass("active")){
             $(".sub-plan-button").removeClass("active");
-//            if(!$(this).hasClass("percentoff")){
-//                $("#sub-price-discount").css("display","none");
-//            }else{
-//                $("#sub-price-discount").css("display","inline");
-//            }
+
             $(this).addClass("active");
             
             $(".order-button button").addClass("hidden").removeClass("shown");
@@ -322,11 +296,8 @@ $(document).ready(function(){
             $("#sub-price").html($(this).children(".hidden-sub-price").html());
 
             $(".order-button button.shown").data("plan-quantity",$(this).children(".box-quantity").html());
-            
-            
         }
         
-        console.log($(".order-button button.shown").data());
     });
     
 	$(".order-type .order-type-button").on('click', function(e){
@@ -360,31 +331,17 @@ $(document).ready(function(){
               $(".quantity-select").css("display","none");
               $(".subscription-select").css("display","block");
 
-          } else {
-                  //show sub. button
-                  /*$(".order-button button.subscribe").removeClass("hidden").addClass("shown");
-                  $(".quantity-select .cur-quant").text("1");
-                  $(".quantity-select").addClass("disabled");
-                  $(".price-type .sub-price").removeClass("hidden");
-                  */
-                  //then show single button
-                  $(".order-button button.single-order").removeClass("hidden").addClass("shown");
-                  $(".quantity-select button").prop("disabled", false);
-                  $(".price-type .single-price").removeClass("hidden");
-              }
+          }
         }
 	});
 	
 	
 	Snipcart.subscribe('item.added', function (ev, item, items) {
         
-//        parseInt($(".cart-total-items").text(), 10);
         var cart = Snipcart.api.cart.get();
-        console.log(cart);
 	    setTimeout(function(){
 	    	var cart = Snipcart.api.cart.get();
 	    	if (cart.items.length > 0 || cart.plans.length > 0) {
-		    	//alert("here2");
 		    	$(".cart-wrapper .svg-wrapper").addClass("active");
 		    } else {
 		    	$(".cart-wrapper .svg-wrapper").removeClass("active");
@@ -399,13 +356,11 @@ $(document).ready(function(){
             console.log(planID);
             
             var plan = Snipcart.collections.plans.findWhere(function(p) {return p.get('id') == planID});
-            console.log(plan);
-            if(plan){plan.destroy();}else{alert("hey");}
+            if(plan){plan.destroy();}
         }
         
 	}); 
     
-//    $(".snip-product__remove").on("click")
 
 });
 
