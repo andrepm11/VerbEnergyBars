@@ -6,6 +6,10 @@
 //========================================
 //========================================
 
+
+
+
+
 @verb-primary-1: hsl(36, 100%, 93%);
 @verb-primary-2: hsl(38, 100%, 89%);
 @verb-primary-3: hsl(41, 85%, 79%);
@@ -475,7 +479,7 @@ input[type="button"] {
 	
 	&:hover {
 		background: @text-color;
-		color: @background-color;
+		color: @verb-primary-1;
 	}
 	a {
 		display: inline-block;
@@ -486,9 +490,11 @@ input[type="button"] {
 	}
 	&.solid {
 		background: @accent-color;
+        color:@order-background;
 		&:hover {
 			background: @text-color;
 		}
+        border:none;
 	}
 	&.w-100 {
 		width: 100%;
@@ -611,14 +617,44 @@ button[disabled],
 //========================================
 //========================================
 
+.message-bar-text {
+	display: block;
+	height: 1.5em;
+	z-index: 10000;
+	position: relative;
+	background: none;
+	overflow: hidden;
+	p {
+		text-align: center;
+		display: block;
+		color: @verb-gray-2 !important;
+		padding: 0;
+		margin: 0;
+	}
+	a {
+		text-decoration: underline;
+		font-weight: 400;
+		color: @verb-gray-2 !important;
+	}
+	@media (min-width: 48em) {
+		font-size: 1em;
+	}
+}
+
 .message-bar {
-	.reverse;
 	.w-100;
+	.text-center;
+	background: @text-color;
+	font-weight: 400;
+	padding: .25em .25em .2em;
 	height: 1.5em;
 }
 
 nav {
-	background: @verb-primary-2;
+	.nav-bar {
+		background: @verb-primary-2;
+		padding-bottom: .5em;
+	}
 	position: fixed;
 	top: 0;
 	left: 0;
@@ -1286,6 +1322,8 @@ header {
 			width: 100%;
 		}
 	}
+    padding-bottom: 2em;
+    
 }
 
 .order-items {
@@ -1313,11 +1351,17 @@ header {
 	background: background-color;
 	&.active {
 		background: @text-color;
-		color: @background-color;
+		color: @verb-primary-1;
 	}
 }
 
 .quantity-select {
+    padding-top:1.7em;
+    padding-bottom:1.7em;
+
+    ////////////////
+    display:none;
+    ////////////////
 	margin: 1em 0;
 	text-align: center;
 	> * {
@@ -1338,7 +1382,7 @@ header {
 	margin: 0 auto;
 	border-bottom: @border;
 	.cur-quant:after {
-		content: 'box';
+		content: 'bars';
 		font-size: .4em;
 		font-weight: 700;
 		text-transform: uppercase;
@@ -1347,9 +1391,9 @@ header {
 		left: .5em;
 		display: inline;
 	}
-	.cur-quant.plural:after {
-		content: 'boxes';
-	}
+//	.cur-quant.plural:after {
+//		content: 'bars';
+//	}
 	.cur-quant.three-bar:after {
 		content: '3-pack';
 	}
@@ -1357,8 +1401,113 @@ header {
 		content: '3-packs';
 	}
 }
+.subscription-select {
+	display: none;
+	padding-top: 1em;
+	padding-bottom: 1em;
+	.subscription-bar-quantity {
+		font-size: 2.25em;
+		margin: 0;
+		font-weight: 700;
+		line-height: 1.25;
+		height: 1.5em;
+		.sub-plus {
+			font-size: .6em;
+			font-weight: 700;
+			vertical-align: top;
+			&:first-child {
+				opacity: 0;
+				color: @verb-primary-1;
+			}
+		}
+	}
+	p {
+		margin: 0;
+		font-weight: 700;
+		padding: 0;
+	}
+	.sub-plan-button {
+		vertical-align: top;
+		padding: 0;
+		width: 6.4em;
+		height: 6.4em;
+		&.active {
+			background: @text-color;
+			color: @verb-primary-1;
+			.sub-plus {
+				display: none;
+			}
+			.quantity-buttons {
+				.quantity-increment {
+					display: inline-block;
+				}
+				.bars {
+					display: none;
+				}
+			}
+		}
+		.hidden-sub-price {
+			display: none;
+			#subpercent {
+				display: none;
+				font-size: .5em;
+				background-color: black;
+			}
+		}
+		.subscription-bar-label {
+			height: 1em;
+			line-height: .8;
+		}
+		.quantity-buttons {
+			margin: 0;
+			padding: 0;
+			.quantity-increment {
+				font-size: 1.5em;
+				bottom: 0;
+				width: 50%;
+				display: none;
+				background: @verb-primary-1;
+				color: @text-color;
+				height: 1.15em;
+				line-height: 1.2;
+				&:hover {
+					background: @text-color;
+					color: @verb-primary-1;
+				}
+				&:nth-child(2) {
+					border-right: (@stroke-width / 2) solid @text-color;
+				}
+				&:nth-child(3) {
+					border-left: (@stroke-width / 2) solid @text-color;
+				}
+				&.disabled {
+					opacity: .4;
+					&:hover {
+						background: @verb-primary-1;
+						color: @text-color;
+						cursor: auto;
+					}
+				}
+			}
+		}
+	}
+}
+.subpercent{
+    font-size:.6em;
+    vertical-align: middle;
+    color: @verb-red;
+    opacity: 0.7;
+    padding-left:0.3em;
+}
+
+.active-select{
+    display: block;
+}
 
 .price-type {
+    //////////
+//    display:none;
+    //////////
 	font-size: 2em;
 	font-weight: 700;
 	margin-top: .25em;
@@ -1366,12 +1515,13 @@ header {
 	margin-right: auto;
 }
 
-.og-price.sale {
-	text-decoration: line-through;
+#sub-price-discount {
+//	text-decoration: line-through;
 	font-weight: 400;
-	opacity: .5;
-	font-size: .75em;
+//	opacity: .5;
+	font-size: .6em;
 	vertical-align: top;
+    color:red;
 }
 
 .sale-price {
