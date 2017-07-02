@@ -1122,6 +1122,11 @@ header {
   background: #ffeac7;
   text-align: center;
 }
+@media (min-width: 48em) {
+  header {
+    margin-bottom: -6em;
+  }
+}
 header .container {
   padding: 5em 5% 0;
 }
