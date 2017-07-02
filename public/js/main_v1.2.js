@@ -349,26 +349,24 @@ $(document).ready(function(){
 		    }
 	    }, 100);
 	}); Snipcart.subscribe('item.removed', function (ev, item, items) {
+        console.log(ev);
+        console.log(item);
+        console.log(items);
         
         if(ev["id"] == "Subscription-First-Month"){
 
             var planID = (ev["quantity"] < 3) ? "Monthly-Sub-"+String(ev["quantity"])+"0" : "Monthly-Sub-30plus";
+            console.log("here");
             
             console.log(planID);
-            
-            var plan = Snipcart.collections.plans.findWhere(function(p) {return p.get('id') == planID});
-            if(plan){console.log("here");
-                     plan.destroy( {
-                contentType : 'application/json',
-
-                success : function () {
-                    console.log('success');
-                },
-
-                error : function () {
-                    console.log('error');
-                }
-            } );}
+//            var cart = Snipcart.api.cart.get();
+//            console.log(cart);
+            window.setTimeout(function(){
+                console.log("here");
+                var plan = Snipcart.collections.plans.findWhere(function(p) {return p.get('id') == planID});
+                if(plan){plan.destroy();}
+                
+            },0);
         }
         
 	}); 
