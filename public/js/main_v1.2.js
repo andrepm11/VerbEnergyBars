@@ -207,7 +207,7 @@ $(document).ready(function(){
 		currentSnipcartId = newSnipcartId;
 	}
 
-	
+
 	function addSpacesToPrice() {
 		$("#snipcart-plans-list tr").each(function(i, item){
 			var txt1 = $(item).find("td:nth-of-type(3)").text();

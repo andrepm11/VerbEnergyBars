@@ -71,8 +71,8 @@
   <link rel="apple-touch-icon" sizes="144x144" href="./favicon/apple-icon-144x144.png">
   <link rel="apple-touch-icon" sizes="152x152" href="./favicon/apple-icon-152x152.png">
   <link rel="apple-touch-icon" sizes="180x180" href="./favicon/apple-icon-180x180.png">
-  <link rel="icon" type="image/png" sizes="192x192" href="./favicon/android-icon-192x192.png">
-  <link rel="icon" type="image/png" sizes="32x32" href="./favicon/favicon-32x32.png">
+<!--  <link rel="icon" type="image/png" sizes="192x192" href="./favicon/android-icon-192x192.png">-->
+<!--  <link rel="icon" type="image/png" sizes="32x32" href="./favicon/favicon-32x32.png">-->
   <link rel="icon" type="image/png" sizes="96x96" href="./favicon/favicon-96x96.png">
   <link rel="icon" type="image/png" sizes="16x16" href="./favicon/favicon-16x16.png">
   <link rel="manifest" href="./favicon/manifest.json">
@@ -456,68 +456,83 @@
 	<!-- END VERB VS -->
 	
   <!-- ORDER VERB -->
-  <section id="OrderVerb">
-<div class="container">
-	<h1>ORDER VERB</h1>
-	<div class="order-bar-image desktop-6 mobile-12">
-		<img class="bar-rendering desktop-hidden" src="public/img/verb_bar_rendering_3_sm@2x.png" alt="Verb Energy Original Oats and Cocoa Caffeinated Energy Bar" />
-					<img class="bar-rendering mobile-hidden" src="public/img/verb_bar_rendering_3.png" alt="Verb Energy Original Oats and Cocoa Caffeinated Energy Bar"/>
-	</div><div class="order-items desktop-6 mobile-12">
-		<div class="order-type">
-			<a href="#" class="order-type-button single">
-				<span class="upper">One Time</span><span class="alt-font"></span><span class="price hidden">$19.99</span>
-			</a>
-			<a href="#" class="order-type-button sub-button active">
-				<span class="upper">Every Month</span><span class="alt-font"></span><span class="price hidden">$19</span>
-			</a>
+<section id="OrderVerb">
+	<div class="container">
+		<h1>ORDER VERB</h1>
+		<div class="order-bar-image desktop-6 mobile-12">
+			<img class="bar-rendering desktop-hidden" src="public/img/verb_bar_rendering_3_sm@2x.png" alt="Verb Energy Original Oats and Cocoa Caffeinated Energy Bar" />
+			<img class="bar-rendering mobile-hidden" src="public/img/verb_bar_rendering_3.png" alt="Verb Energy Original Oats and Cocoa Caffeinated Energy Bar" />
 		</div>
-		<div class="price-type">
-			<div class="single-price price-item hidden">
-				<span class="sale-price sale">$2.40 / bar</span>
+		<div class="order-items desktop-6 mobile-12">
+			<div class="order-type">
+				<!--
+			<a href="#" class="single-small order-type-button">
+				<span class="upper">3-Pack</span><span class="alt-font"></span><span class="price hidden">$6.99</span>
+			</a>
+-->
+				<a href="#" class="order-type-button single">
+					<span class="upper">One Time</span><span class="alt-font"></span><span class="price hidden">$19.99</span>
+				</a>
+				<a href="#" class="order-type-button sub-button active">
+					<span class="upper">Every Month</span><span class="alt-font"></span><span class="price hidden">$19</span>
+				</a>
+			</div>
+			<div class="subscription-alert">
+				<p><strong>discounts &amp; free shipping!</strong></p>
+			</div>
+			<div class="price-type">
+		
+				<div class="single-price price-item hidden">
+					<span>$2.40</span>
+					<!--		<span class="og-price sale">$24.70</span>-->
+				</div>
 
+
+
+				<div class="single-sub-price trial-price-container">
+					<p class="sub-price">$1.00</p>
+					<p><span class="first-month">first month</span></p>
+				</div><div class="monthly-price-container">
+					<p class="sub-price"><span id="sub-price">$1.80</span></p>
+				<p><span class="after-that"><u><span id="subpercent">25%</span> off</u> after</span></p>
+				</div>
 			</div>
-			<div class="single-sub-price price-item">
-				<span class="sale-price sale" id="sub-price">$1.80 / bar <span class="subpercent">25% off</span></span>
-			</div>
-		</div>
-    
-        <div class="subscription-select active-select">
-            <button class="sub-plan-button" id="10bars">
+			<div class="subscription-select active-select">
+				<button class="sub-plan-button" id="10bars">
+
 							<p class="subscription-bar-quantity">10</p>
 							<p class="subscription-bar-label">bars</p>
-                <span class="hidden-sub-price">$2.00 /  bar <span class="subpercent">17% off</span></span>
+                <span class="hidden-sub-price">$2.00<span class="subpercent hidden">17% off</span></span>
                 <span class="box-quantity hidden">1</span>
                 <span class="subid hidden">.single-sub</span>
             </button>
-            <button class="sub-plan-button percentoff active" id="20bars">
+				<button class="sub-plan-button percentoff active" id="20bars">
 							<p class="subscription-bar-quantity">20</p>
 							<p class="subscription-bar-label">bars</p>
-                <span class="hidden-sub-price">$1.80 / bar <span class="subpercent">25% off</span></span>
+                <span class="hidden-sub-price">$1.80<span class="subpercent hidden">25% off</span></span>
                 <span class="box-quantity hidden">2</span>
                 <span class="subid hidden">.double-sub</span>
             </button>
-            <button class="sub-plan-button" id="30bars">
+				<button class="sub-plan-button" id="30bars">
 							<p class="subscription-bar-quantity"><span class="sub-plus">+</span>30<span class="sub-plus">+</span></p>
 							<p class="subscription-bar-label quantity-buttons"><span class="bars">bars</span><span class="quantity-increment down disabled">-</span><span class="quantity-increment up">+</span></p>
-                <span class="hidden-sub-price">$1.69 / bar <span class="subpercent">30% off</span></span>
+                <span class="hidden-sub-price">$1.69<span class="subpercent hidden">30% off</span></span>
                 <span class="box-quantity hidden">3</span>
                 <span class="subid hidden">.triple-sub</span>
                 
             </button>
-        </div>
-        <div class="quantity-select">
-            <button class="quantity-increment down left">
+			</div>
+			<div class="quantity-select">
+				<button class="quantity-increment down left">
                 <span class="down">-</span>
             </button>
-            <div class="quantity-selected cur-quant-wrapper">
-                <span class="cur-quant">10</span>
-            </div>
-            <button class="button quantity-increment up right">
+				<div class="quantity-selected cur-quant-wrapper">
+					<span class="cur-quant">10</span>
+				</div>
+				<button class="button quantity-increment up right">
                 <span class="up">+</span>
             </button>
-        </div>
-    
-    
+			</div>
 		<div class="order-button">
 			<button class="button w-100 solid snipcart-add-plan single-sub hidden"
                     id="10subsub"
@@ -984,3 +999,4 @@
       </script>
 </body>
 </html>
+accent-color
