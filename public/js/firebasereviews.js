@@ -25,7 +25,7 @@ $(document).ready(function () {
     $('#review-form').submit(function(event) {
        event.preventDefault();
 //        const mixpanelDistintctID = mixpanel.get_distinct_id();
-        const mixpanelDistinctId = "12345";
+//        const mixpanelDistinctId = "12345";
 
         const email = strip_html_tags(($("#js-email").val() == '') ? 'none@email.com' : $("#js-email").val());
         const title = strip_html_tags(($("#js-title").val() == '') ? 'No Title' : $("#js-title").val());
@@ -41,25 +41,15 @@ $(document).ready(function () {
                 var usersRef = database.ref('/users');
                 var rootpath = database.ref();
                 var transactionpath = database.ref('transaction/');
-            
-                usersRef.once('value', function(snapshot) {
-                  if (snapshot.hasChild("/"+mixpanelDistinctId)) {
-                      //If they've reviewed before
-                  }
-                    else{
-                        //If they haven't reviewed before
-                    }
-                });
 
                 transactionpath.transaction(function(tran){
-
+                    
                     if(tran){
 
                         tran.num_ratings++;
                         tran[rating]++;
                         tran.total_rating+=rating;
                         tran.average_rating=tran.total_rating/tran.num_ratings;
-                        
                     }
                     return tran;
                 }, function(error, committed, val){
@@ -94,19 +84,6 @@ $(document).ready(function () {
             console.log(error)
         });
         
-
-
-//        $.ajax({
-//            type: "POST",
-//            url: "post.php",
-//            data: $(this).serialize(),		
-//            success: function(data){
-//                $('#result').html(data);
-//            }					
-//        });
-        if($("#subscribe").is(":checked")){
-//            alert("Subscriber"); //ADD IN EVENT TRACKING HERE TO GRAB E-MAIL AND ADD TO E-MAIL LIST
-        }
         $("#replacement-content").css("display", "block");
         $("#content-wrapper").css("display", "none");
     });
@@ -116,15 +93,7 @@ $(document).ready(function () {
         
         const verb = $("#theirverb").val();
         const email = $("#theiremail").val();
-        
-//        $.ajax({
-//            type: "POST",
-//            url: "whatsyourverb.php",
-//            data: $(this).serialize(),		
-//            success: function(data){
-//                console.log(data);
-//            }					
-//        });
+
         $("#email-form-container").addClass('submitted');
     });
 
@@ -167,30 +136,19 @@ firebase.initializeApp(config);
 
 
 firebase.auth().signInAnonymously().then(function () {
-    const mixpanelDistinctId = "12345"; //GET REAL MIXPANEL ID HERE
+//    const mixpanelDistinctId = "12345"; //GET REAL MIXPANEL ID HERE
 
     var database = firebase.database();
     var usersRef = database.ref('/users/');
     var transactionRef = database.ref('/transaction/');
 
     database.ref().once("value",function(snapshot){
-//        var starRating = snapshot.val().average_rating.toFixed(2);
-//        $("#avg").append(starRating);
-//        var outOfFive = ((starRating/5)*100).toFixed(0);
-////        console.log(outOfFive);
-//        
-//        var stars='<div class="avg-rating-stars"><div class="avg-rating-stars-top" style="width:'+outOfFive+'%"><span>★★★★★</span></div><div class="avg-rating-stars-bottom"><span>★★★★★</span></div>';
-////        console.log(stars);
-//        $("#avg").prepend(stars);
-
         transactionRef.once("value", function(tranSnap){
             var starRating = tranSnap.val().average_rating.toFixed(2);
             $("#avg").append(starRating);
             var outOfFive = ((starRating/5)*100).toFixed(0);
-    //        console.log(outOfFive);
 
             var stars='<div class="avg-rating-stars"><div class="avg-rating-stars-top" style="width:'+outOfFive+'%"><span>★★★★★</span></div><div class="avg-rating-stars-bottom"><span>★★★★★</span></div>';
-    //        console.log(stars);
             $("#avg").prepend(stars);
             
             var totalRows = tranSnap.val().num_ratings;
@@ -246,13 +204,13 @@ firebase.auth().signInAnonymously().then(function () {
         });
     });
 
-    usersRef.once("value").then(function(snapshot) {   
-        var currentDate = new Date().getTime();
-        if(snapshot.hasChild("/"+mixpanelDistinctId) && (currentDate - (snapshot.child(mixpanelDistinctId).val()*-1)) < 0) {
-            $("#content-wrapper").css("display", "none");
-            $("#recency").css("display", "block");
-        };
-    });
+//    usersRef.once("value").then(function(snapshot) {   
+//        var currentDate = new Date().getTime();
+//        if(snapshot.hasChild("/"+mixpanelDistinctId) && (currentDate - (snapshot.child(mixpanelDistinctId).val()*-1)) < 0) {
+//            $("#content-wrapper").css("display", "none");
+//            $("#recency").css("display", "block");
+//        };
+//    });
 }).catch(function(error){
     console.log(error);
 });
@@ -282,7 +240,6 @@ function append(snapshot){
 
         $("#reviewTable").append(html);
        beginAt = data.val().createdAt;
-       //console.log(data.val());
     });
 }
 
@@ -311,7 +268,7 @@ function updateTable(moveCount){
     }
 
     firebase.auth().signInAnonymously().then(function(){
-        const mixpanelDistinctId = "12345"; //GET REAL MIXPANEL ID HERE
+//        const mixpanelDistinctId = "12345"; //GET REAL MIXPANEL ID HERE
 
         var database = firebase.database();
         var usersRef = database.ref('/users/');
