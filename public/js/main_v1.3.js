@@ -502,7 +502,7 @@ $(document).ready(function(){
                 });
 
         })
-            .catch(error=>{
+            .catch(function(error){
             console.log(error)
         });
         
