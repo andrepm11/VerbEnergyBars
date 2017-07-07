@@ -340,8 +340,9 @@ $(document).ready(function(){
             
         });
         
-        $(".order-type .order-type-button").on('click', function(e){
-            e.preventDefault();
+        $(".order-type .order-type-button").on('click', function(event){
+            event.preventDefault ? event.preventDefault() : (event.returnValue = false);
+
             var curType;
             if (!$(this).hasClass("active")) {
             $(".order-type .order-type-button").removeClass("active");	
@@ -512,7 +513,8 @@ $(document).ready(function(){
     });
     
     $('#email-form').submit(function(event) {
-        event.preventDefault();
+        event.preventDefault ? event.preventDefault() : (event.returnValue = false);
+
         
         const verb = $("#theirverb").val();
         const email = $("#theiremail").val();
