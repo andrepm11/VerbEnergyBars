@@ -6,6 +6,12 @@ $(document).ready(function(){
 	//
     
     $(".accordion-button").on('click', function(){
+	    try{
+		    $(this).fakeFunction("test");
+	    }catch(e){
+		    Raven.captureException(e);
+
+    		}
         if($(this).hasClass("open-section")){
             $(this).removeClass("open-section");
             var answer = $(this).next();
