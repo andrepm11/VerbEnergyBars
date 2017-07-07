@@ -2358,6 +2358,10 @@ footer li {
 #corporateQuant .quantity-select {
   display: block;
 }
+.corporateOrderBtn.active {
+  background: #1d1d20;
+  color: #fff1db;
+}
 .fillsec {
   width: 10em;
   height: 10em;
