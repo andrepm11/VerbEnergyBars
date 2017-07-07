@@ -5,7 +5,6 @@ $(document).ready(function(){
     $(document).keyup(function(e) {
          if (e.keyCode == 27) { // escape key maps to keycode `27`
             $(".modal").css("display","none");
-             removeHash();
         }
     });
     
@@ -552,24 +551,36 @@ $(document).ready(function(){
         if (!container.is(e.target) && container.has(e.target).length === 0) 
         {            $(".modal.shown").css("display","none");
          $(".modal.shown").removeClass("shown");
-         removeHash();
         }
     });
-    $("#corporateonetimeBtn").on("click",function(){
-        $("#corporateQuant").css("display","block");
-    });
-    $("#corporatesubBtn").on("click",function(){
-       $("#corporateTime").css("display","block"); 
-    });
-    $(".corpTiming").on("click",function(){
-        $("#corporateQuant").css("display","block");
-    });
     
+    var sub = 0;
     var freq = 0;
     var suggestedEmployees='';
     var pricePerBar=0;
     var totalPrice=0;
     var bucket=0;
+    
+    $("#corporateonetimeBtn").on("click",function(){
+        $("#corporateTime").css("opacity","0.3");
+        $("#corporateQuant").css("display","block");
+        $(".corporateOrderBtn").removeClass("active");
+        $(this).addClass("active");
+        sub = 0;
+        
+    });
+    $("#corporatesubBtn").on("click",function(){
+                $("#corporateTime").css("opacity","1");
+
+       $("#corporateTime").css("display","block"); 
+        $(".corporateOrderBtn").removeClass("active");
+        $(this).addClass("active");
+        sub = 1;
+    });
+    $(".corpTiming").on("click",function(){
+        $("#corporateQuant").css("display","block");
+    });
+    
     
     $(".corpTiming").on("click", function(){
         $(".corpTiming").removeClass("active");
@@ -584,13 +595,25 @@ $(document).ready(function(){
         
         const size = parseInt($("#barquant").val());
         $("#officeBarQuantity").css("display","block");
+        $('html,body').animate({
+        scrollTop: $("#officeBarQuantity").offset().top},
+        'slow');
         
         fillInOffice(size);
     });
     
+    $(".officeBtn").on("click", function(){
+       if($("#barquant").val()){
+           fillInOffice($("#barquant").val());
+       }
+    });
+    
     function fillInOffice(bars){
-        
-        var totalBars = bars*freq;
+        var localFreq=freq;
+        if(!sub){
+            localFreq=1;
+        }
+        var totalBars = bars*localFreq;
         console.log(totalBars);
         
         if(totalBars==10){
@@ -615,35 +638,54 @@ $(document).ready(function(){
         } else{
             suggestedEmployees='200+';
         }
-        var plan=0;
-        if(totalBars==10){
-            plan=1;
-        }else if(totalBars==20){
-            plan=2;
-        }else if(totalBars<=60){
-            plan=3;
-        }else if(totalBars<200){
-            pricePerBar=1.65;
-            plan=4;
-        }else if(totalBars>=200){
-            pricePerBar=1.50;
-            plan=5;
-        }
-        if(freq==2){
-            plan+=4;
-        }
-        console.log($("#corp-plan-"+String(plan)).data());
-        $("#corp-plan-"+String(plan)).data("plan-quantity",String(bars/10));
-        console.log(bars/10);
-        console.log($("#corp-plan-"+String(plan)).data());
-        $(".corpsub").removeClass("shown").addClass("hidden");
-        $("#corp-plan-"+String(plan)).removeClass("hidden").addClass("shown");
-        
-        
-        if(totalBars>60 && totalBars<200){
-            pricePerBar=1.65;
-        }else if(totalBars>=200){
-            pricePerBar=1.50;
+        if(sub){
+            var plan=0;
+            if(totalBars==10){
+                plan=1;
+            }else if(totalBars==20){
+                plan=2;
+            }else if(totalBars<=60){
+                plan=3;
+            }else if(totalBars<200){
+                pricePerBar=1.65;
+                plan=4;
+            }else if(totalBars>=200){
+                pricePerBar=1.50;
+                plan=5;
+            }
+            if(localFreq==2){
+                plan+=4;
+            }
+            console.log($("#corp-plan-"+String(plan)).data());
+            $("#corp-plan-"+String(plan)).data("plan-quantity",String(bars/10));
+            console.log(bars/10);
+            console.log($("#corp-plan-"+String(plan)).data());
+            $(".corpsub").removeClass("shown").addClass("hidden");
+            $(".corpsingle").removeClass("shown").addClass("hidden");
+            $("#corp-plan-"+String(plan)).removeClass("hidden").addClass("shown");
+
+
+            if(totalBars>60 && totalBars<200){
+                pricePerBar=1.65;
+            }else if(totalBars>=200){
+                pricePerBar=1.50;
+            }
+        }else{
+            $(".corpsub").removeClass("shown").addClass("hidden");
+            $(".corpsingle").removeClass("shown").addClass("hidden");
+            if(totalBars<100){
+                pricePerBar=2.40;
+                $("#single-plan-1").removeClass("hidden").addClass("shown");
+                $("#single-plan-1").data("item-quantity",String(bars/10));
+            } else if(totalBars < 200){
+                pricePerBar=2.00;
+                $("#single-plan-2").removeClass("hidden").addClass("shown");
+                $("#single-plan-2").data("item-quantity",String(bars/10));
+            } else{
+                pricePerBar=1.80;
+                $("#single-plan-3").removeClass("hidden").addClass("shown");
+                $("#single-plan-3").data("item-quantity",String(bars/10));
+            }
         }
         totalPrice=pricePerBar*bars;
         $("#fillEmployees").text(suggestedEmployees);
