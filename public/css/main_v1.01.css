@@ -521,17 +521,24 @@ h4 {
   font-size: 24px;
   text-transform: uppercase;
 }
-p {
+p,
+.canceltext {
   font-size: 16px;
   font-weight: 400;
   line-height: 1.5;
 }
 p a,
+.canceltext a,
 p a:link,
+.canceltext a:link,
 p a:visited,
+.canceltext a:visited,
 p a:active,
+.canceltext a:active,
 p a:hover,
-p a:focus {
+.canceltext a:hover,
+p a:focus,
+.canceltext a:focus {
   font-weight: 400;
   text-decoration: underline;
   color: inherit;
@@ -1094,7 +1101,7 @@ nav.menu-show #nav-menu-icon span:nth-child(4) {
     font-size: 1.5em;
   }
 }
-.try-button-wrapper p {
+.try-button-wrapper .canceltext {
   opacity: .5;
   margin: none;
   padding: none;
@@ -2202,7 +2209,7 @@ textarea {
   /* Black w/ opacity */
 }
 .modal-content {
-  background-color: white;
+  background-color: #fff1db;
   margin: 1em auto auto;
   padding: 1em 2em;
   width: 90%;
@@ -2337,4 +2344,18 @@ footer li {
   .page-alert {
     font-size: 12px;
   }
+}
+.corpTiming,
+.corpSize {
+  width: 15em;
+  height: 15em;
+}
+.corpTiming.active,
+.corpSize.active {
+  background: #1d1d20;
+  color: #fff1db;
+}
+.fillsec {
+  width: 10em;
+  height: 10em;
 }
