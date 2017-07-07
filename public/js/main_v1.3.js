@@ -6,12 +6,6 @@ $(document).ready(function(){
 	//
     
     $(".accordion-button").on('click', function(){
-	    try{
-		    $(this).fakeFunction("test");
-	    }catch(e){
-		    Raven.captureException(e);
-
-    		}
         if($(this).hasClass("open-section")){
             $(this).removeClass("open-section");
             var answer = $(this).next();
@@ -300,6 +294,7 @@ $(document).ready(function(){
                 "image":"public/img/bar_order_mockup.png",
                 "stackable": false
             }).catch(function(error){
+		    Raven.captureException(e);
                 
                  var planID = (error['item']['attributes']['quantity'] < 3) ? "Monthly-Sub-"+String(error['item']['attributes']['quantity'])+"0" : "Monthly-Sub-30plus";
                                 
@@ -509,7 +504,7 @@ $(document).ready(function(){
 
         })
             .catch(function(error){
-            console.log(error)
+		Raven.captureException(e);
         });
         
         $("#replacement-content").css("display", "block");
@@ -641,7 +636,7 @@ firebase.auth().signInAnonymously().then(function () {
     });
 
 }).catch(function(error){
-    console.log(error);
+    Raven.captureException(e);
 });
 
 function append(snapshot){
@@ -727,7 +722,7 @@ function updateTable(moveCount){
             }
         });
     }).catch(function(error){
-        console.log(error);
+        Raven.captureException(e);
     }); 
 }
 
