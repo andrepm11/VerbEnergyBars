@@ -572,6 +572,9 @@ ul {
   font-size: .75em;
   color: #858b8e;
 }
+.large {
+  font-size: 1.5em;
+}
 .button,
 button,
 input[type="submit"],
@@ -2039,6 +2042,10 @@ header .header-images .shadow {
 .input-row p {
   margin: 0 0 .5em;
 }
+.button-group {
+  padding-top: 1em;
+  padding-bottom: 1em;
+}
 textarea,
 input[type="email"],
 input[type="text"],
@@ -2345,15 +2352,11 @@ footer li {
     font-size: 12px;
   }
 }
-.corpTiming,
-.corpSize {
-  width: 15em;
-  height: 15em;
+#corporateTime {
+  display: none;
 }
-.corpTiming.active,
-.corpSize.active {
-  background: #1d1d20;
-  color: #fff1db;
+#corporateQuant .quantity-select {
+  display: block;
 }
 .fillsec {
   width: 10em;

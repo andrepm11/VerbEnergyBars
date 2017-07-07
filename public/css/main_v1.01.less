@@ -403,6 +403,10 @@ ul {
 	color: @verb-gray-2;
 }
 
+.large {
+	font-size: 1.5em;
+}
+
 //========================================
 //========================================
 //======================================== Buttons
@@ -1973,6 +1977,11 @@ header {
 	}
 }
 
+.button-group {
+	padding-top: 1em;
+	padding-bottom: 1em;
+}
+
 textarea,
 input[type="email"],
 input[type="text"],
@@ -2312,17 +2321,24 @@ footer {
 	}
 }
 
-.corpTiming, .corpSize{
-    width:15em;
-    height:15em;
-    &.active {
-		background: @text-color;
-		color: @verb-primary-1;
+//========================================
+//========================================
+//======================================== Office Ordering
+//========================================
+//========================================
+
+#corporateTime {
+	display: none;
+}
+
+#corporateQuant {
+	.quantity-select {
+		display: block;
 	}
 }
+
 
 .fillsec{
     width:10em;
     height:10em;
-
 }
