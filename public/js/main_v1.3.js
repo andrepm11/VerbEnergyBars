@@ -1,7 +1,17 @@
 /*jshint browser: true */
 
 $(document).ready(function(){
-	//
+    
+    $(document).keyup(function(e) {
+         if (e.keyCode == 27) { // escape key maps to keycode `27`
+            $(".modal").css("display","none");
+             removeHash();
+        }
+    });
+    
+    
+    
+    //
 	// FAQ
 	//
     
@@ -276,7 +286,7 @@ $(document).ready(function(){
         });
         
         
-        $(".snipcart-add-plan").on("click", function(){
+        $(".snipcart-add-plan.withtrial").on("click", function(){
             $("#subitem").data("item-quantity",$(this).data("plan-quantity"));
 //            $("#subitem").click(); 
             
@@ -290,7 +300,7 @@ $(document).ready(function(){
                 "price": "10.00",
                 "quantity": $(this).data("plan-quantity"),
                 "maxQuantity":6,
-                "shippable":"false",
+                "shippable":"true",
                 "image":"public/img/bar_order_mockup.png",
                 "stackable": false
             }).catch(function(error){
@@ -301,11 +311,14 @@ $(document).ready(function(){
                 
                     var plan = Snipcart.collections.plans.findWhere({'id': planID,'quantity':error['item']['attributes']['quantity']})
                     
-                    if (plan){plan.destroy();}
+                    if (plan){
+			    plan.destroy();
+			    Snipcart.api.modal.show();
+			    Snipcart.api.modal.close();
+			    Snipcart.api.modal.show();
+		    }
 
-                    Snipcart.api.modal.show();
-                    Snipcart.api.modal.close();
-                    Snipcart.api.modal.show();
+                    
                 }, 3000);
                 
 
@@ -392,10 +405,13 @@ $(document).ready(function(){
                 setTimeout(function(){
                  var plan = Snipcart.collections.plans.findWhere({'id': planID,'quantity':ev["quantity"]})
                     
-                    if (plan){plan.destroy();}   
-                    Snipcart.api.modal.show();
-                    Snipcart.api.modal.close();
-                    Snipcart.api.modal.show();
+                    if (plan){
+			    plan.destroy();
+			    Snipcart.api.modal.show();
+			    Snipcart.api.modal.close();
+			    Snipcart.api.modal.show();
+		    }   
+                    
                 }, 500);
             }
             
@@ -407,10 +423,13 @@ $(document).ready(function(){
 
                 var item = Snipcart.collections.items.findWhere({'image': "public/img/bar_order_mockup.png",'quantity':ev["quantity"]});
 
-                if (item){item.destroy();}   
-                Snipcart.api.modal.show();
-                Snipcart.api.modal.close();
-                Snipcart.api.modal.show();
+                if (item){
+			item.destroy();
+			Snipcart.api.modal.show();
+			Snipcart.api.modal.close();
+			Snipcart.api.modal.show();
+		}   
+                
             }, 500);
 
                 
@@ -493,7 +512,7 @@ $(document).ready(function(){
                 });
 
         })
-            .catch(error=>{
+            .catch(function(error){
             console.log(error)
         });
         
@@ -516,21 +535,122 @@ $(document).ready(function(){
         
         
     });
+    
+    $("#reviewBtn").on("click",function(){
+       $("#reviewModal").css("display","block"); 
+       $("#reviewModal").addClass("shown");
+    });
+    $(".close").on("click",function(){
+        $(".modal").css("display","none");
+    })
 
-    var modal = document.getElementById("reviewModal");
-    var btn = document.getElementById("reviewBtn");
-    var span = document.getElementsByClassName("close")[0];
+    $(document).mouseup(function(e) {
+        var container = $(".modal.shown .modal-content");
+        
 
-    btn.onclick = function() {
-        modal.style.display = "block";
-    }
-    span.onclick = function() {
-        modal.style.display = "none";
-    }
-    window.onclick = function(event) {
-        if (event.target == modal) {
-            modal.style.display = "none";
+        // if the target of the click isn't the container nor a descendant of the container
+        if (!container.is(e.target) && container.has(e.target).length === 0) 
+        {            $(".modal.shown").css("display","none");
+         $(".modal.shown").removeClass("shown");
+         removeHash();
         }
+    });
+    $("#corporateonetimeBtn").on("click",function(){
+        $("#corporateQuant").css("display","block");
+    });
+    $("#corporatesubBtn").on("click",function(){
+       $("#corporateTime").css("display","block"); 
+    });
+    $(".corpTiming").on("click",function(){
+        $("#corporateQuant").css("display","block");
+    });
+    
+    var freq = 0;
+    var suggestedEmployees='';
+    var pricePerBar=0;
+    var totalPrice=0;
+    var bucket=0;
+    
+    $(".corpTiming").on("click", function(){
+        $(".corpTiming").removeClass("active");
+       freq=$(this).data("freq"); 
+        $(this).addClass("active");
+    });
+    
+    
+    
+    $("#officeform").submit(function(event){
+        event.preventDefault();
+        
+        const size = parseInt($("#barquant").val());
+        $("#officeBarQuantity").css("display","block");
+        
+        fillInOffice(size);
+    });
+    
+    function fillInOffice(bars){
+        
+        var totalBars = bars*freq;
+        console.log(totalBars);
+        
+        if(totalBars==10){
+            suggestedEmployees='1-10';
+            pricePerBar=2.00;
+        } else if(totalBars==20){
+            suggestedEmployees='1-10';
+            pricePerBar=1.80;
+        } else if(totalBars <= 60){
+            suggestedEmployees='1-10';
+            pricePerBar=1.69;
+        } else if(totalBars < 200){
+            suggestedEmployees='10-25';
+        } else if(totalBars < 300){
+            suggestedEmployees='25-50';
+        } else if(totalBars < 400){
+            suggestedEmployees='50-75';
+        } else if(totalBars < 500){
+            suggestedEmployees='75-125';
+        } else if(totalBars < 600){
+            suggestedEmployees='125-200';
+        } else{
+            suggestedEmployees='200+';
+        }
+        var plan=0;
+        if(totalBars==10){
+            plan=1;
+        }else if(totalBars==20){
+            plan=2;
+        }else if(totalBars<=60){
+            plan=3;
+        }else if(totalBars<200){
+            pricePerBar=1.65;
+            plan=4;
+        }else if(totalBars>=200){
+            pricePerBar=1.50;
+            plan=5;
+        }
+        if(freq==2){
+            plan+=4;
+        }
+        console.log($("#corp-plan-"+String(plan)).data());
+        $("#corp-plan-"+String(plan)).data("plan-quantity",String(bars/10));
+        console.log(bars/10);
+        console.log($("#corp-plan-"+String(plan)).data());
+        $(".corpsub").removeClass("shown").addClass("hidden");
+        $("#corp-plan-"+String(plan)).removeClass("hidden").addClass("shown");
+        
+        
+        if(totalBars>60 && totalBars<200){
+            pricePerBar=1.65;
+        }else if(totalBars>=200){
+            pricePerBar=1.50;
+        }
+        totalPrice=pricePerBar*bars;
+        $("#fillEmployees").text(suggestedEmployees);
+        $("#fillPPB").text(pricePerBar);
+        $("#fillTotalPrice").text(totalPrice.toFixed(2));
+        
+        
     }
 
 
@@ -638,19 +758,22 @@ function append(snapshot){
         i+=1;
 
         var html='<div class="review">';
-        html+='<h3 class="review-title">' + data.val().title + '</h3>';
-        html+='<span class="reviewer-name">' + data.val().name + '</span>';
-        html+='<span class="review-date">' + data.val().date.substring(4,15)+'</span>';
-        html+='<span class="review-stars">'
-        
-        for(j=0;j<data.val().rating;j++){
-            html+='★';
-        }
-            
-        html+='</span>';
-        html+='<p class="review-body">'+data.val().comments+'</p>';
+                    html+='<h3 class="review-title">' + data.val().title + '</h3>';
+                    html+='<span class="review-stars">'
+                    for(j=0;j<data.val().rating;j++){
+                        html+='★';
+                    }
+                    html+='</span>';
+                                    html+='<span class="review-empty-stars">'
+                    for(k=0;k<(5 - data.val().rating);k++){
+                        html+='★';
+                    }
+                    html+='</span>';
+                    html+='<span class="reviewer-name">' + data.val().name + '</span>';
+                    html+='<span class="review-date">' + data.val().date.substring(4,15)+'</span>';
+                    html+='<p class="review-body">'+data.val().comments+'</p>';
 
-        html+='</div>';
+                    html+='</div>';
 
         $("#reviewTable").append(html);
        beginAt = data.val().createdAt;

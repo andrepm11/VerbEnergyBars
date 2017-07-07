@@ -162,7 +162,17 @@
   };
     </script>
     <script>(function(){var w=window;var ic=w.Intercom;if(typeof ic==="function"){ic('reattach_activator');ic('update',intercomSettings);}else{var d=document;var i=function(){i.c(arguments)};i.q=[];i.c=function(args){i.q.push(args)};w.Intercom=i;function l(){var s=d.createElement('script');s.type='text/javascript';s.async=true;s.src='https://widget.intercom.io/widget/l1ihfd5f';var x=d.getElementsByTagName('script')[0];x.parentNode.insertBefore(s,x);}if(w.attachEvent){w.attachEvent('onload',l);}else{w.addEventListener('load',l,false);}}})()</script>
-
+<!-- Hotjar Tracking Code for https://www.verbenergybar.com/ -->
+<script>
+    (function(h,o,t,j,a,r){
+        h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
+        h._hjSettings={hjid:538272,hjsv:5};
+        a=o.getElementsByTagName('head')[0];
+        r=o.createElement('script');r.async=1;
+        r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
+        a.appendChild(r);
+    })(window,document,'//static.hotjar.com/c/hotjar-','.js?sv=');
+</script>
 </head>
 
 <body>
@@ -227,6 +237,11 @@
 				<a href="#FAQ">FAQ</a>
 			</li>
 <!--
+            <li>
+                <a href="/VerbForOffices.html">Verb for offices</a>
+            </li>
+-->
+<!--
 			<li class="social">
 				<a href="https://instagram.com/verbenergy"><i class="ic ic-instagram">IG</i></a>
 				<a href="https://facebook.com/verbenergy"><i class="ic ic-facebook">FB</i></a>
@@ -285,7 +300,9 @@
 			</div>
 			<div class="try-button-wrapper fade-in">
 				<a class="button try-button" href="#OrderVerb">Start for $1 / Bar</a>
-				<p>cancel at any time</p>
+<!--                <span>cancel at any time</span>-->
+                <div class="canceltext">cancel at any time</div>
+<!--				<p>cancel at any time</p>-->
 			</div>
 		</div>
   </header>
@@ -537,7 +554,7 @@
             </button>
 			</div>
 		<div class="order-button">
-			<button class="button w-100 solid snipcart-add-plan single-sub hidden"
+			<button class="button w-100 solid snipcart-add-plan withtrial single-sub hidden"
                     id="10subsub"
                     data-plan-id="Monthly-Sub-10"
                     data-plan-trial-period="30"
@@ -554,7 +571,7 @@
                 Subscribe Now
             </button>
             
-            <button class="button w-100 solid snipcart-add-plan double-sub shown"
+            <button class="button w-100 solid snipcart-add-plan withtrial double-sub shown"
                     id="20subsub"
                     data-plan-id="Monthly-Sub-20"
                     data-plan-trial-period="30"
@@ -571,7 +588,7 @@
 									Subscribe Now
 							</button>
 			
-            <button class="button w-100 solid snipcart-add-plan triple-sub hidden"
+            <button class="button w-100 solid snipcart-add-plan withtrial triple-sub hidden"
                     data-plan-trial-period="30"
                     data-plan-id="Monthly-Sub-30plus" 
                     data-plan-quantity="3" 
@@ -590,7 +607,7 @@
                     data-item-id="Subscription-First-Month" 
                     data-item-name="Subscription First Month"
                     data-item-description="$10 per box of 10 bars" 
-                    data-item-shippable="false" 
+                    data-item-shippable="true" 
                     data-item-price="10.00" 
                     data-item-quantity="2" 
                     data-item-stackable="false" 
@@ -648,7 +665,7 @@
 				</div>
 			</div>
 		</div>
-
+        
 		<div id="reviewModal" class="modal">
 			<div class="modal-content">
 				<span class="close"></span>
@@ -891,6 +908,12 @@
 
 	</section>
 -->
+    <div id="Offices" class="modal">
+        <div class="modal-content">
+            <span class="close"></span>
+            <h1>Hey</h1>
+        </div>
+    </div>
 	<!-- FOOTER -->
 	<footer>
     <div class="container">
