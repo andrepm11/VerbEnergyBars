@@ -2361,9 +2361,12 @@ footer {
     margin-bottom:1em;
 }
 
+
 .officeOrdering{
-    padding:1em;
     width:100%;
+    div{
+        padding:0.5em;
+    }
     
     input[type=number]{
         background:none;
@@ -2380,18 +2383,39 @@ footer {
         text-transform: uppercase;
         font-size: 1em;
         line-height: 2 !important;
+        
     }
     td{
 //        width:1%;
     }
     
     .officeOrderBtns{
-        width:50%;
+        width:100%;
         button,input{
-            width:100%;
+            width:40%;
             font-size: 1em;
+            
         }
     }
+}
+.officeBigDiv{
+    width:100%;
+    margin:0 auto;
+    font-size:.8em;
+    .officeOrdering{
+        input{
+            font-size:0.9em;
+        }
+    }
+    @media (min-width: 80em) {
+		width:60%;
+        font-size:1em;
+        .officeOrdering{
+            input{
+                font-size:1em;
+            }
+        }
+	}
     
     
 }
