@@ -482,8 +482,8 @@ $(document).ready(function(){
                     if(tran){
 
                         tran.num_ratings++;
-                        tran[rating]++;
-                        tran.total_rating+=rating;
+                        tran[ratingV]++;
+                        tran.total_rating+=ratingV;
                         tran.average_rating=tran.total_rating/tran.num_ratings;
                     }
                     return tran;
