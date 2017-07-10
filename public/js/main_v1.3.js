@@ -303,6 +303,7 @@ $(document).ready(function(){
                 "image":"public/img/bar_order_mockup.png",
                 "stackable": false
             }).catch(function(error){
+		    Raven.captureException(e);
                 
                  var planID = (error['item']['attributes']['quantity'] < 3) ? "Monthly-Sub-"+String(error['item']['attributes']['quantity'])+"0" : "Monthly-Sub-30plus";
                                 
@@ -348,8 +349,9 @@ $(document).ready(function(){
             
         });
         
-        $(".order-type .order-type-button").on('click', function(e){
-            e.preventDefault();
+        $(".order-type .order-type-button").on('click', function(event){
+            event.preventDefault ? event.preventDefault() : (event.returnValue = false);
+
             var curType;
             if (!$(this).hasClass("active")) {
             $(".order-type .order-type-button").removeClass("active");	
@@ -462,11 +464,18 @@ $(document).ready(function(){
     });
     $('#review-form').submit(function(event) {
        event.preventDefault();
-        const email = strip_html_tags(($("#js-email").val() == '') ? 'none@email.com' : $("#js-email").val());
-        const title = strip_html_tags(($("#js-title").val() == '') ? 'No Title' : $("#js-title").val());
-        const name = strip_html_tags(($("#js-name").val() == '') ? 'Anonymous' : $("#js-name").val());
-        const comments = strip_html_tags($("#comments").val());
-        const rating = parseInt($("input[name='rating']:checked").val());
+	    
+	var emailV = "email";
+        var titleV = "title";
+        var nameV = "name";
+        var commentsV = "comments";
+        var ratingV = 5;
+	    
+        emailV = strip_html_tags(($("#js-email").val() == '') ? 'none@email.com' : $("#js-email").val());
+        titleV = strip_html_tags(($("#js-title").val() == '') ? 'No Title' : $("#js-title").val());
+        nameV = strip_html_tags(($("#js-name").val() == '') ? 'Anonymous' : $("#js-name").val());
+        commentsV = strip_html_tags($("#comments").val());
+        ratingV = parseInt($("input[name='rating']:checked").val());
         
 
 
@@ -482,24 +491,24 @@ $(document).ready(function(){
                     if(tran){
 
                         tran.num_ratings++;
-                        tran[rating]++;
-                        tran.total_rating+=rating;
+                        tran[ratingV]++;
+                        tran.total_rating+=ratingV;
                         tran.average_rating=tran.total_rating/tran.num_ratings;
                     }
                     return tran;
                 }, function(error, committed, val){
                     if(committed){
-                        const date = Date();
-                        const createdAt = (new Date().getTime())*-1;
+                        var dateV = Date();
+                        var createdAtV = (new Date().getTime())*-1;
                         
                         database.ref("reviews").push({
-                            title,
-                            name,
-                            email,
-                            rating,
-                            comments,
-                            createdAt,
-                            date,
+                            title:titleV,
+                            name:nameV,
+                            email:emailV,
+                            rating:ratingV,
+                            comments:commentsV,
+                            createdAt:createdAtV,
+                            date:dateV,
                         }, function(error){
                             if(!error){
                                 setTimeout(function () { window.location.reload(); }, 10);
@@ -512,7 +521,7 @@ $(document).ready(function(){
 
         })
             .catch(function(error){
-            console.log(error)
+		Raven.captureException(e);
         });
         
         $("#replacement-content").css("display", "block");
@@ -520,7 +529,8 @@ $(document).ready(function(){
     });
     
     $('#email-form').submit(function(event) {
-        event.preventDefault();
+        event.preventDefault ? event.preventDefault() : (event.returnValue = false);
+
         
         const verb = $("#theirverb").val();
         const email = $("#theiremail").val();
@@ -788,7 +798,7 @@ firebase.auth().signInAnonymously().then(function () {
     });
 
 }).catch(function(error){
-    console.log(error);
+    Raven.captureException(e);
 });
 
 function append(snapshot){
@@ -877,7 +887,7 @@ function updateTable(moveCount){
             }
         });
     }).catch(function(error){
-        console.log(error);
+        Raven.captureException(e);
     }); 
 }
 
