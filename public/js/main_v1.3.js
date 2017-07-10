@@ -455,11 +455,18 @@ $(document).ready(function(){
     });
     $('#review-form').submit(function(event) {
        event.preventDefault();
-        const email = strip_html_tags(($("#js-email").val() == '') ? 'none@email.com' : $("#js-email").val());
-        const title = strip_html_tags(($("#js-title").val() == '') ? 'No Title' : $("#js-title").val());
-        const name = strip_html_tags(($("#js-name").val() == '') ? 'Anonymous' : $("#js-name").val());
-        const comments = strip_html_tags($("#comments").val());
-        const rating = parseInt($("input[name='rating']:checked").val());
+	    
+	const emailV = "email";
+        const titleV = "title;
+        const nameV = "name";
+        const commentsV = "comments";
+        const ratingV = 5;
+	    
+        emailV = strip_html_tags(($("#js-email").val() == '') ? 'none@email.com' : $("#js-email").val());
+        titleV = strip_html_tags(($("#js-title").val() == '') ? 'No Title' : $("#js-title").val());
+        nameV = strip_html_tags(($("#js-name").val() == '') ? 'Anonymous' : $("#js-name").val());
+        commentsV = strip_html_tags($("#comments").val());
+        ratingV = parseInt($("input[name='rating']:checked").val());
         
 
 
@@ -482,17 +489,17 @@ $(document).ready(function(){
                     return tran;
                 }, function(error, committed, val){
                     if(committed){
-                        const date = Date();
-                        const createdAt = (new Date().getTime())*-1;
+                        const dateV = Date();
+                        const createdAtV = (new Date().getTime())*-1;
                         
                         database.ref("reviews").push({
-                            title,
-                            name,
-                            email,
-                            rating,
-                            comments,
-                            createdAt,
-                            date,
+                            title:titleV,
+                            name:nameV,
+                            email:emailV,
+                            rating:ratingV,
+                            comments:commentsV,
+                            createdAt:createdAtV,
+                            date:dateV,
                         }, function(error){
                             if(!error){
                                 setTimeout(function () { window.location.reload(); }, 10);
