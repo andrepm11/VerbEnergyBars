@@ -457,7 +457,7 @@ $(document).ready(function(){
        event.preventDefault();
 	    
 	const emailV = "email";
-        const titleV = "title;
+        const titleV = "title";
         const nameV = "name";
         const commentsV = "comments";
         const ratingV = 5;
