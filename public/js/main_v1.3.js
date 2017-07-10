@@ -456,11 +456,11 @@ $(document).ready(function(){
     $('#review-form').submit(function(event) {
        event.preventDefault();
 	    
-	const emailV = "email";
-        const titleV = "title";
-        const nameV = "name";
-        const commentsV = "comments";
-        const ratingV = 5;
+	var emailV = "email";
+        var titleV = "title";
+        var nameV = "name";
+        var commentsV = "comments";
+        var ratingV = 5;
 	    
         emailV = strip_html_tags(($("#js-email").val() == '') ? 'none@email.com' : $("#js-email").val());
         titleV = strip_html_tags(($("#js-title").val() == '') ? 'No Title' : $("#js-title").val());
@@ -489,8 +489,8 @@ $(document).ready(function(){
                     return tran;
                 }, function(error, committed, val){
                     if(committed){
-                        const dateV = Date();
-                        const createdAtV = (new Date().getTime())*-1;
+                        var dateV = Date();
+                        var createdAtV = (new Date().getTime())*-1;
                         
                         database.ref("reviews").push({
                             title:titleV,
