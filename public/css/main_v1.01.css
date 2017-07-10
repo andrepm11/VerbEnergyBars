@@ -521,17 +521,24 @@ h4 {
   font-size: 24px;
   text-transform: uppercase;
 }
-p {
+p,
+.canceltext {
   font-size: 16px;
   font-weight: 400;
   line-height: 1.5;
 }
 p a,
+.canceltext a,
 p a:link,
+.canceltext a:link,
 p a:visited,
+.canceltext a:visited,
 p a:active,
+.canceltext a:active,
 p a:hover,
-p a:focus {
+.canceltext a:hover,
+p a:focus,
+.canceltext a:focus {
   font-weight: 400;
   text-decoration: underline;
   color: inherit;
@@ -564,6 +571,9 @@ ul {
 .tiny {
   font-size: .75em;
   color: #858b8e;
+}
+.large {
+  font-size: 1.5em;
 }
 .button,
 button,
@@ -1094,7 +1104,7 @@ nav.menu-show #nav-menu-icon span:nth-child(4) {
     font-size: 1.5em;
   }
 }
-.try-button-wrapper p {
+.try-button-wrapper .canceltext {
   opacity: .5;
   margin: none;
   padding: none;
@@ -2032,6 +2042,10 @@ header .header-images .shadow {
 .input-row p {
   margin: 0 0 .5em;
 }
+.button-group {
+  padding-top: 1em;
+  padding-bottom: 1em;
+}
 textarea,
 input[type="email"],
 input[type="text"],
@@ -2202,7 +2216,7 @@ textarea {
   /* Black w/ opacity */
 }
 .modal-content {
-  background-color: white;
+  background-color: #fff1db;
   margin: 1em auto auto;
   padding: 1em 2em;
   width: 90%;
@@ -2337,4 +2351,54 @@ footer li {
   .page-alert {
     font-size: 12px;
   }
+}
+#corporateQuant .quantity-select {
+  display: block;
+}
+.officeOrdering .active {
+  background: #1d1d20;
+  color: #ffeac7;
+}
+.officeOrdering .disabled {
+  background: #ffeac7;
+  color: #1d1d20;
+  opacity: 0.3;
+}
+.officeOrdering .disabled:hover {
+  background: #ffeac7;
+  color: #1d1d20;
+  opacity: 0.3;
+  cursor: default;
+}
+#officeSuggestions {
+  margin: 0 auto;
+  margin-bottom: 1em;
+}
+#officeSuggestions th {
+  padding: 1em;
+}
+.officeOrdering {
+  padding: 1em;
+  width: 100%;
+}
+.officeOrdering input[type=number] {
+  background: none;
+  border: 4px solid #1d1d20;
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  font-family: inherit;
+  font-weight: 700;
+  text-align: center;
+  text-transform: uppercase;
+  font-size: 1em;
+  line-height: 2 !important;
+}
+.officeOrdering .officeOrderBtns {
+  width: 50%;
+}
+.officeOrdering .officeOrderBtns button,
+.officeOrdering .officeOrderBtns input {
+  width: 100%;
+  font-size: 1em;
 }
