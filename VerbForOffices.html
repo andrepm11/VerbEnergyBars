@@ -254,61 +254,111 @@
 </nav>
     <header id="top" class="w-100">
 <!--		<div class="container">-->
+        <section id="topsection">
+            <h1 >Verb for Offices</h1>
 
-        <h1>Verb for Offices</h1>
-        
-        <div style="width:100%;">
-            <div>
-                 <img style="float:left; margin-left:10%;margin-right:10%;"src="public/img/cocoa.png">
-                <p style="margin:10%;">Verb Energy makes healthy, convenient, and delicious caffeinated energy bars with 100mg of caffeine from organic green tea. Green tea caffeine is better for energy and better for focus than anything else on the market. The bars are made with eight simple gluten-free and vegan ingredients. Offices around the country ranging from five to thousands of employees are subscribing to Verb. They’re incredibly affordable: less expensive than a coffee + snack and less expensive than an energy drink or energy shot. Monthly recurring orders are the cheapest and most convenient way to get Verb Bars and can be modified or cancelled at any time.</p>
+            <div style="width:100%;">
+                <div>
+                     <img style="float:left;margin-left:10%;margin-right:10%; width:30%;"src="public/img/verbofficecrop.png">
+                    <p style="text-align:left;">Verb Energy makes healthy, convenient, and delicious caffeinated energy bars with 100mg of caffeine from organic green tea. Green tea caffeine is better for energy and better for focus than anything else on the market. The bars are made with eight simple gluten-free and vegan ingredients. Offices around the country ranging from five to thousands of employees are subscribing to Verb. They’re incredibly affordable: less expensive than a coffee + snack and less expensive than an energy drink or energy shot. Monthly recurring orders are the cheapest and most convenient way to get Verb Bars and can be modified or cancelled at any time.</p>
+                    
+                    <div>
+                        <p>"We're all addicted to these. I've been eating two every day."</p>
+                        <p>- Justine, Highland Capital Partners</p>
+                    </div>
+                </div>
             </div>
-            <a style="padding-bottom:1em;">
-                <a href="#corporateQuant"><button id="corporateonetimeBtn" class="corporateOrderBtn officeBtn">One-Time Order</button></a>
-                <a href="#corporateTime"><button id="corporatesubBtn" class="corporateOrderBtn officeBtn">Start Your Subscription</button></a>
-            </a>
-        </div>
-        
-        <section id="corporateTime" style="background-color:hsl(36, 100%, 93%); width:100%; display:none">
-            <h3>How often do you want to get bars?</h3>
-            <a href="#corporateQuant">
-                <button class="corpTiming officeBtn" data-freq=2>Every 2 weeks</button>
-                <button class="corpTiming officeBtn" data-freq=1>Every month</button>
-            </a>
-        
         </section>
-        <section id="corporateQuant" style="background-color:hsl(38, 100%, 89%); width:100%;display:none;">
-            <h3>How many bars do you want?</h3>
-            <img src="public/img/leaf.png">
-            <div>
-                <form id="officeform">
-                    <input type="number" id="barquant" step=10 min=10>
-                    <button type="submit">Next</button>
-                </form>
+        <section>
+            <div style="text-align:center;">
+                <h1>Order Now</h1>
+                <div style="width:60%; margin:0 auto; text-align:left;">
+                    <table class="officeOrdering">
+                        <tr>
+                            <td>Order Type</td>
+                            <td class="officeOrderBtns">
+                                <button id="corporateonetimeBtn" class="corporateOrderBtn officeBtn">One-Time Order</button>
+                            </td>
+                            <td class="officeOrderBtns">
+                                <button id="corporatesubBtn" class="corporateOrderBtn officeBtn">Start Your Subscription</button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Order Frequency</td>
+                            <td class="officeOrderBtns">
+                                <button class="corpTiming officeBtn" data-freq=2>Every 2 weeks</button>
+                            </td>
+                            <td class="officeOrderBtns">
+                                <button class="corpTiming officeBtn" data-freq=1>Every month</button>
+                            </td>
+                        
+                        </tr>
+                        <tr>
+                            <td>Order Quantity</td> 
+                            <form id="officeform">
+                                <td class="officeOrderBtns">
+                                    <input type="number" id="barquant" step=10 min=10 required placeholder="Number of Bars">
+                                </td>
+                                <td class="officeOrderBtns">
+                                    <button type="submit">Next</button>
+                                </td>
+                            </form>
+                        
+                        </tr>
+                    </table>
+<!--
+                    <div class="officeOrdering">
+                        <span>Order Type</span>
+                        <button id="corporateonetimeBtn" class="corporateOrderBtn officeBtn">One-Time Order</button>
+                        <button id="corporatesubBtn" class="corporateOrderBtn officeBtn">Start Your Subscription</button>
+                    </div>
+-->
+<!--
+                    <div class="officeOrdering">
+                        <span>Order Frequency</span>
+                         <button class="corpTiming officeBtn" data-freq=2>Every 2 weeks</button>
+                        <button class="corpTiming officeBtn" data-freq=1>Every month</button>
+
+                    </div>
+-->
+
+
+
+<!--
+                    <div class="officeOrdering">
+                        <form id="officeform">
+                            <span>Order Quantity</span>
+                            <input type="number" id="barquant" step=10 min=10 required placeholder="Number of Bars">
+                            <button type="submit">Next</button>
+                        </form>
+                    </div>
+-->
+                </div>
             </div>
-        
         </section>
         
-        <section id="officeBarQuantity" style="background-color:hsl(36, 100%, 93%); width:100%; display:none">
-            <h3>Order</h3>
-<!--            <img src="public/img/bar_order_mockup.png">-->
-            <div>
-                    <button class="fillsec">
-                        Employees
-                        <p id="fillEmployees"></p>
-                    </button>
+        
+        <section id="officeBarQuantity" style="background-color:hsl(36, 100%, 93%); width:100%; display:none;">
+            <h3>Your Order</h3>
+            
+            <div style="margin:0 auto; width:50%;">
+                <table id="officeSuggestions">
+                    <tr>
+                        <th>Suggested Employees</th>
+                        <th>Price Per Bar</th>
+                        <th>Total Price</th>
+                    </tr>
+                    <tr>
+                        <td id="fillEmployees"></td>
+                        <td id="fillPPB"></td>
+                        <td id="fillTotalPrice"></td>
+                    </tr>
+                
+                
+                </table>
 
-			<button class="fillsec">
-                        PPB
-                        <p id="fillPPB"></p>
-                    </button>
-
-			<button class="fillsec">
-                        TotalPrice
-                        <p id="fillTotalPrice"></p>
-                    </button>
-
-		</div>
-		<div class="order-button">
+		    </div>
+		  <div class="order-button" style="width:50%; margin:0 auto;">
 			<!--MONTHLY SUBS-->
 			<button class="button w-100 solid snipcart-add-plan corpsub hidden" id="corp-plan-1" data-plan-id="Office-Sub-10" data-plan-quantity="1" data-item-quantity-step="1" data-plan-stackable="false" data-plan-name="Office Verb Subscription (Boxes of 10)" data-plan-interval="Month" data-plan-amount="20.00" data-plan-url="/VerbForOffices.html" data-plan-image="public/img/bar_order_mockup.png" data-plan-shippable="true">
                         Subscribe Now
@@ -329,23 +379,23 @@
                 </button>
 
 			<!--BI-WEEKLY SUBS-->
-			<button class="button w-100 solid snipcart-add-plan corpsub hidden" id="corp-plan-6" data-plan-id="Office-Sub-10-BiWeekly" data-plan-quantity="1" data-item-quantity-step="1" data-plan-stackable="false" data-plan-name="Office Verb Subscription (Boxes of 10)" data-plan-interval="Week" data-plan-interval-count="2" data-plan-amount="18.00" data-plan-url="/VerbForOffices.html" data-plan-image="public/img/bar_order_mockup.png" data-plan-shippable="true">
+			<button class="button w-100 solid snipcart-add-plan corpsub hidden" id="corp-plan-6" data-plan-id="Office-Sub-10-BiWeekly" data-plan-quantity="1" data-item-quantity-step="1" data-plan-stackable="false" data-plan-name="Office Verb Subscription (Boxes of 10)" data-plan-interval="Week" data-plan-intervalcount="2" data-plan-amount="18.00" data-plan-url="/VerbForOffices.html" data-plan-image="public/img/bar_order_mockup.png" data-plan-shippable="true">
                         Subscribe Now
                 </button>
 
-			<button class="button w-100 solid snipcart-add-plan corpsub hidden" id="corp-plan-7" data-plan-id="Office-Sub-20-30-BiWeekly" data-plan-quantity="1" data-plan-min-quantity="2" data-plan-stackable="false" data-plan-name="Office Verb Subscription (Boxes of 10)" data-plan-interval="Week" data-plan-interval-count="2" data-plan-amount="16.90" data-plan-url="/VerbForOffices.html" data-plan-image="public/img/bar_order_mockup.png" data-plan-shippable="true">
+			<button class="button w-100 solid snipcart-add-plan corpsub hidden" id="corp-plan-7" data-plan-id="Office-Sub-20-30-BiWeekly" data-plan-quantity="1" data-plan-min-quantity="2" data-plan-stackable="false" data-plan-name="Office Verb Subscription (Boxes of 10)" data-plan-interval="Week" data-plan-intervalcount="2" data-plan-amount="16.90" data-plan-url="/VerbForOffices.html" data-plan-image="public/img/bar_order_mockup.png" data-plan-shippable="true">
                         Subscribe Now
                 </button>
 
-			<button class="button w-100 solid snipcart-add-plan corpsub hidden" id="corp-plan-8" data-plan-id="Office-Sub-30-100-BiWeekly" data-plan-quantity="1" data-plan-min-quantity="3" data-plan-stackable="false" data-plan-name="Office Verb Subscription (Boxes of 10)" data-plan-interval="Week" data-plan-interval-count="2" data-plan-amount="16.50" data-plan-url="/VerbForOffices.html" data-plan-image="public/img/bar_order_mockup.png" data-plan-shippable="true">
+			<button class="button w-100 solid snipcart-add-plan corpsub hidden" id="corp-plan-8" data-plan-id="Office-Sub-30-100-BiWeekly" data-plan-quantity="1" data-plan-min-quantity="3" data-plan-stackable="false" data-plan-name="Office Verb Subscription (Boxes of 10)" data-plan-interval="Week" data-plan-intervalcount="2" data-plan-amount="16.50" data-plan-url="/VerbForOffices.html" data-plan-image="public/img/bar_order_mockup.png" data-plan-shippable="true">
                         Subscribe Now
                 </button>
-			<button class="button w-100 solid snipcart-add-plan corpsub hidden" id="corp-plan-9" data-plan-id="Office-Sub-100plus-BiWeekly" data-plan-quantity="1" data-plan-min-quantity="10" data-plan-stackable="false" data-plan-name="Office Verb Subscription (Boxes of 10)" data-plan-interval="Week" data-plan-interval-count="2" data-plan-amount="15.00" data-plan-url="/VerbForOffices.html" data-plan-image="public/img/bar_order_mockup.png" data-plan-shippable="true">
+			<button class="button w-100 solid snipcart-add-plan corpsub hidden" id="corp-plan-9" data-plan-id="Office-Sub-100plus-BiWeekly" data-plan-quantity="1" data-plan-min-quantity="10" data-plan-stackable="false" data-plan-name="Office Verb Subscription (Boxes of 10)" data-plan-interval="Week" data-plan-intervalcount="2" data-plan-amount="15.00" data-plan-url="/VerbForOffices.html" data-plan-image="public/img/bar_order_mockup.png" data-plan-shippable="true">
                         Subscribe Now
                 </button>
             
             
-                <button class="button w-100 solid snipcart-add-plan"
+                <button class="button w-100 solid snipcart-add-plan "
                     data-plan-id="Ten-X-Office-Subscription"
                     data-plan-quantity="6"
                     data-plan-min-quantity="6"
@@ -405,6 +455,7 @@
 		</div>
 
 	</section>
+    </header>
 
 
 	<!--
@@ -467,7 +518,7 @@
 	<!-- SCRIPTS -->
 	<script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
 	<!--  LIVE -->
-	<!--    <script src="https://cdn.snipcart.com/scripts/2.0/snipcart.js" id="snipcart" data-api-key="MTE1MGFiZWMtODA5Mi00ZTFiLTk2NDItYjNhZjdlMmFiZjU4NjM2MjEwNjcxMTA3MDY1MjMy" ></script>-->
+<!--	    <script src="https://cdn.snipcart.com/scripts/2.0/snipcart.js" id="snipcart" data-api-key="MTE1MGFiZWMtODA5Mi00ZTFiLTk2NDItYjNhZjdlMmFiZjU4NjM2MjEwNjcxMTA3MDY1MjMy" ></script>-->
 	<!--TEST-->
 	<script src="https://cdn.snipcart.com/scripts/2.0/snipcart.js" id="snipcart" data-api-key="N2ExMzA2OTktMTIyMi00NDYxLTk4YTMtMmMyNjVlM2VhODNkNjM2MjEwNjcxMTA3MDY1MjMy"></script>
 	<link href="https://cdn.snipcart.com/themes/2.0/base/snipcart.min.css" type="text/css" rel="stylesheet" />
@@ -520,4 +571,3 @@
 </body>
 
 </html>
-accent-color

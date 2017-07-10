@@ -562,29 +562,27 @@ $(document).ready(function(){
     var bucket=0;
     
     $("#corporateonetimeBtn").on("click",function(){
-        $("#corporateTime").css("opacity","0.3");
-        $("#corporateQuant").css("display","block");
+        $(".corpTiming").addClass("disabled").attr("disabled");
         $(".corporateOrderBtn").removeClass("active");
         $(this).addClass("active");
         sub = 0;
         
     });
     $("#corporatesubBtn").on("click",function(){
-                $("#corporateTime").css("opacity","1");
+        $(".corpTiming").removeClass("disabled").removeAttr("disabled");
 
-       $("#corporateTime").css("display","block"); 
         $(".corporateOrderBtn").removeClass("active");
         $(this).addClass("active");
         sub = 1;
+
     });
     $(".corpTiming").on("click",function(){
-        $("#corporateQuant").css("display","block");
     });
     
     
     $(".corpTiming").on("click", function(){
         $(".corpTiming").removeClass("active");
-       freq=$(this).data("freq"); 
+        freq=$(this).data("freq"); 
         $(this).addClass("active");
     });
     
@@ -689,8 +687,8 @@ $(document).ready(function(){
         }
         totalPrice=pricePerBar*bars;
         $("#fillEmployees").text(suggestedEmployees);
-        $("#fillPPB").text(pricePerBar);
-        $("#fillTotalPrice").text(totalPrice.toFixed(2));
+        $("#fillPPB").text("$"+String(pricePerBar.toFixed(2)));
+        $("#fillTotalPrice").text("$"+String(totalPrice.toFixed(2)));
         
         
     }

@@ -2328,7 +2328,6 @@ footer {
 //========================================
 
 #corporateTime {
-	display: none;
 }
 
 #corporateQuant {
@@ -2336,16 +2335,65 @@ footer {
 		display: block;
 	}
 }
-.corporateOrderBtn{
-    &.active {
-		background: @text-color;
-		color: @verb-primary-1;
-	}
+.officeOrdering{
+    .active{
+        background: @text-color;
+		color: @verb-primary-2;
+    }
+    .disabled{
+        background:@verb-primary-2;
+        color:@text-color;
+        opacity:0.3;
+    }
+    .disabled:hover{
+        background:@verb-primary-2;
+        color:@text-color;
+        opacity:0.3;
+        cursor:default;
+    }
+}
+
+#officeSuggestions{
+    margin:0 auto;
+    th{
+        padding:1em;
+    }
+    margin-bottom:1em;
+}
+
+.officeOrdering{
+    padding:1em;
+    width:100%;
+    
+    input[type=number]{
+        background:none;
+        border: @border;
+        border-top:none;
+        border-left: none;
+        border-right:none;
+//        height:3em;
+
+        
+        font-family: inherit;
+        font-weight: 700;
+        text-align: center;
+        text-transform: uppercase;
+        font-size: 1em;
+        line-height: 2 !important;
+    }
+    td{
+//        width:1%;
+    }
+    
+    .officeOrderBtns{
+        width:50%;
+        button,input{
+            width:100%;
+            font-size: 1em;
+        }
+    }
+    
     
 }
 
 
-.fillsec{
-    width:10em;
-    height:10em;
-}
