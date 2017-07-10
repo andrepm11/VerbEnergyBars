@@ -152,6 +152,17 @@
     });
     fbq('track', 'PageView');
   </script>
+    <script>
+      var _learnq = _learnq || [];
+
+      _learnq.push(['account', 'MDUTpU']);
+
+      (function () {
+      var b = document.createElement('script'); b.type = 'text/javascript'; b.async = true;
+      b.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'a.klaviyo.com/media/js/analytics/analytics.js';
+      var a = document.getElementsByTagName('script')[0]; a.parentNode.insertBefore(b, a);
+      })();
+    </script>
   <noscript><img height="1" width="1" style="display:none"
 	src="https://www.facebook.com/tr?id=1888537424751398&ev=PageView&noscript=1"
 	/></noscript>
@@ -994,6 +1005,11 @@
         value: item['price'],
         item: item['id']
       });
+        
+        
+        
+        var _learnq = _learnq || [];
+        _learnq.push(['track', 'Added Product', item]);
     });
     Snipcart.subscribe('order.completed', function(data) {
       fbq('track', 'Purchase', {
@@ -1004,15 +1020,55 @@
       mixpanel.people.track_charge(data['total']);
 
     });
+        
     Snipcart.subscribe('page.change', function(page) {
       fbq('track', 'InitiateCheckout');
     });
+      
     Snipcart.subscribe('billingaddress.changed', function(address) {
       console.log(address);
       mixpanel.people.set({
         "$email": address['email'],
         "$name": address['name']
       });
+        var nameList=address['name'].split(' ');
+
+        
+        var _learnq = _learnq || [];
+        _learnq.push(['identify', {
+            '$email' : address['email'],
+            '$first_name' : nameList.shift(),
+            '$last_name' : nameList.join(' '),
+            'Phone' : address['phone']
+            
+        }]);
+        
+        if(address['shippingSameAsBilling']){
+            _learnq.push(['identify', {
+                'State' : address['province'],
+                'City' : address['city'],
+                '$last_name' : nameList.join(' ')
+            }]);
+            
+        }
+        
+        
+        
+        
+    });
+      Snipcart.subscribe('shippingaddress.changed', function(address) {
+      console.log(address);
+          
+      var _learnq = _learnq || [];
+      _learnq.push(['identify', {
+            'State' : address['province'],
+            'City' : address['city'],
+            '$last_name' : nameList.join(' ')
+        }]);
+        
+        
+        
+        
     });
     $('#review-form').submit(function(event) {
         fbq('track', 'LeftReview');
