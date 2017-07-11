@@ -2352,8 +2352,16 @@ footer li {
     font-size: 12px;
   }
 }
+#officeBarQuantity {
+  display: none;
+}
 #corporateQuant .quantity-select {
   display: block;
+}
+.officeOrdering input,
+.officeOrdering button {
+  margin-left: 0;
+  margin-top: .5em;
 }
 .officeOrdering .active {
   background: #1d1d20;
@@ -2371,11 +2379,13 @@ footer li {
   cursor: default;
 }
 #officeSuggestions {
-  margin: 0 auto;
+  text-align: left;
   margin-bottom: 1em;
 }
-#officeSuggestions th {
-  padding: 1em;
+#officeSuggestions th,
+#officeSuggestions td {
+  text-align: center;
+  padding: .25em .75em;
 }
 .officeOrdering {
   width: 100%;
@@ -2397,11 +2407,12 @@ footer li {
   line-height: 2 !important;
 }
 .officeOrdering .officeOrderBtns {
+  padding-left: 0;
   width: 100%;
 }
 .officeOrdering .officeOrderBtns button,
 .officeOrdering .officeOrderBtns input {
-  width: 40%;
+  width: 48%;
   font-size: 1em;
 }
 .officeBigDiv {

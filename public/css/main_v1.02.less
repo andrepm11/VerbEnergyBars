@@ -1077,6 +1077,10 @@ header {
 //  }
 }
 
+#top {
+  padding-top: 8em;
+}
+
 //========================================
 //========================================
 //======================================== Photo-Row
@@ -2357,10 +2361,9 @@ footer {
 }
 
 #officeSuggestions {
-  text-align: left;
     th, td {
       text-align: center;
-      padding: .25em .75em;
+      padding: .25em 1.25em .25em 0;
     }
     margin-bottom: 1em;
 }
@@ -2396,10 +2399,13 @@ footer {
     .officeOrderBtns{
       padding-left: 0;
         width:100%;
-        button,input{
-            width:48%;
+        button, input{
+            width: 100%;
             font-size: 1em;
-            
+          @media (min-width: 48em) {
+            width: 48%;
+            min-width: 12em;
+          }
         }
     }
 }
