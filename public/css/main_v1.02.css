@@ -2441,3 +2441,10 @@ footer li {
     font-size: 1em;
   }
 }
+.quote {
+  opacity: 0.5;
+}
+.quote-text,
+.quote-author {
+  text-align: right;
+}

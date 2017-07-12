@@ -564,8 +564,8 @@ $(document).ready(function(){
         }
     });
     
-    var sub = 0;
-    var freq = 0;
+    var sub = 1;
+    var freq = 1;
     var suggestedEmployees='';
     var pricePerBar=0;
     var totalPrice=0;
