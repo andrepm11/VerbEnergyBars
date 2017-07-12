@@ -1005,8 +1005,6 @@
         item: item['id']
       });
         
-        
-        
         var _learnq = _learnq || [];
         _learnq.push(['track', 'Added Product', item]);
     });
@@ -1019,11 +1017,9 @@
       mixpanel.people.track_charge(data['total']);
 
     });
-        
     Snipcart.subscribe('page.change', function(page) {
       fbq('track', 'InitiateCheckout');
     });
-      
     Snipcart.subscribe('billingaddress.changed', function(address) {
       console.log(address);
       mixpanel.people.set({
@@ -1046,13 +1042,20 @@
             _learnq.push(['identify', {
                 'State' : address['province'],
                 'City' : address['city'],
-                '$last_name' : nameList.join(' ')
             }]);
             
         }
         
-        
-        
+        var cart = Snipcart.api.cart.get();
+        console.log(cart);
+
+        _learnq.push(['track', 'Started Checkout', {
+          "$value" : cart['total'],
+          "ItemsValue" : cart['itemsTotal'],
+          "PlansValue" : cart['plansTotal'],
+          "Items" : cart['items'],
+          "Plans" : cart['plans']
+        }]);
         
     });
       Snipcart.subscribe('shippingaddress.changed', function(address) {
@@ -1062,12 +1065,7 @@
       _learnq.push(['identify', {
             'State' : address['province'],
             'City' : address['city'],
-            '$last_name' : nameList.join(' ')
         }]);
-        
-        
-        
-        
     });
     $('#review-form').submit(function(event) {
         fbq('track', 'LeftReview');
@@ -1086,4 +1084,3 @@
       </script>
 </body>
 </html>
-accent-color
