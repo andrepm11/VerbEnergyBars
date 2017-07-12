@@ -303,7 +303,7 @@ $(document).ready(function(){
                 "image":"public/img/bar_order_mockup.png",
                 "stackable": false
             }).catch(function(error){
-		    Raven.captureException(e);
+		    Raven.captureException(error);
                 
                  var planID = (error['item']['attributes']['quantity'] < 3) ? "Monthly-Sub-"+String(error['item']['attributes']['quantity'])+"0" : "Monthly-Sub-30plus";
                                 
@@ -521,7 +521,7 @@ $(document).ready(function(){
 
         })
             .catch(function(error){
-		Raven.captureException(e);
+		Raven.captureException(error);
         });
         
         $("#replacement-content").css("display", "block");
@@ -796,7 +796,7 @@ firebase.auth().signInAnonymously().then(function () {
     });
 
 }).catch(function(error){
-    Raven.captureException(e);
+    Raven.captureException(error);
 });
 
 function append(snapshot){
@@ -885,7 +885,7 @@ function updateTable(moveCount){
             }
         });
     }).catch(function(error){
-        Raven.captureException(e);
+        Raven.captureException(error);
     }); 
 }
 
